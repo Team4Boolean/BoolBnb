@@ -11,6 +11,14 @@
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
+
+                            <h1>guido 0/!!!</h1>
+                            <h2>while</h2>
+                            <h1>guido 0/</h1>
+                            <h1>Fabrizio</h1>
+                            <h1>Antonio</h1>
+                            <h1>andrea2</h1>
+                            <h1>Elena</h1>
                         </div>
                     @endif
 

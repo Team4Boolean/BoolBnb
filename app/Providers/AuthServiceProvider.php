@@ -25,6 +25,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('upra-user', function($user) {
+          return $user -> upra;
+        });
     }
 }
