@@ -12,6 +12,7 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                             <h1>guido 0/</h1>
+                            <h1>Fabrizio</h1>
                         </div>
                     @endif
 
