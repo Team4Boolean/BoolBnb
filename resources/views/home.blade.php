@@ -13,6 +13,7 @@
                             {{ session('status') }}
                             <h1>guido 0/</h1>
                             <h1>Fabrizio</h1>
+                            <h1>Antonio</h1>
                         </div>
                     @endif
 
