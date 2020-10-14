@@ -10,9 +10,9 @@ class Flat extends Model
       'user_id',
       'title',
       'desc',
-      'n_rooms',
-      'n_beds',
-      'n_baths',
+      'rooms',
+      'beds',
+      'baths',
       'sqm',
       'lat',
       'lon',
@@ -35,7 +35,7 @@ class Flat extends Model
     public function requests() {
       return $this -> hasMany(Request::class);
     }
-    // relazione One To one flats <-> advs
+    // relazione One To One flats <-> advs
     public function adv() {
       return $this -> hasOne(Adv::class);
     }

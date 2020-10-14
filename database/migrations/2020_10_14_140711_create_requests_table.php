@@ -15,13 +15,15 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
 
-            $table -> id();
+          $table -> engine = 'InnoDB';
 
-            $table -> bigInteger('flat_id') -> unsigned(); // chiave esterna
-            $table -> string('email');
-            $table -> text('message');
+          $table -> id();
 
-            $table -> timestamps();
+          $table -> bigInteger('flat_id') -> unsigned(); // chiave esterna
+          $table -> string('email');
+          $table -> text('message');
+
+          $table -> timestamps();
         });
     }
 

@@ -5,8 +5,11 @@
 use App\Model;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+use App\Request;
+
+$factory->define(Request::class, function (Faker $faker) {
     return [
-        //
+      'email'   => $faker -> email,
+      'message' => $faker -> paragraph($nbSentences = 3, $variableNbSentences = true)
     ];
 });

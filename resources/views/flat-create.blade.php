@@ -67,7 +67,7 @@
                         <div class="input-group-prepend">
                           <label class="input-group-text" for="bathrooms">Bathrooms</label>
                         </div>
-                        <select class="custom-select" name="bathrooms">
+                        <select class="custom-select" name="baths">
                           <option selected>Choose...</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -134,7 +134,7 @@
                           <label class="input-group-text" for="image">Upload your flat's image</label>
                         </div>
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" name="image" id="imgInp" aria-describedby="inputGroupFileAddon01">
+                          <input type="file" class="custom-file-input" name="img" id="imgInp" aria-describedby="inputGroupFileAddon01">
                           <label class="custom-file-label" for="image">Choose file</label>
                         </div>
                         <img id="prev" src="#" class="img-thumbnail">

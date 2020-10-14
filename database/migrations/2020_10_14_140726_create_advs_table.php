@@ -15,13 +15,15 @@ class CreateAdvsTable extends Migration
     {
         Schema::create('advs', function (Blueprint $table) {
 
-            $table -> id();
+          $table -> engine = 'InnoDB';
 
-            $table -> bigInteger('flat_id') -> unsigned(); // chiave esterna
-            $table -> unsignedTinyInteger('package');
-            $table -> dateTime('expire');
+          $table -> id();
 
-            $table -> timestamps();
+          $table -> bigInteger('flat_id') -> unsigned(); // chiave esterna
+          $table -> unsignedTinyInteger('package');
+          $table -> dateTime('expire');
+
+          $table -> timestamps();
         });
     }
 
