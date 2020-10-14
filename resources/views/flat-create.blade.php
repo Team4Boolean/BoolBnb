@@ -90,7 +90,12 @@
                         </ul>
                       </div>
 
-                      <?php // DEBUG: MANCA L'INPUT D'INSERIMENTO PER L'IMMAGINE ?>
+                      {{-- image+preview --}}
+                      <div class="form-group" runat="server">
+                        <label for="image">Upload your flat's image:</label> <br><br>
+                        <input type='file' name="image" id="imgInp" /> <br> <br>
+                        <img id="prev" src="#" alt="your image" />
+                      </div>
 
                       <button class="btn btn-primary" type="submit">Confirm</button>
                     </form>

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Gate;
 
+use App\Flat;
+
 class LoggedController extends Controller
 {
     public function index() {
