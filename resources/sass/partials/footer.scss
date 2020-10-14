@@ -2,35 +2,120 @@
 footer {
   width: 100%;
   height: auto;
-  background: purple;
-  margin-top: 150px;
+  margin-top: 50px;
+  padding-bottom: 60px;
 
-  li {
-    list-style:none;
-    margin: 10px 0;
-  }
-  a {
-    color: #222222;
-  }
-  a:hover {
-  text-decoration:underline;
-  color:grey;
-  }
+  div.row.row-top {
+    padding: 0 10%;
 
-  .footer-sud {
-    
-    li {
-      display:inline-block;
-      margin: 0;
+    div.col-xs-12.col-sm-6.col-md-3 {
+      padding: 10px 5%;
+
+      li {
+        list-style:none;
+        margin: 10px 0;
+        font-size: 11px;
+
+        h5 {
+          text-transform: uppercase;
+          font-size: 11px;
+          font-weight: bold;
+          margin: 20px auto;
+        }
+
+        a {
+          color: $maincolor;
+
+          &:hover {
+            text-decoration:underline;
+            color: #484848;
+          }
+        }
+      }
     }
-    a {
-      margin: 0 5px;
-    }
-    i {
-      margin: 0 5px;
-
-    }
-
   }
 
+  // Separatore
+  div.divider {
+    width: 90%;
+    height: 1px;
+    margin: 0 auto 20px;
+    background: #ddd;
+  }
+
+  // Parte inferiore del footer
+  .footer-bottom {
+    width: 100%;
+    height: auto;
+    font-size: 11px;
+
+    div.row.row-bottom {
+      display: flex;
+      align-items: center;
+      flex-direction: column-reverse;
+      padding: 0 5%;
+
+      div.col-xs-12.col-lg-5,
+      div.col-xs-12.col-lg-7 {
+
+        ul {
+          text-align: center;
+        }
+      }
+
+      li {
+        display:inline-block;
+        margin: 0;
+
+        a {
+          margin: 0 5px;
+          color: $maincolor;
+
+          i {
+            margin: 0 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// MEDIA QUERY
+
+@media (min-width: $md){
+  footer {
+    padding-bottom: 0;
+
+    div.row.row-top {
+      padding: 0 2%;
+
+      div.col-xs-12.col-sm-6.col-md-3 {
+        padding: 7px 5%;
+      }
+    }
+  }
+}
+
+@media (min-width: $lg){
+  footer {
+
+    div.footer-bottom{
+      div.row.row-bottom {
+        justify-content: space-between;
+        flex-direction: row;
+
+        div.col-xs-12.col-lg-7 {
+          ul {
+            text-align: left;
+          }
+        }
+
+        div.col-xs-12.col-lg-5 {
+          ul {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
 }
