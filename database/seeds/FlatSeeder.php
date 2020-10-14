@@ -7,11 +7,7 @@ use App\User;
 
 class FlatSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
       factory(Flat::class, 100)
@@ -22,4 +18,5 @@ class FlatSeeder extends Seeder
         $flat -> save();
       });
     }
+    
 }

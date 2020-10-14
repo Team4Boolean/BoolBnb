@@ -20,6 +20,7 @@ class CreateFlatsTable extends Migration
             $table -> id();
 
             $table -> bigInteger('user_id') -> unsigned(); // chiave esterna
+            
             $table -> string('title');
             $table -> text('desc');
             $table -> unsignedTinyInteger('rooms');

@@ -20,10 +20,12 @@ class CreateAdvsTable extends Migration
           $table -> id();
 
           $table -> bigInteger('flat_id') -> unsigned(); // chiave esterna
+
           $table -> unsignedTinyInteger('package');
           $table -> dateTime('expire');
 
           $table -> timestamps();
+          
         });
     }
 

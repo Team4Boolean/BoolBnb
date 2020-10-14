@@ -7,11 +7,7 @@ use App\Flat;
 
 class AdvSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
       factory(Adv::class, 100)
@@ -22,4 +18,5 @@ class AdvSeeder extends Seeder
         $adv -> save();
       });
     }
+    
 }

@@ -20,10 +20,12 @@ class CreateRequestsTable extends Migration
           $table -> id();
 
           $table -> bigInteger('flat_id') -> unsigned(); // chiave esterna
+
           $table -> string('email');
           $table -> text('message');
 
           $table -> timestamps();
+          
         });
     }
 
