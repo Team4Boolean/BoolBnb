@@ -11060,6 +11060,7 @@ header .navbar.navbar-white.bg-white {
   justify-content: space-evenly;
   align-items: center;
   z-index: 1000;
+  box-shadow: 0px -2px 10px #eee;
 }
 
 header .navbar.navbar-white.bg-white div.login,
