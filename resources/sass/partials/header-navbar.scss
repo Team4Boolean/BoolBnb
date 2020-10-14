@@ -1,7 +1,15 @@
 header {
   width: 100%;
 
+  // Main navbar
+  // Prima sezione navbar
   .navbar.navbar-expand-lg.navbar-white.bg-white {
+    width: 100%;
+    height: 71px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 
     .row {
       width: 95%;
@@ -9,6 +17,8 @@ header {
 
       div.d-md-block.col-md-1.col-lg-4 {
         display: none;
+        justify-content: flex-start;
+        align-items: center;
 
         a#link-logo{
           color: $coral !important;
@@ -21,6 +31,7 @@ header {
         }
       }
 
+      // Seconda sezione navbar
       div.col-xs-12.col-md-5.col-lg-4 {
         display: flex;
         justify-content: center;
@@ -37,6 +48,18 @@ header {
           border: 1px solid #ddd;
           border-radius: 20px;
           padding: 0 15px;
+          font-size: 14px;
+          color: #777;
+          transition: all 0.3s;
+
+          &:hover {
+            transform: scale(1.01);
+            box-shadow: 2px 2px 5px #ddd;
+          }
+
+          &:focus {
+            outline:none;
+          }
         }
 
         button#search-button {
@@ -49,29 +72,103 @@ header {
           position: absolute;
           right: 5px;
           top: 10%;
-          transition: all;
-
-          &:hover {
-            transform: scale(1.1);
-          }
+          transition: all 0.3s;
 
           &:active {
             transform: scale(0.9);
           }
+
+          &:focus {
+            outline:none;
+          }
         }
       }
 
+
+      // Terza sezione navbar
       div.col-xs-12.col-md-6.col-lg-4 {
         display: none;
 
         ul {
+          height: 100%;
           display: flex;
-          justify-content: center;
+          justify-content: flex-end;
           align-items: center;
+          white-space: nowrap;
 
           li {
             display: inline-block;
+            font-size: 13px;
+            border-radius: 20px;
+            transition: all 0.3s;
+
+            &:hover {
+              background-color: #efefef;
+            }
+
+            a {
+              color: $maincolor;
+            }
+
+            a.nav-link {
+              margin: 0 5px;
+            }
           }
+
+          // Dropdown-item
+          li.nav-item.dropdown {
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+            position: relative;
+
+            &:hover {
+              background-color: #fff;
+              box-shadow: 2px 2px 5px #ddd;
+            }
+
+            i {
+              font-size: 10px;
+              color: $maincolor;
+              margin-left: 3px;
+            }
+
+            div.dropdown-menu {
+              position: absolute;
+              left: -70%;
+              font-size: 12px;
+
+              a {
+                color: $maincolor;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Navbar bottom page
+  .navbar.navbar-white.bg-white {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1000;
+
+    div.login,
+    div.register {
+      margin: 0 10px;
+
+      a {
+        color: $maincolor;
+
+        i {
+          margin: 0 3px;
+          color: $coral;
         }
       }
     }
@@ -84,6 +181,8 @@ header {
       .row {
 
         div.d-md-block.col-md-1.col-lg-4 {
+          display: flex !important;
+
           a#link-logo {
             display: block;
           }
@@ -97,6 +196,11 @@ header {
         }
       }
     }
+  }
+
+  // Navbar bottom page
+  #bottom-nav.navbar.navbar-white.bg-white {
+    display: none !important;
   }
 }
 
