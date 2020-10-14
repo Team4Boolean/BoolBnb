@@ -27,13 +27,13 @@ class CreateFlatsTable extends Migration
             $table -> decimal('lat', 7, 5);
             $table -> decimal('lon', 8, 5);
             $table -> string('img');
-            $table -> boolean('wifi');
-            $table -> boolean('parking');
-            $table -> boolean('swim');
-            $table -> boolean('concierge');
-            $table -> boolean('sauna');
-            $table -> boolean('sea');
-            $table -> boolean('visible');
+            $table -> boolean('wifi') -> nullable() -> default(0);
+            $table -> boolean('parking') -> nullable() -> default(0);
+            $table -> boolean('swim') -> nullable() -> default(0);
+            $table -> boolean('concierge') -> nullable() -> default(0);
+            $table -> boolean('sauna') -> nullable() -> default(0);
+            $table -> boolean('sea') -> nullable() -> default(0);
+            $table -> boolean('visible') -> default(1);
             $table -> unsignedBigInteger('views');
 
             $table -> timestamps();
