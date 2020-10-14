@@ -28,4 +28,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    // relazione One To Many users -> flats
+    public function flats() {
+      return $this -> hasMany(Flat::class);
+    }
+
 }
