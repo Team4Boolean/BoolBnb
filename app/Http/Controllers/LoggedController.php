@@ -20,4 +20,16 @@ class LoggedController extends Controller
       }
 
     }
+
+    public function create() {
+      return view('flat-create');
+    }
+
+    public function store(Request $request) {
+
+      $data = $request -> all();
+      $stanza = Flat::create($data);
+
+      return redirect() -> route('home');
+    }
 }
