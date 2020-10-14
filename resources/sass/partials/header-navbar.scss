@@ -3,8 +3,113 @@ header {
 
   .navbar.navbar-expand-lg.navbar-white.bg-white {
 
-    a.navbar-brand{
-      color: $coral !important;
+    .row {
+      width: 95%;
+      margin: auto;
+
+      div.d-md-block.col-md-1.col-lg-4 {
+        display: none;
+
+        a#link-logo{
+          color: $coral !important;
+          display: none;
+
+          span#span-logo {
+            font-size: 22px;
+            font-weight: bold;
+          }
+        }
+      }
+
+      div.col-xs-12.col-md-5.col-lg-4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        form {
+          width: 100%;
+          position: relative;
+        }
+
+        input#search-bar {
+          width: 100%;
+          height: 40px;
+          border: 1px solid #ddd;
+          border-radius: 20px;
+          padding: 0 15px;
+        }
+
+        button#search-button {
+          width: 32px;
+          height: 32px;
+          border: 0;
+          padding: 5px;
+          background-color: $coral;
+          color: #fff;
+          position: absolute;
+          right: 5px;
+          top: 10%;
+          transition: all;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+
+          &:active {
+            transform: scale(0.9);
+          }
+        }
+      }
+
+      div.col-xs-12.col-md-6.col-lg-4 {
+        display: none;
+
+        ul {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          li {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $md){
+  header {
+    .navbar.navbar-expand-lg.navbar-white.bg-white {
+      .row {
+
+        div.d-md-block.col-md-1.col-lg-4 {
+          a#link-logo {
+            display: block;
+          }
+          span#span-logo {
+            display: none;
+          }
+        }
+
+        div.col-xs-12.col-md-6.col-lg-4 {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $lg){
+  header {
+    .navbar.navbar-expand-lg.navbar-white.bg-white {
+      .row {
+        div.d-md-block.col-md-1.col-lg-4 {
+          span#span-logo {
+            display: inline-block;
+          }
+        }
+      }
     }
   }
 }
