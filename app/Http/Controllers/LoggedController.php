@@ -15,7 +15,7 @@ class LoggedController extends Controller
     public function __construct() {
       $this->middleware('auth');
     }
-  
+
     public function index() {
       if (Gate::denies('upra-user')) {
         // $welcome = "Utente non autorizzato";
@@ -33,7 +33,11 @@ class LoggedController extends Controller
 
     public function store(Request $request) {
 
+      $usrid = Auth::user() -> id;
+
       $data = $request -> all();
+      $data['user_id'] = $usrid;
+      
       $flat = Flat::create($data);
 
       return redirect() -> route('home');

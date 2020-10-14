@@ -18,7 +18,7 @@ $factory->define(Model::class, function (Faker $faker) {
       'lat'       => $faker ->  latitude($min = -90, $max = 90),
       'lon'       => $faker ->  longitude($min = -180, $max = 180),
       'img'       => $faker ->  imageUrl($width, $height, 'cats'),
-      'wifi'      => $faker ->
+      'wifi'      => $faker ->  boolean($chanceOfGettingTrue = 50),
       'parking'   => $faker ->
       'swim'      => $faker ->
       'concierge' => $faker ->
