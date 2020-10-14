@@ -10916,6 +10916,7 @@ header .navbar.navbar-expand-lg.navbar-white.bg-white {
   top: 0;
   left: 0;
   z-index: 1000;
+  box-shadow: 2px 2px 7px #ddd;
 }
 
 header .navbar.navbar-expand-lg.navbar-white.bg-white .row {
