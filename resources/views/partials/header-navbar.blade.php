@@ -12,7 +12,7 @@
     {{-- Search bar --}}
     <div class="col-xs-12 col-md-5 col-lg-4">
       <form method="post">
-        <input id="search-bar" class="" type="search" name="" value="">
+        <input id="search-bar" class="" type="search" name="" value="" placeholder="Inizia la ricerca...">
         <button id="search-button" class="rounded-circle" type="button" name="button" title="Search">
           <i class="fas fa-search"></i>
         </button>
@@ -23,7 +23,7 @@
     <div class="col-xs-12 col-md-6 col-lg-4">
       <ul>
         <li class="nav-item">
-          <a class="nav-link" href="#">Diventa un host</a>
+          <a class="nav-link" href="{{route('create-flat')}}">Diventa un host</a>
         </li>
 
         {{-- Dropdown --}}
@@ -57,7 +57,7 @@
             <div class="dropdown-divider"></div>
 
             {{-- Other links --}}
-            <a class="dropdown-item" href="#">Diventa un host</a>
+            <a class="dropdown-item" href="{{route('create-flat')}}">Diventa un host</a>
             <a class="dropdown-item" href="#">Proponi un'esperienza</a>
             <a class="dropdown-item" href="#">Assistenza</a>
           </div>

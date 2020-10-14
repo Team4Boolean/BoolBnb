@@ -25,6 +25,10 @@ header {
           color: $coral !important;
           display: none;
 
+          &:focus {
+            outline:none;
+          }
+
           span#span-logo {
             font-size: 22px;
             font-weight: bold;
@@ -135,8 +139,10 @@ header {
 
             div.dropdown-menu {
               position: absolute;
-              left: -70%;
+              left: auto;
+              right: 0;
               font-size: 12px;
+              box-shadow: 2px 2px 5px #ddd;
 
               a {
                 color: $maincolor;
@@ -151,7 +157,7 @@ header {
   // Navbar bottom page
   .navbar.navbar-white.bg-white {
     width: 100%;
-    height: 70px;
+    height: 60px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -164,9 +170,21 @@ header {
     div.login,
     div.register {
       margin: 0 10px;
+      border-radius: 20px;
+      padding: 7px 10px;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: #efefef;
+      }
 
       a {
+        font-size: 13px;
         color: $maincolor;
+
+        &:hover {
+          text-decoration: none;
+        }
 
         i {
           margin: 0 3px;
@@ -177,6 +195,8 @@ header {
   }
 }
 
+
+// MEDIA QUERY
 @media (min-width: $md){
   header {
     .navbar.navbar-expand-lg.navbar-white.bg-white {
