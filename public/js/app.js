@@ -49721,15 +49721,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 var app = new Vue({
   el: '#app'
-}); // FORM flat-create
+}); // FORM FLAT-CREATE
 // input immagine + preview
 
 function readURL(input) {
@@ -49752,7 +49746,6 @@ function uploadImg() {
 
 function init() {
   uploadImg();
-  console.log('eccomi');
 }
 
 $(document).ready(init);

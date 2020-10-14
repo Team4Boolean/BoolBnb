@@ -30,7 +30,7 @@ class LoggedController extends Controller
     public function store(Request $request) {
 
       $data = $request -> all();
-      $stanza = Flat::create($data);
+      $flat = Flat::create($data);
 
       return redirect() -> route('home');
     }

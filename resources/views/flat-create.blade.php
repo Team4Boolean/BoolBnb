@@ -19,12 +19,12 @@
                       {{-- Titolo --}}
                       <div class="form-group">
                         <label for="title">Title:</label>
-                        <input type="text" name="title" value="">
+                        <input class="form-control" type="text" name="title" value="">
                       </div>
                       {{-- Descrizione --}}
                       <div class="form-group">
                         <label for="desc">Description:</label><br>
-                        <textarea name="desc" rows="8" cols="80">{{ old('desc') }}</textarea>
+                        <textarea class="form-control" name="desc" rows="8" cols="80">{{ old('desc') }}</textarea>
                       </div>
                       {{-- Indirizzo --}}
                       <?php // DEBUG: Come trasformiamo l'indirizzo in coordinate? ?>
@@ -34,70 +34,115 @@
                       </div> --}}
                       <hr>
                       {{-- n* Stanze --}}
-                      <div class="form-group">
-                        <label for="rooms">Rooms:</label>
-                        <input type="number" name="rooms" value="{{ old('n_rooms') }}">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="rooms">Rooms</label>
+                        </div>
+                        <select class="custom-select" name="rooms">
+                          <option selected>Choose...</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
                       </div>
                       {{-- n* letti --}}
-                      <div class="form-group">
-                        <label for="beds">Beds:</label>
-                        <input type="number" name="beds" value="{{ old('n_beds') }}">
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="beds">Beds</label>
+                        </div>
+                        <select class="custom-select" name="beds">
+                          <option selected>Choose...</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="3">4</option>
+                          <option value="3">5</option>
+                        </select>
                       </div>
                       {{-- n* Bagni --}}
-                      <div class="form-group">
-                        <label for="bathrooms">Bathrooms:</label>
-                        <input type="number" name="bathrooms" value="{{ old('n_bathrooms') }}">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="bathrooms">Bathrooms</label>
+                        </div>
+                        <select class="custom-select" name="bathrooms">
+                          <option selected>Choose...</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
                       </div>
                       {{-- metri quadri --}}
-                      <div class="form-group">
-                        <label for="sqm">Size:</label>
-                        <input type="number" name="sqm" value="{{ old('sqm') }}"><span> m²</span>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="sqm">Size</label>
+                        </div>
+                        <input class="form-control" type="number" name="sqm" value="{{ old('sqm') }}">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="sqm">m²</label>
+                        </div>
                       </div>
                       {{-- servizi aggiuntivi --}}
                       <div class="form-group">
                         <label>Additional Services:</label>
-                        <ul>
+                        <ul style="list-style:none;">
                           <li>
-                            {{-- wifi --}}
-                            <label for="wifi">Wifi:</label>
-                            <input type="checkbox" name="wifi" value="{{ old('wifi') }}">
+                            <div class="checkbox">
+                              <label><input type="checkbox" name="wifi" value="{{ old('wifi') }}"> Wifi</label>
+                            </div>
                           </li>
                           <li>
                             {{-- parking --}}
-                            <label for="parking">Parking:</label>
-                            <input type="checkbox" name="parking" value="{{ old('parking') }}">
+                            <div class="checkbox">
+                              <label><input type="checkbox" name="parking" value="{{ old('parking') }}"> Parking</label>
+                            </div>
                           </li>
                           <li>
                             {{-- swim --}}
-                            <label for="swim">Swimming Pool:</label>
-                            <input type="checkbox" name="swim" value="{{ old('swim') }}">
+                            <div class="checkbox">
+                              <label><input type="checkbox" name="swim" value="{{ old('swim') }}"> Swimming Pool</label>
+                            </div>
                           </li>
                           <li>
                             {{-- concierge --}}
-                            <label for="concierge">Concierge:</label>
-                            <input type="checkbox" name="concierge" value="{{ old('concierge') }}">
+                            <div class="checkbox">
+                              <label><input type="checkbox" name="concierge" value="{{ old('concierge') }}"> Doorkeeper</label>
+                            </div>
                           </li>
                           <li>
                             {{-- sauna --}}
-                            <label for="sauna">Sauna:</label>
-                            <input type="checkbox" name="sauna" value="{{ old('sauna') }}">
+                            <div class="checkbox">
+                              <label><input type="checkbox" name="sauna" value="{{ old('sauna') }}"> Sauna</label>
+                            </div>
                           </li>
                           <li>
                             {{-- sea --}}
-                            <label for="sea">Sea View:</label>
-                            <input type="checkbox" name="sea" value="{{ old('sea') }}">
+                            <div class="checkbox">
+                              <label><input type="checkbox" name="sea" value="{{ old('sea') }}"> Sea View</label>
+                            </div>
                           </li>
+
                         </ul>
                       </div>
 
                       {{-- image+preview --}}
-                      <div class="form-group" runat="server">
-                        <label for="image">Upload your flat's image:</label> <br><br>
-                        <input type='file' name="image" id="imgInp" /> <br> <br>
-                        <img id="prev" src="#" alt="your image" />
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="image">Upload your flat's image</label>
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" name="image" id="imgInp" aria-describedby="inputGroupFileAddon01">
+                          <label class="custom-file-label" for="image">Choose file</label>
+                        </div>
+                        <img id="prev" src="#" class="img-thumbnail">
                       </div>
 
+                      {{-- btn group --}}
                       <button class="btn btn-primary" type="submit">Confirm</button>
+                      <a href="{{route('home')}}"><i class="fas fa-arrow-circle-left" style="font-size: 30px;"></i></a>
                     </form>
                   </div>
               </div>

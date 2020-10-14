@@ -15,5 +15,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/upra', 'LoggedController@index') -> name('upra');
 
 // Creazione flat
-Route::get('/create/flat', 'LoggedController@create') -> name('create-flat');
-Route::post('/create/flat', 'LoggedController@store') -> name('store-flat');
+Route::get('/flat/create', 'LoggedController@create') -> name('create-flat');
+Route::post('/flat/create', 'LoggedController@store') -> name('store-flat');
