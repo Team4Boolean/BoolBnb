@@ -65,7 +65,7 @@
                       {{-- n* Bagni --}}
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <label class="input-group-text" for="bathrooms">Bathrooms</label>
+                          <label class="input-group-text" for="baths">Bathrooms</label>
                         </div>
                         <select class="custom-select" name="baths">
                           <option selected>Choose...</option>
@@ -131,11 +131,11 @@
 
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <label class="input-group-text" for="image">Upload your flat's image</label>
+                          <label class="input-group-text" for="img">Upload your flat's image</label>
                         </div>
                         <div class="custom-file">
                           <input type="file" class="custom-file-input" name="img" id="imgInp" aria-describedby="inputGroupFileAddon01">
-                          <label class="custom-file-label" for="image">Choose file</label>
+                          <label class="custom-file-label" for="img">Choose file</label>
                         </div>
                         <img id="prev" src="#" class="img-thumbnail">
                       </div>
