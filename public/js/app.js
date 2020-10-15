@@ -49738,9 +49738,15 @@ function readURL(input) {
   }
 }
 
+function showPreview() {
+  $("#prevContainer").css("display", "block");
+}
+
 function uploadImg() {
+  // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
   $("#imgInp").change(function () {
     readURL(this);
+    showPreview();
   });
 }
 
@@ -49884,8 +49890,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Andrea\Desktop\Boolean Class 15 Repo\Team.boolean\BoolBnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\Boolean Class 15 Repo\Team.boolean\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\molid\documents\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\molid\documents\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -1,0 +1,62 @@
+form.flat-create {
+
+  .numInput{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+
+    .input-group{
+      width: 40%;
+
+
+      .custom-select{
+        text-align-last: center;
+      }
+
+      .form-control{
+        text-align: center;
+      }
+    }
+  }
+
+  .checkInput{
+
+    ul{
+      display: flex;
+      list-style: none;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      li{
+        min-width: 100px;
+        padding: 10px;
+
+        //rimuove la selezione del testo ai labels quando si va a cliccare sul testo per accendere la checkbox
+        user-select: none;
+
+      }
+    }
+  }
+
+  .imgInput{
+
+    #prevContainer{
+      display: none;
+      position: relative;
+      left: 35%;
+      width: 40%;
+      height: auto;
+    }
+   }
+
+  .btnInput{
+    display: flex;
+    justify-content: space-between;
+
+    i{
+      font-size: 35px;
+    }
+  }
+
+}

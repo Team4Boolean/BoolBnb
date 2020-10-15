@@ -11186,6 +11186,59 @@ main {
   padding-top: 71px;
 }
 
+form.flat-create .numInput {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+form.flat-create .numInput .input-group {
+  width: 40%;
+}
+
+form.flat-create .numInput .input-group .custom-select {
+  -moz-text-align-last: center;
+       text-align-last: center;
+}
+
+form.flat-create .numInput .input-group .form-control {
+  text-align: center;
+}
+
+form.flat-create .checkInput ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+form.flat-create .checkInput ul li {
+  min-width: 100px;
+  padding: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+form.flat-create .imgInput #prevContainer {
+  display: none;
+  position: relative;
+  left: 35%;
+  width: 40%;
+  height: auto;
+}
+
+form.flat-create .btnInput {
+  display: flex;
+  justify-content: space-between;
+}
+
+form.flat-create .btnInput i {
+  font-size: 35px;
+}
+
 footer {
   width: 100%;
   height: auto;
