@@ -20,7 +20,7 @@ class CreateFlatsTable extends Migration
             $table -> id();
 
             $table -> bigInteger('user_id') -> unsigned(); // chiave esterna
-            
+
             $table -> string('title');
             $table -> text('desc');
             $table -> unsignedTinyInteger('rooms');
@@ -30,14 +30,11 @@ class CreateFlatsTable extends Migration
             $table -> decimal('lat', 7, 5) -> default(0);
             $table -> decimal('lon', 8, 5) -> default(0);
             $table -> string('img');
-            $table -> boolean('wifi') -> nullable() -> default(0);
-            $table -> boolean('parking') -> nullable() -> default(0);
-            $table -> boolean('swim') -> nullable() -> default(0);
-            $table -> boolean('concierge') -> nullable() -> default(0);
-            $table -> boolean('sauna') -> nullable() -> default(0);
-            $table -> boolean('sea') -> nullable() -> default(0);
-            $table -> boolean('visible') -> default(1);
-            $table -> unsignedBigInteger('views') -> default(0);
+            $table -> string('street_number', 8);
+            $table -> string('street_name', 85);
+            $table -> string('municipality', 85);
+            $table -> string('subdivision', 50) -> nullable();
+            $table -> string('postal_code', 20);
 
             $table -> timestamps();
 

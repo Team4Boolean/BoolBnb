@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdvsTable extends Migration
+class CreateCampaignsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,19 @@ class CreateAdvsTable extends Migration
      */
     public function up()
     {
-        Schema::create('advs', function (Blueprint $table) {
+        Schema::create('campaigns', function (Blueprint $table) {
 
           $table -> engine = 'InnoDB';
 
           $table -> id();
 
-          $table -> bigInteger('flat_id') -> unsigned(); // chiave esterna
+          $table -> bigInteger('flat_id') -> unsigned(); // chiave esterna 1
+          $table -> bigInteger('advertising_id') -> unsigned(); // chiave esterna 2
 
-          $table -> unsignedTinyInteger('package');
           $table -> dateTime('expire');
 
           $table -> timestamps();
-          
+
         });
     }
 
@@ -36,6 +36,6 @@ class CreateAdvsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('advs');
+        Schema::dropIfExists('campaigns');
     }
 }

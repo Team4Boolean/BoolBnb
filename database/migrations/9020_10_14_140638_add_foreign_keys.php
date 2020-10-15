@@ -24,10 +24,27 @@ class AddForeignKeys extends Migration
                -> references('id')
                -> on('flats');
       });
-      Schema::table('advs', function (Blueprint $table) {
-        $table -> foreign('flat_id', 'adv-flt')
+      Schema::table('views', function (Blueprint $table) {
+        $table -> foreign('flat_id', 'vws-flt')
                -> references('id')
                -> on('flats');
+      });
+      Schema::table('flat_service', function (Blueprint $table) {
+        $table -> foreign('flat_id', 'srv-flt')
+               -> references('id')
+               -> on('flats')
+               -> onDelete('cascade');
+        $table -> foreign('service_id', 'flt-srv')
+               -> references('id')
+               -> on('services');
+      });
+      Schema::table('campaigns', function (Blueprint $table) {
+        $table -> foreign('flat_id', 'cmp-flt')
+               -> references('id')
+               -> on('flats');
+        $table -> foreign('advertising_id', 'cmp-adv')
+               -> references('id')
+               -> on('advertisings');  
       });
     }
 
@@ -44,8 +61,16 @@ class AddForeignKeys extends Migration
       Schema::table('requests', function (Blueprint $table) {
         $table -> dropForeign('rqs-flt');
       });
-      Schema::table('advs', function (Blueprint $table) {
-        $table -> dropForeign('adv-flt');
+      Schema::table('views', function (Blueprint $table) {
+        $table -> dropForeign('vws-flt');
+      });
+      Schema::table('flat_service', function (Blueprint $table) {
+        $table -> dropForeign('srv-flt');
+        $table -> dropForeign('flt-srv');
+      });
+      Schema::table('campaigns', function (Blueprint $table) {
+        $table -> dropForeign('cmp-flt');
+        $table -> dropForeign('cmp-adv');
       });
     }
 }
