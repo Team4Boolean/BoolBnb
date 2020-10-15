@@ -16,7 +16,7 @@ class UprController extends Controller
   }
 
   public function create() {
-    return view('flats.flat-create');
+    return view('flats.create');
   }
 
   public function store(Request $request) {
