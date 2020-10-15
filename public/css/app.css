@@ -11239,6 +11239,16 @@ form.flat-create .btnInput i {
   font-size: 35px;
 }
 
+@media (max-width: 576px) {
+  form.flat-create .numInput {
+    margin: 0;
+  }
+
+  form.flat-create .numInput .input-group {
+    width: 90%;
+  }
+}
+
 footer {
   width: 100%;
   height: auto;

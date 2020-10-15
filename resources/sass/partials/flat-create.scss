@@ -59,4 +59,15 @@ form.flat-create {
     }
   }
 
+  @media (max-width: $sm) {
+    .numInput{
+
+      margin: 0;
+
+      .input-group{
+        width: 90%;
+
+      }
+    }
+  }
 }
