@@ -2,18 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/', function () {
-    return view('homepage');
-}) -> name('homepage');
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Guest functions
+
+Route::get('/', 'GuestController@homepage')->name('home');
+
+// UPR functions
+// Creazione flat
+Route::get('/flat/create', 'UprController@create') -> name('create-flat');
+Route::post('/flat/create', 'UprController@store') -> name('store-flat');
 
 // UPRA functions
-Route::get('/upra', 'LoggedController@index') -> name('upra');
-
-// Creazione flat
-Route::get('/flat/create', 'LoggedController@create') -> name('create-flat');
-Route::post('/flat/create', 'LoggedController@store') -> name('store-flat');
+Route::get('/upra', 'UpraController@index') -> name('upra');
