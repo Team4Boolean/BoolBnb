@@ -16,9 +16,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    {{-- fontawesome --}}
-    <script src="https://kit.fontawesome.com/f1dc89ddf1.js" crossorigin="anonymous"></script>
-
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -26,15 +24,13 @@
     <div id="app">
       <header>
         @include('partials.header-navbar')
-        <div class="jumbotron">
-
-        </div>
+        @yield('jumbo')
       </header>
 
       <main>
           @yield('content')
       </main>
-      
+
       @include('partials.footer')
     </div>
 </body>

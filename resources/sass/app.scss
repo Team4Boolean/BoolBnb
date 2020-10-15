@@ -13,9 +13,17 @@
   box-sizing: border-box;
 }
 
-//Importa regole scss header-navbar
-@import 'partials/header-navbar';
+header {
+  width: 100%;
 
+  //Importa regole scss header-navbar e jumbotron
+  @import 'partials/header-navbar';
+  @import 'partials/jumbotron';
+}
+
+main {
+  padding-top: 71px;
+}
 // Regole generali corpo pagina
 //
 //
