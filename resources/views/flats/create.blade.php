@@ -30,12 +30,41 @@
                           <label for="desc">Description:</label><br>
                           <textarea class="form-control" name="desc" rows="8" cols="80">{{ old('desc') }}</textarea>
                         </div>
-                        {{-- Indirizzo --}}
-                        <?php // DEBUG: Come trasformiamo l'indirizzo in coordinate? ?>
-                        {{-- <div class="form-group">
-                          <label for="views">Address:</label>
-                          <input type="text" name="address" value="">
-                        </div> --}}
+                        <div class="form-group">
+                            <label for="street_name">Street Name</label>
+                            <br>
+                            <input class="add_input" id="street_name" type="text" name="street_name" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="street_number">Street Number</label>
+                            <br>
+                            <input class="add_input" id="street_number" type="text" name="street_number" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="municipality">Municipality</label>
+                            <br>
+                            <input class="add_input" id="municipality" type="text" name="municipality" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="subdivision">Province</label>
+                            <br>
+                            <input class="add_input" id="subdivision" type="text" name="subdivision" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="postal_code">CAP</label>
+                            <br>
+                            <input class="add_input" id="postal_code" type="number" name="postal_code" value="">
+                        </div>
+                        <div class="form-group" style="display:none">
+                            <label for="lon">LONGITUDINE</label>
+                            <br>
+                            <input id="lon" type="text" name="lon" value="">
+                        </div>
+                        <div class="form-group" style="display:none">
+                            <label for="lat">LATITUDINE</label>
+                            <br>
+                            <input id="lat" type="text" name="lat" value="">
+                        </div>
                       </section>
 
                       <hr>
