@@ -11186,6 +11186,18 @@ main {
   padding-top: 71px;
 }
 
+form.flat-create .adrInpList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+form.flat-create .adrInpList .input-group {
+  width: 40%;
+  height: 29px;
+}
+
 form.flat-create .numInput {
   display: flex;
   flex-wrap: wrap;

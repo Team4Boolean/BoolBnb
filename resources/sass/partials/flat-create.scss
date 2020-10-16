@@ -1,5 +1,23 @@
 form.flat-create {
 
+  .adrInpList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+
+    .input-group{
+      width: 40%;
+      height: 29px;
+
+    }
+    // .short-address{
+    //   width: 40px;
+    //   height: 29px;
+    // }
+  }
+
+
   .numInput{
     display: flex;
     flex-wrap: wrap;

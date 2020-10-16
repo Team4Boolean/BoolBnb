@@ -30,45 +30,63 @@
                           <label for="desc">Description:</label><br>
                           <textarea class="form-control" name="desc" rows="8" cols="80">{{ old('desc') }}</textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="street_name">Street Name</label>
-                            <br>
-                            <input class="add_input" id="street_name" type="text" name="street_name" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="street_number">Street Number</label>
-                            <br>
-                            <input class="add_input" id="street_number" type="text" name="street_number" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="municipality">Municipality</label>
-                            <br>
-                            <input class="add_input" id="municipality" type="text" name="municipality" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="subdivision">Province</label>
-                            <br>
-                            <input class="add_input" id="subdivision" type="text" name="subdivision" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="postal_code">CAP</label>
-                            <br>
-                            <input class="add_input" id="postal_code" type="number" name="postal_code" value="">
-                        </div>
-                        <div class="form-group" style="display:none">
-                            <label for="lon">LONGITUDINE</label>
-                            <br>
-                            <input id="lon" type="text" name="lon" value="">
-                        </div>
-                        <div class="form-group" style="display:none">
-                            <label for="lat">LATITUDINE</label>
-                            <br>
-                            <input id="lat" type="text" name="lat" value="">
+                      </section>
+                        <hr>
+                        {{-- ADDRESS --}}
+                      <section class="addressInput">
+                        <label>Address:</label>
+                        <div class="adrInpList">
+                          {{-- street name --}}
+                          <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="street_name">Street Name</label>
+                            </div>
+                            <input type="text" id="street_name" class="form-control add_input" name="street_name" value="{{old('street_name')}}">
+                          </div>
+                          {{-- street number --}}
+                          <div class="input-group input-group-sm mb-3 short-address">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="street_number">Street Number</label>
+                            </div>
+                            <input type="text" id="street_number" class="form-control add_input" name="street_number" value="{{old('street_number')}}">
+                          </div>
+                          {{-- municipality --}}
+                          <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="municipality">Municipality</label>
+                            </div>
+                            <input type="text" id="municipality" class="form-control add_input" name="municipality" value="{{old('municipality')}}">
+                          </div>
+                          {{-- province --}}
+                          <div class="input-group input-group-sm mb-3 short-address">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="subdivision">Province</label>
+                            </div>
+                            <input type="text" id="subdivision" class="form-control add_input" name="subdivision" value="{{old('subdivision')}}">
+                          </div>
+                          {{-- cap --}}
+                          <div class="input-group input-group-sm mb-3 short-address">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="postal_code">CAP</label>
+                            </div>
+                            <input type="text" id="postal_code" class="form-control add_input" name="postal_code" value="{{old('postal_code')}}">
+                          </div>
+
+                          {{-- latitudine/longitudine nascosti --}}
+                          <div class="form-group" style="display:none">
+                              <label for="lon">LONGITUDINE</label>
+                              <br>
+                              <input id="lon" type="text" name="lon" value="">
+                          </div>
+                          <div class="form-group" style="display:none">
+                              <label for="lat">LATITUDINE</label>
+                              <br>
+                              <input id="lat" type="text" name="lat" value="">
+                          </div>
                         </div>
                       </section>
 
                       <hr>
-
                       {{-- INPUT NUMERICI --}}
 
                       <section class="numInput">

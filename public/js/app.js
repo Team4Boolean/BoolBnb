@@ -49737,8 +49737,8 @@ function getCoord() {
   var street = $('#street_name').val();
   var number = $('#street_number').val();
   var municipality = $('#municipality').val();
-  var province = $('#subdivision').val();
-  var cap = $('#postal_code').val();
+  var subdivision = $('#subdivision').val();
+  var postal_code = $('#postal_code').val();
   $.ajax({
     url: 'https://api.tomtom.com/search/2/structuredGeocode.json',
     method: 'GET',
@@ -49748,8 +49748,8 @@ function getCoord() {
       streetNumber: number,
       streetName: street,
       municipality: municipality,
-      countrySecondarySubdivision: province,
-      postalCode: cap,
+      countrySecondarySubdivision: subdivision,
+      postalCode: postal_code,
       key: 'GAQpTuIuymbvAGETW9Qf0GSfF1ub9G0r'
     },
     success: function success(data, state) {
@@ -49759,7 +49759,7 @@ function getCoord() {
         var address = arr[i];
         var position = address['position'];
         var lat = position['lat'];
-        var lon = position['lon']; // LOD DI DEBUG
+        var lon = position['lon']; // LOG DI DEBUG
 
         console.log(lat);
         console.log(lon); // -----------
@@ -49943,8 +49943,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\UTENTE\desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\UTENTE\desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\molid\documents\BoolBnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\molid\documents\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
