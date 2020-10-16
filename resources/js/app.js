@@ -13,9 +13,63 @@ const app = new Vue({
     el: '#app',
 });
 
-
-
 // FORM FLAT-CREATE
+
+function addKeyUpListener()  {
+
+  var button = $('.add_input');
+
+  button.keyup(function(){
+    getCoord();
+  });
+}
+
+function getCoord() {
+
+  // variabili per ajax
+  var street = $('#street_name').val();
+  var number = $('#street_number').val();
+  var municipality = $('#municipality').val();
+  var subdivision = $('#subdivision').val();
+  var postal_code = $('#postal_code').val();
+
+  $.ajax ({
+   url : 'https://api.tomtom.com/search/2/structuredGeocode.json',
+   method : 'GET',
+   data : {
+     countryCode : 'IT',
+     limit : 1,
+     streetNumber : number,
+     streetName : street,
+     municipality : municipality,
+     countrySecondarySubdivision : subdivision,
+     postalCode : postal_code,
+     key : 'GAQpTuIuymbvAGETW9Qf0GSfF1ub9G0r'
+   },
+   success : function(data, state) {
+
+     var arr = data['results'];
+
+      for (var i = 0; i < arr.length; i++) {
+        var address = arr[i];
+        var position = address['position'];
+        var lat = position['lat'];
+        var lon = position['lon'];
+        // LOG DI DEBUG
+        console.log(lat);
+        console.log(lon);
+        // -----------
+        $('#lon').val(lon);
+        $('#lat').val(lat);
+      }
+   },
+   error: function(request, state, error) {
+     console.log('request' , request);
+     console.log('state' , state);
+     console.log('error' , error);
+   }
+ });
+};
 
 // input immagine + preview
 function readURL(input) {
@@ -46,6 +100,7 @@ function uploadImg(){
 }
 
 function init(){
+  addKeyUpListener();
   uploadImg();
 }
 
