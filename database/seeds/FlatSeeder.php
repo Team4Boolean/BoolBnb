@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 use App\Flat;
 use App\User;
+use App\Service;
 
 class FlatSeeder extends Seeder
 {
@@ -16,7 +17,12 @@ class FlatSeeder extends Seeder
         $usr = User::inRandomOrder() -> first();
         $flat -> user() -> associate($usr);
         $flat -> save();
+
+        $serv = Service::inRandomOrder()
+            -> take(rand(0, 6))
+            -> get();
+        $flat -> services() -> attach($serv);
       });
     }
-    
+
 }

@@ -16,15 +16,13 @@ class Flat extends Model
       'sqm',
       'lat',
       'lon',
+      'street_number',
+      'street_name',
+      'municipality',
+      'subdivision',
+      'postal_code',
       'img',
-      'wifi',
-      'parking',
-      'swim',
-      'concierge',
-      'sauna',
-      'sea',
-      'visible',
-      'views'
+      'visible'
     ];
 
     // relazione One To Many(inversa) flats -> users
@@ -35,9 +33,17 @@ class Flat extends Model
     public function requests() {
       return $this -> hasMany(Request::class);
     }
-    // relazione One To One flats <-> advs
-    public function adv() {
-      return $this -> hasOne(Adv::class);
+    // relazione One To One flats <-> campaigns
+    public function campaign() {
+      return $this -> hasOne(Campaign::class);
+    }
+    // relazione One To Many flats -> views
+    public function views() {
+      return $this -> hasMany(View::class);
+    }
+    // relazione Many To Many flats <-> services
+    public function services() {
+      return $this -> belongsToMany(Service::class);
     }
 
 }
