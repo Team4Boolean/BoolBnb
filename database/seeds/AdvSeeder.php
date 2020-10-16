@@ -2,21 +2,40 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Adv;
-use App\Flat;
+use App\Advertising;
 
 class AdvSeeder extends Seeder
 {
 
     public function run()
     {
-      factory(Adv::class, 100)
-      -> make() // genera 100 istanze del model Adv
-      -> each(function($adv) {
-        $flat = Flat::inRandomOrder() -> first();
-        $adv -> flat() -> associate($flat);
-        $adv -> save();
-      });
+
+      $sponsors = [
+        [
+          'title' => 'packet1',
+          'price' => '2.99',
+          'hours' => '24'
+        ],
+        [
+          'title' => 'packet2',
+          'price' => '5.99',
+          'hours' => '72'
+        ],
+        [
+          'title' => 'packet3',
+          'price' => '9.99',
+          'hours' => '144'
+        ]
+      ];
+
+      foreach ($sponsors as $sponsor) {
+        DB::table('advertisings') -> insert ([
+            'title' => $sponsor['title'],
+            'price' => $sponsor['price'],
+            'hours' => $sponsor['hours'],
+        ]);
+      }
+
     }
-    
+
 }

@@ -29,12 +29,13 @@ class CreateFlatsTable extends Migration
             $table -> float('sqm', 6, 2);
             $table -> decimal('lat', 7, 5) -> default(0);
             $table -> decimal('lon', 8, 5) -> default(0);
-            $table -> string('img');
             $table -> string('street_number', 8);
             $table -> string('street_name', 85);
             $table -> string('municipality', 85);
             $table -> string('subdivision', 50) -> nullable();
             $table -> string('postal_code', 20);
+            $table -> string('img');
+            $table -> boolean('visible') -> default(1);
 
             $table -> timestamps();
 
