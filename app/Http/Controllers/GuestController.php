@@ -11,9 +11,16 @@ class GuestController extends Controller
       return view('homepage');
   }
 
-  public function index()
-  {
-      return view('home');
+  public function index(){
+    $flats = Flat::all();
+
+    return view('flats.list', compact('flats'));
+  }
+
+  public function show($id){
+    $flat = Flat::findOrFail($id);
+
+    return view('flats.show', compact('flat'));
   }
 
 }
