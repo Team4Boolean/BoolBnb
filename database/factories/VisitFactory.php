@@ -5,10 +5,10 @@
 use App\Model;
 use Faker\Generator as Faker;
 
-use App\View;
+use App\Visit;
 
-$factory->define(View::class, function (Faker $faker) {
+$factory -> define(Visit::class, function (Faker $faker) {
     return [
-        
+        //
     ];
 });

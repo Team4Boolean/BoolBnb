@@ -5,6 +5,10 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
+use App\Flat;
+use App\User;
+use App\Message;
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -25,8 +29,15 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('upra-user', function($user) {
-          return $user -> upra;
+        // registro il Gate 'upra-manage-user'
+        Gate::define('upra-manage-flats', function(User $user, Flat $flat) {
+          return $user -> id === $flat -> user_id;
         });
+
+        // registro il Gate 'upra-manage-user'
+        Gate::define('upra-manage-requests', function(User $user, Message $message) {
+          return $user -> id === $flat -> user_id;
+        });
+
     }
 }

@@ -23,7 +23,7 @@
     <div class="col-xs-12 col-md-6 col-lg-4">
       <ul>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('create-flat')}}">Diventa un host</a>
+          <a class="nav-link" href="{{ route('flats.create') }}">Diventa un host</a>
         </li>
 
         {{-- Dropdown --}}
@@ -57,7 +57,7 @@
             <div class="dropdown-divider"></div>
 
             {{-- Other links --}}
-            <a class="dropdown-item" href="{{route('create-flat')}}">Diventa un host</a>
+            <a class="dropdown-item" href="{{ route('flats.create') }}">Diventa un host</a>
             <a class="dropdown-item" href="#">Proponi un'esperienza</a>
             <a class="dropdown-item" href="#">Assistenza</a>
           </div>

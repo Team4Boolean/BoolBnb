@@ -13,7 +13,7 @@
                   </div>
                   <div class="card-body">
                     {{-- FORM --}}
-                    <form class="flat-create" action="{{route('store-flat')}}" method="post">
+                    <form class="flat-create" action="{{ route('flats.store') }}" method="post">
                       @csrf
                       @method('POST')
 
@@ -209,7 +209,7 @@
 
                       {{-- btn group --}}
                       <section class="btnInput">
-                        <a href="{{route('home')}}"><i class="fas fa-arrow-circle-left"></i></a>
+                        <a href="{{ route('home') }}"><i class="fas fa-arrow-circle-left"></i></a>
                         <button class="btn btn-primary" type="submit">Confirm</button>
                       </section>
                     </form>

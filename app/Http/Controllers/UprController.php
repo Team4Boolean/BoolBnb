@@ -8,18 +8,19 @@ use Illuminate\Support\Facades\Auth;
 // richiama il flat
 use App\Flat;
 
-class UprController extends Controller
-{
-  public function __construct()
-  {
+class UprController extends Controller {
+
+  public function __construct() {
+
     $this->middleware('auth');
   }
 
-  public function create() {
+  public function flatCreate() {
+    
     return view('flats.create');
   }
 
-  public function store(Request $request) {
+  public function flatStore(Request $request) {
 
     $usrid = Auth::user() -> id;
 
@@ -30,4 +31,5 @@ class UprController extends Controller
 
     return redirect() -> route('home');
   }
+
 }

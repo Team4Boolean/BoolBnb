@@ -13,7 +13,7 @@ class Advertising extends Model
     ];
 
     // relazione One To Many advertisings -> campaigns
-    public function campaigns() {
-      return $this -> hasMany(Campaign::class);
+    public function sponsors() {
+      return $this -> hasMany(Sponsor::class);
     }
 }

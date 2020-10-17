@@ -2,19 +2,41 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Auth
 Auth::routes();
 
-// Guest functions
+// Home
+// Home Ui -> read
+Route::get('/', 'UiController@home') -> name('home');
+// API flats -> search
+Route::get('/api/flats/search', 'ApiController@flatSearch') -> name('api.flats.search');
 
-Route::get('/', 'GuestController@homepage') -> name('home');
-Route::get('/flats', 'GuestController@list') -> name('flats');
-Route::get('/flat/{id}/show', 'GuestController@show') -> name('show-flat');
+// Flats
+// Flats Ui -> show
+Route::get('/flats/{id}/show', 'UiController@flatShow') -> name('flats.show');
+// Flats Upr -> create
+Route::get('/flats/create', 'UprController@flatCreate') -> name('flats.create');
+Route::post('/flats/store', 'UprController@flatStore') -> name('flats.store');
+// Flats Upra -> index
+Route::get('/flats', 'UpraController@flatIndex') -> name('flats.index');
+// Flats Upra -> edit
+Route::get('/flats/{id}/edit', 'UpraController@flatEdit') -> name('flats.edit');
+Route::post('/flats/{id}/update', 'UpraController@flatUpdate') -> name('flats.update');
+// Flats Upra -> deactivate
+Route::post('/flats/{id}/deactivate', 'UpraController@flatDeactivate') -> name('flats.deactivate');
+// Flats Upra -> statistics
+Route::get('/flats/{id}/statistics', 'UpraController@flatStatistics') -> name('flats.statistics');
+// Flats Upra -> campaigns -> create
+Route::get('/flats/{id}/campaign', 'UpraController@flatCampaignCreate') -> name('flats.campaign.create');
 
-// UPR functions
-// Show flats
-// Creazione flat
-Route::get('/flat/create', 'UprController@create') -> name('create-flat');
-Route::post('/flat/create', 'UprController@store') -> name('store-flat');
+// Messages
+// Messages Ui -> create
+Route::get('/messages/create', 'UiController@messageCreate') -> name('messages.create');
+Route::post('/messages/store', 'UiController@messageStore') -> name('messages.store');
+// Messages Upra -> index
+Route::get('/messages', 'UpraController@messageIndex') -> name('messages.index');
+// Requests Upra -> show
+Route::get('/messages/{id}/show', 'UpraController@messageShow') -> name('messages.show');
 
 // UPRA functions
 Route::get('/upra', 'UpraController@index') -> name('upra');

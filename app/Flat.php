@@ -29,17 +29,17 @@ class Flat extends Model
     public function user() {
       return $this -> belongsTo(User::class);
     }
-    // relazione One To Many flats -> requests
-    public function requests() {
-      return $this -> hasMany(Request::class);
+    // relazione One To Many flats -> messages
+    public function messages() {
+      return $this -> hasMany(Message::class);
     }
     // relazione One To One flats <-> campaigns
-    public function campaign() {
-      return $this -> hasOne(Campaign::class);
+    public function sponsor() {
+      return $this -> hasOne(Sponsor::class);
     }
     // relazione One To Many flats -> views
-    public function views() {
-      return $this -> hasMany(View::class);
+    public function visits() {
+      return $this -> hasMany(Visit::class);
     }
     // relazione Many To Many flats <-> services
     public function services() {

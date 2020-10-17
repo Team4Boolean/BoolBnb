@@ -4,16 +4,12 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRequestsTable extends Migration
+class CreateVisitsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
-        Schema::create('requests', function (Blueprint $table) {
+        Schema::create('visits', function (Blueprint $table) {
 
           $table -> engine = 'InnoDB';
 
@@ -21,11 +17,8 @@ class CreateRequestsTable extends Migration
 
           $table -> bigInteger('flat_id') -> unsigned(); // chiave esterna
 
-          $table -> string('email');
-          $table -> text('message');
-
           $table -> timestamps();
-          
+
         });
     }
 
@@ -36,6 +29,6 @@ class CreateRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requests');
+        Schema::dropIfExists('visits');
     }
 }

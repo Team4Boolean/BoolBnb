@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
           UserSeeder::class,
           ServiceSeeder::class,
           FlatSeeder::class,
-          ViewSeeder::class,
-          RequestSeeder::class,
+          VisitSeeder::class,
+          MessageSeeder::class,
           AdvSeeder::class,
-          CampaignSeeder::class 
+          SponsorSeeder::class
         ]);
     }
 }
