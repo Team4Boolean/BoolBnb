@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSponsorsTable extends Migration
 {
-    
+
     public function up()
     {
       Schema::create('sponsors', function (Blueprint $table) {
@@ -15,10 +15,9 @@ class CreateSponsorsTable extends Migration
 
         $table -> id();
 
-        $table -> bigInteger('flat_id') -> unsigned(); // chiave esterna 1
-        $table -> bigInteger('advertising_id') -> unsigned(); // chiave esterna 2
-
-        $table -> dateTime('expire');
+        $table -> string('title', 25);
+        $table -> float('price', 6, 2);
+        $table -> unsignedTinyInteger('hours');
 
         $table -> timestamps();
 

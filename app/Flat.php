@@ -21,7 +21,6 @@ class Flat extends Model
       'municipality',
       'subdivision',
       'postal_code',
-      'img',
       'visible'
     ];
 
@@ -29,21 +28,25 @@ class Flat extends Model
     public function user() {
       return $this -> belongsTo(User::class);
     }
-    // relazione One To Many flats -> messages
-    public function messages() {
-      return $this -> hasMany(Message::class);
+    // relazione One To Many flats -> photos
+    public function photos() {
+      return $this -> hasMany(Photo::class);
     }
-    // relazione One To One flats <-> campaigns
-    public function sponsor() {
-      return $this -> hasOne(Sponsor::class);
+    // relazione Many To Many flats <-> services
+    public function services() {
+      return $this -> belongsToMany(Service::class) -> withTimestamps();
     }
     // relazione One To Many flats -> views
     public function visits() {
       return $this -> hasMany(Visit::class);
     }
-    // relazione Many To Many flats <-> services
-    public function services() {
-      return $this -> belongsToMany(Service::class);
+    // relazione One To Many flats -> messages
+    public function messages() {
+      return $this -> hasMany(Message::class);
+    }
+    // relazione Many To Many flats <-> sponsors
+    public function sponsors() {
+      return $this -> belongsToMany(Sponsor::class) -> withTimestamps();
     }
 
 }

@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 use App\Flat;
 use App\User;
 use App\Service;
+use App\Sponsor;
 
 class FlatSeeder extends Seeder
 {
@@ -22,6 +23,13 @@ class FlatSeeder extends Seeder
             -> take(rand(0, 6))
             -> get();
         $flat -> services() -> attach($serv);
+
+        $sponsor = Sponsor::inRandomOrder()
+            -> take(1)
+            -> get();
+        $flat -> sponsors()
+              -> attach($sponsor);
+
       });
     }
 

@@ -25,6 +25,15 @@ class UpraController extends Controller {
     $id = 1;
     $flat= Flat::find($id);
 
+    // primo modo
+    // if ($flat -> user -> id !== Auth::user() -> id) {
+    //   abort(401, 'Unathorized');
+    // } else {
+    //   $welcome = "Benvenuto utente UPRA!";
+    //   return view('flats.create', compact('welcome'));
+    // }
+
+    // secondo modo con i Gate
     if (Gate::denies('upra-manage-flats', $flat)) {
       // $welcome = "Utente non autorizzato";
       abort(401, 'Unathorized');

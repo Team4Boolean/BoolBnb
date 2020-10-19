@@ -5,12 +5,10 @@
 use App\Model;
 use Faker\Generator as Faker;
 
-use App\Sponsor;
+use App\Photo;
 
-$factory->define(Sponsor::class, function (Faker $faker) {
+$factory->define(Photo::class, function (Faker $faker) {
     return [
-      'title' => '',
-      'price' => '',
-      'hours' => ''
+        'url' => $faker ->  imageUrl($width = 640, $height = 480)
     ];
 });

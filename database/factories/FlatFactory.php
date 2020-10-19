@@ -22,7 +22,6 @@ $factory->define(Flat::class, function (Faker $faker) {
       'municipality'  =>  $faker -> state,
       'subdivision'     =>  $faker -> city,
       'postal_code'   =>  $faker -> postcode,
-      'img'           => $faker ->  imageUrl($width = 640, $height = 480),
       'visible'       => $faker ->  boolean(true),
     ];
 });

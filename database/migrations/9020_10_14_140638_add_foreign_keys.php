@@ -19,13 +19,18 @@ class AddForeignKeys extends Migration
                -> on('users')
                -> onDelete('cascade');
       });
-      Schema::table('messages', function (Blueprint $table) {
-        $table -> foreign('flat_id', 'msg-flt')
+      Schema::table('photos', function (Blueprint $table) {
+        $table -> foreign('flat_id', 'pht-flt')
                -> references('id')
                -> on('flats');
       });
       Schema::table('visits', function (Blueprint $table) {
         $table -> foreign('flat_id', 'vst-flt')
+               -> references('id')
+               -> on('flats');
+      });
+      Schema::table('messages', function (Blueprint $table) {
+        $table -> foreign('flat_id', 'msg-flt')
                -> references('id')
                -> on('flats');
       });
@@ -38,13 +43,13 @@ class AddForeignKeys extends Migration
                -> references('id')
                -> on('services');
       });
-      Schema::table('sponsors', function (Blueprint $table) {
+      Schema::table('flat_sponsor', function (Blueprint $table) {
         $table -> foreign('flat_id', 'spr-flt')
                -> references('id')
                -> on('flats');
-        $table -> foreign('advertising_id', 'spr-adv')
+        $table -> foreign('sponsor_id', 'flt-spr')
                -> references('id')
-               -> on('advertisings');
+               -> on('sponsors');
       });
     }
 
@@ -58,19 +63,22 @@ class AddForeignKeys extends Migration
       Schema::table('flats', function (Blueprint $table) {
         $table -> dropForeign('flt-usr');
       });
-      Schema::table('messages', function (Blueprint $table) {
-        $table -> dropForeign('msg-flt');
+      Schema::table('photos', function (Blueprint $table) {
+        $table -> dropForeign('pht-flt');
       });
       Schema::table('visits', function (Blueprint $table) {
         $table -> dropForeign('vst-flt');
+      });
+      Schema::table('messages', function (Blueprint $table) {
+        $table -> dropForeign('msg-flt');
       });
       Schema::table('flat_service', function (Blueprint $table) {
         $table -> dropForeign('srv-flt');
         $table -> dropForeign('flt-srv');
       });
-      Schema::table('sponsors', function (Blueprint $table) {
+      Schema::table('flat_sponsor', function (Blueprint $table) {
         $table -> dropForeign('spr-flt');
-        $table -> dropForeign('spr-adv');
+        $table -> dropForeign('flt-spr');
       });
     }
 }
