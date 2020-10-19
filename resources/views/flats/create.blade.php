@@ -12,6 +12,9 @@
                     <h1>New Flat:</h1>
                   </div>
                   <div class="card-body">
+
+                    @include('partials.input-errors')
+
                     {{-- FORM --}}
                     <form class="flat-create" action="{{ route('flats.store') }}" method="post">
                       @csrf
@@ -23,7 +26,12 @@
                         {{-- Titolo --}}
                         <div class="form-group">
                           <label for="title">Title:</label>
-                          <input class="form-control" type="text" name="title" value="">
+                          <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}">
+                          @error('title')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                          @enderror
                         </div>
                         {{-- Descrizione --}}
                         <div class="form-group">

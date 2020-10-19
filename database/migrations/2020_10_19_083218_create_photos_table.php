@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdvertisingsTable extends Migration
+class CreatePhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,15 @@ class CreateAdvertisingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('advertisings', function (Blueprint $table) {
-
-            $table -> engine = 'InnoDB';
+        Schema::create('photos', function (Blueprint $table) {
 
             $table -> id();
 
-            $table -> string('title', 25);
-            $table -> float('price', 6, 2);
-            $table -> unsignedTinyInteger('hours');
+            $table -> bigInteger('flat_id') -> unsigned(); // chiave esterna
 
+            $table -> string('url');
+            
             $table -> timestamps();
-
         });
     }
 
@@ -35,6 +32,6 @@ class CreateAdvertisingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('advertisings');
+        Schema::dropIfExists('photos');
     }
 }

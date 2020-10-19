@@ -3,27 +3,38 @@
 use Illuminate\Database\Seeder;
 
 use App\Sponsor;
-use App\Flat;
-use App\Advertising;
 
 class SponsorSeeder extends Seeder
 {
 
-    public function run()
-    {
-      factory(Sponsor::class, 50)
-      -> make() // genera 100 istanze del model Campaign
-      -> each(function($cmp) {
+    public function run() {
 
-        $flt =  Flat::inRandomOrder() -> first() -> id;
-        $cmp -> flat_id = $flt;
+      $sponsors = [
+        [
+          'title' => 'packet1',
+          'price' => '2.99',
+          'hours' => '24'
+        ],
+        [
+          'title' => 'packet2',
+          'price' => '5.99',
+          'hours' => '72'
+        ],
+        [
+          'title' => 'packet3',
+          'price' => '9.99',
+          'hours' => '144'
+        ]
+      ];
 
-        $adv =  Advertising::inRandomOrder() -> first();
-        $cmp -> advertising() -> associate($adv);
+      foreach ($sponsors as $sponsor) {
+        DB::table('sponsors') -> insert ([
+            'title' => $sponsor['title'],
+            'price' => $sponsor['price'],
+            'hours' => $sponsor['hours'],
+        ]);
+      }
 
-        $cmp -> save();
-
-      });
     }
 
 }

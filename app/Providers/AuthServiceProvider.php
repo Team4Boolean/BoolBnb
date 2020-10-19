@@ -31,7 +31,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // registro il Gate 'upra-manage-user'
         Gate::define('upra-manage-flats', function(User $user, Flat $flat) {
-          return $user -> id === $flat -> user_id;
+          return $user -> id === $flat -> user -> id;
         });
 
         // registro il Gate 'upra-manage-user'

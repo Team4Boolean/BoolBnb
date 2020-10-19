@@ -26,8 +26,8 @@ Route::post('/flats/{id}/update', 'UpraController@flatUpdate') -> name('flats.up
 Route::post('/flats/{id}/deactivate', 'UpraController@flatDeactivate') -> name('flats.deactivate');
 // Flats Upra -> statistics
 Route::get('/flats/{id}/statistics', 'UpraController@flatStatistics') -> name('flats.statistics');
-// Flats Upra -> campaigns -> create
-Route::get('/flats/{id}/campaign', 'UpraController@flatCampaignCreate') -> name('flats.campaign.create');
+// Flats Upra -> sponsors -> create
+Route::get('/flats/{id}/sponsor', 'UpraController@flatSponsorCreate') -> name('flats.sponsor.create');
 
 // Messages
 // Messages Ui -> create
