@@ -13,8 +13,14 @@
   box-sizing: border-box;
 }
 
+div.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 header {
   width: 100%;
+  margin: 0;
 
   //Importa regole scss header-navbar e jumbotron
   @import 'partials/header-navbar';
@@ -23,6 +29,7 @@ header {
 
 main {
   padding-top: 71px;
+  @import 'partials/main';
 }
 // Regole generali corpo pagina
 //

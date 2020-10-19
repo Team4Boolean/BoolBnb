@@ -28,7 +28,7 @@
     <div class="col-xs-12 col-sm-6 col-md-3">
       <ul>
         <li><h5>Ospita</h5></li>
-        <li> <a href="#">Diventa un host</a> </li>
+        <li> <a href="{{route('flats.create')}}">Diventa un host</a> </li>
         <li> <a href="#">Offri un'Esperienza online</a> </li>
         <li> <a href="#">Offri un'Esperienza</a> </li>
         <li> <a href="#">Ospitare responsabilmente</a> </li>

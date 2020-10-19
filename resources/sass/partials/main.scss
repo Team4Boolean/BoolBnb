@@ -1,0 +1,73 @@
+.container {
+
+  .text {
+    color: $maincolor;
+    text-align: left;
+
+    h3 {
+      margin-left: 20px;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+  }
+
+  .row.homepage {
+
+    .col-xs-12 {
+      margin-bottom: 15px;
+
+      .card {
+        margin: 0 auto;
+        padding: 0;
+        max-width: 300px;
+        box-shadow: 2px 2px 5px #ddd;
+        transition: all 0.5s;
+
+        &:hover {
+          transform: scale(1.03);
+        }
+
+        img {
+          max-height: 150px;
+        }
+        .card-body {
+
+          .card-title {
+            font-size: 14px;
+          }
+
+          .card-text {
+            font-size: 14px;
+          }
+
+          a.btn.btn-primary {
+            border-color: $maincolor;
+            color: $maincolor;
+            background-color: #fff;
+            transition: all 0.3s;
+
+            &:hover {
+              border-color: $coral;
+              background-color: $coral;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// MEDIA QUERY
+
+@media (min-width: $md){
+  .container {
+    .text {
+      text-align: center;
+
+      h3 {
+
+      }
+    }
+  }
+}
