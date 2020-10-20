@@ -117,11 +117,13 @@ function autocompleteAddress() {
     document.querySelector('#subdivision').value = e.suggestion.county || '';
     document.querySelector('#municipality').value = e.suggestion.city || '';
     document.querySelector('#postal_code').value = e.suggestion.postcode || '';
+    document.querySelector('#lat').value = e.suggestion.latlng['lat']  || '';
+    document.querySelector('#lon').value = e.suggestion.latlng['lng']  || '';
   });
 }
 
 function init(){
-  addKeyUpListener();
+  // addKeyUpListener();
   uploadImg();
   autocompleteAddress();
 
