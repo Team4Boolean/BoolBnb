@@ -141,3 +141,50 @@ export default {
     }
   }
 }
+
+function showPreview(){
+  $("#prevContainer").css("display", "block");
+}
+
+function uploadImg(){
+
+  // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
+  $("#imgInp").change(function() {
+    readURL(this);
+    showPreview()
+  });
+
+}
+
+function autocompleteAddress() {
+  var placesAutocomplete = places({
+    appId: 'plXJIJDQMD75',
+    apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
+    container: document.querySelector('#street_name'),
+    templates: {
+      value: function(suggestion) {
+        return suggestion.name;
+      }
+    }
+  }).configure({
+    type: 'address'
+  });
+
+  placesAutocomplete.on('change', function resultSelected(e) {
+    document.querySelector('#subdivision').value = e.suggestion.county || '';
+    document.querySelector('#municipality').value = e.suggestion.city || '';
+    document.querySelector('#postal_code').value = e.suggestion.postcode || '';
+    document.querySelector('#lat').value = e.suggestion.latlng['lat']  || '';
+    document.querySelector('#lon').value = e.suggestion.latlng['lng']  || '';
+  });
+}
+
+function init(){
+  // addKeyUpListener();
+  uploadImg();
+  autocompleteAddress();
+
+
+}
+
+$(document).ready(init);

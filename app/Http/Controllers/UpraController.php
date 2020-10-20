@@ -14,6 +14,13 @@ class UpraController extends Controller {
 
   public function flatIndex() {
 
+    if (Gate::denies('upra-manage-flats')) {
+      abort(401, 'Unathorized');
+    } else {
+      $message = "Benvenuto nella dashboard!";
+      return view('flats.index', compact('message'));
+    }
+
   }
 
   public function flatEdit() {
