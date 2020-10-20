@@ -6,15 +6,23 @@ form.flat-create {
     justify-content: space-around;
     margin: 20px 0;
 
+    .add_input{
+      text-align: center;
+    }
+
     .input-group{
+      margin: 10px;
+    }
+
+    .long-address{
       width: 40%;
       height: 29px;
 
     }
-    // .short-address{
-    //   width: 40px;
-    //   height: 29px;
-    // }
+    .short-address{
+      width: 20%;
+      height: 29px;
+    }
   }
 
 

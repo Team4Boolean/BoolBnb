@@ -9,7 +9,7 @@
               <div class="card">
                 {{-- Titolo pagina cardheader --}}
                   <div class="card-header">
-                    <h1>New Flat:</h1>
+                    <h1>Publicate your flat:</h1>
                   </div>
                   <div class="card-body">
 
@@ -45,7 +45,7 @@
                         <label>Address:</label>
                         <div class="adrInpList">
                           {{-- street name --}}
-                          <div class="input-group input-group-sm mb-3">
+                          <div class="input-group input-group-sm mb-3 long-address">
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="street_name">Street Name</label>
                             </div>
@@ -54,19 +54,12 @@
                           {{-- street number --}}
                           <div class="input-group input-group-sm mb-3 short-address">
                             <div class="input-group-prepend">
-                              <label class="input-group-text" for="street_number">Street Number</label>
+                              <label class="input-group-text" for="street_number">N°</label>
                             </div>
                             <input type="text" id="street_number" class="form-control add_input" name="street_number" value="{{old('street_number')}}">
                           </div>
-                          {{-- municipality --}}
-                          <div class="input-group input-group-sm mb-3">
-                            <div class="input-group-prepend">
-                              <label class="input-group-text" for="municipality">Municipality</label>
-                            </div>
-                            <input type="text" id="municipality" class="form-control add_input" name="municipality" value="{{old('municipality')}}">
-                          </div>
                           {{-- province --}}
-                          <div class="input-group input-group-sm mb-3 short-address">
+                          <div class="input-group input-group-sm mb-3 long-address">
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="subdivision">Province</label>
                             </div>
@@ -78,6 +71,13 @@
                               <label class="input-group-text" for="postal_code">CAP</label>
                             </div>
                             <input type="text" id="postal_code" class="form-control add_input" name="postal_code" value="{{old('postal_code')}}">
+                          </div>
+                          {{-- municipality --}}
+                          <div class="input-group input-group-sm mb-3 short-address">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="municipality">Municipality</label>
+                            </div>
+                            <input type="text" id="municipality" class="form-control add_input" name="municipality" value="{{old('municipality')}}">
                           </div>
 
                           {{-- latitudine/longitudine nascosti --}}
