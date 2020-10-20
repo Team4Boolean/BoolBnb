@@ -199,7 +199,7 @@
 
                       {{-- INPUT IMMAGINE --}}
 
-                      <section class="imgInput">
+                      {{-- <section class="imgInput">
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <label class="input-group-text" for="img">Upload your flat's image</label>
@@ -212,8 +212,20 @@
                         <div id="prevContainer" class="img-container">
                           <img id="prev" src="#" class="img-thumbnail">
                         </div>
-                      </section>
+                      </section> --}}
 
+                      <template>
+                        <div id="app" style="display: flex; justify-content: center;">
+                          <vue-upload-multiple-image
+                            @upload-success="uploadImageSuccess"
+                            @before-remove="beforeRemove"
+                            @edit-image="editImage"
+                            :data-images="images"
+                            idUpload="myIdUpload"
+                            editUpload="myIdEdit"
+                            ></vue-upload-multiple-image>
+                        </div>
+                      </template>
 
                       {{-- btn group --}}
                       <section class="btnInput">

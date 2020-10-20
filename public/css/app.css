@@ -11340,6 +11340,34 @@ form.flat-create .btnInput i {
   }
 }
 
+form.flat-create #app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+form.flat-create #app h1,
+form.flat-create #app h2 {
+  font-weight: normal;
+}
+
+form.flat-create #app ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+form.flat-create #app ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+form.flat-create #app ul a {
+  color: #42b983;
+}
+
 footer {
   width: 100%;
   height: auto;

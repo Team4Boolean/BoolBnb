@@ -72,36 +72,72 @@ function getCoord() {
 };
 
 // input immagine + preview
-function readURL(input) {
 
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
+// ex1:
+// function readURL(input) {
+//
+//   if (input.files && input.files[0]) {
+//     var reader = new FileReader();
+//
+//     reader.onload = function(e) {
+//       $('#prev').attr('src', e.target.result);
+//     }
+//
+//     reader.readAsDataURL(input.files[0]); // convert to base64 string
+//   }
+// }
+//
+// function showPreview(){
+//   $("#prevContainer").css("display", "block");
+// }
+//
+// function uploadImg(){
+//
+//   // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
+//   $("#imgInp").change(function() {
+//     readURL(this);
+//     showPreview()
+//   });
+//
+// }
+//
+// function init(){
+//   addKeyUpListener();
+//   uploadImg();
+// }
+//
+// $(document).ready(init);
 
-    reader.onload = function(e) {
-      $('#prev').attr('src', e.target.result);
+// test vue
+import VueLazyload from 'vue-lazyload'
+
+Vue.use(VueLazyload)
+
+import VueUploadMultipleImage from 'vue-upload-multiple-image'
+export default {
+  name: 'app',
+  data () {
+    return {
+      images: []
     }
-
-    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  },
+  components: {
+    VueUploadMultipleImage
+  },
+  methods: {
+    uploadImageSuccess(formData, index, fileList) {
+      console.log('data', formData, index, fileList)
+    },
+    beforeRemove (index, done, fileList) {
+      console.log('index', index, fileList)
+      var r = confirm("remove image")
+      if (r == true) {
+        done()
+      } else {
+      }
+    },
+    editImage (formData, index, fileList) {
+      console.log('edit data', formData, index, fileList)
+    }
   }
 }
-
-function showPreview(){
-  $("#prevContainer").css("display", "block");
-}
-
-function uploadImg(){
-
-  // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
-  $("#imgInp").change(function() {
-    readURL(this);
-    showPreview()
-  });
-
-}
-
-function init(){
-  addKeyUpListener();
-  uploadImg();
-}
-
-$(document).ready(init);
