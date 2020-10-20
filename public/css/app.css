@@ -11259,8 +11259,21 @@ form.flat-create .adrInpList {
   margin: 20px 0;
 }
 
+form.flat-create .adrInpList .add_input {
+  text-align: center;
+}
+
 form.flat-create .adrInpList .input-group {
+  margin: 10px;
+}
+
+form.flat-create .adrInpList .long-address {
   width: 40%;
+  height: 29px;
+}
+
+form.flat-create .adrInpList .short-address {
+  width: 20%;
   height: 29px;
 }
 
