@@ -49802,9 +49802,30 @@ function uploadImg() {
   });
 }
 
+function autocompleteAddress() {
+  var placesAutocomplete = places({
+    appId: 'plXJIJDQMD75',
+    apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
+    container: document.querySelector('#street_name'),
+    templates: {
+      value: function value(suggestion) {
+        return suggestion.name;
+      }
+    }
+  }).configure({
+    type: 'address'
+  });
+  placesAutocomplete.on('change', function resultSelected(e) {
+    document.querySelector('#subdivision').value = e.suggestion.county || '';
+    document.querySelector('#municipality').value = e.suggestion.city || '';
+    document.querySelector('#postal_code').value = e.suggestion.postcode || '';
+  });
+}
+
 function init() {
   addKeyUpListener();
   uploadImg();
+  autocompleteAddress();
 }
 
 $(document).ready(init);
@@ -49943,8 +49964,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\molid\documents\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\molid\documents\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\UTENTE\desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\UTENTE\desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

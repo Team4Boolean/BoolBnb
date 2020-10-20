@@ -14,6 +14,7 @@
     <script type="text/javascript">
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 
     <!-- Fonts & Fontawesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
