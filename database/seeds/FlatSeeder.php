@@ -12,6 +12,7 @@ class FlatSeeder extends Seeder
 
     public function run()
     {
+
       factory(Flat::class, 100)
       -> make() // genera 100 istanze del model Flat
       -> each(function($flat) {
@@ -25,12 +26,12 @@ class FlatSeeder extends Seeder
         $flat -> services() -> attach($serv);
 
         $sponsor = Sponsor::inRandomOrder()
-            -> take(1)
+            -> take(rand(0, 1))
             -> get();
         $flat -> sponsors()
               -> attach($sponsor);
-
       });
+
     }
 
 }
