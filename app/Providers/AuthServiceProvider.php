@@ -9,6 +9,8 @@ use App\Flat;
 use App\User;
 use App\Message;
 
+use App\Policies\FlatPolicy;
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -17,7 +19,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        // Flat::class => FlatPolicy::class,
     ];
 
     /**
@@ -30,13 +32,19 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         // registro il Gate 'upra-manage-user'
-        Gate::define('upra-manage-flats', function(User $user, Flat $flat) {
-          return $user -> id === $flat -> user -> id;
+        Gate::define('upra-manage-flats', function(User $user) {
+          $id = $user -> id;
+          $flat = Flat::where('user_id', $id)
+                      -> firstOr(function() {
+                        return false;
+                      });
+          return $flat;
         });
 
-        // registro il Gate 'upra-manage-user'
-        Gate::define('upra-manage-requests', function(User $user, Message $message) {
-          return $user -> id === $flat -> user_id;
+        // registro il Gate 'upra-manage-messages'
+        Gate::define('upra-manage-messages', function(User $user, Message $message) {
+          return $user -> id === $flat -> user -> id
+              && $flat -> id === $message -> flat -> id;
         });
 
     }
