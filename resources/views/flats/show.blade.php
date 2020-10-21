@@ -17,7 +17,7 @@
               </div>
               <div class="card-body">
                 <div class="row row-spacer">
-                  <div class="col-md-10 ">
+                  <div class="offset-md-1 col-md-10 ">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                       <ol class="carousel-indicators">
                         @php
