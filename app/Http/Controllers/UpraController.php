@@ -22,12 +22,10 @@ class UpraController extends Controller {
     $firstname = Auth::user() -> firstname;
     $lastname = Auth::user() -> lastname;
 
-    $message = "Benvenuto ".$firstname. " ".$lastname;
-
     if (User::has('flats')) {
 
       $flats = Flat::where('user_id', $id) -> get();
-      return view('flats.index', compact('message','flats'));
+      return view('flats.index', compact('firstname','flats'));
 
     } else {
 

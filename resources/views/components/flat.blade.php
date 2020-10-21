@@ -6,7 +6,7 @@
       <div class="card-body">
         <h5 class="card-title">@{{ title }}</h5>
         <p class="card-text text-muted">@{{ shortDesc }}</p>
-        <a href="#" class="btn btn-primary">Visualizza</a>
+        <a :href="show" class="btn btn-primary">Visualizza</a>
       </div>
     </div>
   </div>
@@ -21,7 +21,8 @@
 
     data: function () {
       return {
-        mouseIn: false
+        mouseIn: false,
+        show: '/flats/'+this.id+'/show'
       }
     },
 
@@ -41,7 +42,7 @@
     computed: {
       shortDesc: {
         get: function() {
-          if (this.mouseIn) return this.desc;
+          // if (this.mouseIn) return this.desc;
 
           var res = this.desc.substring(0, 50).trim();
           return res + (this.desc.length > 50 ? '...' : '');

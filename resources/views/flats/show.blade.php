@@ -6,7 +6,7 @@
 
   <div id="flatShow" class="container">
       <div class="row justify-content-center">
-          <div class="col-md-8">
+          <div class="col-md-12">
               <div id="main-card" class="card">
                 <div class="card-header">
                   <div class="row">
@@ -14,7 +14,12 @@
                       <h1>{{ $flat -> title }}</h1>
                     </div>
                     <div>
-                      <a href="{{ route('home') }}" class="btn btn-info"> <i class="fas fa-chevron-left"></i> </a>
+                      @auth
+                        <a href="{{ route('flats.index') }}" class="btn btn-info"> <i class="fas fa-chevron-left"></i> </a>
+                      @else
+                        <a href="{{ route('home') }}" class="btn btn-info"> <i class="fas fa-chevron-left"></i> </a>
+                      @endauth
+
                     </div>
                   </div>
                 </div>
