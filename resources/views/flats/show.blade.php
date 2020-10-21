@@ -146,13 +146,14 @@
                   <div class="row row-spacer">
                     <div class="col-6">
                       {{-- MAPPA --}}
-                      <div class="">
-                        qua c'è la mappaaaaaa
-                        {{-- latitudine --}}
-                        <input type="text" name="lat" value="{{ $flat -> lat }}" style="display: none;">
-                        {{-- longiudine --}}
-                        <input type="text" name="lon" value="{{ $flat -> lon }}" style="display: none;">
+                      <div id="map">
+
+
                       </div>
+                      {{-- latitudine --}}
+                      <input id="lat" type="text" name="lat" value="{{ $flat -> lat }}" style="display: none;">
+                      {{-- longiudine --}}
+                      <input id="lon" type="text" name="lon" value="{{ $flat -> lon }}" style="display: none;">
                     </div>
                     <div class="col-6">
                       {{-- MESSAGGI --}}

@@ -146,6 +146,21 @@ function init(){
   // autocompleteAddress();
   serviceInfo();
 
+    var lat = $('#lat').val();
+    var lon = $('#lon').val();
+
+    var coord = [lon, lat];
+    var map = tt.map({
+        container: 'map',
+        key: 'GAQpTuIuymbvAGETW9Qf0GSfF1ub9G0r',
+        style: 'tomtom://vector/1/basic-main',
+        center: coord,
+        zoom: 13
+    });
+
+    var marker = new tt.Marker().setLngLat(coord).addTo(map);
+
+
 }
 
 $(document).ready(init);

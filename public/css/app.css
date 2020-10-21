@@ -11376,6 +11376,12 @@ form.flat-create .btnInput i {
   }
 }
 
+#flatShow #map {
+  height: 100%;
+  width: 100%;
+  background-color: teal;
+}
+
 #flatShow #main-card > .card-header {
   padding: 0;
 }
