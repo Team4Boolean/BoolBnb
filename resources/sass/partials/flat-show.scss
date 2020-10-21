@@ -1,0 +1,27 @@
+.card-body{
+
+  .row-spacer{
+    padding-bottom: 50px;
+  }
+  // css carousel
+  #carouselExampleIndicators{
+
+    .carousel-inner{
+      width: 100%;
+
+      .carousel-item img{
+        height: 400px;
+      }
+    }
+  }
+
+  #messageBox{
+    .h3{
+      text-align: center;
+    }
+
+    button{
+      float: right;
+    }
+  }
+}

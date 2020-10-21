@@ -11359,6 +11359,26 @@ form.flat-create .btnInput i {
   }
 }
 
+.card-body .row-spacer {
+  padding-bottom: 50px;
+}
+
+.card-body #carouselExampleIndicators .carousel-inner {
+  width: 100%;
+}
+
+.card-body #carouselExampleIndicators .carousel-inner .carousel-item img {
+  height: 400px;
+}
+
+.card-body #messageBox .h3 {
+  text-align: center;
+}
+
+.card-body #messageBox button {
+  float: right;
+}
+
 footer {
   width: 100%;
   height: auto;
