@@ -105,6 +105,7 @@ function uploadImg(){
 }
 
 function autocompleteAddress() {
+  var places = require('places.js');
   var placesAutocomplete = places({
     appId: 'plXJIJDQMD75',
     apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
@@ -128,7 +129,7 @@ function autocompleteAddress() {
 }
 
 function init(){
-  
+
   initVue();
   // addKeyUpListener();
   uploadImg();

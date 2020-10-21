@@ -11205,6 +11205,16 @@ main .container .text h3 {
   font-weight: bold;
 }
 
+main .container .card {
+  margin-top: 20px;
+}
+
+main .container .card .card-header {
+  background-color: #ff385c;
+  color: white;
+  text-align: center;
+}
+
 main .container .row.homepage .col-xs-12 {
   margin-bottom: 15px;
 }

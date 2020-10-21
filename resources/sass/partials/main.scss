@@ -10,6 +10,15 @@
       font-weight: bold;
     }
   }
+  .card{
+    margin-top: 20px;
+    .card-header{
+      background-color: $coral;
+      color: white;
+      text-align: center;
+    }
+  }
+
 
   .row.homepage {
 

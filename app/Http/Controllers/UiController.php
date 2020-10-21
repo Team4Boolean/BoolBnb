@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Flat;
 use App\Sponsor;
+use App\Message;
 
 class UiController extends Controller
 {

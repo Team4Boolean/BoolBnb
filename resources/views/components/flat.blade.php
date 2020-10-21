@@ -34,7 +34,7 @@
 
     methods: {
       setMouseIn: function(mouseIn) {
-        this.mouseIn = mouseIn
+        this.mouseIn = mouseIn;
       }
     },
 
@@ -47,6 +47,12 @@
           return res + (this.desc.length > 50 ? '...' : '');
         }
       }
+      // shortImg: {
+      //   get: function() {
+      //     if (this.mouseIn) return this.img;
+      //     return this.img;
+      //   }
+      // }
     }
 
   });
