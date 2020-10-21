@@ -4,47 +4,33 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-use App\Flat;
-
-class FlatRequest extends FormRequest
+class UpraFlatRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
+
+    public function authorize() {
+
       // se il Gate upra-manage-flat restituisce false,
       // ovvero se l'utente loggato è diverso dall'utente dell'appartamento,
       // non permetto il FlatRequest
-      $flat= Flat::find($this -> id);
-
-      if (Gate::denies('upra-manage-flats', $flat)) {
+      if (Gate::denies('upra-manage-flats')) {
         return false;
       }
-
       return true;
 
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules() {
+     public function rules() {
 
-        return [
-          'title' => 'bail|required|string|max:255',
-          'desc' => 'required|max:500',
-          'rooms' => 'required|numeric',
-          'beds' => 'required|numeric',
-          'baths' => 'required|numeric',
-          'img' => 'required|image'
-        ];
+         return [
+           'title' => 'bail|required|string|max:255',
+           'desc' => 'required|max:500',
+           'rooms' => 'required|numeric',
+           'beds' => 'required|numeric',
+           'baths' => 'required|numeric',
+           'img' => 'required|image'
+         ];
 
-    }
+     }
 
     public function messages() {
 

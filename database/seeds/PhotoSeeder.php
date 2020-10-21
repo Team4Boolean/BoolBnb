@@ -10,7 +10,7 @@ class PhotoSeeder extends Seeder
 
     public function run()
     {
-      factory(Photo::class, 300)
+      factory(Photo::class, 600)
         -> make()
         -> each(function($photo) {
           $flat = Flat::inRandomOrder() -> first();

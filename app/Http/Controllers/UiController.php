@@ -4,12 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Flat;
+use App\Sponsor;
+
 class UiController extends Controller
 {
 
   public function home() {
 
-      return view('homepage');
+      $sponsored = Flat::has('sponsors')
+                -> paginate(6);
+                // -> inRandomOrder()
+                // -> take(6)
+                // -> get();
+
+      return view('homepage', compact('sponsored'));
   }
 
   public function flatShow($id) {

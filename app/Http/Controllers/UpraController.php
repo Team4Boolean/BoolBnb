@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 // richiama il flat
 use App\Flat;
+// richiama Upra Flat Request
+use App\Http\Requests\UpraFlatRequest;
 
 class UpraController extends Controller {
 
