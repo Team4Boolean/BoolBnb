@@ -73,72 +73,16 @@ function getCoord() {
 
 // input immagine + preview
 
-// ex1:
-// function readURL(input) {
-//
-//   if (input.files && input.files[0]) {
-//     var reader = new FileReader();
-//
-//     reader.onload = function(e) {
-//       $('#prev').attr('src', e.target.result);
-//     }
-//
-//     reader.readAsDataURL(input.files[0]); // convert to base64 string
-//   }
-// }
-//
-// function showPreview(){
-//   $("#prevContainer").css("display", "block");
-// }
-//
-// function uploadImg(){
-//
-//   // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
-//   $("#imgInp").change(function() {
-//     readURL(this);
-//     showPreview()
-//   });
-//
-// }
-//
-// function init(){
-//   addKeyUpListener();
-//   uploadImg();
-// }
-//
-// $(document).ready(init);
+function readURL(input) {
 
-// test vue
-import VueLazyload from 'vue-lazyload'
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
 
-Vue.use(VueLazyload)
-
-import VueUploadMultipleImage from 'vue-upload-multiple-image'
-export default {
-  name: 'app',
-  data () {
-    return {
-      images: []
+    reader.onload = function(e) {
+      $('#prev').attr('src', e.target.result);
     }
-  },
-  components: {
-    VueUploadMultipleImage
-  },
-  methods: {
-    uploadImageSuccess(formData, index, fileList) {
-      console.log('data', formData, index, fileList)
-    },
-    beforeRemove (index, done, fileList) {
-      console.log('index', index, fileList)
-      var r = confirm("remove image")
-      if (r == true) {
-        done()
-      } else {
-      }
-    },
-    editImage (formData, index, fileList) {
-      console.log('edit data', formData, index, fileList)
-    }
+
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
   }
 }
 

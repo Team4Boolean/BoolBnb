@@ -23,6 +23,13 @@ form.flat-create {
       width: 20%;
       height: 29px;
     }
+    .algolia-places{
+      width: 67%;
+      #street_name{
+        width: 170px;
+        height: 29px !important;
+      }
+    }
   }
 
 
@@ -93,30 +100,6 @@ form.flat-create {
       .input-group{
         width: 90%;
 
-      }
-    }
-  }
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-    h1, h2 {
-      font-weight: normal;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-      li {
-        display: inline-block;
-        margin: 0 10px;
-      }
-
-      a {
-        color: #42b983;
       }
     }
   }

@@ -75,7 +75,7 @@
                           {{-- municipality --}}
                           <div class="input-group input-group-sm mb-3 short-address">
                             <div class="input-group-prepend">
-                              <label class="input-group-text" for="municipality">Municipality</label>
+                              <label class="input-group-text" for="municipality">City</label>
                             </div>
                             <input type="text" id="municipality" class="form-control add_input" name="municipality" value="{{old('municipality')}}">
                           </div>
@@ -199,7 +199,7 @@
 
                       {{-- INPUT IMMAGINE --}}
 
-                      {{-- <section class="imgInput">
+                      <section class="imgInput">
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <label class="input-group-text" for="img">Upload your flat's image</label>
@@ -212,21 +212,7 @@
                         <div id="prevContainer" class="img-container">
                           <img id="prev" src="#" class="img-thumbnail">
                         </div>
-                      </section> --}}
-
-                      <template>
-                        <div id="app" style="display: flex; justify-content: center;">
-                          <vue-upload-multiple-image
-                            @upload-success="uploadImageSuccess"
-                            @before-remove="beforeRemove"
-                            @edit-image="editImage"
-                            :data-images="images"
-                            idUpload="myIdUpload"
-                            editUpload="myIdEdit"
-                            ></vue-upload-multiple-image>
-                        </div>
-                      </template>
-
+                      </section>
                       {{-- btn group --}}
                       <section class="btnInput">
                         <a href="{{ route('home') }}"><i class="fas fa-arrow-circle-left"></i></a>
