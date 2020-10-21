@@ -60029,7 +60029,16 @@ function initVue() {
   var app = new Vue({
     el: '#app'
   });
-} // FORM FLAT-CREATE
+} // FLAT-SHOW
+
+
+function serviceInfo() {
+  $('.service-item').hover(function () {
+    $(this).children('.serv-info').css('display', 'inline-block');
+  }, function () {
+    $(this).children('.serv-info').css('display', 'none');
+  });
+} // FLAT-CREATE
 
 
 function addKeyUpListener() {
@@ -60135,9 +60144,10 @@ function autocompleteAddress() {
 
 function init() {
   initVue(); // addKeyUpListener();
+  // uploadImg();
+  // autocompleteAddress();
 
-  uploadImg();
-  autocompleteAddress();
+  serviceInfo();
 }
 
 $(document).ready(init);
@@ -60207,8 +60217,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/fabrizio/Laravel/BoolBnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/fabrizio/Laravel/BoolBnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\molid\documents\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\molid\documents\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

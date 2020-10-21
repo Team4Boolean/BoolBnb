@@ -4,13 +4,19 @@
 {{-- SHOW APPARTAMENTO --}}
 
 
-  <div class="container">
+  <div id="flatShow" class="container">
       <div class="row justify-content-center">
           <div class="col-md-8">
-              <div class="card">
+              <div id="main-card" class="card">
                 <div class="card-header">
-                  <h1>{{ $flat -> title }}</h1>
-                  <h1></h1>
+                  <div class="row">
+                    <div class="col-sm-11">
+                      <h1>{{ $flat -> title }}</h1>
+                    </div>
+                    <div>
+                      <a href="{{ route('home') }}" class="btn btn-info"> <i class="fas fa-chevron-left"></i> </a>
+                    </div>
+                  </div>
                 </div>
                 <div class="card-body">
                   <div class="row row-spacer">
@@ -91,6 +97,45 @@
                           <span class="badge badge-danger">{{$flat -> sqm}}</span>
                         </li>
                       </ul>
+                    </div>
+                  </div>
+                  <div class="row row-spacer">
+                    <div class="services col">
+                      @foreach ($flat -> services as $service)
+                        <div class="service-item">
+                          @if ($service -> name == 'WiFi')
+                            <i class="fas fa-wifi"></i>
+                            <span class="serv-info">
+                              Wifi
+                            </span>
+                          @elseif ($service -> name == 'Posto Macchina')
+                            <i class="fas fa-parking"></i>
+                            <span class="serv-info">
+                              Posto Macchina
+                            </span>
+                          @elseif ($service -> name == 'Piscina')
+                            <i class="fas fa-swimming-pool"></i>
+                            <span class="serv-info">
+                              Piscina
+                            </span>
+                          @elseif ($service -> name == 'Portineria')
+                            <i class="fas fa-door-closed"></i>
+                            <span class="serv-info">
+                              Portineria
+                            </span>
+                          @elseif ($service -> name == 'Sauna')
+                            <i id="serv-item" class="fas fa-hot-tub"></i>
+                            <span class="serv-info">
+                              Sauna
+                            </span>
+                          @elseif ($service -> name == 'Vista Mare')
+                            <i class="fas fa-water"></i>
+                            <span class="serv-info">
+                              Vista Mare
+                            </span>
+                          @endif
+                        </div>
+                      @endforeach
                     </div>
                   </div>
                   <div class="row row-spacer">

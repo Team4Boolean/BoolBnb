@@ -16,8 +16,18 @@ function initVue() {
       el: '#app',
   });
 }
+// FLAT-SHOW
 
-// FORM FLAT-CREATE
+function serviceInfo(){
+  $('.service-item').hover(function() {
+    $(this).children('.serv-info').css('display', 'inline-block');
+  }, function() {
+    $(this).children('.serv-info').css('display', 'none');
+  });
+}
+
+
+// FLAT-CREATE
 
 function addKeyUpListener()  {
 
@@ -132,9 +142,9 @@ function init(){
 
   initVue();
   // addKeyUpListener();
-  uploadImg();
-  autocompleteAddress();
-
+  // uploadImg();
+  // autocompleteAddress();
+  serviceInfo();
 
 }
 
