@@ -11376,6 +11376,74 @@ form.flat-create .btnInput i {
   }
 }
 
+#flatShow #main-card > .card-header {
+  padding: 0;
+}
+
+#flatShow #main-card > .card-header h1 {
+  padding: 12px 15px;
+}
+
+#flatShow #main-card > .card-header a {
+  width: 35px;
+  height: 102%;
+  position: relative;
+  top: -1px;
+  left: 24px;
+  border-radius: unset;
+  padding: 0;
+}
+
+#flatShow #main-card > .card-header a i {
+  font-size: 40px;
+  position: relative;
+  right: 0;
+  top: 15px;
+  color: #ff385c;
+}
+
+#flatShow .card-body .row-spacer {
+  padding-bottom: 50px;
+}
+
+#flatShow .card-body #carouselExampleIndicators .carousel-inner {
+  width: 100%;
+}
+
+#flatShow .card-body #carouselExampleIndicators .carousel-inner .carousel-item img {
+  height: 400px;
+}
+
+#flatShow .card-body .services {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+#flatShow .card-body .services .service-item {
+  width: 60px;
+  height: auto;
+}
+
+#flatShow .card-body .services .service-item .serv-info {
+  position: absolute;
+  transform: translate(9%, -80%);
+  display: none;
+  background-color: #6cb2eb;
+  color: white;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+#flatShow .card-body .services .service-item i {
+  font-size: 48px;
+  color: #ff385c;
+}
+
+#flatShow .card-body #messageBox .h3 {
+  text-align: center;
+}
+
 footer {
   width: 100%;
   height: auto;

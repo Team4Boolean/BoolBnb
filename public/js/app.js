@@ -49537,7 +49537,16 @@ function initVue() {
   var app = new Vue({
     el: '#app'
   });
-} // FORM FLAT-CREATE
+} // FLAT-SHOW
+
+
+function serviceInfo() {
+  $('.service-item').hover(function () {
+    $(this).children('.serv-info').css('display', 'inline-block');
+  }, function () {
+    $(this).children('.serv-info').css('display', 'none');
+  });
+} // FLAT-CREATE
 
 
 function addKeyUpListener() {
@@ -49643,9 +49652,10 @@ function autocompleteAddress() {
 
 function init() {
   initVue(); // addKeyUpListener();
+  // uploadImg();
+  // autocompleteAddress();
 
-  uploadImg();
-  autocompleteAddress();
+  serviceInfo();
 }
 
 $(document).ready(init);
