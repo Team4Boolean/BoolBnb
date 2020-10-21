@@ -9,7 +9,7 @@
               <div class="card">
                 {{-- Titolo pagina cardheader --}}
                   <div class="card-header">
-                    <h1>Publicate Your Flat:</h1>
+                    <h1>Pubblica il tuo appartamento:</h1>
                   </div>
                   <div class="card-body">
 

@@ -1,76 +1,76 @@
 
 #flatShow{
   #main-card>.card-header{
+    padding: 0;
+
+    h1{
+      padding: 12px 15px;
+    }
+    a{
+      width: 35px;
+      height: 102%;
+      position: relative;
+      top: -1px;
+      left: 24px;
+      border-radius: unset;
       padding: 0;
 
-      h1{
-        padding: 12px 15px;
-      }
-      a{
-        width: 35px;
-        height: 102%;
+      i{
+        font-size: 40px;
         position: relative;
-        top: -1px;
-        left: 24px;
-        border-radius: unset;
-        padding: 0;
+        right: 0;
+        top: 15px;
+        color: $coral;
+      }
+    }
+  }
+  .card-body{
 
+    .row-spacer{
+      padding-bottom: 50px;
+    }
+    // css carousel
+    #carouselExampleIndicators{
+
+      .carousel-inner{
+        width: 100%;
+
+        .carousel-item img{
+          height: 400px;
+        }
+      }
+    }
+    .services{
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+
+      .service-item{
+        width: 60px;
+        height: auto;
+
+        .serv-info{
+          position: absolute;
+          transform: translate(9%, -80%);
+          display: none;
+
+          background-color: $cyan;
+          color: white;
+
+          padding: 5px;
+          border-radius: 6px;
+        }
         i{
-          font-size: 40px;
-          position: relative;
-          right: 0;
-          top: 15px;
+          font-size: 48px;
           color: $coral;
         }
       }
     }
-    .card-body{
 
-      .row-spacer{
-        padding-bottom: 50px;
-      }
-      // css carousel
-      #carouselExampleIndicators{
-
-        .carousel-inner{
-          width: 100%;
-
-          .carousel-item img{
-            height: 400px;
-          }
-        }
-      }
-      .services{
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-
-        .service-item{
-          width: 60px;
-          height: auto;
-
-          .serv-info{
-            position: absolute;
-            transform: translate(9%, -80%);
-            display: none;
-
-            background-color: $cyan;
-            color: white;
-
-            padding: 5px;
-            border-radius: 6px;
-          }
-          i{
-            font-size: 48px;
-            color: $coral;
-          }
-        }
-      }
-
-      #messageBox{
-        .h3{
-          text-align: center;
-        }
+    #messageBox{
+      .h3{
+        text-align: center;
       }
     }
+  }
 }
