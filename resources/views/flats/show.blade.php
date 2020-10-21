@@ -98,6 +98,10 @@
                       {{-- MAPPA --}}
                       <div class="">
                         qua c'è la mappaaaaaa
+                        {{-- latitudine --}}
+                        <input type="text" name="lat" value="{{ $flat -> lat }}" style="display: none;">
+                        {{-- longiudine --}}
+                        <input type="text" name="lon" value="{{ $flat -> lon }}" style="display: none;">
                       </div>
                     </div>
                     <div class="col-6">
