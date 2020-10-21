@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 // richiama i gate
 use Illuminate\Support\Facades\Gate;
-// richiama il flat
+// richiama il flat model
 use App\Flat;
+// richiama lo user model
+use App\User;
 // richiama Upra Flat Request
 use App\Http\Requests\UpraFlatRequest;
 
@@ -16,12 +18,26 @@ class UpraController extends Controller {
 
   public function flatIndex() {
 
-    if (Gate::denies('upra-manage-flats')) {
-      abort(401, 'Unathorized');
+    $id = Auth::user() -> id;
+    $firstname = Auth::user() -> firstname;
+    $lastname = Auth::user() -> lastname;
+
+    $message = "Benvenuto ".$firstname. " ".$lastname;
+
+    if (User::has('flats')) {
+
+      $flats = Flat::where('user_id', $id) -> get();
+      return view('flats.index', compact('message','flats'));
+
     } else {
-      $message = "Benvenuto nella dashboard!";
+
       return view('flats.index', compact('message'));
+
     }
+
+    // if (Gate::denies('upra-manage-flats')) {
+    //   abort(401, 'Unathorized');
+    // }
 
   }
 
