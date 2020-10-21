@@ -11408,6 +11408,10 @@ form.flat-create .btnInput i {
   color: #ff385c;
 }
 
+#flatShow .card-body .badge-success {
+  background-color: #008489;
+}
+
 #flatShow .card-body .row-spacer {
   padding-bottom: 50px;
 }
@@ -11443,11 +11447,15 @@ form.flat-create .btnInput i {
 
 #flatShow .card-body .services .service-item i {
   font-size: 48px;
-  color: #ff385c;
+  color: #008489;
 }
 
 #flatShow .card-body #messageBox .h3 {
   text-align: center;
+}
+
+#flatShow .card-body #messageBox .card {
+  margin-top: 0;
 }
 
 footer {

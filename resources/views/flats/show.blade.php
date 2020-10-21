@@ -6,7 +6,7 @@
 
   <div id="flatShow" class="container">
       <div class="row justify-content-center">
-          <div class="col-md-10">
+          <div class="col-md-12">
             <div id="main-card" class="card">
               <div class="card-header">
                 <div class="row">
@@ -17,7 +17,7 @@
               </div>
               <div class="card-body">
                 <div class="row row-spacer">
-                  <div class="col">
+                  <div class="col-md-10 ">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                       <ol class="carousel-indicators">
                         @php
@@ -79,19 +79,19 @@
                     <ul class="list-group">
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         Rooms
-                        <span class="badge badge-danger">{{$flat -> rooms}}</span>
+                        <span class="badge badge-success">{{$flat -> rooms}}</span>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         Beds
-                        <span class="badge badge-danger">{{$flat -> beds}}</span>
+                        <span class="badge badge-success">{{$flat -> beds}}</span>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         Bathrooms
-                        <span class="badge badge-danger">{{$flat -> baths}}</span>
+                        <span class="badge badge-success">{{$flat -> baths}}</span>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         Size
-                        <span class="badge badge-danger">{{$flat -> sqm}}</span>
+                        <span class="badge badge-success">{{$flat -> sqm}}</span>
                       </li>
                     </ul>
                   </div>
@@ -138,13 +138,13 @@
                 <div class="row row-spacer">
                   <div class="col-6">
                     {{-- MAPPA --}}
-                    <div class="">
-                      qua c'è la mappaaaaaa
-                      {{-- latitudine --}}
-                      <input type="text" name="lat" value="{{ $flat -> lat }}" style="display: none;">
-                      {{-- longiudine --}}
-                      <input type="text" name="lon" value="{{ $flat -> lon }}" style="display: none;">
+                    <div id="map">
+
                     </div>
+                    {{-- latitudine --}}
+                    <input id="lat" type="text" name="lat" value="{{ $flat -> lat }}" style="display: none;">
+                    {{-- longiudine --}}
+                    <input id="lon" type="text" name="lon" value="{{ $flat -> lon }}" style="display: none;">
                   </div>
                   <div class="col-6">
                     {{-- MESSAGGI --}}

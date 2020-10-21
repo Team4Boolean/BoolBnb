@@ -32,6 +32,10 @@
   }
   .card-body{
 
+    .badge-success{
+      background-color: $greenbnb;
+    }
+
     .row-spacer{
       padding-bottom: 50px;
     }
@@ -68,7 +72,7 @@
         }
         i{
           font-size: 48px;
-          color: $coral;
+          color: $greenbnb;
         }
       }
     }
@@ -76,6 +80,9 @@
     #messageBox{
       .h3{
         text-align: center;
+      }
+      .card{
+        margin-top: 0;
       }
     }
   }
