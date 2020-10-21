@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('jumbo')
   <div class="jumbotron jumbotron-fluid" style="background-image: url('https://a0.muscache.com/pictures/18084f37-67e0-400f-bfd8-55eea0e89508.jpg')">
     <div class="container">
@@ -13,7 +14,9 @@
     </div>
   </div>
 @endsection
+
 @section('content')
+
   <div class="container">
     <div class="text">
       <h3>Appartamenti in evidenza</h3>
@@ -21,7 +24,13 @@
 
     <div class="row homepage">
       @foreach ($sponsored as $flat)
-        <div class="col-xs-12 col-md-6 col-lg-4">
+        <flatcomponent
+          :title = "'{{ $flat -> title }}'"
+          :desc = "'{{ $flat -> desc }}'"
+          :img = "'{{ $flat -> photos -> first() -> url }}'"
+          :id = "'{{ $flat -> id }}'"
+        ></flatcomponent>
+        {{-- <div class="col-xs-12 col-md-6 col-lg-4">
           <div class="card">
             <img src="{{ $flat -> photos -> first() -> url }}" class="card-img-top" alt="flat-img">
             <div class="card-body">
@@ -30,9 +39,10 @@
               <a href="#" class="btn btn-primary">Visualizza</a>
             </div>
           </div>
-        </div>
+        </div> --}}
       @endforeach
     </div>
     {{ $sponsored -> links() }}
   </div>
+
 @endsection

@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" charset="utf-8"></script>
     <script type="text/javascript">
 
     </script>
@@ -25,6 +25,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    @include('components.flat')
+
     <div id="app">
       <header>
         @include('partials.header-navbar')
