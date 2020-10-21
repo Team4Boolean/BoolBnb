@@ -11424,6 +11424,17 @@ form.flat-create .btnInput i {
   height: 400px;
 }
 
+#flatShow .card-body #carouselExampleIndicators .carousel-control-prev-icon,
+#flatShow .card-body #carouselExampleIndicators .carousel-control-next-icon {
+  width: 40px;
+  height: 40px;
+}
+
+#flatShow .card-body #carouselExampleIndicators .carousel-indicators li {
+  width: 40px;
+  height: 5px;
+}
+
 #flatShow .card-body .services {
   display: flex;
   justify-content: space-around;
