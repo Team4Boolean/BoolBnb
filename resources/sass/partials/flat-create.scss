@@ -1,9 +1,14 @@
 form.flat-create {
 
+  .label-title {
+    font-size: 16px;
+    color: $maincolor;
+  }
+
   .adrInpList{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     margin: 20px 0;
 
     .add_input{
@@ -12,11 +17,12 @@ form.flat-create {
 
     .input-group{
       margin: 10px;
+
     }
 
     .long-address{
       width: 40%;
-      height: 29px;
+
 
     }
     .short-address{
@@ -36,12 +42,16 @@ form.flat-create {
   .numInput{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     margin: 20px 0;
 
     .input-group{
       width: 40%;
+      margin: 10px;
 
+      .input-group-prepend , select , input {
+        height: 30px;
+      }
 
       .custom-select{
         text-align-last: center;
@@ -49,6 +59,10 @@ form.flat-create {
 
       .form-control{
         text-align: center;
+      }
+      .radius{
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
     }
   }

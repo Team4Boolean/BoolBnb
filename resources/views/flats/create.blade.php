@@ -9,7 +9,7 @@
               <div class="card">
                 {{-- Titolo pagina cardheader --}}
                   <div class="card-header">
-                    <h1>Publicate your flat:</h1>
+                    <h1>Publicate Your Flat:</h1>
                   </div>
                   <div class="card-body">
 
@@ -25,7 +25,7 @@
                       <section class="textInput">
                         {{-- Titolo --}}
                         <div class="form-group">
-                          <label for="title">Title:</label>
+                          <label class="label-title" for="title">Title:</label>
                           <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}">
                           @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -35,19 +35,19 @@
                         </div>
                         {{-- Descrizione --}}
                         <div class="form-group">
-                          <label for="desc">Description:</label><br>
+                          <label class="label-title" for="desc">Descrizione:</label><br>
                           <textarea class="form-control" name="desc" rows="8" cols="80">{{ old('desc') }}</textarea>
                         </div>
                       </section>
                         <hr>
                         {{-- ADDRESS --}}
                       <section class="addressInput">
-                        <label>Address:</label>
+                        <label class="label-title">Indirizzo:</label>
                         <div class="adrInpList">
                           {{-- street name --}}
                           <div class="input-group input-group-sm mb-3 long-address">
                             <div class="input-group-prepend">
-                              <label class="input-group-text" for="street_name">Street Name</label>
+                              <label class="input-group-text" for="street_name">Via</label>
                             </div>
                             <input type="text" id="street_name" class="form-control add_input" name="street_name" value="{{old('street_name')}}">
                           </div>
@@ -61,7 +61,7 @@
                           {{-- province --}}
                           <div class="input-group input-group-sm mb-3 long-address">
                             <div class="input-group-prepend">
-                              <label class="input-group-text" for="subdivision">Province</label>
+                              <label class="input-group-text" for="subdivision">Provincia</label>
                             </div>
                             <input type="text" id="subdivision" class="form-control add_input" name="subdivision" value="{{old('subdivision')}}">
                           </div>
@@ -75,7 +75,7 @@
                           {{-- municipality --}}
                           <div class="input-group input-group-sm mb-3 short-address">
                             <div class="input-group-prepend">
-                              <label class="input-group-text" for="municipality">City</label>
+                              <label class="input-group-text" for="municipality">Città</label>
                             </div>
                             <input type="text" id="municipality" class="form-control add_input" name="municipality" value="{{old('municipality')}}">
                           </div>
@@ -101,10 +101,10 @@
                         {{-- n* Stanze --}}
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
-                            <label class="input-group-text" for="rooms">Rooms</label>
+                            <label class="input-group-text" for="rooms">Stanze</label>
                           </div>
                           <select class="custom-select" name="rooms">
-                            <option selected>Choose...</option>
+                            <option selected>Scegli...</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -115,10 +115,10 @@
                         {{-- n* letti --}}
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
-                            <label class="input-group-text" for="beds">Beds</label>
+                            <label class="input-group-text" for="beds">Letti</label>
                           </div>
                           <select class="custom-select" name="beds">
-                            <option selected>Choose...</option>
+                            <option selected>Scegli...</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -129,10 +129,10 @@
                         {{-- n* Bagni --}}
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
-                            <label class="input-group-text" for="baths">Bathrooms</label>
+                            <label class="input-group-text" for="baths">Bagni</label>
                           </div>
                           <select class="custom-select" name="baths">
-                            <option selected>Choose...</option>
+                            <option selected>Scegli...</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -145,7 +145,7 @@
                           </div>
                           <input class="form-control" type="number" name="sqm" value="{{ old('sqm') }}">
                           <div class="input-group-prepend">
-                            <label class="input-group-text" for="sqm">m²</label>
+                            <label class="input-group-text radius" for="sqm">m²</label>
                           </div>
                         </div>
                       </section>
@@ -154,7 +154,7 @@
 
                       <section class="checkInput">
                         <div class="form-group">
-                          <label>Additional Services:</label>
+                          <label class="label-title">Servizi Aggiuntivi:</label>
                           <ul>
                             <li>
                               {{-- wifi --}}
@@ -165,19 +165,19 @@
                             <li>
                               {{-- parking --}}
                               <div class="checkbox">
-                                <label><input type="checkbox" name="parking" value="{{ old('parking') }}"> Parking</label>
+                                <label><input type="checkbox" name="parking" value="{{ old('parking') }}"> Parcheggio</label>
                               </div>
                             </li>
                             <li>
                               {{-- swim --}}
                               <div class="checkbox">
-                                <label><input type="checkbox" name="swim" value="{{ old('swim') }}"> Swimming Pool</label>
+                                <label><input type="checkbox" name="swim" value="{{ old('swim') }}"> Piscina</label>
                               </div>
                             </li>
                             <li>
                               {{-- concierge --}}
                               <div class="checkbox">
-                                <label><input type="checkbox" name="concierge" value="{{ old('concierge') }}"> Doorkeeper</label>
+                                <label><input type="checkbox" name="concierge" value="{{ old('concierge') }}"> Portinaio</label>
                               </div>
                             </li>
                             <li>
@@ -189,7 +189,7 @@
                             <li>
                               {{-- sea --}}
                               <div class="checkbox">
-                                <label><input type="checkbox" name="sea" value="{{ old('sea') }}"> Sea View</label>
+                                <label><input type="checkbox" name="sea" value="{{ old('sea') }}"> Vista Mare</label>
                               </div>
                             </li>
 
@@ -202,11 +202,11 @@
                       <section class="imgInput">
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
-                            <label class="input-group-text" for="img">Upload your flat's image</label>
+                            <label class="input-group-text" for="img">Carica la tua immagine</label>
                           </div>
                           <div class="custom-file">
                             <input type="file" class="custom-file-input" name="img" id="imgInp" aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="img">Choose file</label>
+                            <label class="custom-file-label" for="img">Scegli file</label>
                           </div>
                         </div>
                         <div id="prevContainer" class="img-container">
@@ -216,7 +216,7 @@
                       {{-- btn group --}}
                       <section class="btnInput">
                         <a href="{{ route('home') }}"><i class="fas fa-arrow-circle-left"></i></a>
-                        <button class="btn btn-primary" type="submit">Confirm</button>
+                        <button class="btn btn-primary" type="submit">Conferma</button>
                       </section>
                     </form>
                   </div>

@@ -11213,6 +11213,7 @@ main .container .card .card-header {
   background-color: #ff385c;
   color: white;
   text-align: center;
+  font-size: 20px;
 }
 
 main .container .row.homepage .col-xs-12 {
@@ -11262,10 +11263,15 @@ main .container .row.homepage .col-xs-12 .card .card-body a.btn.btn-primary:hove
   }
 }
 
+form.flat-create .label-title {
+  font-size: 16px;
+  color: #222222;
+}
+
 form.flat-create .adrInpList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   margin: 20px 0;
 }
 
@@ -11279,7 +11285,6 @@ form.flat-create .adrInpList .input-group {
 
 form.flat-create .adrInpList .long-address {
   width: 40%;
-  height: 29px;
 }
 
 form.flat-create .adrInpList .short-address {
@@ -11299,12 +11304,19 @@ form.flat-create .adrInpList .algolia-places #street_name {
 form.flat-create .numInput {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   margin: 20px 0;
 }
 
 form.flat-create .numInput .input-group {
   width: 40%;
+  margin: 10px;
+}
+
+form.flat-create .numInput .input-group .input-group-prepend,
+form.flat-create .numInput .input-group select,
+form.flat-create .numInput .input-group input {
+  height: 30px;
 }
 
 form.flat-create .numInput .input-group .custom-select {
@@ -11314,6 +11326,11 @@ form.flat-create .numInput .input-group .custom-select {
 
 form.flat-create .numInput .input-group .form-control {
   text-align: center;
+}
+
+form.flat-create .numInput .input-group .radius {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 form.flat-create .checkInput ul {
