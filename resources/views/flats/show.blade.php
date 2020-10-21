@@ -79,19 +79,19 @@
                     <ul class="list-group">
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         Rooms
-                        <span class="badge badge-success">{{$flat -> rooms}}</span>
+                        <h4><span class="badge badge-success">{{$flat -> rooms}}</span></h4>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         Beds
-                        <span class="badge badge-success">{{$flat -> beds}}</span>
+                        <h4><span class="badge badge-success">{{$flat -> beds}}</span></h4>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         Bathrooms
-                        <span class="badge badge-success">{{$flat -> baths}}</span>
+                        <h4><span class="badge badge-success">{{$flat -> baths}}</span></h4>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         Size
-                        <span class="badge badge-success">{{$flat -> sqm}}</span>
+                        <h4><span class="badge badge-success">{{$flat -> sqm}}</span></h4>
                       </li>
                     </ul>
                   </div>

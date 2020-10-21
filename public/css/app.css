@@ -11469,6 +11469,11 @@ form.flat-create .btnInput i {
   margin-top: 0;
 }
 
+#flatShow .card-body #messageBox button {
+  float: right;
+  padding: 8px 30px;
+}
+
 footer {
   width: 100%;
   height: auto;
