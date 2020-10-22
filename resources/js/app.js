@@ -146,6 +146,7 @@ function init(){
   // autocompleteAddress();
   serviceInfo();
 
+  if ($('div').is('#flatShow')) {
     var lat = $('#lat').val();
     var lon = $('#lon').val();
 
@@ -159,8 +160,7 @@ function init(){
     });
 
     var marker = new tt.Marker().setLngLat(coord).addTo(map);
-
-
+  }
 }
 
 $(document).ready(init);
