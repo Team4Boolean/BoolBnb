@@ -8,7 +8,7 @@ class ApiController extends Controller
 {
 
     public function flatSearch() {
-      
+      return view('flats.search');
     }
 
 }
