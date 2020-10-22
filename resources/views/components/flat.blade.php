@@ -2,7 +2,7 @@
 
   <div class="col-xs-12 col-md-6 col-lg-3" v-on:mouseover="setMouseIn(true)" v-on:mouseout="setMouseIn(false)">
     <div style=" height: 350px" class="card">
-      <img :src="img" class="card-img-top" alt="flat-img">
+      <img style=" height: 140px" :src="img" class="card-img-top" alt="flat-img">
       <div class="card-body" style=" position: reltive;">
         <h5 class="card-title">@{{ title }}</h5>
         <p class="card-text text-muted">@{{ shortDesc }}</p>
