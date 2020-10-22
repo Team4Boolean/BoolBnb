@@ -60158,7 +60158,7 @@ function init() {
       key: 'GAQpTuIuymbvAGETW9Qf0GSfF1ub9G0r',
       style: 'tomtom://vector/1/basic-main',
       center: coord,
-      zoom: 13
+      zoom: 11
     });
     var marker = new tt.Marker().setLngLat(coord).addTo(map);
   }

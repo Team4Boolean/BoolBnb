@@ -10,14 +10,18 @@
       font-weight: bold;
     }
   }
-  .card{
+  .card {
+
     margin-top: 20px;
+
     .card-header{
-      background-color: $coral;
-      color: white;
+      background-color: white;
+      // color: white;
       text-align: center;
       font-size: 20px;
+      border-bottom: 2px solid $coral;
     }
+
   }
 
 
