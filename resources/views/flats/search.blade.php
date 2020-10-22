@@ -16,7 +16,7 @@
                   <div class="input-group-prepend ">
                     <label for="selectDistance" class="input-group-text ">Scegli la distanza</label>
                   </div>
-                  <select class="selectDistance" name="selectDistance">
+                  <select class="selectDistance custom-select" name="selectDistance">
                     <option value="5">Entro 5 Km</option>
                     <option value="10">Entro 10 Km</option>
                     <option value="25">Entro 25 Km</option>

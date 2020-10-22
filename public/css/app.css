@@ -11336,6 +11336,7 @@ form.flat-create .numInput .input-group .custom-select,
 form.flat-search .numInput .input-group .custom-select {
   -moz-text-align-last: center;
        text-align-last: center;
+  line-height: 15px;
 }
 
 form.flat-create .numInput .input-group .form-control,
