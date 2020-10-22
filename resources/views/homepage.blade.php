@@ -18,18 +18,22 @@
 @section('content')
 
   <div class="container">
+    
     <div class="text">
       <h3>Appartamenti in evidenza</h3>
     </div>
 
     <div class="row homepage">
+
       @foreach ($sponsored as $flat)
+
         <flatcomponent
           :title = "'{{ $flat -> title }}'"
           :desc = "'{{ $flat -> desc }}'"
           :img = "'{{ $flat -> photos -> first() -> url }}'"
           :id = "'{{ $flat -> id }}'"
         ></flatcomponent>
+
         {{-- <div class="col-xs-12 col-md-6 col-lg-4">
           <div class="card">
             <img src="{{ $flat -> photos -> first() -> url }}" class="card-img-top" alt="flat-img">
@@ -40,9 +44,13 @@
             </div>
           </div>
         </div> --}}
+
       @endforeach
+
     </div>
-    {{ $sponsored -> links() }}
+
+    {{-- {{ $sponsored -> links() }} --}}
+
   </div>
 
 @endsection

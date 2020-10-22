@@ -138,7 +138,7 @@
                 <div class="row row-spacer">
                   <div class="col-6">
                     {{-- MAPPA --}}
-                    <div id="map">
+                    <div id="map" defer>
 
                     </div>
                     {{-- latitudine --}}

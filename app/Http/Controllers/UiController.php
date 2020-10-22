@@ -14,10 +14,10 @@ class UiController extends Controller
   public function home() {
 
       $sponsored = Flat::has('sponsors')
-                -> paginate(6);
-                // -> inRandomOrder()
-                // -> take(6)
-                // -> get();
+                  -> inRandomOrder()
+                  -> take(8)
+                  -> get();
+                // -> paginate(6);
 
       return view('homepage', compact('sponsored'));
   }

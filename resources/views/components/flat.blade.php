@@ -1,6 +1,6 @@
 <script id="flat-component" type="text/x-template">
 
-  <div class="col-xs-12 col-md-6 col-lg-4" v-on:mouseover="setMouseIn(true)" v-on:mouseout="setMouseIn(false)">
+  <div class="col-xs-12 col-md-6 col-lg-3" v-on:mouseover="setMouseIn(true)" v-on:mouseout="setMouseIn(false)">
     <div class="card">
       <img :src="img" class="card-img-top" alt="flat-img">
       <div class="card-body">
