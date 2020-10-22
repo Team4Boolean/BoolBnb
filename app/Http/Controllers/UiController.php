@@ -34,7 +34,7 @@ class UiController extends Controller
   }
 
   public function requestStore() {
-
+    return view('advertisings.test');
   }
 
 

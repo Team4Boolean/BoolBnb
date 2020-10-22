@@ -20,6 +20,9 @@ Route::get('/api/flats/search', 'ApiController@flatSearch') -> name('api.flats.s
 //     Route::resource('flats', 'FlatController');
 //   });
 
+// test
+Route::get('/test', 'UiController@requestStore') -> name('adv.test');
+
 // Flats
 // Flats Ui -> show
 Route::get('/flats/{id}/show', 'UiController@flatShow') -> name('flats.show');
