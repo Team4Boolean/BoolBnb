@@ -21,7 +21,6 @@ $factory->define(Flat::class, function (Faker $faker) {
       'street_name'   =>  $faker -> streetName,
       'municipality'  =>  $faker -> state,
       'subdivision'     =>  $faker -> city,
-      'postal_code'   =>  $faker -> postcode,
-      'visible'       => $faker ->  boolean(true),
+      'postal_code'   =>  $faker -> postcode
     ];
 });

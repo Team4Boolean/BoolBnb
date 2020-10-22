@@ -34,9 +34,10 @@ class CreateFlatsTable extends Migration
             $table -> string('municipality', 85);
             $table -> string('subdivision', 50) -> nullable();
             $table -> string('postal_code', 20);
-            $table -> boolean('visible') -> default(1);
 
             $table -> timestamps();
+
+            $table -> softDeletes();
 
         });
     }

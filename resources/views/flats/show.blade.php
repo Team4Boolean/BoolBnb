@@ -3,11 +3,11 @@
 
 {{-- SHOW APPARTAMENTO --}}
 
+<a id="back-btn" class="my-4" href="{{route('flats.index')}}">< indietro</a>
 
   <div id="flatShow" class="container">
       <div class="row justify-content-center">
           <div class="col-md-12">
-            {{-- <a id="back-btn" class="btn btn-primary" href="{{route('flats.index')}}">Indietro</a> --}}
             <div id="main-card" class="card">
               <div class="card-header">
                 <div class="row">

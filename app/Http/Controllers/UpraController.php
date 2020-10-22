@@ -20,18 +20,9 @@ class UpraController extends Controller {
 
     $id = Auth::user() -> id;
     $firstname = Auth::user() -> firstname;
-    $lastname = Auth::user() -> lastname;
 
-    if (User::has('flats')) {
-
-      $flats = Flat::where('user_id', $id) -> get();
-      return view('flats.index', compact('firstname','flats'));
-
-    } else {
-
-      return view('flats.index', compact('message'));
-
-    }
+    $flats = Flat::where('user_id', $id) -> withTrashed() -> get();
+    return view('flats.index', compact('firstname','flats'));
 
     // if (Gate::denies('upra-manage-flats')) {
     //   abort(401, 'Unathorized');
@@ -40,6 +31,24 @@ class UpraController extends Controller {
   }
 
   public function flatEdit() {
+
+  }
+
+  public function flatDeactivate($id) {
+
+    $flat= Flat::withTrashed() -> find($id);
+    $flat -> delete();
+
+    return redirect() -> route('flats.index');
+
+  }
+
+  public function flatActivate($id) {
+
+    $flat= Flat::withTrashed() -> find($id);
+    $flat -> restore();
+
+    return redirect() -> route('flats.index');
 
   }
 

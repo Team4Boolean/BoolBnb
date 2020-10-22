@@ -11,13 +11,19 @@
               <a href="{{ route('flats.create') }}">Affitta un appartamento</a>
             </div>
 
-
             @isset($flats)
-
-              {{-- <h2>Appartamenti in affitto</h2> --}}
 
               <ul class="list-unstyled">
                 @foreach ($flats as $flat)
+
+                  {{-- @if ($loop->first && !$flat -> deleted_at)
+                      <h2>Appartamenti in affitto</h2>
+                  @endif
+
+                  @if ($flat -> deleted_at)
+                    <h2>Appartamenti disattivati</h2>
+                  @endif --}}
+
                   <li class="media my-4">
                     <div style="width:200px" class="mr-3">
                       <img src="{{ $flat -> photos -> first() -> url }}" class="rounded img-thumbnail img-fluid" alt="Flat Image">
@@ -26,10 +32,17 @@
                       <h5 class="mt-0 mb-1">{{ $flat -> title }}</h5>
                       {{ $flat -> desc }}
                       <div class="">
-                        <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary">Visualizza</a>
+                        @if ($flat -> trashed())
+                          <span class="text-danger">(disattivato)</span>
+                          <a href="{{ route('flats.activate', $flat -> id) }}" class="btn btn-primary">Attiva</a>
+                        @else
+                          <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary">Visualizza</a>
+                          <a href="{{ route('flats.deactivate', $flat -> id) }}" class="btn btn-danger">Disattiva</a>
+                        @endif
                       </div>
                     </div>
                   </li>
+
                 @endforeach
               </ul>
 
