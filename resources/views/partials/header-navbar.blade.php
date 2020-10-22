@@ -16,6 +16,16 @@
         <button id="search-button" class="rounded-circle" type="button" name="button" title="Search">
           <i class="fas fa-search"></i>
         </button>
+        <div class="form-group" style="display:none">
+            <label for="lon">LONGITUDINE</label>
+            <br>
+            <input id="search-lon" type="text" name="lon" value="">
+        </div>
+        <div class="form-group" style="display:none">
+            <label for="lat">LATITUDINE</label>
+            <br>
+            <input id="search-lat" type="text" name="lat" value="">
+        </div>
       </form>
     </div>
 
