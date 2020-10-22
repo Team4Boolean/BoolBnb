@@ -82,32 +82,34 @@ function getCoord() {
 
 // input immagine + preview
 
-function readURL(input) {
+// function readURL(input) {
+//
+//   if (input.files && input.files[0]) {
+//     var reader = new FileReader();
+//
+//     reader.onload = function(e) {
+//       $('#prev').attr('src', e.target.result);
+//     }
+//
+//     reader.readAsDataURL(input.files[0]); // convert to base64 string
+//   }
+// }
 
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
+// function showPreview(){
+//   $("#prevContainer").css("display", "block");
+// }
 
-    reader.onload = function(e) {
-      $('#prev').attr('src', e.target.result);
-    }
+// function uploadImg(){
+//
+//   // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
+//   $("#imgInp").change(function() {
+//     readURL(this);
+//     showPreview()
+//   });
+//
+// }
 
-    reader.readAsDataURL(input.files[0]); // convert to base64 string
-  }
-}
 
-function showPreview(){
-  $("#prevContainer").css("display", "block");
-}
-
-function uploadImg(){
-
-  // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
-  $("#imgInp").change(function() {
-    readURL(this);
-    showPreview()
-  });
-
-}
 
 function autocompleteAddress() {
   var places = require('places.js');
@@ -129,7 +131,7 @@ function autocompleteAddress() {
 
 function init(){
 
-  initVue();
+  // initVue();
   addKeyUpListener();
   // uploadImg();
   autocompleteAddress();
@@ -151,5 +153,7 @@ function init(){
     var marker = new tt.Marker().setLngLat(coord).addTo(map);
   }
 }
+
+
 
 $(document).ready(init);

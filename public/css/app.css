@@ -11374,13 +11374,9 @@ form.flat-search .checkInput ul li {
           user-select: none;
 }
 
-form.flat-create .imgInput #prevContainer,
-form.flat-search .imgInput #prevContainer {
-  display: none;
-  position: relative;
-  left: 35%;
-  width: 40%;
-  height: auto;
+form.flat-create #imgInput,
+form.flat-search #imgInput {
+  margin: 200px;
 }
 
 form.flat-create .btnInput,

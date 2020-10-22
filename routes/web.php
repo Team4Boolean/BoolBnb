@@ -35,6 +35,9 @@ Route::group([
     // Flats Upr -> create
     Route::get('/flats/create', 'UprController@flatCreate') -> name('flats.create');
     Route::post('/flats/store', 'UprController@flatStore') -> name('flats.store');
+    // dropzone img uploader
+    Route::get('/dropzone','UprController@dropzone') -> name('dropzone');
+    Route::post('/dropzone/store', 'UprController@dropzoneStore') -> name('dropzone.store');
     // Flats Upra -> index
     Route::get('/flats', 'UpraController@flatIndex') -> name('flats.index');
     // Flats Upra -> edit

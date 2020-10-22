@@ -199,7 +199,8 @@
 
                       {{-- INPUT IMMAGINE --}}
 
-                      <section class="imgInput">
+
+                      {{-- <section class="imgInput">
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <label class="input-group-text" for="img">Carica la tua immagine</label>
@@ -212,13 +213,40 @@
                         <div id="prevContainer" class="img-container">
                           <img id="prev" src="#" class="img-thumbnail">
                         </div>
-                      </section>
+                      </section> --}}
                       {{-- btn group --}}
+
                       <section class="btnInput">
                         <a href="{{ route('home') }}"><i class="fas fa-arrow-circle-left"></i></a>
                         <button class="btn btn-primary" type="submit">Conferma</button>
                       </section>
                     </form>
+                    <section id="ImgInput" style="padding-top:90px;">
+                      {{-- <div class="container"> --}}
+                        <div class="row">
+                          <div class="col-md-12">
+                            <form method="POST" action="{{route('dropzone.store')}}" accept-charset="UTF-8" enctype="multipart/form-data" class="dropzone dz-clickable" id="image-upload">
+                              @csrf
+                              <div>
+                                <h3>Carica le immagini del tuo appartamento</h3>
+                              </div>
+                              <div class="dz-default dz-message">
+                                <span>
+                                  Trascina le immagini qui per caricarle
+                                </span>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      {{-- </div> --}}
+                    </section>
+
+                    <script>
+                      Dropzone.options.imageUpload = {
+                        maxFilesize: 10000,
+                        acceptedFiles:".jpeg,.jpg,.png,.gif"
+                      };
+                    </script>
                   </div>
               </div>
           </div>

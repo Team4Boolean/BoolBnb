@@ -60088,30 +60088,30 @@ function getCoord() {
 }
 
 ; // input immagine + preview
-
-function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-      $('#prev').attr('src', e.target.result);
-    };
-
-    reader.readAsDataURL(input.files[0]); // convert to base64 string
-  }
-}
-
-function showPreview() {
-  $("#prevContainer").css("display", "block");
-}
-
-function uploadImg() {
-  // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
-  $("#imgInp").change(function () {
-    readURL(this);
-    showPreview();
-  });
-}
+// function readURL(input) {
+//
+//   if (input.files && input.files[0]) {
+//     var reader = new FileReader();
+//
+//     reader.onload = function(e) {
+//       $('#prev').attr('src', e.target.result);
+//     }
+//
+//     reader.readAsDataURL(input.files[0]); // convert to base64 string
+//   }
+// }
+// function showPreview(){
+//   $("#prevContainer").css("display", "block");
+// }
+// function uploadImg(){
+//
+//   // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
+//   $("#imgInp").change(function() {
+//     readURL(this);
+//     showPreview()
+//   });
+//
+// }
 
 function autocompleteAddress() {
   var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
@@ -60131,7 +60131,7 @@ function autocompleteAddress() {
 }
 
 function init() {
-  initVue();
+  // initVue();
   addKeyUpListener(); // uploadImg();
 
   autocompleteAddress();
@@ -60219,8 +60219,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\UTENTE\desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\UTENTE\desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\molid\documents\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\molid\documents\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

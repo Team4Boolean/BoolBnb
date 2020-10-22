@@ -26,9 +26,6 @@ class UprController extends Controller {
     // VALIDAZIONE: SECONDO modo
     // richiamo la classe FlatRequest definita in App\Http\Requests\FlatRequest
 
-    // Primo modo
-    // $userid = Auth::user() -> id;
-    // Secondo modo
     $userid = $request -> user() -> id;
 
     $data = $request -> all();
@@ -37,6 +34,19 @@ class UprController extends Controller {
     $flat = Flat::create($data);
 
     return redirect() -> route('home');
+  }
+
+  public function dropzone(){
+    return view('advertisings.test');
+  }
+
+  public function dropzoneStore(Request $request){
+
+    $image = $request->file('file');
+    $imageName = time().'.'.$image->extension();
+    $image->move(public_path('storage'), $imageName);
+
+    return response()->json(['success'=>$imageName]);
   }
 
 }
