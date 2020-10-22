@@ -8,7 +8,7 @@
 
             <h1 class="mt-3">Benvenuto, {{ $firstname }}</h1>
             <div class="mb-3">
-              <a href="{{ route('flats.create') }}">Affitta un appartamento</a>
+              <a href="{{ route('flats.create') }}"><strong><h4>Affitta un appartamento</h4></strong></a>
             </div>
 
             @isset($flats)
@@ -25,18 +25,30 @@
                   @endif --}}
 
                   <li class="media my-4">
-                    <div style="width:200px" class="mr-3">
+                    <div style="width:200px" class="mr-3
+                    @if ($flat -> trashed())
+                      opacity
+                    @endif
+                    ">
                       <img src="{{ $flat -> photos -> first() -> url }}" class="rounded img-thumbnail img-fluid" alt="Flat Image">
                     </div>
                     <div class="media-body">
-                      <h5 class="mt-0 mb-1">{{ $flat -> title }}</h5>
-                      {{ $flat -> desc }}
+                      <div class="
+                      @if ($flat -> trashed())
+                        opacity
+                      @endif
+                      ">
+                        <h5 class="mt-0 mb-1">{{ $flat -> title }}</h5>
+                        <p>{{ $flat -> desc }}</p>
+                      </div>
                       <div class="">
                         @if ($flat -> trashed())
-                          <span class="text-danger">(disattivato)</span>
-                          <a href="{{ route('flats.activate', $flat -> id) }}" class="btn btn-primary">Attiva</a>
+
+                            <span class="text-danger"><strong>Questo appartamento è disattivato</strong></span>
+                            <a href="{{ route('flats.activate', $flat -> id) }}" class="btn btn-primary float-right">Attiva</a>
+
                         @else
-                          <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary">Visualizza</a>
+                          <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary float-right">Visualizza</a>
                           <a href="{{ route('flats.deactivate', $flat -> id) }}" class="btn btn-danger">Disattiva</a>
                         @endif
                       </div>
