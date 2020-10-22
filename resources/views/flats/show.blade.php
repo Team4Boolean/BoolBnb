@@ -7,6 +7,7 @@
   <div id="flatShow" class="container">
       <div class="row justify-content-center">
           <div class="col-md-12">
+            {{-- <a id="back-btn" class="btn btn-primary" href="{{route('flats.index')}}">Indietro</a> --}}
             <div id="main-card" class="card">
               <div class="card-header">
                 <div class="row">
@@ -30,14 +31,10 @@
                           @else
                             <li data-target="#carouselExampleIndicators" data-slide-to="@php $i @endphp"></li>
                           @endif
-
-
                           @php
                           $i++
                           @endphp
                         @endforeach
-
-
                       </ol>
                       <div class="carousel-inner">
                         @php

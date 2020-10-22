@@ -1,5 +1,11 @@
 
 #flatShow{
+
+  #back-btn{
+    position: absolute;
+    // transform: translate(50%, 50%);
+  }
+
   #map {
     height: 100%;
     width:  100%;
@@ -72,7 +78,7 @@
           transform: translate(9%, -80%);
           display: none;
 
-          background-color: $cyan;
+          background-color: $coral;
           color: white;
 
           padding: 5px;

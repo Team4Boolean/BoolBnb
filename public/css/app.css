@@ -11376,6 +11376,10 @@ form.flat-create .btnInput i {
   }
 }
 
+#flatShow #back-btn {
+  position: absolute;
+}
+
 #flatShow #map {
   height: 100%;
   width: 100%;
@@ -11450,7 +11454,7 @@ form.flat-create .btnInput i {
   position: absolute;
   transform: translate(9%, -80%);
   display: none;
-  background-color: #6cb2eb;
+  background-color: #ff385c;
   color: white;
   padding: 5px;
   border-radius: 6px;

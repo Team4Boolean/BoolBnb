@@ -60148,17 +60148,20 @@ function init() {
   // autocompleteAddress();
 
   serviceInfo();
-  var lat = $('#lat').val();
-  var lon = $('#lon').val();
-  var coord = [lon, lat];
-  var map = tt.map({
-    container: 'map',
-    key: 'GAQpTuIuymbvAGETW9Qf0GSfF1ub9G0r',
-    style: 'tomtom://vector/1/basic-main',
-    center: coord,
-    zoom: 13
-  });
-  var marker = new tt.Marker().setLngLat(coord).addTo(map);
+
+  if ($('div').is('#flatShow')) {
+    var lat = $('#lat').val();
+    var lon = $('#lon').val();
+    var coord = [lon, lat];
+    var map = tt.map({
+      container: 'map',
+      key: 'GAQpTuIuymbvAGETW9Qf0GSfF1ub9G0r',
+      style: 'tomtom://vector/1/basic-main',
+      center: coord,
+      zoom: 13
+    });
+    var marker = new tt.Marker().setLngLat(coord).addTo(map);
+  }
 }
 
 $(document).ready(init);
@@ -60228,8 +60231,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/fabrizio/Laravel/BoolBnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/fabrizio/Laravel/BoolBnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\molid\documents\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\molid\documents\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
