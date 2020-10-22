@@ -11192,6 +11192,7 @@ header div.jumbotron div.text .btn:hover {
 
 main {
   padding-top: 71px;
+  min-height: calc(100vh - 71px);
 }
 
 main .opacity {

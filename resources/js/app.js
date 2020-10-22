@@ -114,14 +114,8 @@ function autocompleteAddress() {
   var placesAutocomplete = places({
     appId: 'plXJIJDQMD75',
     apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
-    container: document.querySelector('#search-bar'),
-    templates: {
-      value: function(suggestion) {
-        return suggestion.name;
-      }
-    }
-  }).configure({
-    type: 'address'
+    container: document.querySelector('#search-bar')
+
   });
 
   placesAutocomplete.on('change', function resultSelected(e) {
