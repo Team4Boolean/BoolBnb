@@ -1,12 +1,12 @@
 <script id="flat-component" type="text/x-template">
 
   <div class="col-xs-12 col-md-6 col-lg-3" v-on:mouseover="setMouseIn(true)" v-on:mouseout="setMouseIn(false)">
-    <div class="card">
+    <div style=" height: 350px" class="card">
       <img :src="img" class="card-img-top" alt="flat-img">
-      <div class="card-body">
+      <div class="card-body" style=" position: reltive;">
         <h5 class="card-title">@{{ title }}</h5>
         <p class="card-text text-muted">@{{ shortDesc }}</p>
-        <a :href="show" class="btn btn-primary">Visualizza</a>
+        <a :href="show" class="btn btn-primary" style=" position: absolute; bottom: 10px; left: 10px;">Visualizza</a>
       </div>
     </div>
   </div>
