@@ -11128,6 +11128,7 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 	return adjusted;
 }
 
+<<<<<<< HEAD
 
 var defaultDisplayMap = {};
 
@@ -13992,6 +13993,14 @@ jQuery.Animation = jQuery.extend( Animation, {
 			return tween;
 		} ]
 	},
+=======
+/***/ "./node_modules/es6-promise/dist/es6-promise.js":
+/*!******************************************************!*\
+  !*** ./node_modules/es6-promise/dist/es6-promise.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> main
 
 	tweener: function( props, callback ) {
 		if ( isFunction( props ) ) {
@@ -49527,6 +49536,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // window.Dropzone = require('dropzone');
+<<<<<<< HEAD
 // $(function () {
 //    // Here the default dropzone code:
 //     var myDropzone = new Dropzone(document.body, {
@@ -49558,10 +49568,15 @@ window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.
 //     formData.append("_token", CSRF_TOKEN);
 //   });
 // });
+=======
+>>>>>>> main
 
 function initVue() {
   var app = new Vue({
-    el: '#app'
+    el: '#app' // components: {
+    //   'component-a': ComponentA,
+    // }
+
   });
 } // FLAT-SHOW
 
@@ -49627,36 +49642,29 @@ function getCoord() {
 }
 
 ; // input immagine + preview
-// function readURL(input) {
-//
-//   if (input.files && input.files[0]) {
-//     var reader = new FileReader();
-//
-//     reader.onload = function(e) {
-//       $('#prev').attr('src', e.target.result);
-//     }
-//
-//     reader.readAsDataURL(input.files[0]); // convert to base64 string
-//   }
-// }
-// function showPreview(){
-//   $("#prevContainer").css("display", "block");
-// }
-// function uploadImg(){
-//
-//   // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
-//   $("#imgInp").change(function() {
-//     readURL(this);
-//     showPreview()
-//   });
-//
-// }
 
-function dropzone() {
-  Dropzone.options.imageUpload = {
-    maxFilesize: 1,
-    acceptedFiles: ".jpeg,.jpg,.png,.gif"
-  };
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#prev').attr('src', e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+function showPreview() {
+  $("#prevContainer").css("display", "block");
+}
+
+function uploadImg() {
+  // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
+  $("#imgInp").change(function () {
+    readURL(this);
+    showPreview();
+  });
 }
 
 function autocompleteAddress() {
@@ -49678,9 +49686,8 @@ function autocompleteAddress() {
 
 function init() {
   initVue();
-  addKeyUpListener(); // uploadImg();
-  // dropzone();
-
+  addKeyUpListener();
+  uploadImg();
   autocompleteAddress();
   serviceInfo();
 
@@ -49766,8 +49773,23 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\Andrea\Desktop\Boolean Class 15 Repo\Team.boolean\BoolBnb\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\Boolean Class 15 Repo\Team.boolean\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! D:\molid\documents\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\molid\documents\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+
+
+/***/ }),
+
+/***/ 1:
+/*!****************************!*\
+  !*** ./nextTick (ignored) ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+>>>>>>> main
 
 
 /***/ })

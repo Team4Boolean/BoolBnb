@@ -37,7 +37,6 @@
 
     <div id="app">
       <header>
-        @include('partials.header-navbar')
         @yield('jumbo')
       </header>
 
@@ -47,7 +46,12 @@
 
       @include('partials.footer')
     </div>
-
+    {{-- <script type="text/javascript">
+      Dropzone.options.imageUpload = {
+          maxFilesize         :       1,
+          acceptedFiles: ".jpeg,.jpg,.png,.gif"
+      };
+    </script> --}}
 
 </body>
 

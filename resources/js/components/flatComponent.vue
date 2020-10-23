@@ -12,8 +12,8 @@
 </template>
 
 <script>
-    export default {
-    
+  export default {
+
         name: 'flatcomponent',
 
         data: function () {

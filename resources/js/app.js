@@ -6,6 +6,7 @@ window.Vue = require('vue');
 window.$ = require('jquery');
 
 // window.Dropzone = require('dropzone');
+<<<<<<< HEAD
 
 // $(function () {
 //    // Here the default dropzone code:
@@ -40,10 +41,15 @@ window.$ = require('jquery');
 //   });
 // });
 
+=======
+>>>>>>> main
 
 function initVue() {
   const app = new Vue({
       el: '#app',
+      // components: {
+      //   'component-a': ComponentA,
+      // }
   });
 }
 // FLAT-SHOW
@@ -117,38 +123,31 @@ function getCoord() {
 
 // input immagine + preview
 
-// function readURL(input) {
-//
-//   if (input.files && input.files[0]) {
-//     var reader = new FileReader();
-//
-//     reader.onload = function(e) {
-//       $('#prev').attr('src', e.target.result);
-//     }
-//
-//     reader.readAsDataURL(input.files[0]); // convert to base64 string
-//   }
-// }
+function readURL(input) {
 
-// function showPreview(){
-//   $("#prevContainer").css("display", "block");
-// }
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
 
-// function uploadImg(){
-//
-//   // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
-//   $("#imgInp").change(function() {
-//     readURL(this);
-//     showPreview()
-//   });
-//
-// }
+    reader.onload = function(e) {
+      $('#prev').attr('src', e.target.result);
+    }
 
-function dropzone() {
-  Dropzone.options.imageUpload = {
-      maxFilesize         :       1,
-      acceptedFiles: ".jpeg,.jpg,.png,.gif"
-  };
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+function showPreview(){
+  $("#prevContainer").css("display", "block");
+}
+
+function uploadImg(){
+
+  // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
+  $("#imgInp").change(function() {
+    readURL(this);
+    showPreview()
+  });
+
 }
 
 function autocompleteAddress() {
@@ -173,8 +172,7 @@ function init(){
 
   initVue();
   addKeyUpListener();
-  // uploadImg();
-  // dropzone();
+  uploadImg();
   autocompleteAddress();
   serviceInfo();
 
