@@ -60018,42 +60018,15 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // window.Dropzone = require('dropzone');
-// $(function () {
-//    // Here the default dropzone code:
-//     var myDropzone = new Dropzone(document.body, {
-//         url: "/target-url"
-//     });
-//
-//   function dropzoneOptions() {
-//
-//     Dropzone.options.imageUpload = {
-//       // controllo sulle immagini
-//       maxFilesize: 1,
-//       acceptedFiles:".jpeg,.jpg,.png,.gif"
-//     };
-//   }
-//
-//   var imageUploadInput = $('#image-upload');
-//   dropzoneOptions(imageUploadInput);
-// });
-// $(function(){
-//
-//   var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-//
-//   Dropzone.autoDiscover = false;
-//   var myDropzone = new Dropzone(".dropzone",{
-//     maxFilesize: 3,  // 3 mb
-//     acceptedFiles: ".jpeg,.jpg,.png,.pdf",
-//   });
-//   myDropzone.on("sending", function(file, xhr, formData) {
-//     formData.append("_token", CSRF_TOKEN);
-//   });
-// });
+window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+window.Dropzone = __webpack_require__(/*! dropzone */ "./node_modules/dropzone/dist/dropzone.js");
 
 function initVue() {
   var app = new Vue({
-    el: '#app'
+    el: '#app' // components: {
+    //   'component-a': ComponentA,
+    // }
+
   });
 } // FLAT-SHOW
 
@@ -60119,36 +60092,29 @@ function getCoord() {
 }
 
 ; // input immagine + preview
-// function readURL(input) {
-//
-//   if (input.files && input.files[0]) {
-//     var reader = new FileReader();
-//
-//     reader.onload = function(e) {
-//       $('#prev').attr('src', e.target.result);
-//     }
-//
-//     reader.readAsDataURL(input.files[0]); // convert to base64 string
-//   }
-// }
-// function showPreview(){
-//   $("#prevContainer").css("display", "block");
-// }
-// function uploadImg(){
-//
-//   // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
-//   $("#imgInp").change(function() {
-//     readURL(this);
-//     showPreview()
-//   });
-//
-// }
 
-function dropzone() {
-  Dropzone.options.imageUpload = {
-    maxFilesize: 1,
-    acceptedFiles: ".jpeg,.jpg,.png,.gif"
-  };
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#prev').attr('src', e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+function showPreview() {
+  $("#prevContainer").css("display", "block");
+}
+
+function uploadImg() {
+  // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
+  $("#imgInp").change(function () {
+    readURL(this);
+    showPreview();
+  });
 }
 
 function autocompleteAddress() {
@@ -60170,9 +60136,8 @@ function autocompleteAddress() {
 
 function init() {
   initVue();
-  addKeyUpListener(); // uploadImg();
-  // dropzone();
-
+  addKeyUpListener();
+  uploadImg();
   autocompleteAddress();
   serviceInfo();
 
@@ -60258,8 +60223,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\UTENTE\desktop\boolean\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\UTENTE\desktop\boolean\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\molid\documents\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\molid\documents\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

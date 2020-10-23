@@ -7,43 +7,12 @@ window.$ = require('jquery');
 
 // window.Dropzone = require('dropzone');
 
-// $(function () {
-//    // Here the default dropzone code:
-//     var myDropzone = new Dropzone(document.body, {
-//         url: "/target-url"
-//     });
-//
-//   function dropzoneOptions() {
-//
-//     Dropzone.options.imageUpload = {
-//       // controllo sulle immagini
-//       maxFilesize: 1,
-//       acceptedFiles:".jpeg,.jpg,.png,.gif"
-//     };
-//   }
-//
-//   var imageUploadInput = $('#image-upload');
-//   dropzoneOptions(imageUploadInput);
-// });
-
-// $(function(){
-//
-//   var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-//
-//   Dropzone.autoDiscover = false;
-//   var myDropzone = new Dropzone(".dropzone",{
-//     maxFilesize: 3,  // 3 mb
-//     acceptedFiles: ".jpeg,.jpg,.png,.pdf",
-//   });
-//   myDropzone.on("sending", function(file, xhr, formData) {
-//     formData.append("_token", CSRF_TOKEN);
-//   });
-// });
-
-
 function initVue() {
   const app = new Vue({
       el: '#app',
+      // components: {
+      //   'component-a': ComponentA,
+      // }
   });
 }
 // FLAT-SHOW
@@ -117,38 +86,31 @@ function getCoord() {
 
 // input immagine + preview
 
-// function readURL(input) {
-//
-//   if (input.files && input.files[0]) {
-//     var reader = new FileReader();
-//
-//     reader.onload = function(e) {
-//       $('#prev').attr('src', e.target.result);
-//     }
-//
-//     reader.readAsDataURL(input.files[0]); // convert to base64 string
-//   }
-// }
+function readURL(input) {
 
-// function showPreview(){
-//   $("#prevContainer").css("display", "block");
-// }
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
 
-// function uploadImg(){
-//
-//   // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
-//   $("#imgInp").change(function() {
-//     readURL(this);
-//     showPreview()
-//   });
-//
-// }
+    reader.onload = function(e) {
+      $('#prev').attr('src', e.target.result);
+    }
 
-function dropzone() {
-  Dropzone.options.imageUpload = {
-      maxFilesize         :       1,
-      acceptedFiles: ".jpeg,.jpg,.png,.gif"
-  };
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+function showPreview(){
+  $("#prevContainer").css("display", "block");
+}
+
+function uploadImg(){
+
+  // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
+  $("#imgInp").change(function() {
+    readURL(this);
+    showPreview()
+  });
+
 }
 
 function autocompleteAddress() {
@@ -173,8 +135,7 @@ function init(){
 
   initVue();
   addKeyUpListener();
-  // uploadImg();
-  // dropzone();
+  uploadImg();
   autocompleteAddress();
   serviceInfo();
 

@@ -11489,6 +11489,13 @@ form.flat-search #imgInput {
   margin: 200px;
 }
 
+form.flat-create #imgInput #prevContainer,
+form.flat-search #imgInput #prevContainer {
+  display: none;
+  max-width: 200px;
+  max-height: 200px;
+}
+
 form.flat-create .btnInput,
 form.flat-search .btnInput {
   display: flex;
