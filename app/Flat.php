@@ -23,8 +23,7 @@ class Flat extends Model
       'street_name',
       'municipality',
       'subdivision',
-      'postal_code',
-      'visible'
+      'postal_code'
     ];
 
     // relazione One To Many(inversa) flats -> users

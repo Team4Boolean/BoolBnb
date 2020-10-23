@@ -6,7 +6,6 @@ window.Vue = require('vue');
 window.$ = require('jquery');
 
 // window.Dropzone = require('dropzone');
-<<<<<<< HEAD
 
 // $(function () {
 //    // Here the default dropzone code:
@@ -40,9 +39,6 @@ window.$ = require('jquery');
 //     formData.append("_token", CSRF_TOKEN);
 //   });
 // });
-
-=======
->>>>>>> main
 
 function initVue() {
   const app = new Vue({

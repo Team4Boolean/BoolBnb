@@ -30,7 +30,7 @@
               opacity
             @endif
             ">
-              <img src="{{ $flat -> photos -> first() -> url }}" class="rounded img-thumbnail img-fluid" alt="Flat Image">
+              <img src="{{ asset($flat -> photos() -> first() -> path) }}" class="rounded img-thumbnail img-fluid" alt="Flat Image">
             </div>
 
             <div class="col-xs-12 col-md-9 col-lg-8">
