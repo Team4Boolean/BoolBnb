@@ -5,7 +5,7 @@ window.Vue = require('vue');
 
 window.$ = require('jquery');
 
-window.Dropzone = require('dropzone');
+// window.Dropzone = require('dropzone');
 
 // $(function () {
 //    // Here the default dropzone code:

@@ -1,15 +1,94 @@
 div.jumbotron {
   width: 100%;
-  height: 400px;
+  height: 100vh;
   margin-right: 0;
-  margin-top: 71px;
   margin-bottom: 0;
   overflow-x: hidden;
-
-
+  position: relative;
   background-size: cover;
   background-position: center;
   color: $primary;
+
+  #jumbo-navbar {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 10px;
+    padding-left: 10%;
+    color: $coral !important;
+
+    span#jumbo-span-logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    ul {
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      white-space: nowrap;
+
+      li {
+        display: inline-block;
+        font-size: 16px;
+        letter-spacing: 2px;
+        border-radius: 20px;
+        margin-left: 5px;
+
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: #fff;
+          color: #fff;
+        }
+        .fa-bars:before, .fa-user:before {
+          color: $coral;
+          font-size: 16px;
+        }
+        a {
+          color: $coral;
+          font-weight: bold;
+        }
+
+        a.nav-link {
+          margin: 0 5px;
+        }
+      }
+
+      // Dropdown-item
+      li.nav-item.dropdown {
+        border: 1px solid #ddd;
+        transition: all 0.3s;
+        position: relative;
+
+        &:hover {
+          background-color: #fff;
+          box-shadow: 2px 2px 5px #ddd;
+        }
+
+        i {
+          font-size: 10px;
+          color: $maincolor;
+          margin-left: 3px;
+        }
+
+        div.dropdown-menu {
+          position: absolute;
+          left: auto;
+          right: 0;
+          font-size: 12px;
+          box-shadow: 2px 2px 5px #ddd;
+
+          a {
+            color: $maincolor;
+          }
+        }
+      }
+    }
+  }
 
   #jumbo-search-bar {
     width: 100%;
@@ -90,13 +169,13 @@ div.jumbotron {
 
 @media (min-width: $md) {
   div.jumbotron {
-    height: 450px;
+
   }
 }
 
 @media (min-width: $lg) {
   div.jumbotron {
-    height: calc(100vh - 71px);
+
 
 
 
