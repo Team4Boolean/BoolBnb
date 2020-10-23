@@ -108,7 +108,7 @@ function uploadImg(){
   // sul change dell'input carichiamo l'immagine nell'html e la mettiamo in display block
   $("#imgInp").change(function() {
     readURL(this);
-    showPreview()
+    showPreview();
   });
 
 }

@@ -11379,80 +11379,67 @@ main .container .row.homepage .col-xs-12 .card .card-body a.btn.btn-primary:hove
   }
 }
 
-form.flat-create .label-title,
-form.flat-search .label-title {
-  font-size: 16px;
-  color: #222222;
+form.flat-create .input-group-prepend label,
+form.flat-search .input-group-prepend label {
+  background-color: #008489;
+  color: white;
 }
 
-form.flat-create .adrInpList,
-form.flat-search .adrInpList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px 0;
+form.flat-create .textInput .input-group-prepend,
+form.flat-search .textInput .input-group-prepend {
+  width: 100%;
 }
 
-form.flat-create .adrInpList .add_input,
-form.flat-search .adrInpList .add_input {
+form.flat-create .textInput .input-group-prepend label,
+form.flat-search .textInput .input-group-prepend label {
+  display: block;
+  width: 100%;
+  height: 28px;
   text-align: center;
+  margin: 0;
 }
 
-form.flat-create .adrInpList .input-group,
-form.flat-search .adrInpList .input-group {
-  margin: 10px;
+form.flat-create .textInput #input-title label,
+form.flat-search .textInput #input-title label {
+  border-radius: 5px 5px 0 0;
 }
 
-form.flat-create .adrInpList .long-address,
-form.flat-search .adrInpList .long-address {
-  width: 40%;
+form.flat-create .textInput #input-title label h6,
+form.flat-search .textInput #input-title label h6 {
+  font-weight: bold;
 }
 
-form.flat-create .adrInpList .short-address,
-form.flat-search .adrInpList .short-address {
-  width: 20%;
-  height: 29px;
+form.flat-create .textInput #input-title input,
+form.flat-search .textInput #input-title input {
+  border-radius: 0;
 }
 
-form.flat-create .adrInpList .algolia-places,
-form.flat-search .adrInpList .algolia-places {
-  width: 67%;
+form.flat-create .textInput #input-title .form-control,
+form.flat-search .textInput #input-title .form-control {
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
 }
 
-form.flat-create .adrInpList .algolia-places #street_name,
-form.flat-search .adrInpList .algolia-places #street_name {
-  width: 170px;
-  height: 29px !important;
+form.flat-create .textInput #input-desc label,
+form.flat-search .textInput #input-desc label {
+  border-radius: 0;
 }
 
-form.flat-create .numInput,
-form.flat-search .numInput {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px 0;
+form.flat-create .textInput #input-desc textarea,
+form.flat-search .textInput #input-desc textarea {
+  border-radius: 0 0 5px 5px;
 }
 
-form.flat-create .numInput .input-group,
-form.flat-search .numInput .input-group {
-  width: 40%;
-  margin: 10px;
-}
-
-form.flat-create .numInput .input-group .input-group-prepend,
-form.flat-create .numInput .input-group select,
-form.flat-create .numInput .input-group input,
-form.flat-search .numInput .input-group .input-group-prepend,
-form.flat-search .numInput .input-group select,
-form.flat-search .numInput .input-group input {
-  height: 30px;
+form.flat-create .textInput #input-desc .form-control,
+form.flat-search .textInput #input-desc .form-control {
+  padding: 10px 15px;
 }
 
 form.flat-create .numInput .input-group .custom-select,
 form.flat-search .numInput .input-group .custom-select {
   -moz-text-align-last: center;
        text-align-last: center;
-  line-height: 15px;
 }
 
 form.flat-create .numInput .input-group .form-control,
@@ -11464,6 +11451,22 @@ form.flat-create .numInput .input-group .radius,
 form.flat-search .numInput .input-group .radius {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+form.flat-create .sec-title,
+form.flat-search .sec-title {
+  width: 30%;
+  height: 32px;
+  padding-top: 5px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #008489;
+  color: white;
+}
+
+form.flat-create .addressInput .add_input,
+form.flat-search .addressInput .add_input {
+  text-align: center;
 }
 
 form.flat-create .checkInput ul,
@@ -11502,17 +11505,19 @@ form.flat-search .btnInput {
   justify-content: space-between;
 }
 
+form.flat-create .btnInput button,
+form.flat-search .btnInput button {
+  background-color: #ff385c;
+  border-color: #ff385c;
+}
+
 form.flat-create .btnInput i,
 form.flat-search .btnInput i {
   font-size: 35px;
+  color: #ff385c;
 }
 
 @media (max-width: 576px) {
-  form.flat-create .numInput,
-  form.flat-search .numInput {
-    margin: 0;
-  }
-
   form.flat-create .numInput .input-group,
   form.flat-search .numInput .input-group {
     width: 90%;

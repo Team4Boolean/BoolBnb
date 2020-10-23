@@ -1,63 +1,72 @@
 form.flat-create, form.flat-search {
 
-
-
-  .label-title {
-    font-size: 16px;
-    color: $maincolor;
+  .input-group-prepend{
+    label{
+      background-color: $primary;
+      color: white;
+    }
   }
 
-  .adrInpList{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px 0;
+  .textInput{
+    .input-group-prepend{
+      width: 100%;
 
-    .add_input{
-      text-align: center;
-    }
-
-    .input-group{
-      margin: 10px;
-
-    }
-
-    .long-address{
-      width: 40%;
-
-
-    }
-    .short-address{
-      width: 20%;
-      height: 29px;
-    }
-    .algolia-places{
-      width: 67%;
-      #street_name{
-        width: 170px;
-        height: 29px !important;
+      label{
+        display: block;
+        width: 100%;
+        height: 28px;
+        text-align: center;
+        margin: 0;
       }
     }
-  }
 
+    #input-title{
+      label{
+        border-radius: 5px 5px 0 0;
+        h6{
+          font-weight: bold;
+        }
+      }
+      input{
+        border-radius: 0;
+      }
+      .form-control{
+        text-align: center;
+        font-weight: bold;
+        padding: 5px;
+      }
+    }
+    #input-desc{
+      label{
+        border-radius: 0;
+      }
+      textarea{
+        border-radius: 0 0 5px 5px;
+      }
+      .form-control{
+        padding: 10px 15px;
+      }
+    }
+
+  }
 
   .numInput{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px 0;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    // margin: 20px 0;
 
     .input-group{
-      width: 40%;
-      margin: 10px;
-
-      .input-group-prepend , select , input {
-        height: 30px;
-      }
-
+      // width: 40%;
+      // margin: 10px;
+      //
+      // .input-group-prepend , select , input {
+      //   height: 30px;
+      // }
+      //
       .custom-select{
         text-align-last: center;
-        line-height: 15px;
+        // line-height: 15px;
       }
 
       .form-control{
@@ -69,6 +78,28 @@ form.flat-create, form.flat-search {
         border-bottom-right-radius: 5px;
       }
     }
+  }
+  .sec-title{
+    width: 30%;
+    height: 32px;
+
+    padding-top: 5px;
+    text-align: center;
+
+    border-radius: 5px;
+    background-color: $primary;
+    color: white;
+
+    h5{
+
+    }
+  }
+
+  .addressInput{
+    .add_input{
+      text-align: center;
+    }
+
   }
 
   .checkInput{
@@ -94,6 +125,10 @@ form.flat-create, form.flat-search {
 
     margin: 200px;
 
+    .custom-file-input{
+
+    }
+
     #prevContainer{
       display: none;
       max-width: 200px;
@@ -107,15 +142,22 @@ form.flat-create, form.flat-search {
     display: flex;
     justify-content: space-between;
 
+    button{
+      background-color:  $coral;
+            border-color: $coral;
+    }
+
     i{
       font-size: 35px;
+      color: $coral;
+
     }
   }
 
   @media (max-width: $sm) {
     .numInput{
 
-      margin: 0;
+      // margin: 0;
 
       .input-group{
         width: 90%;
