@@ -11,6 +11,8 @@ use App\Flat;
 use App\Http\Requests\UprFlatRequest;
 // richiama Photo
 use App\Photo;
+// richiama Service
+use App\Service;
 
 class UprController extends Controller {
 
@@ -33,27 +35,34 @@ class UprController extends Controller {
     $data = $request -> all();
 
     $data['user_id'] = $userid;
-    // dd($data);
-
-    $data['lon'] = 1;
-    $data['lat'] = 1;
 
     $flat = Flat::create($data);
 
+    // se sono presenti servizi associati all'apaprtamento li inserisco nella tabella ponte flat_service
+    if (!empty($data['services'])) {
+
+      $services = $data['services'];
+
+      foreach ($services as $service) {
+        $service_entity = Service::where('name',$service) -> get();
+        $flat -> services() -> attach($service_entity);
+      }
+
+    }
+
     if ($request -> hasFile('img')) {
 
+      // predno il file contenuto in 'img' all'interno della request
       $file = $request -> file('img');
       $filename = $flat -> id.'.'.$file -> extension();
 
+      // memorizzo la foto nella directory /photos e prendo l'url generato
       $photo['url'] = $file -> storeAs(env('PHOTOS_DIR'), $filename);
       $photo['flat_id'] = $flat -> id;
 
       $photo = Photo::create($photo);
-      // $flat -> photos() -> url = $filename;
 
     }
-
-    // $services = Flat::class -> services() ->
 
     return redirect() -> route('flats.index');
   }

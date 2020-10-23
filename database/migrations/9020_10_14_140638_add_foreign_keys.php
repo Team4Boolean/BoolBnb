@@ -22,7 +22,8 @@ class AddForeignKeys extends Migration
       Schema::table('photos', function (Blueprint $table) {
         $table -> foreign('flat_id', 'pht-flt')
                -> references('id')
-               -> on('flats');
+               -> on('flats')
+               -> onDelete('cascade');
       });
       Schema::table('visits', function (Blueprint $table) {
         $table -> foreign('flat_id', 'vst-flt')

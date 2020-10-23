@@ -60148,20 +60148,37 @@ function uploadImg() {
 }
 
 function autocompleteAddress() {
-  var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+  if ($('div').is('.jumbotron')) {
+    var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
-  var placesAutocomplete = places({
-    appId: 'plXJIJDQMD75',
-    apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
-    container: document.querySelector('#search-bar')
-  });
-  placesAutocomplete.on('change', function resultSelected(e) {
-    //   document.querySelector('#subdivision').value = e.suggestion.county || '';
-    //   document.querySelector('#municipality').value = e.suggestion.city || '';
-    //   document.querySelector('#postal_code').value = e.suggestion.postcode || '';
-    document.querySelector('#search-lat').value = e.suggestion.latlng['lat'] || '';
-    document.querySelector('#search-lon').value = e.suggestion.latlng['lng'] || '';
-  });
+    var placesAutocomplete = places({
+      appId: 'plXJIJDQMD75',
+      apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
+      container: document.querySelector('#jumbo-search-bar')
+    });
+    placesAutocomplete.on('change', function resultSelected(e) {
+      //   document.querySelector('#subdivision').value = e.suggestion.county || '';
+      //   document.querySelector('#municipality').value = e.suggestion.city || '';
+      //   document.querySelector('#postal_code').value = e.suggestion.postcode || '';
+      document.querySelector('#jumbo-search-lat').value = e.suggestion.latlng['lat'] || '';
+      document.querySelector('#jumbo-search-lon').value = e.suggestion.latlng['lng'] || '';
+    });
+  } else {
+    var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+
+    var placesAutocomplete = places({
+      appId: 'plXJIJDQMD75',
+      apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
+      container: document.querySelector('#search-bar')
+    });
+    placesAutocomplete.on('change', function resultSelected(e) {
+      //   document.querySelector('#subdivision').value = e.suggestion.county || '';
+      //   document.querySelector('#municipality').value = e.suggestion.city || '';
+      //   document.querySelector('#postal_code').value = e.suggestion.postcode || '';
+      document.querySelector('#search-lat').value = e.suggestion.latlng['lat'] || '';
+      document.querySelector('#search-lon').value = e.suggestion.latlng['lng'] || '';
+    });
+  }
 }
 
 function init() {

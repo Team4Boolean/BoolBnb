@@ -9,12 +9,12 @@ class ServiceSeeder extends Seeder
     {
 
       $services = [
-        'WiFi',
-        'Posto Macchina',
-        'Piscina',
-        'Portineria',
-        'Sauna',
-        'Vista Mare'
+        'wifi',
+        'parking',
+        'swim',
+        'concierge',
+        'sauna',
+        'sea'
       ];
 
       foreach ($services as $service) {

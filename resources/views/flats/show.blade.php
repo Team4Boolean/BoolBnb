@@ -24,7 +24,7 @@
                         @php
                         $i = 0;
                         @endphp
-                        @foreach ($flat -> photos as $indicator)
+                        @foreach ($flat -> photos() as $indicator)
                           @if ($i == 0)
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 
@@ -43,14 +43,14 @@
                         @foreach ($flat -> photos as $img)
                           @if ($bool)
                             <div class="carousel-item active">
-                              <img class="d-block w-100" src="{{ $img -> url }}" alt="First slide">
+                              <img class="d-block w-100" src="{{ asset($img -> path) }}" alt="First slide">
                             </div>
                             @php
                             $bool = false;
                             @endphp
                           @else
                             <div class="carousel-item">
-                              <img class="d-block w-100" src="{{ $img -> url }}" alt="First slide">
+                              <img class="d-block w-100" src="{{ asset($img -> path) }}" alt="First slide">
                             </div>
                           @endif
 

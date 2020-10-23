@@ -11234,12 +11234,10 @@ header div.jumbotron #jumbo-search-bar {
   padding: 0 15px;
   font-size: 14px;
   color: #777;
-  margin-bottom: 1rem;
   transition: all 0.3s;
 }
 
 header div.jumbotron #jumbo-search-bar:hover {
-  transform: scale(1.01);
   box-shadow: 2px 2px 5px #ddd;
 }
 
@@ -11279,6 +11277,7 @@ header div.jumbotron div.text p {
 }
 
 header div.jumbotron div.text .btn {
+  margin-top: 1rem;
   box-shadow: 1px 1px 3px rgba(255, 56, 92, 0.7);
   border-radius: 7px;
   font-size: 16px;

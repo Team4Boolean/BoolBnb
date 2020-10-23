@@ -6,10 +6,6 @@ window.Vue = require('vue');
 window.$ = require('jquery');
 
 // window.Dropzone = require('dropzone');
-<<<<<<< Updated upstream
-=======
-// <<<<<<< HEAD
->>>>>>> Stashed changes
 
 // $(function () {
 //    // Here the default dropzone code:
@@ -44,12 +40,6 @@ window.$ = require('jquery');
 //   });
 // });
 
-<<<<<<< Updated upstream
-=======
-// =======
-// >>>>>>> main
-
->>>>>>> Stashed changes
 function initVue() {
   const app = new Vue({
       el: '#app',
@@ -191,7 +181,7 @@ function autocompleteAddress() {
           document.querySelector('#search-lon').value = e.suggestion.latlng['lng']  || '';
         });
       }
-    } 
+    }
 
 function init(){
 

@@ -50,7 +50,7 @@ class UpraFlatRequest extends FormRequest
     public function messages() {
 
       return [
-        'title.required' => 'Indicare un Titolo',
+        'title.required' => 'Inserire un Titolo',
         'title.max' => 'Non sono consentiti più di 500 caratteri',
         'desc.required' => 'Inserire una Descrizione',
         'desc.max' => 'Non sono consentiti più di 500 caratteri',
