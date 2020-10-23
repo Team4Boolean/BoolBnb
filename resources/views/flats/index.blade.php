@@ -44,12 +44,12 @@
                       <div class="">
                         @if ($flat -> trashed())
 
-                            <span class="text-danger"><strong>Questo appartamento è disattivato</strong></span>
-                            <a href="{{ route('flats.activate', $flat -> id) }}" class="btn btn-primary float-right">Attiva</a>
+                            <span class="text-danger float-right"><strong>Questo appartamento è disattivato</strong></span>
+                            <a href="{{ route('flats.activate', $flat -> id) }}" class="btn btn-primary">Attiva</a>
 
                         @else
-                          <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary float-right">Visualizza</a>
-                          <a href="{{ route('flats.deactivate', $flat -> id) }}" class="btn btn-danger">Disattiva</a>
+                          <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary">Visualizza</a>
+                          <a href="{{ route('flats.deactivate', $flat -> id) }}" class="btn btn-danger float-right">Disattiva</a>
                         @endif
                       </div>
                     </div>
