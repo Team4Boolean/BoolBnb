@@ -156,37 +156,37 @@
                             <li>
                               {{-- wifi --}}
                               <div class="checkbox">
-                                <label><input type="checkbox" name="wifi" value="{{ old('wifi') }}"> Wifi</label>
+                                <label><input type="checkbox" name="services[]" value="wifi"> Wifi</label>
                               </div>
                             </li>
                             <li>
                               {{-- parking --}}
                               <div class="checkbox">
-                                <label><input type="checkbox" name="parking" value="{{ old('parking') }}"> Parcheggio</label>
+                                <label><input type="checkbox" name="services[]" value="parking"> Parcheggio</label>
                               </div>
                             </li>
                             <li>
                               {{-- swim --}}
                               <div class="checkbox">
-                                <label><input type="checkbox" name="swim" value="{{ old('swim') }}"> Piscina</label>
+                                <label><input type="checkbox" name="services[]" value="swim"> Piscina</label>
                               </div>
                             </li>
                             <li>
                               {{-- concierge --}}
                               <div class="checkbox">
-                                <label><input type="checkbox" name="concierge" value="{{ old('concierge') }}"> Portinaio</label>
+                                <label><input type="checkbox" name="services[]" value="concierge"> Portinaio</label>
                               </div>
                             </li>
                             <li>
                               {{-- sauna --}}
                               <div class="checkbox">
-                                <label><input type="checkbox" name="sauna" value="{{ old('sauna') }}"> Sauna</label>
+                                <label><input type="checkbox" name="services[]" value="sauna"> Sauna</label>
                               </div>
                             </li>
                             <li>
                               {{-- sea --}}
                               <div class="checkbox">
-                                <label><input type="checkbox" name="sea" value="{{ old('sea') }}"> Vista Mare</label>
+                                <label><input type="checkbox" name="services[]" value="sea"> Vista Mare</label>
                               </div>
                             </li>
 
