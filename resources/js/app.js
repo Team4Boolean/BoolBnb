@@ -7,6 +7,39 @@ window.$ = require('jquery');
 
 // window.Dropzone = require('dropzone');
 
+// $(function () {
+//    // Here the default dropzone code:
+//     var myDropzone = new Dropzone(document.body, {
+//         url: "/target-url"
+//     });
+//
+//   function dropzoneOptions() {
+//
+//     Dropzone.options.imageUpload = {
+//       // controllo sulle immagini
+//       maxFilesize: 1,
+//       acceptedFiles:".jpeg,.jpg,.png,.gif"
+//     };
+//   }
+//
+//   var imageUploadInput = $('#image-upload');
+//   dropzoneOptions(imageUploadInput);
+// });
+
+// $(function(){
+//
+//   var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+//
+//   Dropzone.autoDiscover = false;
+//   var myDropzone = new Dropzone(".dropzone",{
+//     maxFilesize: 3,  // 3 mb
+//     acceptedFiles: ".jpeg,.jpg,.png,.pdf",
+//   });
+//   myDropzone.on("sending", function(file, xhr, formData) {
+//     formData.append("_token", CSRF_TOKEN);
+//   });
+// });
+
 function initVue() {
   const app = new Vue({
       el: '#app',

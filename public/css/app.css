@@ -11524,14 +11524,33 @@ form.flat-search .btnInput i {
   }
 }
 
-#flatShow #back-btn {
+#back-btn {
   position: absolute;
+  top: 56px;
+  left: 7px;
+  background-color: #ff385c;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  width: 68px;
+}
+
+#back-btn:hover {
+  transform: scale(1.05);
+  transition: 0.1s;
+}
+
+#flatShow {
+  margin-top: 29px;
 }
 
 #flatShow #map {
-  height: 100%;
+  height: 505px;
   width: 100%;
   background-color: teal;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 
 #flatShow #main-card > .card-header {
@@ -11568,12 +11587,12 @@ form.flat-search .btnInput i {
   padding-bottom: 50px;
 }
 
-#flatShow .card-body #carouselExampleIndicators .carousel-inner {
-  width: 100%;
+#flatShow .card-body .row-spacer .span-serv {
+  margin-right: 10px;
 }
 
-#flatShow .card-body #carouselExampleIndicators .carousel-inner .carousel-item img {
-  height: 400px;
+#flatShow .card-body #carouselExampleIndicators .carousel-inner {
+  width: 100%;
 }
 
 #flatShow .card-body #carouselExampleIndicators .carousel-control-prev-icon,
@@ -11591,6 +11610,7 @@ form.flat-search .btnInput i {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #flatShow .card-body .services .service-item {
@@ -11609,8 +11629,9 @@ form.flat-search .btnInput i {
 }
 
 #flatShow .card-body .services .service-item i {
-  font-size: 48px;
+  font-size: 35px;
   color: #008489;
+  margin: 10px 5px;
 }
 
 #flatShow .card-body #messageBox .h3 {
@@ -11618,7 +11639,9 @@ form.flat-search .btnInput i {
 }
 
 #flatShow .card-body #messageBox .card {
-  margin-top: 0;
+  margin-top: 10px;
+  height: 505px;
+  border-radius: 5px;
 }
 
 #flatShow .card-body #messageBox button {

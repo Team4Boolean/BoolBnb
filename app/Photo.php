@@ -15,4 +15,12 @@ class Photo extends Model
     public function flat() {
       return $this -> belongsTo(Flat::class);
     }
+
+    public function getPathAttribute() {
+      $url = $this -> url;
+      if (stristr($this -> url, 'http') === false) {
+        $url = 'storage/'.$this -> url;
+      }
+      return $url;
+    }
 }

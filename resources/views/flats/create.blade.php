@@ -16,7 +16,7 @@
                     @include('partials.input-errors')
 
                     {{-- FORM --}}
-                    <form class="flat-create" action="{{ route('flats.store') }}" method="post">
+                    <form class="flat-create" action="{{ route('flats.store') }}" method="post" enctype="multipart/form-data">
                       @csrf
                       @method('POST')
 

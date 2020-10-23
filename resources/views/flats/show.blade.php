@@ -3,7 +3,7 @@
 
 {{-- SHOW APPARTAMENTO --}}
 
-<a id="back-btn" class="my-4" href="{{route('flats.index')}}">< indietro</a>
+<a id="back-btn" class="my-4" href="{{route('flats.index')}}"> indietro </a>
 
   <div id="flatShow" class="container">
       <div class="row justify-content-center">
@@ -75,19 +75,19 @@
                   <div class="col">
                     <ul class="list-group">
                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Rooms
+                        <span class="span-serv">Rooms</span>
                         <h4><span class="badge badge-success">{{$flat -> rooms}}</span></h4>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Beds
+                        <span class="span-serv">Beds</span>
                         <h4><span class="badge badge-success">{{$flat -> beds}}</span></h4>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Bathrooms
+                        <span class="span-serv">Bathrooms</span>
                         <h4><span class="badge badge-success">{{$flat -> baths}}</span></h4>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Size
+                        <span class="span-serv">Size</span>
                         <h4><span class="badge badge-success">{{$flat -> sqm}}</span></h4>
                       </li>
                     </ul>
@@ -133,7 +133,7 @@
                   </div>
                 </div>
                 <div class="row row-spacer">
-                  <div class="col-6">
+                  <div class="col-xs-12 col-md-12 col-lg-6">
                     {{-- MAPPA --}}
                     <div id="map" defer>
 
@@ -143,7 +143,7 @@
                     {{-- longiudine --}}
                     <input id="lon" type="text" name="lon" value="{{ $flat -> lon }}" style="display: none;">
                   </div>
-                  <div class="col-6">
+                  <div class="col-xs-12 col-md-12 col-lg-6">
                     {{-- MESSAGGI --}}
                     <form id="messageBox">
                       <div class="card">
