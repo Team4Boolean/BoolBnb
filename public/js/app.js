@@ -60131,7 +60131,7 @@ function autocompleteAddress() {
 }
 
 function init() {
-  // initVue();
+  initVue();
   addKeyUpListener(); // uploadImg();
 
   autocompleteAddress();
