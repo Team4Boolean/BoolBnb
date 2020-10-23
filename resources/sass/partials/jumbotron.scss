@@ -9,32 +9,75 @@ div.jumbotron {
 
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: $primary;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  #jumbo-search-bar {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 1rem;
 
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: 2px 2px 5px #ddd;
+    }
+
+    &:focus {
+      outline:none;
+    }
+  }
+
+  div.container {
+    height: 100%;
+  }
+  div.row {
+    height: 100%;
+
+    div.jumbo-left-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+
+    }
+  }
   div.text {
     text-align: center;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 7px #111;
+
 
     h1 {
-      text-shadow: 1px 1px 4px #444;
+
       font-weight: bold;
     }
     p {
-      font-size: 12px;
-      text-shadow: 1px 1px 4px #444;
+      font-size: 16px;
+
     }
 
     .btn {
-      box-shadow: 1px 1px 7px #666;
+      box-shadow: 1px 1px 3px $coralt;
       border-radius: 7px;
-      font-size: 12px;
+      font-size: 16px;
       transition: all 0.3s;
+      border-color: $coralt;
+      background-color: $coral;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 2px;
+
 
       &:hover {
-        background-color: #ddd !important;
+        background-color: $coralt !important;
       }
     }
   }
@@ -53,8 +96,9 @@ div.jumbotron {
 
 @media (min-width: $lg) {
   div.jumbotron {
-    height: 500px;
-    justify-content: center;
+    height: calc(100vh - 71px);
+
+
 
     div.text {
       text-align: left;
