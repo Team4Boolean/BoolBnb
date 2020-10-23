@@ -200,7 +200,7 @@
                       {{-- INPUT IMMAGINE --}}
 
 
-                      {{-- <section class="imgInput">
+                      <section class="imgInput">
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <label class="input-group-text" for="img">Carica la tua immagine</label>
@@ -210,10 +210,11 @@
                             <label class="custom-file-label" for="img">Scegli file</label>
                           </div>
                         </div>
-                        <div id="prevContainer" class="img-container">
+                        <div id="prevContainer" class="img-container" style="text-align:center; display:none;" >
                           <img id="prev" src="#" class="img-thumbnail">
                         </div>
-                      </section> --}}
+                      </section>
+
                       {{-- btn group --}}
 
                       <section class="btnInput">
@@ -222,10 +223,10 @@
                       </section>
 
                     </form>
-                    <section id="ImgInput" style="padding-top:90px; text-align:center;">
+                    {{-- <section id="ImgInput" style="padding-top:90px; text-align:center;">
                       <div class="row">
                         <div class="col-md-12">
-                          <form method="POST" action="{{route('dropzone.store')}}" accept-charset="UTF-8" enctype="multipart/form-data" class="dropzone dz-clickable" id="image-upload">
+                          {{-- <form method="POST" action="{{route('dropzone.store')}}" accept-charset="UTF-8" enctype="multipart/form-data" class="dropzone dz-clickable" id="image-upload">
                             @csrf
                             <div>
                               <h3>Carica le immagini del tuo appartamento</h3>
@@ -235,15 +236,20 @@
                                 Trascina le immagini qui per caricarle
                               </span>
                             </div>
-                          </form>
+                          </form> --}}
                           {{-- <div class='content'>
                             <!-- Dropzone -->
-                            <form action="{{route('dropzone.store')}}" class='dropzone' >
+                            <form action="{{route('dropzone.store')}}" class='dropzone' id="dropzone" >
+
                             </form>
                           </div> --}}
+                          {{-- <vue-dropzone
+                          ref="myVueDropzone" id="dropzone" :
+                          options="dropzoneOptions">
+                        </vue-dropzone> --}}
                         </div>
                       </div>
-                    </section>
+                    </section> 
                   </div>
               </div>
           </div>
