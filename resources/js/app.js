@@ -6,6 +6,10 @@ window.Vue = require('vue');
 window.$ = require('jquery');
 
 // window.Dropzone = require('dropzone');
+<<<<<<< Updated upstream
+=======
+// <<<<<<< HEAD
+>>>>>>> Stashed changes
 
 // $(function () {
 //    // Here the default dropzone code:
@@ -40,6 +44,12 @@ window.$ = require('jquery');
 //   });
 // });
 
+<<<<<<< Updated upstream
+=======
+// =======
+// >>>>>>> main
+
+>>>>>>> Stashed changes
 function initVue() {
   const app = new Vue({
       el: '#app',
@@ -147,22 +157,41 @@ function uploadImg(){
 }
 
 function autocompleteAddress() {
-  var places = require('places.js');
-  var placesAutocomplete = places({
-    appId: 'plXJIJDQMD75',
-    apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
-    container: document.querySelector('#search-bar')
 
-  });
+  if ($('div').is('.jumbotron')) {
+    var places = require('places.js');
+    var placesAutocomplete = places({
+      appId: 'plXJIJDQMD75',
+      apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
+      container: document.querySelector('#jumbo-search-bar')
 
-  placesAutocomplete.on('change', function resultSelected(e) {
-  //   document.querySelector('#subdivision').value = e.suggestion.county || '';
-  //   document.querySelector('#municipality').value = e.suggestion.city || '';
-  //   document.querySelector('#postal_code').value = e.suggestion.postcode || '';
-    document.querySelector('#search-lat').value = e.suggestion.latlng['lat']  || '';
-    document.querySelector('#search-lon').value = e.suggestion.latlng['lng']  || '';
-  });
-}
+    });
+
+    placesAutocomplete.on('change', function resultSelected(e) {
+    //   document.querySelector('#subdivision').value = e.suggestion.county || '';
+    //   document.querySelector('#municipality').value = e.suggestion.city || '';
+    //   document.querySelector('#postal_code').value = e.suggestion.postcode || '';
+      document.querySelector('#jumbo-search-lat').value = e.suggestion.latlng['lat']  || '';
+      document.querySelector('#jumbo-search-lon').value = e.suggestion.latlng['lng']  || '';
+    });
+    } else {
+        var places = require('places.js');
+        var placesAutocomplete = places({
+          appId: 'plXJIJDQMD75',
+          apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
+          container: document.querySelector('#search-bar')
+
+        });
+
+        placesAutocomplete.on('change', function resultSelected(e) {
+        //   document.querySelector('#subdivision').value = e.suggestion.county || '';
+        //   document.querySelector('#municipality').value = e.suggestion.city || '';
+        //   document.querySelector('#postal_code').value = e.suggestion.postcode || '';
+          document.querySelector('#search-lat').value = e.suggestion.latlng['lat']  || '';
+          document.querySelector('#search-lon').value = e.suggestion.latlng['lng']  || '';
+        });
+      }
+    } 
 
 function init(){
 

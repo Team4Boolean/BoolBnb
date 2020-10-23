@@ -98,18 +98,19 @@ div.jumbotron {
     padding: 0 15px;
     font-size: 14px;
     color: #777;
-    margin-bottom: 1rem;
+
 
     transition: all 0.3s;
 
     &:hover {
-      transform: scale(1.01);
+      // transform: scale(1.01);
       box-shadow: 2px 2px 5px #ddd;
     }
 
     &:focus {
       outline:none;
     }
+
   }
 
   div.container {
@@ -144,6 +145,7 @@ div.jumbotron {
     }
 
     .btn {
+      margin-top: 1rem;
       box-shadow: 1px 1px 3px $coralt;
       border-radius: 7px;
       font-size: 16px;
