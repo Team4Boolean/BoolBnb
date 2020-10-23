@@ -36,15 +36,15 @@ class UprController extends Controller {
     return redirect() -> route('home');
   }
 
-  public function dropzone(){
-    return view('advertisings.test');
-  }
+  // public function dropzone(){
+  //   return view('advertisings.test');
+  // }
 
   public function dropzoneStore(Request $request){
 
     $image = $request->file('file');
     $imageName = time().'.'.$image->extension();
-    $image->move(public_path('storage'), $imageName);
+    $image->move(public_path('flathost'), $imageName);
 
     return response()->json(['success'=>$imageName]);
   }
