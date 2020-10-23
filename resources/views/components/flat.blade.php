@@ -44,8 +44,8 @@
         get: function() {
           // if (this.mouseIn) return this.desc;
 
-          var res = this.desc.substring(0, 50).trim();
-          return res + (this.desc.length > 50 ? '...' : '');
+          var res = this.desc.substring(0, 80).trim();
+          return res + (this.desc.length > 80 ? '...' : '');
         }
       }
       // shortImg: {

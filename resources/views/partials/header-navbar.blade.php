@@ -32,9 +32,15 @@
     <!-- Right Side Of Navbar -->
     <div class="col-xs-12 col-md-6 col-lg-4">
       <ul>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('flats.index') }}">Area personale</a>
-        </li>
+        @guest
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('flats.create') }}">Affitta un appartamento</a>
+          </li>
+        @else
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('flats.index') }}">Area personale</a>
+          </li>
+        @endguest
 
         {{-- Dropdown --}}
         <li class="nav-item dropdown">
@@ -51,7 +57,7 @@
             {{-- If the user is a guest, he can login/register --}}
             @guest
               <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-              <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+              <a class="dropdown-item" href="{{ route('register') }}">{{ __('Registrati') }}</a>
             {{-- If he is already logged he can logout --}}
             @else
               <a class="dropdown-item" href="{{ route('logout') }}"
@@ -64,10 +70,10 @@
               </form>
             @endguest
 
-            <div class="dropdown-divider"></div>
+            {{-- <div class="dropdown-divider"></div> --}}
 
             {{-- Other links --}}
-            <a class="dropdown-item" href="{{ route('flats.create') }}">Affitta un appartamento</a>
+            {{-- <a class="dropdown-item" href="{{ route('flats.create') }}">Affitta un appartamento</a> --}}
             {{-- <a class="dropdown-item" href="#">Proponi un'esperienza</a>
             <a class="dropdown-item" href="#">Assistenza</a> --}}
           </div>
