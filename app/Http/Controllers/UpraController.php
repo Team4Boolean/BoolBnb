@@ -21,8 +21,15 @@ class UpraController extends Controller {
     $id = Auth::user() -> id;
     $firstname = Auth::user() -> firstname;
 
-    $flats = Flat::where('user_id', $id) -> withTrashed() -> get();
-    return view('flats.index', compact('firstname','flats'));
+    $flats = Flat::where('user_id', $id)
+            -> orderBy('created_at','desc')
+            -> get();
+    $flatsTrashed = Flat::where('user_id', $id)
+                  -> onlyTrashed()
+                  -> orderBy('deleted_at','desc')
+                  -> get();
+    // dd($flats);
+    return view('flats.index', compact('firstname','flats', 'flatsTrashed'));
 
     // if (Gate::denies('upra-manage-flats')) {
     //   abort(401, 'Unathorized');
