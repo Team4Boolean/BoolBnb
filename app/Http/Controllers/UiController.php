@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// richiama Ui Message Request
+use App\Http\Requests\UiMessageRequest;
+
 use App\Flat;
 use App\Sponsor;
 use App\Message;
@@ -26,6 +29,16 @@ class UiController extends Controller
 
     $flat = Flat::findOrFail($id);
 
+    return view('flats.show', compact('flat'));
+  }
+
+  public function messageStore(UiMessageRequest $request, $id) {
+
+    $validatedData = $request -> all();
+    $validatedData['flat_id'] = $id;
+    $mex = Message::create($validatedData);
+
+    $flat = Flat::findOrFail($id);
     return view('flats.show', compact('flat'));
   }
 

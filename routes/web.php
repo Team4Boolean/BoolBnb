@@ -54,8 +54,7 @@ Route::group([
 
 // Messages
 // Messages Ui -> create
-Route::get('/messages/create', 'UiController@messageCreate') -> name('messages.create');
-Route::post('/messages/store', 'UiController@messageStore') -> name('messages.store');
+Route::post('/flats/{id}/messages/store', 'UiController@messageStore') -> name('messages.store');
 
 Route::group([
     'middleware' => 'auth',
