@@ -10,6 +10,7 @@ use App\Http\Requests\UiMessageRequest;
 use App\Flat;
 use App\Sponsor;
 use App\Message;
+use App\Visit;
 
 class UiController extends Controller
 {
@@ -27,7 +28,10 @@ class UiController extends Controller
 
   public function flatShow($id) {
 
+    // incremento il contatore delle visite per l'uppartamento visualizzato
     $flat = Flat::findOrFail($id);
+    $flatVisited['flat_id'] = $flat -> id;
+    $visit = Visit::create($flatVisited);
 
     return view('flats.show', compact('flat'));
   }
