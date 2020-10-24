@@ -38,6 +38,7 @@ class UiController extends Controller
 
   public function messageStore(UiMessageRequest $request, $id) {
 
+    // valido i dati attraberso l'UiMessageRequest e salvo i messaggi nel DB
     $validatedData = $request -> all();
     $validatedData['flat_id'] = $id;
     $mex = Message::create($validatedData);

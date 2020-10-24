@@ -42,7 +42,7 @@ class UpraFlatRequest extends FormRequest
         'baths' => 'required|numeric',
         'sqm' => 'required|numeric',
 
-        'img' => 'required|max:255'
+        'img' => 'required|max:2048'
        ];
 
      }
@@ -76,7 +76,8 @@ class UpraFlatRequest extends FormRequest
         'sqm.required' => 'Indicare la superficie',
         'sqm.numeric' => 'Indicare la superficie',
 
-        'img.required' => "Inserire un'immagine"
+        'img.required' => "Inserire un'immagine",
+        'img.max' => "Dimensione foto massima consentita: 2MB"
       ];
     }
 }
