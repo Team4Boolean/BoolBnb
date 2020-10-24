@@ -11,7 +11,7 @@
             <h1>Città Alta, Bergamo: alloggi</h1>
             <form class="flat-search" action="index.html" method="post">
 
-              <section class="numInput">
+              <section class="numInput d-flex justify-content-center">
                 <div class="input-group mb-3 col-4">
                   <div class="input-group-prepend ">
                     <label for="selectDistance" class="input-group-text ">Scegli la distanza</label>
@@ -53,40 +53,40 @@
                 </div>
               </section>
 
-              <section class="checkInput">
-                <div class="form-group">
-                  <ul>
-                    <li>
+              <section class="checkInput ">
+                <div class="form-group ">
+                  <ul class="d-flex justify-content-center list-unstyled">
+                    <li class="pr-4">
                       {{-- wifi --}}
                       <div class="checkbox">
                         <label><input type="checkbox" name="wifi" value="{{ old('wifi') }}"> Wifi</label>
                       </div>
                     </li>
-                    <li>
+                    <li class="pr-4">
                       {{-- parking --}}
                       <div class="checkbox">
                         <label><input type="checkbox" name="parking" value="{{ old('parking') }}"> Parcheggio</label>
                       </div>
                     </li>
-                    <li>
+                    <li class="pr-4">
                       {{-- swim --}}
                       <div class="checkbox">
                         <label><input type="checkbox" name="swim" value="{{ old('swim') }}"> Piscina</label>
                       </div>
                     </li>
-                    <li>
+                    <li class="pr-4">
                       {{-- concierge --}}
                       <div class="checkbox">
                         <label><input type="checkbox" name="concierge" value="{{ old('concierge') }}"> Portinaio</label>
                       </div>
                     </li>
-                    <li>
+                    <li class="pr-4">
                       {{-- sauna --}}
                       <div class="checkbox">
                         <label><input type="checkbox" name="sauna" value="{{ old('sauna') }}"> Sauna</label>
                       </div>
                     </li>
-                    <li>
+                    <li class="pr-4">
                       {{-- sea --}}
                       <div class="checkbox">
                         <label><input type="checkbox" name="sea" value="{{ old('sea') }}"> Vista Mare</label>
@@ -100,6 +100,28 @@
             </form>
 
           <div class="card-body">
+            <div class="container">
+
+              <div class="text">
+                <h3>RISULTATI</h3>
+              </div>
+
+              <div class="row">
+{{--
+                @foreach ($flats as $flat)
+
+                  <flatcomponent
+                    :title = "'{{ $flat -> title }}'"
+                    :desc = "'{{ $flat -> desc }}'"
+                    :img = "'{{ $flat -> photos -> first() -> url }}'"
+                    :id = "'{{ $flat -> id }}'"
+                  ></flatcomponent>
+
+
+
+                @endforeach --}}
+
+              </div>
 
           </div>
         </div>
