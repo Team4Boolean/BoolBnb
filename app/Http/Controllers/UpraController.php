@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 // richiama i gate
 use Illuminate\Support\Facades\Gate;
-// richiama il flat model
+
 use App\Flat;
-// richiama lo user model
 use App\User;
+use App\Service;
+use App\Photo;
+
 // richiama Upra Flat Request
 use App\Http\Requests\UpraFlatRequest;
 
@@ -37,8 +39,47 @@ class UpraController extends Controller {
 
   }
 
-  public function flatEdit() {
+  public function flatEdit($id) {
 
+    $flat = Flat::findOrFail($id);
+    return view('flats.edit',compact('flat'));
+  }
+
+  public function flatUpdate(UpraFlatRequest $request, $flat_id) {
+
+    $userid = $request -> user() -> id;
+
+    $data = $request -> all();
+    // dd($data);
+    $data['user_id'] = $userid;
+
+    $flat = Flat::findOrFail($flat_id);
+    $flat -> update($data);
+
+    // se sono presenti servizi associati all'apaprtamento li inserisco nella tabella ponte flat_service
+    if (!empty($data['services'])) {
+
+      $services = $data['services'];
+      // il metodo sync aggiorna le associazioni molti a molti cancellando le vecchie associazioni
+      $flat -> services() -> sync($services);
+    }
+
+    if ($request -> hasFile('img')) {
+
+      // predno il file contenuto in 'img' all'interno della request
+      $file = $request -> file('img');
+      $filename = $flat_id.'.'.$file -> extension();
+
+      // memorizzo la foto nella directory /photos e prendo l'url generato
+      $photo['url'] = $file -> storeAs(env('PHOTOS_DIR'), $filename);
+      $photo['flat_id'] = $flat_id;
+      
+      $photos_old = Photo::where('flat_id', $flat_id) -> delete();
+
+      $photo = Photo::create($photo);
+    }
+
+    return redirect() -> route('flats.index');
   }
 
   public function flatDeactivate($id) {

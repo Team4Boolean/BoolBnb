@@ -11605,7 +11605,7 @@ form.flat-search .btnInput i {
 
 #flatShow .card-body .services .service-item .serv-info {
   position: absolute;
-  transform: translate(9%, -80%);
+  transform: translate(-100%, -80%);
   display: none;
   background-color: #ff385c;
   color: white;
@@ -11616,7 +11616,7 @@ form.flat-search .btnInput i {
 #flatShow .card-body .services .service-item i {
   font-size: 35px;
   color: #008489;
-  margin: 10px 5px;
+  margin: 20px 5px 0 10px;
 }
 
 #flatShow .card-body #messageBox .h3 {

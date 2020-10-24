@@ -99,7 +99,7 @@
 
         .serv-info{
           position: absolute;
-          transform: translate(9%, -80%);
+          transform: translate(-100%, -80%);
           display: none;
 
           background-color: $coral;
@@ -111,7 +111,7 @@
         i{
           font-size: 35px;
           color: $greenbnb;
-          margin: 10px 5px;
+          margin: 20px 5px 0 10px;
         }
       }
     }

@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+// richiama i gate
+use Illuminate\Support\Facades\Gate;
+
 use App\Flat;
 
 class UpraFlatRequest extends FormRequest

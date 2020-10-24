@@ -85,8 +85,8 @@
                               <option @if (old('beds')==1) selected @endif value="1">1</option>
                               <option @if (old('beds')==2) selected @endif value="2">2</option>
                               <option @if (old('beds')==3) selected @endif value="3">3</option>
-                              <option @if (old('beds')==4) selected @endif value="3">4</option>
-                              <option @if (old('beds')==5) selected @endif value="3">5</option>
+                              <option @if (old('beds')==4) selected @endif value="4">4</option>
+                              <option @if (old('beds')==5) selected @endif value="5">5</option>
                             </select>
                             @error('beds')
                               <span class="invalid-feedback" role="alert">

@@ -36,9 +36,9 @@
               </div>
               <div class="">
                   <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary">Visualizza</a>
-                  <a href="{{ route('flats.edit', $flat -> id) }}" class="btn btn-warning">Modifica</a>
-                  <a href="{{ route('flats.statistics', $flat -> id) }}" class="btn btn-info">Statistiche</a>
-                  <a href="{{ route('flats.sponsor.create', $flat -> id) }}" class="btn btn-secondary">Sponsorizza</a>
+                  <a href="{{ route('flats.edit', $flat -> id) }}" class="btn btn-outline-danger">Modifica</a>
+                  <a href="{{ route('flats.statistics', $flat -> id) }}" class="btn btn-warning">Statistiche</a>
+                  <a href="{{ route('flats.sponsor.create', $flat -> id) }}" class="btn btn-outline-info">Sponsorizza</a>
                   <a href="{{ route('flats.deactivate', $flat -> id) }}" class="btn btn-danger float-right">Disattiva</a>
                 </div>
               </div>
