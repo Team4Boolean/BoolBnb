@@ -11468,18 +11468,15 @@ form.flat-search .addressInput .add_input {
   text-align: center;
 }
 
-form.flat-create .checkInput ul,
-form.flat-search .checkInput ul {
+form.flat-create .checkInput .serv-list,
+form.flat-search .checkInput .serv-list {
   display: flex;
-  list-style: none;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-form.flat-create .checkInput ul li,
-form.flat-search .checkInput ul li {
-  min-width: 100px;
-  padding: 10px;
+form.flat-create .checkInput .serv-list label,
+form.flat-search .checkInput .serv-list label {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;

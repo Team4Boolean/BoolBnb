@@ -117,17 +117,17 @@
                             </div>
                             <div class="form-row  mb-4">
                               {{-- province --}}
-                              <div class="input-group input-group-md col-md-8">
+                              <div class="input-group input-group-md col-md-5">
                                 <input type="text" id="subdivision" class="form-control add_input" name="subdivision" value="{{old('subdivision')}}" placeholder="Provincia">
                               </div>
+                              {{-- municipality --}}
+                              <div class="input-group input-group-md col-md-5 mb-3">
+                                <input type="text" id="municipality" class="form-control add_input" name="municipality" value="{{old('municipality')}}" placeholder="Città">
+                              </div>
                               {{-- cap --}}
-                              <div class="input-group input-group-md col-md-4">
+                              <div class="input-group input-group-md col-md-2">
                                 <input type="text" id="postal_code" class="form-control add_input" name="postal_code" value="{{old('postal_code')}}" placeholder="cap">
                               </div>
-                            </div>
-                            {{-- municipality --}}
-                            <div class="input-group input-group-md offset-md-2 col-md-8 mb-3">
-                              <input type="text" id="municipality" class="form-control add_input" name="municipality" value="{{old('municipality')}}" placeholder="Città">
                             </div>
 
                             {{-- latitudine/longitudine nascosti --}}
@@ -152,45 +152,34 @@
                           <div class="sec-title mx-auto m-3">
                             <h5>Servizi</h5>
                           </div>
-                          <ul>
-                            <li>
-                              {{-- wifi --}}
-                              <div class="checkbox">
-                                <label><input type="checkbox" name="services[]" value="wifi"> Wifi</label>
+                          <div class="form-row m-4">
+                            <div class="serv-list col">
+                              <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" name="services[]" value="wifi" class="custom-control-input" id="defaultInline1">
+                                <label class="custom-control-label" for="defaultInline1">Wifi</label>
                               </div>
-                            </li>
-                            <li>
-                              {{-- parking --}}
-                              <div class="checkbox">
-                                <label><input type="checkbox" name="services[]" value="parking"> Parcheggio</label>
+                              <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" name="services[]" value="parcheggio" class="custom-control-input" id="defaultInline2">
+                                <label class="custom-control-label" for="defaultInline2">Parcheggio</label>
                               </div>
-                            </li>
-                            <li>
-                              {{-- swim --}}
-                              <div class="checkbox">
-                                <label><input type="checkbox" name="services[]" value="swim"> Piscina</label>
+                              <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" name="services[]" value="swim" class="custom-control-input" id="defaultInline3">
+                                <label class="custom-control-label" for="defaultInline3">Piscina</label>
                               </div>
-                            </li>
-                            <li>
-                              {{-- concierge --}}
-                              <div class="checkbox">
-                                <label><input type="checkbox" name="services[]" value="concierge"> Portinaio</label>
+                              <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" name="services[]" value="concierge" class="custom-control-input" id="defaultInline4">
+                                <label class="custom-control-label" for="defaultInline4">Portinaio</label>
                               </div>
-                            </li>
-                            <li>
-                              {{-- sauna --}}
-                              <div class="checkbox">
-                                <label><input type="checkbox" name="services[]" value="sauna"> Sauna</label>
+                              <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" name="services[]" value="sauna" class="custom-control-input" id="defaultInline5">
+                                <label class="custom-control-label" for="defaultInline5">Sauna</label>
                               </div>
-                            </li>
-                            <li>
-                              {{-- sea --}}
-                              <div class="checkbox">
-                                <label><input type="checkbox" name="services[]" value="sea"> Vista Mare</label>
+                              <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" name="services[]" value="sea" class="custom-control-input" id="defaultInline6">
+                                <label class="custom-control-label" for="defaultInline6">Vista Mare</label>
                               </div>
-                            </li>
-
-                          </ul>
+                            </div>
+                          </div>
                         </div>
                       </section>
 

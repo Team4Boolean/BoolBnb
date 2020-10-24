@@ -104,19 +104,13 @@ form.flat-create, form.flat-search {
 
   .checkInput{
 
-    ul{
-      display: flex;
-      list-style: none;
+    .serv-list{
+      display:flex;
       justify-content: space-around;
       flex-wrap: wrap;
 
-      li{
-        min-width: 100px;
-        padding: 10px;
-
-        //rimuove la selezione del testo ai labels quando si va a cliccare sul testo per accendere la checkbox
+      label{
         user-select: none;
-
       }
     }
   }
