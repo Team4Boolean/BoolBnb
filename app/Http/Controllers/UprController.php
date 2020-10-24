@@ -33,6 +33,7 @@ class UprController extends Controller {
     $userid = $request -> user() -> id;
 
     $data = $request -> all();
+    // dd($data);
 
     $data['user_id'] = $userid;
 
@@ -44,7 +45,7 @@ class UprController extends Controller {
       $services = $data['services'];
 
       foreach ($services as $service) {
-        $service_entity = Service::where('name',$service) -> get();
+        $service_entity = Service::where('id',$service) -> get();
         $flat -> services() -> attach($service_entity);
       }
 

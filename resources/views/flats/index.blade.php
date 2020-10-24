@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <div class="col-md-12">
         <h1 class="mt-3 mb-5">Benvenuto, {{ $firstname }}</h1>
-        <div class="mb-3 float-right">
+        <div class="mb-3 float-left">
           <a href="{{ route('flats.create') }}"><strong><h4>Affitta un appartamento</h4></strong></a>
         </div>
       </div>
