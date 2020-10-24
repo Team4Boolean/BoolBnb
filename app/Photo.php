@@ -16,6 +16,7 @@ class Photo extends Model
       return $this -> belongsTo(Flat::class);
     }
 
+    // controllo se le immagini siano prese internet o dal disco locale
     public function getPathAttribute() {
       $url = $this -> url;
       if (stristr($this -> url, 'http') === false) {

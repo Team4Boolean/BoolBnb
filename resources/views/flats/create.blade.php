@@ -4,13 +4,17 @@
 {{-- CREAZIONE APPARTAMENTO --}}
 
   <div class="container">
+
       <div class="row justify-content-center">
-          <div class="col-md-8">
+          <div class="col-md-10">
+
               <div class="card">
                 {{-- Titolo pagina cardheader --}}
                   <div class="card-header">
                     <h1>Pubblica il tuo appartamento:</h1>
                   </div>
+
+                  {{-- card body --}}
                   <div class="card-body">
 
                     {{-- @include('partials.input-errors') --}}
@@ -21,6 +25,7 @@
                       @method('POST')
 
                       <div class="form-row">
+
                         {{-- INPUT DI TESTO --}}
                         <section class="textInput col-lg-7 col-md-6">
                           {{-- Titolo --}}
@@ -122,85 +127,87 @@
                             @enderror
                           </div>
                         </section>
+
                       </div>
+                      {{-- /form-row --}}
 
-                        {{-- ADDRESS --}}
-                        <section class="addressInput">
-                          <div class="sec-title mx-auto m-3">
-                            <h5>Indirizzo</h5>
-                          </div>
-                          <div class="adrInpList">
-                            <div class="form-row mb-4">
-                              {{-- street name --}}
-                              <div class="input-group input-group-md col-md-8">
-                                <input type="text" id="street_name" class="form-control add_input @error('street_name') is-invalid @enderror" name="street_name" value="{{old('street_name')}}" placeholder="Via ...">
-                                  @error('street_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                  @enderror
-                              </div>
-
-                              {{-- street number --}}
-                              <div class="input-group input-group-md col-md-4">
-                                <input type="text" id="street_number" class="form-control add_input @error('street_number') is-invalid @enderror" name="street_number" value="{{old('street_number')}}" placeholder="n°">
-                                  @error('street_number')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                  @enderror
-                              </div>
+                      {{-- ADDRESS --}}
+                      <section class="addressInput">
+                        <div class="sec-title mx-auto m-3">
+                          <h5>Indirizzo</h5>
+                        </div>
+                        <div class="adrInpList">
+                          <div class="form-row mb-4">
+                            {{-- street name --}}
+                            <div class="input-group input-group-md col-md-8">
+                              <input type="text" id="street_name" class="form-control add_input @error('street_name') is-invalid @enderror" name="street_name" value="{{old('street_name')}}" placeholder="Via ...">
+                                @error('street_name')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
                             </div>
 
-                            <div class="form-row  mb-4">
-                              {{-- province --}}
-                              <div class="input-group input-group-md col-md-5">
-                                <input type="text" id="subdivision" class="form-control add_input @error('subdivision') is-invalid @enderror" name="subdivision" value="{{old('subdivision')}}" placeholder="Provincia">
-                                  @error('subdivision')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                  @enderror
-                              </div>
-
-                              {{-- municipality --}}
-                              <div class="input-group input-group-md col-md-5 mb-3">
-                                <input type="text" id="municipality" class="form-control add_input @error('municipality') is-invalid @enderror" name="municipality" value="{{old('municipality')}}" placeholder="Città">
-                                  @error('municipality')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                  @enderror
-                              </div>
-
-                              {{-- cap --}}
-                              <div class="input-group input-group-md col-md-2">
-                                <input type="text" id="postal_code" class="form-control add_input @error('postal_code') is-invalid @enderror" name="postal_code" value="{{old('postal_code')}}" placeholder="cap">
-                                  @error('postal_code')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                  @enderror
-                              </div>
-                            </div>
-
-                            {{-- latitudine/longitudine nascosti --}}
-                            <div class="form-group" style="display:none">
-                              <label for="lon">LONGITUDINE</label>
-                              <br>
-                              <input id="lon" type="text" name="lon" value="">
-                            </div>
-                            <div class="form-group" style="display:none">
-                              <label for="lat">LATITUDINE</label>
-                              <br>
-                              <input id="lat" type="text" name="lat" value="">
+                            {{-- street number --}}
+                            <div class="input-group input-group-md col-md-4">
+                              <input type="text" id="street_number" class="form-control add_input @error('street_number') is-invalid @enderror" name="street_number" value="{{old('street_number')}}" placeholder="n°">
+                                @error('street_number')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
                             </div>
                           </div>
-                        </section>
+
+                          <div class="form-row  mb-4">
+                            {{-- province --}}
+                            <div class="input-group input-group-md col-md-5">
+                              <input type="text" id="subdivision" class="form-control add_input @error('subdivision') is-invalid @enderror" name="subdivision" value="{{old('subdivision')}}" placeholder="Provincia">
+                                @error('subdivision')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                            </div>
+
+                            {{-- municipality --}}
+                            <div class="input-group input-group-md col-md-5 mb-3">
+                              <input type="text" id="municipality" class="form-control add_input @error('municipality') is-invalid @enderror" name="municipality" value="{{old('municipality')}}" placeholder="Città">
+                                @error('municipality')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                            </div>
+
+                            {{-- cap --}}
+                            <div class="input-group input-group-md col-md-2">
+                              <input type="text" id="postal_code" class="form-control add_input @error('postal_code') is-invalid @enderror" name="postal_code" value="{{old('postal_code')}}" placeholder="cap">
+                                @error('postal_code')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                            </div>
+                          </div>
+
+                          {{-- latitudine/longitudine nascosti --}}
+                          <div class="form-group" style="display:none">
+                            <label for="lon">LONGITUDINE</label>
+                            <br>
+                            <input id="lon" type="text" name="lon" value="">
+                          </div>
+                          <div class="form-group" style="display:none">
+                            <label for="lat">LATITUDINE</label>
+                            <br>
+                            <input id="lat" type="text" name="lat" value="">
+                          </div>
+                        </div>
+                      </section>
+                      {{-- /address --}}
 
 
                       {{-- INPUT SERVIZI (checkbox) --}}
-
                       <section class="checkInput">
                         <div class="form-group">
                           <div class="sec-title mx-auto m-3">
@@ -240,8 +247,6 @@
                       </section>
 
                       {{-- INPUT IMMAGINE --}}
-
-
                       <section class="imgInput">
 
                         <div class="input-group mb-3">
@@ -251,39 +256,40 @@
                           </div>
 
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input @error('img') is-invalid @enderror" name="img" id="imgInp" aria-describedby="inputGroupFileAddon01" >
-                            @error('img')
-                              <span class="invalid-feedback" role="alert">
-                                  <strong>{{ $message }}</strong>
-                              </span>
-                            @enderror
-
+                            <input type="file" class="custom-file-input @error('img') is-invalid @enderror" name="img" id="imgInp" aria-describedby="inputGroupFileAddon01">
                             <label class="custom-file-label" for="img" >Scegli file</label>
-
                           </div>
 
                         </div>
 
+                          @error('img')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                          @enderror
+
+
                         <div id="prevContainer" class="img-container" style="text-align:center; display:none;" >
                           <img id="prev" src="#" class="img-thumbnail">
-
                         </div>
 
                       </section>
-
+                      {{-- /INPUT IMMAGINE --}}
 
                       {{-- btn group --}}
 
                       <section class="btnInput">
-                        <a href="{{ route('home') }}"><i class="fas fa-arrow-circle-left"></i></a>
+                        <a href="{{ route('flats.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
                         <button class="btn btn-primary" type="submit">Conferma</button>
                       </section>
 
                     </form>
+                    {{-- /FORM principale --}}
+
                     {{-- <section id="ImgInput" style="padding-top:90px; text-align:center;">
                       <div class="row">
                         <div class="col-md-12">
-                          {{-- <form method="POST" action="{{route('dropzone.store')}}" accept-charset="UTF-8" enctype="multipart/form-data" class="dropzone dz-clickable" id="image-upload">
+                          <form method="POST" action="{{route('dropzone.store')}}" accept-charset="UTF-8" enctype="multipart/form-data" class="dropzone dz-clickable" id="image-upload">
                             @csrf
                             <div>
                               <h3>Carica le immagini del tuo appartamento</h3>
@@ -293,29 +299,30 @@
                                 Trascina le immagini qui per caricarle
                               </span>
                             </div>
-                          </form> --}}
-                          {{-- <div class='content'>
+                          </form>
+                          <div class='content'>
                             <!-- Dropzone -->
                             <form action="{{route('dropzone.store')}}" class='dropzone' id="dropzone" >
 
                             </form>
-                          </div> --}}
-                          {{-- <vue-dropzone
-                          ref="myVueDropzone" id="dropzone" :
-                          options="dropzoneOptions">
-                        </vue-dropzone> --}}
+                          </div>
+                          <vue-dropzone
+                            ref="myVueDropzone" id="dropzone" :
+                            options="dropzoneOptions">
+                          </vue-dropzone>
                         </div>
                       </div>
-                    </section>
+                    </section> --}}
+
                   </div>
+                  {{-- /card-body--}}
+
               </div>
+              {{-- /card --}}
+
           </div>
       </div>
+
   </div>
-
-
-
-
-
 
 @endsection

@@ -70,6 +70,7 @@
                 {{-- descrizione e caratteristiche --}}
                 <div class="row row-spacer">
                   <div class="col">
+                    <h3>Descrizione</h3>
                     <p>{{$flat -> desc}}</p>
                   </div>
                   <div class="col">
@@ -137,6 +138,7 @@
 
                 {{-- mappa e messaggi --}}
                 <div class="row row-spacer">
+
                   <div class="col-xs-12 col-md-12 col-lg-6">
                     {{-- MAPPA --}}
                     <div id="map" defer>
@@ -161,14 +163,23 @@
                         </div>
 
                         <div class="card-body">
+
+                          @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                          @endif
+
                           <div class="form-group row">
                             <label for="inputEmail3" class="col col-form-label">La tua email</label>
                             <div class="col-sm-12">
                               <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="inputEmail3" placeholder="Email"
-                              value = "{{ old('email') }}
-                              @auth
-                                {{ $flat -> user -> email }}
-                              @endauth
+                              value = "@if (!old('email'))
+                                        {{ old('email') }}
+                                      @endif
+                                      @auth
+                                        {{ $flat -> user -> email }}
+                                      @endauth
                               "
                               required>
                               @error('email')
@@ -198,8 +209,11 @@
                         </div>
                       </div>
                     </form>
+
                   </div>
+                  {{-- /MESSAGGI --}}
                 </div>
+                {{-- /mappa e messaggi --}}
 
               </div>
               {{-- card-body --}}

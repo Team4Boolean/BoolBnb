@@ -66,7 +66,6 @@ class UpraFlatRequest extends FormRequest
         'postal_code.required' => 'Inserisci il CAP',
         'postal_code.max' => 'Non sono consentiti più di 20 caratteri',
 
-
         'rooms.required' => 'Indicare il numero di stanze',
         'rooms.numeric' => 'Indicare il numero di stanze',
         'beds.required' => 'Indicare il numero di letti',
@@ -76,8 +75,8 @@ class UpraFlatRequest extends FormRequest
         'sqm.required' => 'Indicare la superficie',
         'sqm.numeric' => 'Indicare la superficie',
 
-        'img.required' => "Inserire un'immagine",
-        'img.max' => "Dimensione foto massima consentita: 2MB"
+        'img.required' => 'Inserire una foto',
+        'img.max' => 'Dimensione foto massima consentita: 2MB'
       ];
     }
 }
