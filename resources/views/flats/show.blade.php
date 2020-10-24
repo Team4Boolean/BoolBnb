@@ -3,7 +3,7 @@
 
 {{-- SHOW APPARTAMENTO --}}
 
-<a id="back-btn" class="my-4" href="{{route('flats.index')}}"> indietro </a>
+
 
   <div id="flatShow" class="container">
       <div class="row justify-content-center">
@@ -14,7 +14,8 @@
 
               <div class="card-header">
                 <div class="row">
-                  <div class="col-sm-12">
+                  <div class="col-sm-12 d-flex justify-content-start">
+                    <a id="back-btn" class="my-4 btn btn-primary" href="{{route('flats.index')}}"> indietro </a>
                     <h1>{{ $flat -> title }}</h1>
                   </div>
                 </div>
@@ -164,11 +165,11 @@
                             <label for="inputEmail3" class="col col-form-label">La tua email</label>
                             <div class="col-sm-12">
                               <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="inputEmail3" placeholder="Email"
-                              value = "
+                              value = "{{ old('email') }}
                               @auth
                                 {{ $flat -> user -> email }}
                               @endauth
-                              {{ old('email') }}"
+                              "
                               required>
                               @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -180,9 +181,7 @@
                           <div class="form-group row">
                             <label for="inputTextarea" class="col col-form-label">Messaggio</label>
                             <div class="col-sm-12">
-                              <textarea class="form-control @error('message') is-invalid @enderror" id="inputTextarea" name="message" rows="8" cols="80" placeholder="Inserisci il testo" required>
-                                {{ old('message') }}
-                              </textarea>
+                              <textarea class="form-control @error('message') is-invalid @enderror" id="inputTextarea" name="message" rows="8" cols="80" placeholder="Inserisci il testo" required>{{ old('message') }}</textarea>
                               @error('message')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
