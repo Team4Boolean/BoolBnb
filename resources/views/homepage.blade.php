@@ -31,7 +31,7 @@
     <div id="jumbo-navbar">
       <div id="jumbo-link-logo" class="navbar-brand">
         <img id="jumbo-img-logo" src="{{asset('imgs/airbnb.svg')}}" width="40px" height="auto" alt="logo">
-        <span id="jumbo-span-logo">boolbnb</span>
+        <span id="jumbo-span-logo">Boolbnb</span>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-4 ">
         <ul>

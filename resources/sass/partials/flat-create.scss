@@ -2,8 +2,7 @@ form.flat-create, form.flat-search {
 
   .input-group-prepend{
     label{
-      background-color: $primary;
-      color: white;
+      color: $greenbnb;
     }
   }
 
@@ -24,7 +23,7 @@ form.flat-create, form.flat-search {
       label{
         border-radius: 5px 5px 0 0;
         h6{
-          font-weight: bold;
+          // font-weight: bold;
         }
       }
       input{
@@ -133,17 +132,26 @@ form.flat-create, form.flat-search {
 
 
   .btnInput{
+
+    a:hover {
+      transform: scale(1.05);
+      transition: 0.03s;
+    }
     display: flex;
     justify-content: space-between;
 
     button{
-      background-color:  $coral;
-            border-color: $coral;
+      background-color:  $greenbnb;
+            border-color: $greenbnb;
+    }
+    button:hover {
+      background: #005f63;
+      transition: 0.03s;
     }
 
     i{
       font-size: 35px;
-      color: $coral;
+      color: teal;
 
     }
   }

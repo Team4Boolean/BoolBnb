@@ -15,7 +15,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-sm-12 d-flex justify-content-start">
-                    <a id="back-btn" class="my-4 btn btn-primary" href="{{route('flats.index')}}"> indietro </a>
+                    <a id="back-btn" class="my-4 btn " href="{{route('flats.index')}}"> <i class="fas fa-arrow-circle-left"></i> </a>
                     <h1>{{ $flat -> title }}</h1>
                   </div>
                 </div>
