@@ -8,6 +8,8 @@ Auth::routes();
 // Home
 // Home Ui -> read
 Route::get('/', 'UiController@home') -> name('home');
+// Home Ui -> search
+Route::get('/flats/search', 'UiController@flatSearch') -> name('flats.search');
 // API flats -> search
 Route::get('/api/flats/search', 'ApiController@flatSearch') -> name('api.flats.search');
 
@@ -47,7 +49,7 @@ Route::group([
     Route::get('/flats/{id}/deactivate', 'UpraController@flatDeactivate') -> name('flats.deactivate');
     Route::get('/flats/{id}/activate', 'UpraController@flatActivate') -> name('flats.activate');
     // Flats Upra -> statistics
-    Route::get('/stats/{id}/statistics', 'UpraController@statistics') -> name('stats.show');
+    Route::get('/flats/{id}/stats', 'UpraController@flatStats') -> name('flats.stats');
     // Flats Upra -> sponsors -> create
     Route::get('/flats/{id}/sponsor', 'UpraController@flatSponsorCreate') -> name('flats.sponsor.create');
   });

@@ -8,7 +8,11 @@
           <div class="text">
             <h1>Riscopri l'Italia</h1>
             <p>Scopri alloggi nelle vicinanze tutti da vivere, per lavoro o svago.</p>
-            <form method="post">
+
+            <form action="{{ route('flats.search') }}" method="get">
+              @csrf
+              @method('GET')
+
               <input id="jumbo-search-bar" class="jumbo-search-bar" type="search" name="" value="" placeholder="Inizia la ricerca...">
 
               <div class="form-group" style="display:none">
@@ -21,8 +25,9 @@
                   <br>
                   <input id="jumbo-search-lat" type="text" name="lat" value="">
               </div>
+              <button type="submit" class="btn btn-light">Esplora i dintorni</button>
             </form>
-            <a class="btn btn-light" href="#">Esplora i dintorni</a>
+
           </div>
         </div>
       </div>

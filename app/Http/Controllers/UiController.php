@@ -26,6 +26,10 @@ class UiController extends Controller
       return view('homepage', compact('sponsored'));
   }
 
+  public function flatSearch() {
+    return view('flats.search');
+  }
+
   public function flatShow($id) {
 
     // incremento il contatore delle visite per l'uppartamento visualizzato

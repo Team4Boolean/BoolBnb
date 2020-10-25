@@ -132,7 +132,7 @@ class UpraController extends Controller {
 
   }
 
-  public function statistics($id){
+  public function flatStats($id){
 
     $flat = Flat::findOrFail($id);
 
