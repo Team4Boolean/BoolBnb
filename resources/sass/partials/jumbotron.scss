@@ -1,4 +1,20 @@
+.btn {
+  margin-top: 1rem;
+  box-shadow: 1px 1px 3px $coralt;
+  border-radius: 7px;
+  font-size: 16px;
+  transition: all 0.3s;
+  border-color: $coralt;
+  background-color: $coral;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 2px;
 
+
+  &:hover {
+    background-color: $coralt !important;
+  }
+}
 
 div.jumbotron, div.flatsearch {
   width: 100%;
@@ -152,23 +168,7 @@ div.jumbotron, div.flatsearch {
 
     }
 
-    .btn {
-      margin-top: 1rem;
-      box-shadow: 1px 1px 3px $coralt;
-      border-radius: 7px;
-      font-size: 16px;
-      transition: all 0.3s;
-      border-color: $coralt;
-      background-color: $coral;
-      color: #fff;
-      font-weight: bold;
-      letter-spacing: 2px;
 
-
-      &:hover {
-        background-color: $coralt !important;
-      }
-    }
   }
 }
 
@@ -193,25 +193,20 @@ div.flatsearch .wrapper {
   }
 }
 
-@media (min-width: $sm) {
-  div.jumbotron {
-  }
+@media (max-width: $sm) {
+
 }
 
-@media (min-width: $md) {
-  div.jumbotron {
+@media (max-width: $md) {
+  div.flatsearch .wrapper {
 
-  }
-}
-
-@media (min-width: $lg) {
-  div.jumbotron {
-
-
-
-
-    div.text {
-      text-align: left;
+    .left-side {
+      border-right: none;
     }
   }
+
+}
+
+@media (max-width: $lg) {
+
 }

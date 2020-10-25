@@ -65,7 +65,7 @@
 <div class="container" >
   <div class="wrapper">
     <div class="row ">
-      <div class="col-md-5 col-xl-3 left-side">
+      <div class="col-md-6 col-lg-5 col-xl-4 left-side">
       <h1>Città Alta, Bergamo: alloggi</h1>
 
         <form stmethod="post">
@@ -97,7 +97,7 @@
               </select>
             </div>
             {{-- n* Stanze --}}
-            <div class="d-flex justify-content-between mb-3">
+            <div class="d-flex justify-content-between mb-3 flex-wrap">
               <div class="input-group col-6">
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="rooms">Stanze</label>
@@ -173,11 +173,11 @@
               </ul>
             </div>
           </section>
-          <a class="btn btn-primary" href="#">Cerca</a>
+          <a class="btn" href="#">Cerca</a>
         </form>
       </div>
 
-      <div class="col-md-7 col-xl-9">
+      <div class="col-md-6 col-lg-7 col-xl-8">
         <div class="container">
 
           <script type="text/javascript">
