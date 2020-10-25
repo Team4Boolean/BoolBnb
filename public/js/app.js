@@ -60018,7 +60018,17 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // window.Dropzone = require('dropzone');
+window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$.fn.extend({
+  trackChanges: function trackChanges() {
+    $(":input", this).change(function () {
+      $(this.form).data("changed", true);
+    });
+  },
+  isChanged: function isChanged() {
+    return this.data("changed");
+  }
+}); // window.Dropzone = require('dropzone');
 // $(function () {
 //    // Here the default dropzone code:
 //     var myDropzone = new Dropzone(document.body, {
@@ -60050,16 +60060,15 @@ window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.
 //     formData.append("_token", CSRF_TOKEN);
 //   });
 // });
-
-function initVue() {
-  var app = new Vue({
-    el: '#app' // components: {
-    //   'component-a': ComponentA,
-    // }
-
-  });
-} // FLAT-SHOW
-
+// function initVue() {
+//   const home = new Vue({
+//       el: '#home',
+//       // components: {
+//       //   'component-a': ComponentA,
+//       // }
+//   });
+// }
+// FLAT-SHOW
 
 function serviceInfo() {
   $('.service-item').hover(function () {
@@ -60071,7 +60080,7 @@ function serviceInfo() {
 
 
 function addKeyUpListener() {
-  var button = $('.add_input');
+  var button = $('.get-coord');
   button.keyup(function () {
     getCoord();
   });
@@ -60119,9 +60128,8 @@ function getCoord() {
       console.log('error', _error);
     }
   });
-}
+} // input immagine + preview
 
-; // input immagine + preview
 
 function readURL(input) {
   if (input.files && input.files[0]) {
@@ -60182,7 +60190,7 @@ function autocompleteAddress() {
 }
 
 function init() {
-  initVue();
+  // initVue();
   addKeyUpListener();
   uploadImg();
   autocompleteAddress();
@@ -60270,8 +60278,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Andrea\Desktop\Boolean Class 15 Repo\Team.boolean\BoolBnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\Boolean Class 15 Repo\Team.boolean\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/fabrizio/Laravel/BoolBnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/fabrizio/Laravel/BoolBnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

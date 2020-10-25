@@ -45,15 +45,21 @@ class UpraController extends Controller {
     return view('flats.edit',compact('flat'));
   }
 
-  public function flatUpdate(UpraFlatRequest $request, $flat_id) {
+  public function flatUpdate(UpraFlatRequest $request, $id) {
 
     $userid = $request -> user() -> id;
+
+    $flat = Flat::findOrFail($id);
 
     $data = $request -> all();
     // dd($data);
     $data['user_id'] = $userid;
 
-    $flat = Flat::findOrFail($flat_id);
+    if ($data['lat'] === null && $data['lon'] === null) {
+      $data['lat'] = $flat -> lat;
+      $data['lon'] = $flat -> lon;
+    }
+
     $flat -> update($data);
 
     // se sono presenti servizi associati all'apaprtamento li inserisco nella tabella ponte flat_service
@@ -64,17 +70,17 @@ class UpraController extends Controller {
       $flat -> services() -> sync($services);
     }
 
-    if ($request -> hasFile('img')) {
+    if ($request -> hasFile('imgUp')) {
 
       // predno il file contenuto in 'img' all'interno della request
-      $file = $request -> file('img');
-      $filename = $flat_id.'.'.$file -> extension();
+      $file = $request -> file('imgUp');
+      $filename = $id.'.'.$file -> extension();
 
       // memorizzo la foto nella directory /photos e prendo l'url generato
       $photo['url'] = $file -> storeAs(env('PHOTOS_DIR'), $filename);
-      $photo['flat_id'] = $flat_id;
-      
-      $photos_old = Photo::where('flat_id', $flat_id) -> delete();
+      $photo['flat_id'] = $id;
+
+      $photos_old = Photo::where('flat_id', $id) -> delete();
 
       $photo = Photo::create($photo);
     }

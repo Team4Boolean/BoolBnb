@@ -5,6 +5,18 @@ window.Vue = require('vue');
 
 window.$ = require('jquery');
 
+$.fn.extend({
+ trackChanges: function() {
+   $(":input",this).change(function() {
+      $(this.form).data("changed", true);
+   });
+ }
+ ,
+ isChanged: function() {
+   return this.data("changed");
+ }
+});
+
 // window.Dropzone = require('dropzone');
 
 // $(function () {
@@ -40,14 +52,16 @@ window.$ = require('jquery');
 //   });
 // });
 
-function initVue() {
-  const app = new Vue({
-      el: '#app',
-      // components: {
-      //   'component-a': ComponentA,
-      // }
-  });
-}
+// function initVue() {
+//   const home = new Vue({
+//       el: '#home',
+//       // components: {
+//       //   'component-a': ComponentA,
+//       // }
+//   });
+// }
+
+
 // FLAT-SHOW
 
 function serviceInfo(){
@@ -63,7 +77,7 @@ function serviceInfo(){
 
 function addKeyUpListener()  {
 
-  var button = $('.add_input');
+  var button = $('.get-coord');
 
   button.keyup(function(){
     getCoord();
@@ -115,7 +129,7 @@ function getCoord() {
      console.log('error' , error);
    }
  });
-};
+}
 
 // input immagine + preview
 
@@ -185,7 +199,7 @@ function autocompleteAddress() {
 
 function init(){
 
-  initVue();
+  // initVue();
   addKeyUpListener();
   uploadImg();
   autocompleteAddress();
