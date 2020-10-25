@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 // richiama Ui Message Request
 use App\Http\Requests\UiMessageRequest;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Flat;
 use App\Sponsor;
 use App\Message;
@@ -26,8 +28,20 @@ class UiController extends Controller
       return view('homepage', compact('sponsored'));
   }
 
-  public function flatSearch() {
-    return view('flats.search');
+  public function flatSearch(Request $request) {
+
+    $data = $request -> all();
+    // dd($data);
+    $lat = $data['lat'];
+    $lon = $data['lon'];
+
+    // prendo gli appartamenti a meno di 20KM di distanza dalla località cercata
+    $flats = Flat::select(DB::raw('*, ( 6367 * acos( cos( radians('.$lat.') ) * cos( radians( lat ) ) * cos( radians( lon ) - radians('.$lon.') ) + sin( radians('.$lat.') ) * sin( radians( lat ) ) ) ) AS distance'))
+      ->having('distance', '<', 20)
+      ->orderBy('distance')
+      ->get();
+
+    return view('flats.search', compact('flats'));
   }
 
   public function flatShow($id) {

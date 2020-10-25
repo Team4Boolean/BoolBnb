@@ -11161,6 +11161,11 @@ header div.flatsearch .jumbo-navbar {
   color: #fff !important;
 }
 
+header div.jumbotron .jumbo-navbar a,
+header div.flatsearch .jumbo-navbar a {
+  color: #ff385c;
+}
+
 header div.jumbotron .jumbo-navbar span.jumbo-span-logo,
 header div.flatsearch .jumbo-navbar span.jumbo-span-logo {
   font-size: 22px;
@@ -11315,7 +11320,7 @@ header div.flatsearch div.text .btn:hover {
   background-color: rgba(255, 56, 92, 0.7) !important;
 }
 
-header div.flatsearch .bo {
+header div.flatsearch .wrapper {
   background-color: white;
   position: absolute;
   top: 50%;
@@ -11328,7 +11333,7 @@ header div.flatsearch .bo {
   transform: translate(-50%, -50%);
 }
 
-header div.flatsearch .bo .left-side {
+header div.flatsearch .wrapper .left-side {
   border-right: 1px #ddd solid;
 }
 

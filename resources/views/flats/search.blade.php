@@ -179,23 +179,50 @@
 
       <div class="col-md-7 col-xl-9">
         <div class="container">
-          <div class="">
-            <h2>RISULTATI</h2>
-          </div>
-          <div class="row">
-          {{--
-          @foreach ($flats as $flat)
 
-          <flatcomponent
-          :title = "'{{ $flat -> title }}'"
-          :desc = "'{{ $flat -> desc }}'"
-          :img = "'{{ $flat -> photos -> first() -> url }}'"
-          :id = "'{{ $flat -> id }}'"
-          ></flatcomponent>
+          <script type="text/javascript">
 
-          @endforeach --}}
+            function initVue() {
+              const search = new Vue({
+                el: '#search',
+              });
+            }
+
+            function init() {
+              initVue();
+            }
+
+            $(document).ready(init);
+
+          </script>
+
+          <div id="search">
+
+            <div class="">
+              <h2>RISULTATI</h2>
+            </div>
+
+            <div class="row">
+
+              @foreach ($flats as $flat)
+
+              <flatcomponent
+              :title = "'{{ $flat -> title }}'"
+              :desc = "'{{ $flat -> desc }}'"
+              :img = "'{{ asset($flat -> photos() -> first() -> path) }}'"
+              :id = "'{{ $flat -> id }}'"
+              ></flatcomponent>
+
+              @endforeach
+
+            </div>
+
           </div>
+          {{-- /div id=search --}}
+
         </div>
+        {{-- /container --}}
+
       </div>
       {{-- <a id="back-btn" class="btn btn-primary" href="{{route('flats.index')}}">Indietro</a> --}}
     </div>
