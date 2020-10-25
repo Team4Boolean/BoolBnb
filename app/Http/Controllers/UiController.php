@@ -44,7 +44,8 @@ class UiController extends Controller
     $mex = Message::create($validatedData);
 
     $flat = Flat::findOrFail($id);
-    return view('flats.show', compact('flat'));
+    // return view('flats.show', compact('flat'));
+    return back() -> with("status", "Il suo messaggio è stato ricevuto, la contattremo a breve.");
   }
 
   public function requestCreate() {

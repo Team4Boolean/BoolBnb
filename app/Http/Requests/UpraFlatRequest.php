@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+// richiama i gate
+use Illuminate\Support\Facades\Gate;
+
 use App\Flat;
 
 class UpraFlatRequest extends FormRequest
@@ -42,7 +45,7 @@ class UpraFlatRequest extends FormRequest
         'baths' => 'required|numeric',
         'sqm' => 'required|numeric',
 
-        'img' => 'required|max:2048'
+        'img' => 'exclude_if:imgUp,true|required|image|max:2048'
        ];
 
      }
@@ -66,7 +69,6 @@ class UpraFlatRequest extends FormRequest
         'postal_code.required' => 'Inserisci il CAP',
         'postal_code.max' => 'Non sono consentiti più di 20 caratteri',
 
-
         'rooms.required' => 'Indicare il numero di stanze',
         'rooms.numeric' => 'Indicare il numero di stanze',
         'beds.required' => 'Indicare il numero di letti',
@@ -76,8 +78,9 @@ class UpraFlatRequest extends FormRequest
         'sqm.required' => 'Indicare la superficie',
         'sqm.numeric' => 'Indicare la superficie',
 
-        'img.required' => "Inserire un'immagine",
-        'img.max' => "Dimensione foto massima consentita: 2MB"
+        'img.required' => 'Inserire una foto',
+        'img.image' => 'Caricare solo immagini (jpeg, png, bmp, gif, svg, or webp)',
+        'img.max' => 'Dimensione foto massima consentita: 2MB'
       ];
     }
 }

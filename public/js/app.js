@@ -97771,6 +97771,7 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+<<<<<<< HEAD
 window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); //da qua parte chart.js
 
 var Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
@@ -97784,6 +97785,59 @@ function initVue() {
   });
 } // FLAT-SHOW
 
+=======
+window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$.fn.extend({
+  trackChanges: function trackChanges() {
+    $(":input", this).change(function () {
+      $(this.form).data("changed", true);
+    });
+  },
+  isChanged: function isChanged() {
+    return this.data("changed");
+  }
+}); // window.Dropzone = require('dropzone');
+// $(function () {
+//    // Here the default dropzone code:
+//     var myDropzone = new Dropzone(document.body, {
+//         url: "/target-url"
+//     });
+//
+//   function dropzoneOptions() {
+//
+//     Dropzone.options.imageUpload = {
+//       // controllo sulle immagini
+//       maxFilesize: 1,
+//       acceptedFiles:".jpeg,.jpg,.png,.gif"
+//     };
+//   }
+//
+//   var imageUploadInput = $('#image-upload');
+//   dropzoneOptions(imageUploadInput);
+// });
+// $(function(){
+//
+//   var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+//
+//   Dropzone.autoDiscover = false;
+//   var myDropzone = new Dropzone(".dropzone",{
+//     maxFilesize: 3,  // 3 mb
+//     acceptedFiles: ".jpeg,.jpg,.png,.pdf",
+//   });
+//   myDropzone.on("sending", function(file, xhr, formData) {
+//     formData.append("_token", CSRF_TOKEN);
+//   });
+// });
+// function initVue() {
+//   const home = new Vue({
+//       el: '#home',
+//       // components: {
+//       //   'component-a': ComponentA,
+//       // }
+//   });
+// }
+// FLAT-SHOW
+>>>>>>> main
 
 function serviceInfo() {
   $('.service-item').hover(function () {
@@ -97795,7 +97849,7 @@ function serviceInfo() {
 
 
 function addKeyUpListener() {
-  var button = $('.add_input');
+  var button = $('.get-coord');
   button.keyup(function () {
     getCoord();
   });
@@ -97843,9 +97897,8 @@ function getCoord() {
       console.log('error', _error);
     }
   });
-}
+} // input immagine + preview
 
-; // input immagine + preview
 
 function readURL(input) {
   if (input.files && input.files[0]) {
@@ -97952,7 +98005,10 @@ function autocompleteAddress() {
 
 function init() {
   // initVue();
+<<<<<<< HEAD
   // flatCharts();
+=======
+>>>>>>> main
   addKeyUpListener();
   uploadImg();
   autocompleteAddress();
@@ -98040,8 +98096,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\molid\documents\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\molid\documents\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/fabrizio/Laravel/BoolBnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/fabrizio/Laravel/BoolBnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

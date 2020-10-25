@@ -5,17 +5,65 @@ window.Vue = require('vue');
 
 window.$ = require('jquery');
 
+$.fn.extend({
+ trackChanges: function() {
+   $(":input",this).change(function() {
+      $(this.form).data("changed", true);
+   });
+ }
+ ,
+ isChanged: function() {
+   return this.data("changed");
+ }
+});
+
+// window.Dropzone = require('dropzone');
 //da qua parte chart.js
 var Chart = require('chart.js');
 
-function initVue() {
-  const app = new Vue({
-      el: '#app',
-      // components: {
-      //   'component-a': ComponentA,
-      // }
-  });
-}
+// $(function () {
+//    // Here the default dropzone code:
+//     var myDropzone = new Dropzone(document.body, {
+//         url: "/target-url"
+//     });
+//
+//   function dropzoneOptions() {
+//
+//     Dropzone.options.imageUpload = {
+//       // controllo sulle immagini
+//       maxFilesize: 1,
+//       acceptedFiles:".jpeg,.jpg,.png,.gif"
+//     };
+//   }
+//
+//   var imageUploadInput = $('#image-upload');
+//   dropzoneOptions(imageUploadInput);
+// });
+
+// $(function(){
+//
+//   var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+//
+//   Dropzone.autoDiscover = false;
+//   var myDropzone = new Dropzone(".dropzone",{
+//     maxFilesize: 3,  // 3 mb
+//     acceptedFiles: ".jpeg,.jpg,.png,.pdf",
+//   });
+//   myDropzone.on("sending", function(file, xhr, formData) {
+//     formData.append("_token", CSRF_TOKEN);
+//   });
+// });
+
+// function initVue() {
+//   const home = new Vue({
+//       el: '#home',
+//       // components: {
+//       //   'component-a': ComponentA,
+//       // }
+//   });
+// }
+
+
 // FLAT-SHOW
 
 function serviceInfo(){
@@ -31,7 +79,7 @@ function serviceInfo(){
 
 function addKeyUpListener()  {
 
-  var button = $('.add_input');
+  var button = $('.get-coord');
 
   button.keyup(function(){
     getCoord();
@@ -83,7 +131,7 @@ function getCoord() {
      console.log('error' , error);
    }
  });
-};
+}
 
 // input immagine + preview
 
@@ -199,8 +247,8 @@ function autocompleteAddress() {
 // }
 
 function init(){
+
   // initVue();
-  // flatCharts();
   addKeyUpListener();
   uploadImg();
   autocompleteAddress();

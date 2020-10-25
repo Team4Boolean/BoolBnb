@@ -35,7 +35,7 @@
 <body>
     @include('components.flat')
 
-    <div id="app">
+    {{-- <div id="app"> --}}
       <header>
         @include('partials.header-navbar')
         @yield('jumbo')
@@ -46,7 +46,7 @@
       </main>
 
       @include('partials.footer')
-    </div>
+    {{-- </div> --}}
 
 
 </body>

@@ -15,7 +15,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-sm-12 d-flex justify-content-start">
-                    <a id="back-btn" class="my-4 btn btn-primary" href="{{route('flats.index')}}"> indietro </a>
+                    <a id="back-btn" class="my-4 btn " href="{{route('flats.index')}}"> <i class="fas fa-arrow-circle-left"></i> </a>
                     <h1>{{ $flat -> title }}</h1>
                   </div>
                 </div>
@@ -70,7 +70,11 @@
                 {{-- descrizione e caratteristiche --}}
                 <div class="row row-spacer">
                   <div class="col">
+                    <h3>Descrizione</h3>
                     <p>{{$flat -> desc}}</p>
+                    <h3>Indirizzo</h3>
+                    <p>{{$flat -> street_name}}, {{$flat -> street_number}}<br>
+                      {{$flat -> postal_code}}, {{$flat -> municipality}} ({{$flat -> subdivision}})</p>
                   </div>
                   <div class="col">
                     <ul class="list-group">
@@ -91,52 +95,52 @@
                         <h4><span class="badge badge-success">{{$flat -> sqm}}</span></h4>
                       </li>
                     </ul>
-                  </div>
-                </div>
 
-                {{-- servizi offerti --}}
-                <div class="row row-spacer">
-                  <div class="services col">
-                    @foreach ($flat -> services as $service)
-                      <div class="service-item">
-                        @if ($service -> name == 'wifi')
-                          <i class="fas fa-wifi"></i>
-                          <span class="serv-info">
-                            Wifi
-                          </span>
-                        @elseif ($service -> name == 'parking')
-                          <i class="fas fa-parking"></i>
-                          <span class="serv-info">
-                            Posto Macchina
-                          </span>
-                        @elseif ($service -> name == 'swim')
-                          <i class="fas fa-swimming-pool"></i>
-                          <span class="serv-info">
-                            Piscina
-                          </span>
-                        @elseif ($service -> name == 'concierge')
-                          <i class="fas fa-door-closed"></i>
-                          <span class="serv-info">
-                            Portineria
-                          </span>
-                        @elseif ($service -> name == 'sauna')
-                          <i id="serv-item" class="fas fa-hot-tub"></i>
-                          <span class="serv-info">
-                            Sauna
-                          </span>
-                        @elseif ($service -> name == 'sea')
-                          <i class="fas fa-water"></i>
-                          <span class="serv-info">
-                            Vista Mare
-                          </span>
-                        @endif
-                      </div>
-                    @endforeach
+                    {{-- servizi --}}
+                    <div class="services">
+                      @foreach ($flat -> services as $service)
+                        <div class="service-item">
+                          @if ($service -> name == 'wifi')
+                            <i class="fas fa-wifi"></i>
+                            <span class="serv-info">
+                              Wifi
+                            </span>
+                          @elseif ($service -> name == 'parking')
+                            <i class="fas fa-parking"></i>
+                            <span class="serv-info">
+                              Posto Macchina
+                            </span>
+                          @elseif ($service -> name == 'swim')
+                            <i class="fas fa-swimming-pool"></i>
+                            <span class="serv-info">
+                              Piscina
+                            </span>
+                          @elseif ($service -> name == 'concierge')
+                            <i class="fas fa-door-closed"></i>
+                            <span class="serv-info">
+                              Portineria
+                            </span>
+                          @elseif ($service -> name == 'sauna')
+                            <i id="serv-item" class="fas fa-hot-tub"></i>
+                            <span class="serv-info">
+                              Sauna
+                            </span>
+                          @elseif ($service -> name == 'sea')
+                            <i class="fas fa-water"></i>
+                            <span class="serv-info">
+                              Vista Mare
+                            </span>
+                          @endif
+                        </div>
+                      @endforeach
+                    </div>
+
                   </div>
                 </div>
 
                 {{-- mappa e messaggi --}}
                 <div class="row row-spacer">
+
                   <div class="col-xs-12 col-md-12 col-lg-6">
                     {{-- MAPPA --}}
                     <div id="map" defer>
@@ -161,14 +165,25 @@
                         </div>
 
                         <div class="card-body">
+
+                          @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                          @endif
+
                           <div class="form-group row">
                             <label for="inputEmail3" class="col col-form-label">La tua email</label>
                             <div class="col-sm-12">
                               <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="inputEmail3" placeholder="Email"
-                              value = "{{ old('email') }}
-                              @auth
-                                {{ $flat -> user -> email }}
-                              @endauth
+                              value = "
+                                      @guest
+                                        {{ old('email') }}
+                                      @endguest
+
+                                      @auth
+                                        {{ old('email', $flat -> user -> email) }}
+                                      @endauth
                               "
                               required>
                               @error('email')
@@ -198,8 +213,11 @@
                         </div>
                       </div>
                     </form>
+
                   </div>
+                  {{-- /MESSAGGI --}}
                 </div>
+                {{-- /mappa e messaggi --}}
 
               </div>
               {{-- card-body --}}

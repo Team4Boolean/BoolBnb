@@ -31,7 +31,7 @@
     <div id="jumbo-navbar">
       <div id="jumbo-link-logo" class="navbar-brand">
         <img id="jumbo-img-logo" src="{{asset('imgs/airbnb.svg')}}" width="40px" height="auto" alt="logo">
-        <span id="jumbo-span-logo">boolbnb</span>
+        <span id="jumbo-span-logo">Boolbnb</span>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-4 ">
         <ul>
@@ -90,36 +90,53 @@
 
 @section('content')
 
-  <div class="container app-vue">
+  <script type="text/javascript">
+
+    function initVue() {
+      const home = new Vue({
+        el: '#home',
+      });
+    }
+
+    function init() {
+      initVue();
+    }
+
+    $(document).ready(init);
+
+  </script>
+
+  <div class="container">
 
     <div class="text">
       <h3>Appartamenti in evidenza</h3>
     </div>
 
-    <div class="row homepage">
+    <div id="home">
+      <div class="row homepage">
 
-      @foreach ($sponsored as $flat)
+        @foreach ($sponsored as $flat)
 
-        <flatcomponent
-          :title = "'{{ $flat -> title }}'"
-          :desc = "'{{ $flat -> desc }}'"
-          :img = "'{{ $flat -> photos -> first() -> url }}'"
-          :id = "'{{ $flat -> id }}'"
-        ></flatcomponent>
+          <flatcomponent
+            :title = "'{{ $flat -> title }}'"
+            :desc = "'{{ $flat -> desc }}'"
+            :img = "'{{ $flat -> photos -> first() -> url }}'"
+            :id = "'{{ $flat -> id }}'"
+          ></flatcomponent>
 
-        {{-- <div class="col-xs-12 col-md-6 col-lg-4">
-          <div class="card">
-            <img src="{{ $flat -> photos -> first() -> url }}" class="card-img-top" alt="flat-img">
-            <div class="card-body">
-              <h5 class="card-title">{{ $flat -> title }}</h5>
-              <p class="card-text text-muted">{{ $flat -> desc }}</p>
-              <a href="#" class="btn btn-primary">Visualizza</a>
+          {{-- <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="card">
+              <img src="{{ $flat -> photos -> first() -> url }}" class="card-img-top" alt="flat-img">
+              <div class="card-body">
+                <h5 class="card-title">{{ $flat -> title }}</h5>
+                <p class="card-text text-muted">{{ $flat -> desc }}</p>
+                <a href="#" class="btn btn-primary">Visualizza</a>
+              </div>
             </div>
-          </div>
-        </div> --}}
+          </div> --}}
 
-      @endforeach
-
+        @endforeach
+      </div>
     </div>
 
     {{-- {{ $sponsored -> links() }} --}}

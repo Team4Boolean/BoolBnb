@@ -27,14 +27,13 @@ class UprController extends Controller {
     // validazione tramite regole definite nella protected $rules
     // $this -> validate($request, $this -> rules, $this -> errorMessages);
 
-    // VALIDAZIONE: SECONDO modo
+    // VALIDAZIONE: SECONDO MODO
     // richiamo la classe UprFlatRequest definita in App\Http\Requests\FlatRequest
 
     $userid = $request -> user() -> id;
 
     $data = $request -> all();
     // dd($data);
-
     $data['user_id'] = $userid;
 
     $flat = Flat::create($data);
@@ -43,12 +42,12 @@ class UprController extends Controller {
     if (!empty($data['services'])) {
 
       $services = $data['services'];
+      $flat -> services() -> attach($services);
 
-      foreach ($services as $service) {
-        $service_entity = Service::where('id',$service) -> get();
-        $flat -> services() -> attach($service_entity);
-      }
-
+      // foreach ($services as $service) {
+      //   $service_entity = Service::where('id',$service) -> get();
+      //   $flat -> services() -> attach($service_entity);
+      // }
     }
 
     if ($request -> hasFile('img')) {
@@ -62,7 +61,6 @@ class UprController extends Controller {
       $photo['flat_id'] = $flat -> id;
 
       $photo = Photo::create($photo);
-
     }
 
     return redirect() -> route('flats.index');

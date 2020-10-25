@@ -42,7 +42,7 @@ Route::group([
     Route::get('/flats', 'UpraController@flatIndex') -> name('flats.index');
     // Flats Upra -> edit
     Route::get('/flats/{id}/edit', 'UpraController@flatEdit') -> name('flats.edit');
-    Route::post('/flats/{id}/update', 'UpraController@flatUpdate') -> name('flats.update');
+    Route::patch('/flats/{id}/update', 'UpraController@flatUpdate') -> name('flats.update');
     // Flats Upra -> deactivate
     Route::get('/flats/{id}/deactivate', 'UpraController@flatDeactivate') -> name('flats.deactivate');
     Route::get('/flats/{id}/activate', 'UpraController@flatActivate') -> name('flats.activate');

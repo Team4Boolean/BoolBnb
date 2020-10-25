@@ -11152,12 +11152,13 @@ header div.jumbotron #jumbo-navbar {
   position: absolute;
   top: 10px;
   padding-left: 10%;
-  color: #ff385c !important;
+  color: #fff !important;
 }
 
 header div.jumbotron #jumbo-navbar span#jumbo-span-logo {
   font-size: 22px;
   font-weight: bold;
+  margin-left: 10px;
 }
 
 header div.jumbotron #jumbo-navbar ul {
@@ -11178,8 +11179,7 @@ header div.jumbotron #jumbo-navbar ul li {
 }
 
 header div.jumbotron #jumbo-navbar ul li:hover {
-  background-color: #fff;
-  color: #fff;
+  transform: scale(1.05);
 }
 
 header div.jumbotron #jumbo-navbar ul li .fa-bars:before,
@@ -11189,7 +11189,7 @@ header div.jumbotron #jumbo-navbar ul li .fa-user:before {
 }
 
 header div.jumbotron #jumbo-navbar ul li a {
-  color: #ff385c;
+  color: #fff;
   font-weight: bold;
 }
 
@@ -11197,15 +11197,8 @@ header div.jumbotron #jumbo-navbar ul li a.nav-link {
   margin: 0 5px;
 }
 
-header div.jumbotron #jumbo-navbar ul li.nav-item.dropdown {
-  border: 1px solid #ddd;
-  transition: all 0.3s;
-  position: relative;
-}
-
 header div.jumbotron #jumbo-navbar ul li.nav-item.dropdown:hover {
-  background-color: #fff;
-  box-shadow: 2px 2px 5px #ddd;
+  transform: scale(1.05);
 }
 
 header div.jumbotron #jumbo-navbar ul li.nav-item.dropdown i {
@@ -11380,8 +11373,7 @@ main .container .row.homepage .col-xs-12 .card .card-body a.btn.btn-primary:hove
 
 form.flat-create .input-group-prepend label,
 form.flat-search .input-group-prepend label {
-  background-color: #008489;
-  color: white;
+  color: #008489;
 }
 
 form.flat-create .textInput .input-group-prepend,
@@ -11401,11 +11393,6 @@ form.flat-search .textInput .input-group-prepend label {
 form.flat-create .textInput #input-title label,
 form.flat-search .textInput #input-title label {
   border-radius: 5px 5px 0 0;
-}
-
-form.flat-create .textInput #input-title label h6,
-form.flat-search .textInput #input-title label h6 {
-  font-weight: bold;
 }
 
 form.flat-create .textInput #input-title input,
@@ -11501,16 +11488,28 @@ form.flat-search .btnInput {
   justify-content: space-between;
 }
 
+form.flat-create .btnInput a:hover,
+form.flat-search .btnInput a:hover {
+  transform: scale(1.05);
+  transition: 0.03s;
+}
+
 form.flat-create .btnInput button,
 form.flat-search .btnInput button {
-  background-color: #ff385c;
-  border-color: #ff385c;
+  background-color: #008489;
+  border-color: #008489;
+}
+
+form.flat-create .btnInput button:hover,
+form.flat-search .btnInput button:hover {
+  background: #005f63;
+  transition: 0.03s;
 }
 
 form.flat-create .btnInput i,
 form.flat-search .btnInput i {
   font-size: 35px;
-  color: #ff385c;
+  color: teal;
 }
 
 @media (max-width: 576px) {
@@ -11518,18 +11517,6 @@ form.flat-search .btnInput i {
   form.flat-search .numInput .input-group {
     width: 90%;
   }
-}
-
-#back-btn {
-  position: absolute;
-  top: 56px;
-  left: 7px;
-  background-color: #ff385c;
-  color: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  text-align: center;
-  width: 68px;
 }
 
 #back-btn:hover {
@@ -11553,25 +11540,27 @@ form.flat-search .btnInput i {
   padding: 0;
 }
 
-#flatShow #main-card > .card-header h1 {
+#flatShow #main-card > .card-header .justify-content-start {
+  align-items: center;
+}
+
+#flatShow #main-card > .card-header .justify-content-start h1 {
   padding: 12px 15px;
 }
 
-#flatShow #main-card > .card-header a {
-  width: 35px;
-  height: 102%;
+#flatShow #main-card > .card-header .justify-content-start a {
   position: relative;
-  top: -1px;
-  left: 24px;
+  top: 0px;
+  left: 0px;
   border-radius: unset;
   padding: 0;
 }
 
-#flatShow #main-card > .card-header a i {
+#flatShow #main-card > .card-header .justify-content-start a i {
   font-size: 40px;
   position: relative;
   right: 0;
-  top: 15px;
+  top: 0;
   color: #ff385c;
 }
 
@@ -11616,7 +11605,7 @@ form.flat-search .btnInput i {
 
 #flatShow .card-body .services .service-item .serv-info {
   position: absolute;
-  transform: translate(9%, -80%);
+  transform: translate(-100%, -80%);
   display: none;
   background-color: #ff385c;
   color: white;
@@ -11627,7 +11616,7 @@ form.flat-search .btnInput i {
 #flatShow .card-body .services .service-item i {
   font-size: 35px;
   color: #008489;
-  margin: 10px 5px;
+  margin: 20px 5px 0 10px;
 }
 
 #flatShow .card-body #messageBox .h3 {
