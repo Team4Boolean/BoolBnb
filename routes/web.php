@@ -67,6 +67,8 @@ Route::group([
     Route::get('/messages/{id}/show', 'UpraController@messageShow') -> name('messages.show');
   });
 
+  //Chart
+Route::get('/stats/{id}/show', 'UpraController@statsShow') -> name('stats.show');
 
 // UPRA functions
 Route::get('/upra', 'UpraController@index') -> name('upra');

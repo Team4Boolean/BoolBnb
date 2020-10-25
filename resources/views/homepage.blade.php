@@ -90,7 +90,7 @@
 
 @section('content')
 
-  <div class="container">
+  <div class="container app-vue">
 
     <div class="text">
       <h3>Appartamenti in evidenza</h3>

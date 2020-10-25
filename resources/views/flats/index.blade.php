@@ -50,6 +50,7 @@
 
                 @else
                   <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary">Visualizza</a>
+                  <a href="{{ route('stats.show', $flat -> id) }}" class="btn btn-primary">Statistiche</a>
                   <a href="{{ route('flats.deactivate', $flat -> id) }}" class="btn btn-danger float-right">Disattiva</a>
                 @endif
                 </div>
