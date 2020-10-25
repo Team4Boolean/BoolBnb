@@ -4,10 +4,10 @@
 
 <div class="flatsearch" style="background-image: url('https://a0.muscache.com/pictures/18084f37-67e0-400f-bfd8-55eea0e89508.jpg')">
   <div class="jumbo-navbar">
-    <div id="jumbo-link-logo" class="navbar-brand">
+    <a class="navbar-brand" href="{{ url('/') }}">
       <img id="jumbo-img-logo" src="{{asset('imgs/airbnb.svg')}}" width="40px" height="auto" alt="logo">
       <span class="jumbo-span-logo">Boolbnb</span>
-    </div>
+    </a>
     <div class="col-xs-12 col-md-6 col-lg-4 ">
       <ul>
         @guest
@@ -63,7 +63,7 @@
 
 
 <div class="container" >
-  <div class="bo">
+  <div class="wrapper">
     <div class="row ">
       <div class="col-md-5 col-xl-3 left-side">
       <h1>Città Alta, Bergamo: alloggi</h1>
@@ -116,6 +116,7 @@
                   <label class="input-group-text" for="beds">Letti</label>
                 </div>
                 <select class="custom-select" name="beds">
+
                   <option selected="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -128,25 +129,25 @@
           <hr>
           <section class="checkInput ">
             <div class="form-group ">
-              <ul class="d-flex justify-content-between list-unstyled flex-wrap">
-              <div class="col-4">
-                <li>
+              <ul class=" list-unstyled">
+              <div class="row ">
+                <li class="col-6">
                 {{-- wifi --}}
                     <label><input type="checkbox" name="wifi" value="{{ old('wifi') }}"> Wifi</label>
                 </li>
-                <li>
+                <li class="col-6 ">
                 {{-- parking --}}
                     <label><input type="checkbox" name="parking" value="{{ old('parking') }}"> Parcheggio</label>
                 </li>
               </div>
-              <div class="col-4">
-                <li>
+              <div class="row ">
+                <li class="col-6">
                 {{-- swim --}}
 
                     <label><input type="checkbox" name="swim" value="{{ old('swim') }}"> Piscina</label>
 
                 </li>
-                <li >
+                <li class="col-6 " >
                 {{-- concierge --}}
 
                     <label><input type="checkbox" name="concierge" value="{{ old('concierge') }}"> Portinaio</label>
@@ -154,14 +155,14 @@
                 </li>
 
               </div>
-              <div class="col-4">
-                <li >
+              <div class="row ">
+                <li class="col-6">
                 {{-- sauna --}}
 
                     <label><input type="checkbox" name="sauna" value="{{ old('sauna') }}"> Sauna</label>
 
                 </li>
-                  <li >
+                  <li class="col-6">
                   {{-- sea --}}
 
                       <label><input type="checkbox" name="sea" value="{{ old('sea') }}"> Vista Mare</label>

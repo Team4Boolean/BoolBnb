@@ -21,6 +21,10 @@ div.jumbotron, div.flatsearch {
     padding-left: 10%;
     color: #fff !important;
 
+    a {
+      color: $coral;
+    }
+
     span.jumbo-span-logo {
       font-size: 22px;
       font-weight: bold;
@@ -168,7 +172,7 @@ div.jumbotron, div.flatsearch {
   }
 }
 
-div.flatsearch .bo {
+div.flatsearch .wrapper {
 
   background-color: white;
   position: absolute;
