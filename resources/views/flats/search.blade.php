@@ -204,17 +204,19 @@
 
             <div class="row">
 
-              @foreach ($flats as $flat)
+              @isset($flats)
+                @foreach ($flats as $flat)
 
-              <flatcomponent
-              :title = "'{{ $flat -> title }}'"
-              :desc = "'{{ $flat -> desc }}'"
-              :img = "'{{ asset($flat -> photos() -> first() -> path) }}'"
-              :id = "'{{ $flat -> id }}'"
-              ></flatcomponent>
+                <flatcomponent
+                :title = "'{{ $flat -> title }}'"
+                :desc = "'{{ $flat -> desc }}'"
+                :img = "'{{ asset($flat -> photos() -> first() -> path) }}'"
+                :id = "'{{ $flat -> id }}'"
+                ></flatcomponent>
 
-              @endforeach
-
+                @endforeach
+              @endisset
+              
             </div>
 
           </div>

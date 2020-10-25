@@ -35,13 +35,18 @@ class UiController extends Controller
     $lat = $data['lat'];
     $lon = $data['lon'];
 
-    // prendo gli appartamenti a meno di 20KM di distanza dalla località cercata
-    $flats = Flat::select(DB::raw('*, ( 6367 * acos( cos( radians('.$lat.') ) * cos( radians( lat ) ) * cos( radians( lon ) - radians('.$lon.') ) + sin( radians('.$lat.') ) * sin( radians( lat ) ) ) ) AS distance'))
-      ->having('distance', '<', 20)
-      ->orderBy('distance')
-      ->get();
+    if ($lat !== null && $lon !== null) {
 
-    return view('flats.search', compact('flats'));
+      // prendo gli appartamenti a meno di 20KM di distanza dalla località cercata
+      $flats = Flat::select(DB::raw('*, ( 6367 * acos( cos( radians('.$lat.') ) * cos( radians( lat ) ) * cos( radians( lon ) - radians('.$lon.') ) + sin( radians('.$lat.') ) * sin( radians( lat ) ) ) ) AS distance'))
+        ->having('distance', '<', 20)
+        ->orderBy('distance')
+        ->get();
+
+      return view('flats.search', compact('flats'));
+    } else {
+      return view('flats.search');
+    }
   }
 
   public function flatShow($id) {
