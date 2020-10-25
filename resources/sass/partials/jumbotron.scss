@@ -1,4 +1,6 @@
-div.jumbotron {
+
+
+div.jumbotron, div.flatsearch {
   width: 100%;
   height: 100vh;
   margin-right: 0;
@@ -9,7 +11,7 @@ div.jumbotron {
   background-position: center;
   color: $primary;
 
-  #jumbo-navbar {
+  .jumbo-navbar {
 
     width: 100%;
     display: flex;
@@ -19,7 +21,7 @@ div.jumbotron {
     padding-left: 10%;
     color: #fff !important;
 
-    span#jumbo-span-logo {
+    span.jumbo-span-logo {
       font-size: 22px;
       font-weight: bold;
       margin-left: 10px;
@@ -89,7 +91,7 @@ div.jumbotron {
     }
   }
 
-  #jumbo-search-bar {
+  .jumbo-search-bar {
     width: 100%;
     height: 40px;
     border: 1px solid #ddd;
@@ -97,6 +99,9 @@ div.jumbotron {
     padding: 0 15px;
     font-size: 14px;
     color: #777;
+
+
+
 
 
     transition: all 0.3s;
@@ -160,6 +165,27 @@ div.jumbotron {
         background-color: $coralt !important;
       }
     }
+  }
+}
+
+div.flatsearch .bo {
+
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 80%;
+  height: 80%;
+
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 7px #111;
+
+  transform: translate(-50% , -50%);
+
+  .left-side {
+    border-right: 1px #ddd solid;
   }
 }
 

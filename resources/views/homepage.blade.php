@@ -9,7 +9,7 @@
             <h1>Riscopri l'Italia</h1>
             <p>Scopri alloggi nelle vicinanze tutti da vivere, per lavoro o svago.</p>
             <form method="post">
-              <input id="jumbo-search-bar" class="" type="search" name="" value="" placeholder="Inizia la ricerca...">
+              <input id="jumbo-search-bar" class="jumbo-search-bar" type="search" name="" value="" placeholder="Inizia la ricerca...">
 
               <div class="form-group" style="display:none">
                   <label for="lon">LONGITUDINE</label>
@@ -28,10 +28,10 @@
       </div>
     </div>
 
-    <div id="jumbo-navbar">
+    <div class="jumbo-navbar">
       <div id="jumbo-link-logo" class="navbar-brand">
         <img id="jumbo-img-logo" src="{{asset('imgs/airbnb.svg')}}" width="40px" height="auto" alt="logo">
-        <span id="jumbo-span-logo">Boolbnb</span>
+        <span class="jumbo-span-logo">Boolbnb</span>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-4 ">
         <ul>
