@@ -19,48 +19,8 @@ $.fn.extend({
 
 // window.Dropzone = require('dropzone');
 
-// $(function () {
-//    // Here the default dropzone code:
-//     var myDropzone = new Dropzone(document.body, {
-//         url: "/target-url"
-//     });
-//
-//   function dropzoneOptions() {
-//
-//     Dropzone.options.imageUpload = {
-//       // controllo sulle immagini
-//       maxFilesize: 1,
-//       acceptedFiles:".jpeg,.jpg,.png,.gif"
-//     };
-//   }
-//
-//   var imageUploadInput = $('#image-upload');
-//   dropzoneOptions(imageUploadInput);
-// });
-
-// $(function(){
-//
-//   var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-//
-//   Dropzone.autoDiscover = false;
-//   var myDropzone = new Dropzone(".dropzone",{
-//     maxFilesize: 3,  // 3 mb
-//     acceptedFiles: ".jpeg,.jpg,.png,.pdf",
-//   });
-//   myDropzone.on("sending", function(file, xhr, formData) {
-//     formData.append("_token", CSRF_TOKEN);
-//   });
-// });
-
-// function initVue() {
-//   const home = new Vue({
-//       el: '#home',
-//       // components: {
-//       //   'component-a': ComponentA,
-//       // }
-//   });
-// }
-
+//da qua parte chart.js
+var Chart = require('chart.js');
 
 // FLAT-SHOW
 
@@ -160,6 +120,7 @@ function uploadImg(){
 
 }
 
+// AUTOCOMPLETAMENTO DELL'INDIRIZZO
 function autocompleteAddress() {
 
   if ($('div').is('.jumbotron')) {
@@ -196,6 +157,52 @@ function autocompleteAddress() {
         });
       }
     }
+
+// ADVERTISINGS - CHARTS
+
+// function flatCharts(){
+//   var Chart = require('chart.js'); //da qua parte chart.js
+//
+//   var ctx = $("#viewsChart");
+//
+//   var viewsChart = new Chart(ctx, {
+//     type: 'bar',
+//     data:  {
+//       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+//       datasets: [{
+//         label: '# of Votes',
+//         data: [12, 19, 3, 5, 2, 3],
+//         backgroundColor: [
+//           'rgba(255, 99, 132, 0.2)',
+//           'rgba(54, 162, 235, 0.2)',
+//           'rgba(255, 206, 86, 0.2)',
+//           'rgba(75, 192, 192, 0.2)',
+//           'rgba(153, 102, 255, 0.2)',
+//           'rgba(255, 159, 64, 0.2)'
+//         ],
+//         borderColor: [
+//           'rgba(255, 99, 132, 1)',
+//           'rgba(54, 162, 235, 1)',
+//           'rgba(255, 206, 86, 1)',
+//           'rgba(75, 192, 192, 1)',
+//           'rgba(153, 102, 255, 1)',
+//           'rgba(255, 159, 64, 1)'
+//         ],
+//         borderWidth: 1
+//       }],
+//     },
+//
+//     options:  {
+//       scales: {
+//           yAxes: [{
+//               ticks: {
+//                   beginAtZero: true
+//               }
+//           }]
+//         },
+//       },
+//   });
+// }
 
 function init(){
 

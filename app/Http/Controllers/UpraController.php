@@ -16,6 +16,8 @@ use App\Photo;
 // richiama Upra Flat Request
 use App\Http\Requests\UpraFlatRequest;
 
+use Illuminate\Support\Facades\DB;
+
 class UpraController extends Controller {
 
   public function flatIndex() {
@@ -127,6 +129,18 @@ class UpraController extends Controller {
       $welcome = "Benvenuto utente UPRA!";
       return view('flats.create', compact('welcome'));
     }
+
+  }
+
+  public function statistics($id){
+
+    $flat = Flat::findOrFail($id);
+
+    $views = DB::table('Visits')
+    ->select('created_at')
+    ->where('flat_id', $id)->get();
+
+    return view('flats.chart', compact('flat','views'));
 
   }
 }

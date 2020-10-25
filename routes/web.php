@@ -47,7 +47,7 @@ Route::group([
     Route::get('/flats/{id}/deactivate', 'UpraController@flatDeactivate') -> name('flats.deactivate');
     Route::get('/flats/{id}/activate', 'UpraController@flatActivate') -> name('flats.activate');
     // Flats Upra -> statistics
-    Route::get('/flats/{id}/statistics', 'UpraController@flatStatistics') -> name('flats.statistics');
+    Route::get('/stats/{id}/statistics', 'UpraController@statistics') -> name('stats.show');
     // Flats Upra -> sponsors -> create
     Route::get('/flats/{id}/sponsor', 'UpraController@flatSponsorCreate') -> name('flats.sponsor.create');
   });
@@ -66,7 +66,6 @@ Route::group([
     // Requests Upra -> show
     Route::get('/messages/{id}/show', 'UpraController@messageShow') -> name('messages.show');
   });
-
 
 // UPRA functions
 Route::get('/upra', 'UpraController@index') -> name('upra');

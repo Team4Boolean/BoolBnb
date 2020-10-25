@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "chart.js": "^2.9.4",
         "dropzone": "^5.7.2",
         "places.js": "^1.19.0",
         "vue2-dropzone": "^3.6.0"
