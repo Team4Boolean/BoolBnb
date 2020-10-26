@@ -66,7 +66,7 @@
   <div class="wrapper">
     <div class="row ">
       <div class="col-md-6 col-lg-5 col-xl-4 left-side">
-      <h1>Città Alta, Bergamo: alloggi</h1>
+      <h1>{{ $loc }}:</h1>
 
         <form stmethod="post">
           <input id="jumbo-search-bar" class="jumbo-search-bar" type="search" name="" value="" placeholder="Cambia la meta..">
@@ -216,7 +216,7 @@
 
                 @endforeach
               @endisset
-              
+
             </div>
 
           </div>

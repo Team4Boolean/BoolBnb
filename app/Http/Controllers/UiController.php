@@ -30,8 +30,13 @@ class UiController extends Controller
 
   public function flatSearch(Request $request) {
 
-    $data = $request -> all();
+    $data = $request -> validate([
+      'loc' => 'required|max:255',
+      'lat' => 'required',
+      'lon' => 'required'
+    ]);
     // dd($data);
+    $loc = $data['loc'];
     $lat = $data['lat'];
     $lon = $data['lon'];
 
@@ -43,9 +48,9 @@ class UiController extends Controller
         ->orderBy('distance')
         ->get();
 
-      return view('flats.search', compact('flats'));
+      return view('flats.search', compact('flats','loc'));
     } else {
-      return view('flats.search');
+      return back() -> with("error", "Inserisci la località.");
     }
   }
 
