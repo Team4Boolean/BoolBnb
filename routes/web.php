@@ -10,6 +10,8 @@ Auth::routes();
 Route::get('/', 'UiController@home') -> name('home');
 // Home Ui -> search
 Route::get('/flats/search', 'UiController@flatSearch') -> name('flats.search');
+// Search Ui -> searchFilters
+Route::get('/flats/search/filters', 'UiController@flatSearchFilters') -> name('flats.search.filters');
 // API flats -> search
 Route::get('/api/flats/search', 'ApiController@flatSearch') -> name('api.flats.search');
 

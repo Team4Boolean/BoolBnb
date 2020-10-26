@@ -40,6 +40,10 @@ class UiController extends Controller
     $lat = $data['lat'];
     $lon = $data['lon'];
 
+    $dist = 0;
+    $rooms = 0;
+    $beds = 0;
+
     if ($lat !== null && $lon !== null) {
 
       // prendo gli appartamenti a meno di 20KM di distanza dalla località cercata
@@ -47,11 +51,59 @@ class UiController extends Controller
         ->having('distance', '<', 20)
         ->orderBy('distance')
         ->get();
-        
-      return view('flats.search', compact('flats','loc'));
+
+      return view('flats.search', compact('flats','loc','lat','lon','dist','rooms','beds'));
     } else {
       return back() -> with("error", "Inserisci la località.");
     }
+  }
+
+  public function flatSearchFilters(Request $request) {
+
+    $data = $request -> all();
+    // dd($data);
+    $loc = $data['loc'];
+    $lat = $data['lat'];
+    $lon = $data['lon'];
+
+    if (is_numeric($data['distance'])) {
+      $dist = $data['distance'];
+    } else {
+      $dist = 20;
+    }
+
+    if (is_numeric($data['rooms'])) {
+      $rooms = $data['rooms'];
+    } else {
+      $rooms = 0;
+    }
+
+    if (is_numeric($data['beds'])) {
+      $beds = $data['beds'];
+    } else {
+      $beds = 0;
+    }
+
+    // $dist = 1000;
+    // $rooms = 1;
+    // $beds = 2;
+
+    if (isset($data['services'])) {
+      $services = $data['services'];
+    }
+
+    // prendo gli appartamenti in base ai filtri impostati
+    $flats = Flat::select(DB::raw('*, ( 6367 * acos( cos( radians('.$lat.') ) * cos( radians( lat ) ) * cos( radians( lon ) - radians('.$lon.') ) + sin( radians('.$lat.') ) * sin( radians( lat ) ) ) ) AS distance'))
+      ->where([
+          ['rooms','>=',$rooms],
+          ['beds', '>=', $beds]
+        ])
+      ->having('distance', '<', $dist)
+      ->orderBy('distance')
+      ->get();
+      // dd($flats);
+
+      return view('flats.search', compact('flats','loc','lat','lon','dist','rooms','beds'));
   }
 
   public function flatShow($id) {

@@ -11340,6 +11340,17 @@ header div.flatsearch .wrapper .right-side {
   overflow: auto;
 }
 
+<<<<<<< HEAD
+=======
+header div.flatsearch .wrapper .right-side .right-side-title {
+  height: 30px;
+}
+
+header div.flatsearch .wrapper .right-side .row {
+  height: calc(100% - 80px);
+}
+
+>>>>>>> main
 @media (max-width: 992px) {
   header div.flatsearch .wrapper {
     width: 90%;

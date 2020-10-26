@@ -97874,7 +97874,7 @@ function uploadImg() {
 
 
 function autocompleteAddress() {
-  if ($('div').is('.jumbotron')) {
+  if ($('div').is('.jumbotron') || $('div').is('.flatsearch')) {
     var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
     var placesAutocomplete = places({

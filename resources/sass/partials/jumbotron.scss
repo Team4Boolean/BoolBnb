@@ -198,6 +198,12 @@ div.flatsearch .wrapper {
     height: 100%;
     overflow: auto;
 
+    .right-side-title {
+      height: 30px;
+    }
+    .row {
+      height: calc(100% - 80px);
+    }
 
   }
 
@@ -220,7 +226,9 @@ div.flatsearch .wrapper {
 
     .right-side {
       overflow: inherit;
+
     }
+
 
 
   }

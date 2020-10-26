@@ -1,6 +1,6 @@
 <script id="flat-component" type="text/x-template">
 
-  <div class="col-xs-12 col-md-6 col-lg-3 mb-3" v-on:mouseover="setMouseIn(true)" v-on:mouseout="setMouseIn(false)">
+  <div class=" col-md-6 col-lg-12 col-xl-6 mb-3" v-on:mouseover="setMouseIn(true)" v-on:mouseout="setMouseIn(false)">
     <div style=" height: 400px" class="card">
       <img style=" height: 140px" :src="img" class="card-img-top" alt="flat-img">
       <div class="card-body" style=" position: reltive;">
