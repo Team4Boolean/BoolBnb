@@ -140,6 +140,17 @@ class UpraController extends Controller {
     ->select('created_at')
     ->where('flat_id', $id)->get();
 
+    // ('
+    // SELECT COUNT(flat_id) AS visits,
+    // DATE(created_at) AS day
+    // FROM visits
+    // WHERE flat_id='$id'
+    // GROUP BY day
+    // ');
+
+    // $views = DB::table('Visits')
+    //   ->select(array('flat_id.*' DB::raw('')))
+
     return view('flats.chart', compact('flat','views'));
 
   }
