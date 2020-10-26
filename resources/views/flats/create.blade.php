@@ -279,7 +279,7 @@
                       {{-- btn group --}}
 
                       <section class="btnInput">
-                        <a href="{{ route('flats.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
+                        <a href="{{ url()->previous() }}"><i class="fas fa-arrow-circle-left"></i></a>
                         <button class="btn btn-primary" type="submit">Conferma</button>
                       </section>
 

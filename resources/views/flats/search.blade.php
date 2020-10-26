@@ -67,21 +67,22 @@
     <div class="row ">
       {{-- LEFT-SIDE --}}
       <div class="col-lg-6 col-xl-4 left-side mb-3">
-      <h1>{{ $loc }}:</h1>
+      <h1>{{ old('loc', $loc) }}:</h1>
 
-      <form action="{{ route('api.flats.search') }}" method="get">
+      <form action="{{ route('flats.search.filters') }}" method="get">
         @csrf
         @method('GET')
-        <input id="jumbo-search-bar" class="jumbo-search-bar" type="search" name="loc" value="{{ $loc }}" placeholder="Cambia la meta..">
+        
+        <input id="jumbo-search-bar" class="jumbo-search-bar" type="search" name="loc" value="{{old('loc', $loc)}}" placeholder="Cambia la meta..">
           <div class="form-group" style="display:none">
               <label for="lon">LONGITUDINE</label>
               <br>
-              <input id="jumbo-search-lon" type="text" name="lon" value="">
+              <input id="jumbo-search-lon" type="text" name="lon" value="{{old('lon', $lon)}}">
           </div>
           <div class="form-group" style="display:none">
               <label for="lat">LATITUDINE</label>
               <br>
-              <input id="jumbo-search-lat" type="text" name="lat" value="">
+              <input id="jumbo-search-lat" type="text" name="lat" value="{{old('lat', $lat)}}">
           </div>
         <hr>
 
@@ -209,7 +210,7 @@
                 ></flatcomponent>
 
                 @endforeach
-                @else
+              @else
                 <h3 class="text-danger">Non sono presenti risultati.</h3>
               @endisset
 
