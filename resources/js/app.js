@@ -123,7 +123,7 @@ function uploadImg(){
 // AUTOCOMPLETAMENTO DELL'INDIRIZZO
 function autocompleteAddress() {
 
-  if ($('div').is('.jumbotron')) {
+  if ($('div').is('.jumbotron') || $('div').is('.flatsearch')) {
     var places = require('places.js');
     var placesAutocomplete = places({
       appId: 'plXJIJDQMD75',

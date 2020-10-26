@@ -13,7 +13,7 @@
               @csrf
               @method('GET')
 
-              <input id="jumbo-search-bar" class="jumbo-search-bar" type="search" name="" value="" placeholder="Inizia la ricerca...">
+              <input id="jumbo-search-bar" class="jumbo-search-bar" type="search" name="loc" value="" placeholder="Inizia la ricerca...">
 
               <div class="form-group" style="display:none">
                   <label for="lon">LONGITUDINE</label>
