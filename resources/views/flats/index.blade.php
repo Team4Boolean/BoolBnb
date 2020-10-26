@@ -25,21 +25,21 @@
         <li class="list-index media mb-5 ">
           <div class="row">
 
-            <div class="index-img col-xs-12 col-md-12 col-lg-4">
+            <div class="index-img col-xs-12 col-md-12 col-lg-5 col-xl-4">
               <img src="{{ asset($flat -> photos() -> first() -> path) }}" class="rounded img-fluid" alt="Flat Image">
             </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-8 d-flex flex-column justify-content-center">
+            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-8 d-flex flex-column justify-content-center">
               <div class="title-text">
                 <h3 class="mt-0 mb-1">{{ $flat -> title }}</h3>
                 <p>{{ $flat -> desc }}</p>
               </div>
-              <div class="index-button">
+              <div class="index-button d-flex  justify-content-lg-center justify-content-xl-between ">
                   <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary"> Visualizza</a>
                   <a href="{{ route('flats.edit', $flat -> id) }}" class="btn btn-primary">Modifica</a>
                   <a href="{{ route('flats.stats', $flat -> id) }}" class="btn btn-primary">Statistiche</a>
                   <a href="{{ route('flats.sponsor.create', $flat -> id) }}" class="btn btn-primary">Sponsorizza</a>
-                  <a href="{{ route('flats.deactivate', $flat -> id) }}" class="btn btn-danger float-right">Disattiva</a>
+                  <a href="{{ route('flats.deactivate', $flat -> id) }}" class="btn btn-danger">Disattiva</a>
                 </div>
               </div>
             </div>
@@ -61,18 +61,18 @@
             <li class="list-index media mb-5 ">
               <div class="row">
 
-                <div class="index-img col-xs-12 col-md-3 col-lg-4 opacity">
+                <div class="index-img col-xs-12 col-md-3 col-xl-4 opacity">
                   <img src="{{ asset($flat -> photos() -> first() -> path) }}" class="rounded img-fluid" alt="Flat Image">
                 </div>
 
-                <div class="col-xs-12 col-md-9 col-lg-8 d-flex flex-column justify-content-center">
+                <div class="col-xs-12 col-md-9 col-xl-8 d-flex flex-column justify-content-center">
                   <div class="opacity">
                     <h3 class="mt-0 mb-1">{{ $flat -> title }}</h3>
                     <p>{{ $flat -> desc }}</p>
                   </div>
                   <div class="d-flex align-items-center justify-content-between">
                     <a href="{{ route('flats.activate', $flat -> id) }}" class="btn btn-primary">Attiva</a>
-                    <span class="text-danger float-right"><strong>Questo appartamento è disattivato</strong></span>
+                    <span class="text-danger"><strong>Questo appartamento è disattivato</strong></span>
                     </div>
                   </div>
                 </div>
