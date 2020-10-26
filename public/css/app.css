@@ -11137,6 +11137,23 @@ header .navbar.navbar-white.bg-white div.register a i {
   }
 }
 
+header .btn {
+  margin-top: 1rem;
+  box-shadow: 1px 1px 3px rgba(255, 56, 92, 0.7);
+  border-radius: 7px;
+  font-size: 16px;
+  transition: all 0.3s;
+  border-color: rgba(255, 56, 92, 0.7);
+  background-color: #ff385c;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+header .btn:hover {
+  background-color: rgba(255, 56, 92, 0.7) !important;
+}
+
 header div.jumbotron,
 header div.flatsearch {
   width: 100%;
@@ -11301,25 +11318,6 @@ header div.flatsearch div.text p {
   font-size: 16px;
 }
 
-header div.jumbotron div.text .btn,
-header div.flatsearch div.text .btn {
-  margin-top: 1rem;
-  box-shadow: 1px 1px 3px rgba(255, 56, 92, 0.7);
-  border-radius: 7px;
-  font-size: 16px;
-  transition: all 0.3s;
-  border-color: rgba(255, 56, 92, 0.7);
-  background-color: #ff385c;
-  color: #fff;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-header div.jumbotron div.text .btn:hover,
-header div.flatsearch div.text .btn:hover {
-  background-color: rgba(255, 56, 92, 0.7) !important;
-}
-
 header div.flatsearch .wrapper {
   background-color: white;
   position: absolute;
@@ -11337,9 +11335,9 @@ header div.flatsearch .wrapper .left-side {
   border-right: 1px #ddd solid;
 }
 
-@media (min-width: 992px) {
-  header div.jumbotron div.text {
-    text-align: left;
+@media (max-width: 768px) {
+  header div.flatsearch .wrapper .left-side {
+    border-right: none;
   }
 }
 
