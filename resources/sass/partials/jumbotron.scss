@@ -1,3 +1,5 @@
+
+
 .btn {
   margin-top: 1rem;
   box-shadow: 1px 1px 3px $coralt;
@@ -12,7 +14,39 @@
 
 
   &:hover {
-    background-color: $coralt !important;
+    background-color: $coraltt !important;
+    color: $coral;
+    box-shadow: 2px 2px 2px $coral;
+    border-color: $coral;
+  }
+   &:focus {
+    background-color: $coralt;
+    color: #fff;
+  }
+}
+
+.btn-primary {
+  margin-top: 1rem;
+  box-shadow: 1px 1px 3px $primaryt;
+  border-radius: 7px;
+  font-size: 16px;
+  transition: all 0.3s;
+  border-color: $primaryt;
+  background-color: $primary;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 2px;
+
+
+  &:hover {
+    background-color: #fff !important;
+    color: $primary;
+    box-shadow: 2px 2px 2px $primary;
+    border-color: $primary;
+  }
+   &:focus {
+    background-color: $primaryt;
+    color: #fff;
   }
 }
 

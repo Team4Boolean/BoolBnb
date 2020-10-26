@@ -280,7 +280,7 @@
 
                       <section class="btnInput">
                         <a href="{{ url()->previous() }}"><i class="fas fa-arrow-circle-left"></i></a>
-                        <button class="btn btn-primary" type="submit">Conferma</button>
+                        <button class=" btn-primary" type="submit">Conferma</button>
                       </section>
 
                     </form>
