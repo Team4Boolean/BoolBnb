@@ -65,7 +65,7 @@
 <div class="container" >
   <div class="wrapper">
     <div class="row ">
-      <div class="col-md-6 col-lg-5 col-xl-4 left-side">
+      <div class="col-lg-6 col-xl-4 left-side mb-3">
       <h1>{{ $loc }}:</h1>
 
         <form stmethod="post">
@@ -177,8 +177,8 @@
         </form>
       </div>
 
-      <div class="col-md-6 col-lg-7 col-xl-8">
-        <div class="container">
+      <div class="col-lg-6 col-xl-8 right-side">
+
 
           <script type="text/javascript">
 
@@ -196,16 +196,17 @@
 
           </script>
 
-          <div id="search">
+          <div id="search" class="container" >
 
             <div class="">
               <h2>RISULTATI</h2>
             </div>
+            <hr>
+            <div class="row" style="">
 
             <div class="row">
 
-              @isset($flats)
-                @foreach ($flats as $flat)
+              @foreach ($flats as $flat)
 
                 <flatcomponent
                 :title = "'{{ $flat -> title }}'"
@@ -222,7 +223,7 @@
           </div>
           {{-- /div id=search --}}
 
-        </div>
+
         {{-- /container --}}
 
       </div>

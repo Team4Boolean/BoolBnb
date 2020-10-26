@@ -115,10 +115,11 @@ div.jumbotron, div.flatsearch {
     width: 100%;
     height: 40px;
     border: 1px solid #ddd;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 0 15px;
     font-size: 14px;
     color: #777;
+
 
 
 
@@ -152,7 +153,7 @@ div.jumbotron, div.flatsearch {
     }
   }
   div.text {
-    text-align: center;
+
     background-color: #fff;
     padding: 2rem;
     border-radius: 1rem;
@@ -191,22 +192,54 @@ div.flatsearch .wrapper {
   .left-side {
     border-right: 1px #ddd solid;
   }
-}
 
-@media (max-width: $sm) {
+  .right-side {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 
-}
 
-@media (max-width: $md) {
-  div.flatsearch .wrapper {
-
-    .left-side {
-      border-right: none;
-    }
   }
 
 }
 
+
+
 @media (max-width: $lg) {
 
+  div.flatsearch .wrapper {
+    width: 90%;
+    height: 100%;
+    position: static;
+    transform: translate(0 , 0);
+    overflow-y: auto;
+
+    .left-side {
+      border-right: none;
+    }
+
+    .right-side {
+      overflow: inherit;
+    }
+
+
+  }
 }
+
+@media (max-width: $md) {
+  div.flatsearch .wrapper {
+    width: 100%;
+    height: 100%;
+    margin-top: 70px;
+
+  }
+
+  @media (max-width: $sm) {
+
+  }
+
+
+
+
+
+  }
