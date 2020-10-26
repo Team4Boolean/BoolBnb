@@ -65,8 +65,11 @@
 <div class="container" >
   <div class="wrapper">
     <div class="row ">
-      <div class="col-lg-6 col-xl-4 left-side mb-3">
+
+      <div class="col-md-6 col-lg-5 col-xl-4 left-side">
       <h1>{{ $loc }}:</h1>
+
+
 
         <form stmethod="post">
           <input id="jumbo-search-bar" class="jumbo-search-bar" type="search" name="" value="" placeholder="Cambia la meta..">
@@ -204,9 +207,8 @@
             <hr>
             <div class="row" style="">
 
-            <div class="row">
-
-              @foreach ($flats as $flat)
+              @isset($flats)
+                @foreach ($flats as $flat)
 
                 <flatcomponent
                 :title = "'{{ $flat -> title }}'"
