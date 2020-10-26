@@ -60,22 +60,17 @@
     </div>
   </div>
 
-
+{{-- ------SEARCH CONTAINER---- --}}
 
 <div class="container" >
   <div class="wrapper">
     <div class="row ">
-
-      <div class="col-md-6 col-lg-5 col-xl-4 left-side">
-
+      {{-- LEFT-SIDE --}}
+      <div class="col-lg-6 col-xl-4 left-side mb-3">
       <h1>{{ $loc }}:</h1>
 
-        <form action="{{ route('api.flats.search') }}" method="get">
-          @csrf
-          @method('GET')
-
-          <input id="jumbo-search-bar" class="jumbo-search-bar" type="search" name="loc" value="{{ $loc }}" placeholder="Cambia la meta..">
-
+        <form stmethod="post">
+          <input id="jumbo-search-bar" class="jumbo-search-bar" type="search" name="" value="" placeholder="Cambia la meta..">
           <div class="form-group" style="display:none">
               <label for="lon">LONGITUDINE</label>
               <br>
@@ -86,45 +81,40 @@
               <br>
               <input id="jumbo-search-lat" type="text" name="lat" value="">
           </div>
-
-          <hr>
+        </form>
+        <hr>
+        <form class="flat-search" action="" method="post">
           <section class="numInput ">
-            {{-- distanza --}}
             <div class="input-group mb-3">
               <div class="input-group-prepend ">
                 <label for="selectDistance" class="input-group-text ">Scegli la distanza</label>
               </div>
-              <select class="selectDistance custom-select" name="distance">
-                <option selected>Scegli...</option>
+              <select class="selectDistance custom-select" name="selectDistance">
                 <option value="5">Entro 5 Km</option>
                 <option value="10">Entro 10 Km</option>
                 <option value="25">Entro 25 Km</option>
                 <option value="100">Entro 50 Km</option>
               </select>
             </div>
-            {{-- n* Stanze --}}
             <div class="d-flex justify-content-between mb-3 flex-wrap">
               <div class="input-group col-6">
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="rooms">Stanze</label>
                 </div>
                 <select class="custom-select" name="rooms">
-                  <option selected>Scegli...</option>
-                  <option value="1">1</option>
+                  <option selected="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
               </div>
-              {{-- n* letti --}}
               <div class="input-group col-6">
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="beds">Letti</label>
                 </div>
                 <select class="custom-select" name="beds">
-                  <option selected>Scegli...</option>
-                  <option value="1">1</option>
+                  <option selected="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="3">4</option>
@@ -134,65 +124,41 @@
             </div>
           </section>
           <hr>
-          {{-- Servizi --}}
           <section class="checkInput ">
-            <div class="form-group ">
+            <div class="form-group">
               <ul class=" list-unstyled">
-              <div class="row ">
-                <li class="col-6">
-                {{-- wifi --}}
-                    <label><input type="checkbox" name="services[]" value="1"
-                      {{ (is_array(old('services')) and in_array(1, old('services'))) ? ' checked' : '' }}
-                      > Wifi</label>
-                </li>
-                <li class="col-6 ">
-                {{-- parking --}}
-                    <label><input type="checkbox" name="services[]" value="2"
-                      {{ (is_array(old('services')) and in_array(2, old('services'))) ? ' checked' : '' }}
-                      > Parcheggio</label>
-                </li>
-              </div>
-              <div class="row ">
-                <li class="col-6">
-                {{-- swim --}}
-                    <label><input type="checkbox" name="services[]" value="3"
-                      {{ (is_array(old('services')) and in_array(3, old('services'))) ? ' checked' : '' }}
-                      > Piscina</label>
-                </li>
-                <li class="col-6 " >
-                {{-- concierge --}}
-                    <label><input type="checkbox" name="services[]" value="4"
-                      {{ (is_array(old('services')) and in_array(4, old('services'))) ? ' checked' : '' }}
-                      > Portinaio</label>
-                </li>
-              </div>
-              <div class="row ">
-                <li class="col-6">
-                {{-- sauna --}}
-                    <label><input type="checkbox" name="services[]" value="5"
-                      {{ (is_array(old('services')) and in_array(5, old('services'))) ? ' checked' : '' }}
-                      > Sauna</label>
-                </li>
+                <div class="row ">
                   <li class="col-6">
-                  {{-- sea --}}
-                      <label><input type="checkbox" name="services[]" value="6"
-                        {{ (is_array(old('services')) and in_array(6, old('services'))) ? ' checked' : '' }}
-                        > Vista Mare</label>
+                    <label><input type="checkbox" name="wifi" value="{{ old('wifi') }}"> Wifi</label>
                   </li>
-              </div>
-
+                  <li class="col-6 ">
+                    <label><input type="checkbox" name="parking" value="{{ old('parking') }}"> Parcheggio</label>
+                  </li>
+                </div>
+                <div class="row ">
+                  <li class="col-6">
+                    <label><input type="checkbox" name="swim" value="{{ old('swim') }}"> Piscina</label>
+                  </li>
+                  <li class="col-6 " >
+                    <label><input type="checkbox" name="concierge" value="{{ old('concierge') }}"> Portinaio</label>
+                  </li>
+                </div>
+                <div class="row ">
+                  <li class="col-6">
+                    <label><input type="checkbox" name="sauna" value="{{ old('sauna') }}"> Sauna</label>
+                  </li>
+                    <li class="col-6">
+                      <label><input type="checkbox" name="sea" value="{{ old('sea') }}"> Vista Mare</label>
+                    </li>
+                </div>
               </ul>
             </div>
           </section>
-
-          <button type="submit" class="btn">Cerca</button>
-
+          <a class="btn" href="#">Cerca</a>
         </form>
-
       </div>
-
+      {{-- RIGHT SIDE --}}
       <div class="col-lg-6 col-xl-8 right-side">
-
 
           <script type="text/javascript">
 
@@ -211,12 +177,11 @@
           </script>
 
           <div id="search" class="container" >
-
-            <div class="">
+            <div class="right-side-title">
               <h2>RISULTATI</h2>
             </div>
             <hr>
-            <div class="row" style="">
+            <div class="row">
 
               @isset($flats)
                 @foreach ($flats as $flat)
@@ -229,8 +194,6 @@
                 ></flatcomponent>
 
                 @endforeach
-              @else
-                <h3 class="text-danger">Non sono presenti risultati.</h3>
               @endisset
 
             </div>
