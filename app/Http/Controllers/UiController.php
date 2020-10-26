@@ -47,7 +47,7 @@ class UiController extends Controller
         ->having('distance', '<', 20)
         ->orderBy('distance')
         ->get();
-
+        
       return view('flats.search', compact('flats','loc'));
     } else {
       return back() -> with("error", "Inserisci la località.");
