@@ -12,6 +12,7 @@ use App\Flat;
 use App\User;
 use App\Service;
 use App\Photo;
+use App\Visit;
 
 // richiama Upra Flat Request
 use App\Http\Requests\UpraFlatRequest;
@@ -134,24 +135,20 @@ class UpraController extends Controller {
 
   public function flatStats($id){
 
-    $flat = Flat::findOrFail($id);
+    // $query = DB::table('visits')
+    //         -> select(DB::raw('count(flat_id) as visits, DATE(created_at) AS day'))
+    //         -> where('flat_id', '=', $id)
+    //         -> groupBy('day')
+    //         -> get();
+
+    // $visits = json_encode($query);
+    // dd($query);
 
     $views = DB::table('Visits')
     ->select('created_at')
     ->where('flat_id', $id)->get();
+    // dd($views);
 
-    // ('
-    // SELECT COUNT(flat_id) AS visits,
-    // DATE(created_at) AS day
-    // FROM visits
-    // WHERE flat_id='$id'
-    // GROUP BY day
-    // ');
-
-    // $views = DB::table('Visits')
-    //   ->select(array('flat_id.*' DB::raw('')))
-
-    return view('flats.chart', compact('flat','views'));
-
+    return view('flats.chart', compact('views'));
   }
 }

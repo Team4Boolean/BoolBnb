@@ -372,7 +372,7 @@
 
                         <div id="prevContainer" class="img-container" style="text-align:center;" >
                           <input type="text" name="imgUp" value="true" hidden>
-                          <img id="prev" src="{{ asset($flat -> photos() -> first() -> path) }}" class="img-thumbnail">
+                          <img id="prev" src="{{ old('img',asset($flat -> photos() -> first() -> path)) }}" class="img-thumbnail">
                         </div>
 
                       </section>

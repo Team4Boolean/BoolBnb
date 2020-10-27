@@ -29,17 +29,17 @@
               <img src="{{ asset($flat -> photos() -> first() -> path) }}" class="rounded img-fluid" alt="Flat Image">
             </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-8 d-flex flex-column justify-content-center">
+            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-8">
               <div class="title-text">
                 <h3 class="mt-0 mb-1">{{ $flat -> title }}</h3>
                 <p>{{ $flat -> desc }}</p>
               </div>
-              <div class="index-button d-flex  justify-content-lg-center justify-content-xl-between ">
+              <div class="index-button">
                   <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary"> Visualizza</a>
-                  <a href="{{ route('flats.edit', $flat -> id) }}" class="btn btn-primary">Modifica</a>
-                  <a href="{{ route('flats.stats', $flat -> id) }}" class="btn btn-primary">Statistiche</a>
+                  <a href="{{ route('flats.edit', $flat -> id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                  <a href="{{ route('flats.stats', $flat -> id) }}" class="btn btn-primary"><i class="fas fa-chart-line"></i></a>
                   <a href="{{ route('flats.sponsor.create', $flat -> id) }}" class="btn btn-primary">Sponsorizza</a>
-                  <a href="{{ route('flats.deactivate', $flat -> id) }}" class="btn btn-danger">Disattiva</a>
+                  <a href="{{ route('flats.deactivate', $flat -> id) }}" class="btn btn-danger float-right">Disattiva</a>
                 </div>
               </div>
             </div>
