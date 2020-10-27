@@ -73,10 +73,10 @@ class UpraController extends Controller {
       $flat -> services() -> sync($services);
     }
 
-    if ($request -> hasFile('imgUp')) {
+    if ($request -> hasFile('img')) {
 
       // predno il file contenuto in 'img' all'interno della request
-      $file = $request -> file('imgUp');
+      $file = $request -> file('img');
       $filename = $id.'.'.$file -> extension();
 
       // memorizzo la foto nella directory /photos e prendo l'url generato

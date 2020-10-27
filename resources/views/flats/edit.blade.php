@@ -357,7 +357,7 @@
                           </div>
 
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="img" id="imgInp" aria-describedby="inputGroupFileAddon01" value="{{ asset($flat -> photos() -> first() -> path) }}" multiple>
+                            <input type="file" class="custom-file-input" name="img" id="imgInp" aria-describedby="inputGroupFileAddon01" value="" multiple>
                             <label class="custom-file-label" for="img" >Scegli la foto da caricare</label>
                           </div>
 
@@ -370,9 +370,9 @@
                           @enderror
 
 
-                        <div id="prevContainer" class="img-container" style="text-align:center;" >
+                        <div id="prevContainer" class="img-container" style="text-align:center" >
                           <input type="text" name="imgUp" value="true" hidden>
-                          <img id="prev" src="{{ old('img',asset($flat -> photos() -> first() -> path)) }}" class="img-thumbnail">
+                          <img id="prev" src="{{ asset($flat -> photos() -> first() -> path) }}" class="img-thumbnail">
                         </div>
 
                       </section>
