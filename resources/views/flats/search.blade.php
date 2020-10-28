@@ -92,10 +92,10 @@
                 <label for="selectDistance" class="input-group-text ">Scegli la distanza</label>
               </div>
               <select class="selectDistance custom-select" name="distance">
-                <option @if ($dist==20) selected @endif>Scegli...</option>
+                <option @if ($dist==0) selected @endif>Scegli...</option>
                 <option value="5" @if ($dist==5) selected @endif>Entro 5 Km</option>
                 <option value="10" @if ($dist==10) selected @endif>Entro 10 Km</option>
-                <option value="25" @if ($dist==20) selected @endif>Entro 20 Km</option>
+                <option value="20" @if ($dist==20) selected @endif>Entro 20 Km</option>
                 <option value="50" @if ($dist==50) selected @endif>Entro 50 Km</option>
                 <option value="100" @if ($dist==100) selected @endif>Entro 100 Km</option>
               </select>
