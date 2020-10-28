@@ -40,19 +40,22 @@ class UiController extends Controller
     $lat = $data['lat'];
     $lon = $data['lon'];
 
-    $dist = 0;
+    $dist = 20;
     $rooms = 0;
     $beds = 0;
+    for ($i=1; $i < 7; $i++) {
+      $services[] = $i;
+    }
 
     if ($lat !== null && $lon !== null) {
 
       // prendo gli appartamenti a meno di 20KM di distanza dalla località cercata
       $flats = Flat::select(DB::raw('*, ( 6367 * acos( cos( radians('.$lat.') ) * cos( radians( lat ) ) * cos( radians( lon ) - radians('.$lon.') ) + sin( radians('.$lat.') ) * sin( radians( lat ) ) ) ) AS distance'))
-        ->having('distance', '<', 20)
+        ->having('distance', '<', $dist)
         ->orderBy('distance')
         ->get();
 
-      return view('flats.search', compact('flats','loc','lat','lon','dist','rooms','beds'));
+      return view('flats.search', compact('flats','loc','lat','lon','dist','rooms','beds','services'));
     } else {
       return back() -> with("error", "Inserisci la località.");
     }
@@ -84,26 +87,42 @@ class UiController extends Controller
       $beds = 0;
     }
 
-    // $dist = 1000;
-    // $rooms = 1;
-    // $beds = 2;
-
     if (isset($data['services'])) {
       $services = $data['services'];
+    } else {
+      for ($i=1; $i < 7; $i++) {
+        $services[] = $i;
+      }
     }
+    // dd($services);
 
     // prendo gli appartamenti in base ai filtri impostati
-    $flats = Flat::select(DB::raw('*, ( 6367 * acos( cos( radians('.$lat.') ) * cos( radians( lat ) ) * cos( radians( lon ) - radians('.$lon.') ) + sin( radians('.$lat.') ) * sin( radians( lat ) ) ) ) AS distance'))
-      ->where([
-          ['rooms','>=',$rooms],
-          ['beds', '>=', $beds]
-        ])
-      ->having('distance', '<', $dist)
-      ->orderBy('distance')
-      ->get();
-      // dd($flats);
+    $distance = '( 6367 * acos( cos( radians('.$lat.') ) * cos( radians( lat ) ) * cos( radians( lon ) - radians('.$lon.') ) + sin( radians('.$lat.') ) * sin( radians( lat ) ) ) )  AS distance';
 
-      return view('flats.search', compact('flats','loc','lat','lon','dist','rooms','beds'));
+    $flats = Flat::select(DB::raw('flats.*,'.$distance.''))
+      -> join('flat_service', 'flat_service.flat_id', '=', 'flats.id')
+      -> join('services', 'services.id', '=', 'flat_service.service_id')
+      -> where([
+          ['flats.rooms','>=',$rooms],
+          ['flats.beds', '>=', $beds]
+        ])
+      // -> whereIn('flat_service.service_id',$services)
+      -> where(function($query) use($services) {
+        if ($services) {
+          foreach ($services as $service) {
+            $query -> orWhere('flat_service.service_id', '=', $service);
+            }
+          }
+        })
+      -> having('distance', '<', $dist)
+      -> orderBy('distance')
+      -> groupBy('flats.id')
+      -> get();
+      // -> toSql();
+
+    // dd($flats);
+
+    return view('flats.search', compact('flats','loc','lat','lon','dist','rooms','beds','services'));
   }
 
   public function flatShow($id) {

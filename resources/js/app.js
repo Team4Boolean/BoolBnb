@@ -23,6 +23,8 @@ $.fn.extend({
 //da qua parte chart.js
 var Chart = require('chart.js');
 
+
+
 // FLAT-SHOW
 
 function serviceInfo(){
@@ -121,7 +123,95 @@ function uploadImg(){
 
 }
 
+// FLAT_SEARCH
+
+function addCheckboxChangeListener()  {
+
+  var target = $('.checkInput').find('input');
+    target.change(function(){
+    searchFlat();
+  });
+}
+
+function addSelectChangeListener()  {
+
+  var target = $('.numInput').find('select');
+
+  target.change(function(){
+    searchFlat();
+  });
+}
+
+function searchFlat() {
+
+  var lat = $('input[name ="lat"]').val();
+  var lon = $('input[name ="lon"]').val();
+  var loc = $('input[name ="loc"]').val();
+  var distance = $('select[name ="distance"]').val();
+  var rooms = $('select[name ="rooms"]').val();
+  var beds = $('select[name ="beds"]').val();
+  var services = [];
+
+  $('input[name ="services[]"]').each(function() {
+    var me = $(this);
+    var isChecked = me.is(':checked');
+    var val = $(this).val();
+
+    if (isChecked) {
+      services.push(val);
+    }
+  });
+
+  console.log(lat);
+  console.log(lon);
+  console.log(loc);
+  console.log(distance);
+  console.log(rooms);
+  console.log(beds);
+  console.log(services);
+
+
+
+  $.ajax ({
+   url : '/api/flats/search',
+   method : 'GET',
+   data : {
+   'loc': loc,
+   'lon': lon,
+   'lat': lat,
+   'distance': distance,
+   'rooms': rooms,
+   'beds': beds,
+   'services':services
+  },
+   success : function(flats) {
+     console.log(flats);
+     var target = $('#results');
+     target.html('');
+
+      for (var i = 0; i < flats.length; i++) {
+
+          var flat = flats[i];
+          console.log(flat);
+          var component = '<div class=" col-md-6 col-lg-12 offset-xl-1 col-xl-5 mb-3 "><div style=" height: 400px" class="card shadow"><img style=" height: 140px" src="img" class="card-img-top" alt="flat-img"><div class="card-body" ><h5 class="card-title">' + flat['title'] + '</h5><p class="card-text text-muted">'+ flat['desc'] +'</p><a href="/flats/'+ flat['id']+'/show" class="btn " style=" position: absolute; bottom: 10px; left: 10px;">Visualizza</a></div></div></div>';
+
+          target.append(component);
+
+        }
+   },
+   error: function(request, state, error) {
+     console.log('request' , request);
+     console.log('state' , state);
+     console.log('error' , error);
+   }
+
+  });
+
+
+}
+
 // AUTOCOMPLETAMENTO DELL'INDIRIZZO
+
 function autocompleteAddress() {
 
   if ($('div').is('.jumbotron') || $('div').is('.flatsearch')) {
@@ -167,21 +257,8 @@ function init(){
   autocompleteAddress();
   serviceInfo();
 
-  if ($('div').is('#flatShow')) {
-    var lat = $('#lat').val();
-    var lon = $('#lon').val();
-
-    var coord = [lon, lat];
-    var map = tt.map({
-        container: 'map',
-        key: 'GAQpTuIuymbvAGETW9Qf0GSfF1ub9G0r',
-        style: 'tomtom://vector/1/basic-main',
-        center: coord,
-        zoom: 11
-    });
-
-    var marker = new tt.Marker().setLngLat(coord).addTo(map);
-  }
+  addCheckboxChangeListener();
+  addSelectChangeListener();
 }
 
 

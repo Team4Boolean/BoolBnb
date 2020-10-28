@@ -230,13 +230,14 @@ div.flatsearch .wrapper {
   .right-side {
     width: 100%;
     height: 100%;
-    overflow: auto;
+    // overflow: auto;
 
     .right-side-title {
-      height: 30px;
+      height: 60px;
     }
     .row {
-      height: calc(100% - 80px);
+      height: calc(100% - 140px);
+      overflow-y: auto;
     }
 
   }
@@ -253,7 +254,8 @@ div.flatsearch .wrapper {
     position: static;
     transform: translate(0 , 0);
     overflow-y: auto;
-
+    margin-top: 70px;
+    
     .left-side {
       border-right: none;
     }
@@ -261,10 +263,10 @@ div.flatsearch .wrapper {
     .right-side {
       overflow: inherit;
 
+    .row {
+      overflow: inherit;
+      }
     }
-
-
-
   }
 }
 
@@ -272,7 +274,7 @@ div.flatsearch .wrapper {
   div.flatsearch .wrapper {
     width: 100%;
     height: 100%;
-    margin-top: 70px;
+
 
   }
 

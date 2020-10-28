@@ -92,10 +92,10 @@
                 <label for="selectDistance" class="input-group-text ">Scegli la distanza</label>
               </div>
               <select class="selectDistance custom-select" name="distance">
-                <option @if ($dist==20) selected @endif>Scegli...</option>
+                <option @if ($dist==0) selected @endif>Scegli...</option>
                 <option value="5" @if ($dist==5) selected @endif>Entro 5 Km</option>
                 <option value="10" @if ($dist==10) selected @endif>Entro 10 Km</option>
-                <option value="25" @if ($dist==25) selected @endif>Entro 25 Km</option>
+                <option value="20" @if ($dist==20) selected @endif>Entro 20 Km</option>
                 <option value="50" @if ($dist==50) selected @endif>Entro 50 Km</option>
                 <option value="100" @if ($dist==100) selected @endif>Entro 100 Km</option>
               </select>
@@ -137,11 +137,25 @@
                   <li class="col-6">
                     <label><input type="checkbox" name="services[]" value="1"
                       {{ (is_array(old('services')) and in_array(1, old('services'))) ? ' checked' : '' }}
+                      @isset($services)
+                        @foreach ($services as $service)
+                          @if ($service == 1)
+                            {{ 'checked' }}
+                          @endif
+                        @endforeach
+                      @endisset
                       > Wifi</label>
                   </li>
                   <li class="col-6 ">
                     <label><input type="checkbox" name="services[]" value="2"
                       {{ (is_array(old('services')) and in_array(2, old('services'))) ? ' checked' : '' }}
+                      @isset($services)
+                        @foreach ($services as $service)
+                          @if ($service == 2)
+                            {{ 'checked' }}
+                          @endif
+                        @endforeach
+                      @endisset
                       > Parcheggio</label>
                   </li>
                 </div>
@@ -149,23 +163,51 @@
                   <li class="col-6">
                     <label><input type="checkbox" name="services[]" value="3"
                       {{ (is_array(old('services')) and in_array(3, old('services'))) ? ' checked' : '' }}
+                      @isset($services)
+                        @foreach ($services as $service)
+                          @if ($service == 3)
+                            {{ 'checked' }}
+                          @endif
+                        @endforeach
+                      @endisset
                       > Piscina</label>
                   </li>
                   <li class="col-6 " >
                     <label><input type="checkbox" name="services[]" value="4"
                       {{ (is_array(old('services')) and in_array(4, old('services'))) ? ' checked' : '' }}
-                      > Portinaio</label>
+                      @isset($services)
+                        @foreach ($services as $service)
+                          @if ($service == 4)
+                            {{ 'checked' }}
+                          @endif
+                        @endforeach
+                      @endisset
+                      > Portineria</label>
                   </li>
                 </div>
                 <div class="row ">
                   <li class="col-6">
                     <label><input type="checkbox" name="services[]" value="5"
                       {{ (is_array(old('services')) and in_array(5, old('services'))) ? ' checked' : '' }}
+                      @isset($services)
+                        @foreach ($services as $service)
+                          @if ($service == 5)
+                            {{ 'checked' }}
+                          @endif
+                        @endforeach
+                      @endisset
                       > Sauna</label>
                   </li>
                     <li class="col-6">
                       <label><input type="checkbox" name="services[]" value="6"
                         {{ (is_array(old('services')) and in_array(6, old('services'))) ? ' checked' : '' }}
+                        @isset($services)
+                          @foreach ($services as $service)
+                            @if ($service == 6)
+                              {{ 'checked' }}
+                            @endif
+                          @endforeach
+                        @endisset
                         > Vista Mare</label>
                     </li>
                 </div>
@@ -199,7 +241,7 @@
               <h2>{{ old('loc', $loc) }}:</h2>
             </div>
             <hr>
-            <div class="row">
+            <div class="row" id="results">
 
               @isset($flats)
                 @foreach ($flats as $flat)
