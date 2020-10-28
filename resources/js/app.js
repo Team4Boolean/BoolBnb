@@ -170,42 +170,44 @@ function searchFlat() {
   console.log(services);
 
 
-  //
-  // $.ajax ({
-  //  url : '/api/flats/search',
-  //  method : 'GET',
-  //  data : {
-  //  'loc': loc,
-  //  'lon': lon,
-  //  'lar': lat,
-  //  'distance': distance,
-  //  'rooms': rooms,
-  //  'beds': beds,
-  //  'services':services
-  // },
-  //  success : function(flats) {
-  //
-  //     for (var i = 0; i < flats.length; i++) {
-  //         var target = $('#search').find('row');
-  //         target.html('');
-  //         var component = '               <flatcomponent
-  //                         :title = "'{{ $flat -> title }}'"
-  //                         :desc = "'{{ $flat -> desc }}'"
-  //                         :img = "'{{ asset($flat -> photos() -> first() -> path) }}'"
-  //                         :id = "'{{ $flat -> id }}'"
-  //                         ></flatcomponent>'
-  //         target.append(component);
-  //
-  //       }
-  //  },
-  //  error: function(request, state, error) {
-  //    console.log('request' , request);
-  //    console.log('state' , state);
-  //    console.log('error' , error);
-  //  }
-  //
-  //
-  // });
+
+  $.ajax ({
+   url : '/api/flats/search',
+   method : 'GET',
+   data : {
+   'loc': loc,
+   'lon': lon,
+   'lat': lat,
+   'distance': distance,
+   'rooms': rooms,
+   'beds': beds,
+   'services':services
+  },
+   success : function(flats) {
+     console.log(flats);
+      for (var i = 0; i < flats.length; i++) {
+          var target = $('#search').find('row');
+          target.html('');
+          var flat = flats[i];
+          console.log(flat);
+          var component = '<flatcomponent'
+                          +':title = "\'{{'+ flat.title +'}}\'"'
+                          +':desc = "\'{{'+ flat.desc +'}}\'"'
+                          +':img = "\'{{ http://localhost:8000/storage/photos/101.jpeg }}\'"'
+                          +':id = "\'{{'+ flat.id +'}}\'"'
+                          +'></flatcomponent>';
+          target.append(component);
+
+        }
+   },
+   error: function(request, state, error) {
+     console.log('request' , request);
+     console.log('state' , state);
+     console.log('error' , error);
+   }
+
+
+  });
 
 
 }
@@ -258,7 +260,7 @@ function init(){
   serviceInfo();
   searchFlat();
   addCheckboxChangeListener();
-  addSelectChangeListener()
+  addSelectChangeListener();
 }
 
 

@@ -135,37 +135,79 @@
               <ul class=" list-unstyled">
                 <div class="row ">
                   <li class="col-6">
-                    <label><input type="checkbox" name="services" value="1"
+                    <label><input type="checkbox" name="services[]" value="1"
                       {{ (is_array(old('services')) and in_array(1, old('services'))) ? ' checked' : '' }}
+                      @isset($services)
+                        @foreach ($services as $service)
+                          @if ($service == 1)
+                            {{ 'checked' }}
+                          @endif
+                        @endforeach
+                      @endisset
                       > Wifi</label>
                   </li>
                   <li class="col-6 ">
-                    <label><input type="checkbox" name="services" value="2"
+                    <label><input type="checkbox" name="services[]" value="2"
                       {{ (is_array(old('services')) and in_array(2, old('services'))) ? ' checked' : '' }}
+                      @isset($services)
+                        @foreach ($services as $service)
+                          @if ($service == 2)
+                            {{ 'checked' }}
+                          @endif
+                        @endforeach
+                      @endisset
                       > Parcheggio</label>
                   </li>
                 </div>
                 <div class="row ">
                   <li class="col-6">
-                    <label><input type="checkbox" name="services" value="3"
+                    <label><input type="checkbox" name="services[]" value="3"
                       {{ (is_array(old('services')) and in_array(3, old('services'))) ? ' checked' : '' }}
+                      @isset($services)
+                        @foreach ($services as $service)
+                          @if ($service == 3)
+                            {{ 'checked' }}
+                          @endif
+                        @endforeach
+                      @endisset
                       > Piscina</label>
                   </li>
                   <li class="col-6 " >
-                    <label><input type="checkbox" name="services" value="4"
+                    <label><input type="checkbox" name="services[]" value="4"
                       {{ (is_array(old('services')) and in_array(4, old('services'))) ? ' checked' : '' }}
-                      > Portinaio</label>
+                      @isset($services)
+                        @foreach ($services as $service)
+                          @if ($service == 4)
+                            {{ 'checked' }}
+                          @endif
+                        @endforeach
+                      @endisset
+                      > Portineria</label>
                   </li>
                 </div>
                 <div class="row ">
                   <li class="col-6">
-                    <label><input type="checkbox" name="services" value="5"
+                    <label><input type="checkbox" name="services[]" value="5"
                       {{ (is_array(old('services')) and in_array(5, old('services'))) ? ' checked' : '' }}
+                      @isset($services)
+                        @foreach ($services as $service)
+                          @if ($service == 5)
+                            {{ 'checked' }}
+                          @endif
+                        @endforeach
+                      @endisset
                       > Sauna</label>
                   </li>
                     <li class="col-6">
-                      <label><input type="checkbox" name="services" value="6"
+                      <label><input type="checkbox" name="services[]" value="6"
                         {{ (is_array(old('services')) and in_array(6, old('services'))) ? ' checked' : '' }}
+                        @isset($services)
+                          @foreach ($services as $service)
+                            @if ($service == 6)
+                              {{ 'checked' }}
+                            @endif
+                          @endforeach
+                        @endisset
                         > Vista Mare</label>
                     </li>
                 </div>
