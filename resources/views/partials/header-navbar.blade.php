@@ -11,11 +11,12 @@
 
     {{-- Search bar --}}
     <div class="col-xs-12 col-md-5 col-lg-4">
-      <form method="post">
+      <form action="{{ route('flats.search') }}" method="get">
+        @csrf
+        @method('GET')
+
         <input id="search-bar" class="" type="search" name="" value="" placeholder="Inizia la ricerca...">
-        <button id="search-button" class="rounded-circle" type="button" name="button" title="Search">
-          <i class="fas fa-search"></i>
-        </button>
+
         <div class="form-group" style="display:none">
             <label for="lon">LONGITUDINE</label>
             <br>
@@ -26,6 +27,9 @@
             <br>
             <input id="search-lat" type="text" name="lat" value="">
         </div>
+        <button id="search-button" class="rounded-circle" type="submit" name="button" title="Search">
+          <i class="fas fa-search"></i>
+        </button>
       </form>
     </div>
 

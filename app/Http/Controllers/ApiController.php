@@ -59,10 +59,8 @@ class ApiController extends Controller
         -> whereIn('flat_service.service_id',$services)
         -> having('distance', '<', $dist)
         -> orderBy('distance')
-        -> groupBy(['flats.id','photos.url'])
+        -> groupBy('flats.id','url')
         -> get();
-
-      // dd($flats);
 
       return response() -> json($flats);
     }

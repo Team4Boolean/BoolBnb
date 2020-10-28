@@ -13,6 +13,7 @@ use App\User;
 use App\Service;
 use App\Photo;
 use App\Visit;
+use App\Message;
 
 // richiama Upra Flat Request
 use App\Http\Requests\UpraFlatRequest;
@@ -151,4 +152,12 @@ class UpraController extends Controller {
 
     return view('flats.chart', compact('views'));
   }
+
+  public function flatMessages($id){
+
+    $messages = Message::where('flat_id','=',$id) -> get();
+    // dd($messages);
+    return view('flats.messages', compact('messages'));
+  }
+
 }

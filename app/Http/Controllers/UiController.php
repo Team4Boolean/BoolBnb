@@ -99,10 +99,9 @@ class UiController extends Controller
     // prendo gli appartamenti in base ai filtri impostati
     $distance = '( 6367 * acos( cos( radians('.$lat.') ) * cos( radians( lat ) ) * cos( radians( lon ) - radians('.$lon.') ) + sin( radians('.$lat.') ) * sin( radians( lat ) ) ) )  AS distance';
 
-    $flats = Flat::select(DB::raw('flats.*,'.$distance.',photos.url'))
+    $flats = Flat::select(DB::raw('flats.*,'.$distance.''))
       -> join('flat_service', 'flat_service.flat_id', '=', 'flats.id')
       -> join('services', 'services.id', '=', 'flat_service.service_id')
-      -> join('photos', 'photos.flat_id', '=', 'flats.id')
       -> where([
           ['flats.rooms','>=',$rooms],
           ['flats.beds', '>=', $beds]
@@ -117,7 +116,7 @@ class UiController extends Controller
         })
       -> having('distance', '<', $dist)
       -> orderBy('distance')
-      -> groupBy(['flats.id','photos.url'])
+      -> groupBy('flats.id')
       -> get();
       // -> toSql();
 

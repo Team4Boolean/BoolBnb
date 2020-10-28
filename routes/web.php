@@ -92,6 +92,8 @@ Route::group([
     Route::get('/flats/{id}/activate', 'UpraController@flatActivate') -> name('flats.activate');
     // Flats Upra -> statistics
     Route::get('/flats/{id}/stats', 'UpraController@flatStats') -> name('flats.stats');
+    // Flats Upra -> statistics
+    Route::get('/flats/{id}/messages', 'UpraController@flatMessages') -> name('flats.messages');
     // Flats Upra -> sponsors -> create MOMENTANEO
     // Route::get('/flats/{id}/sponsor', 'UpraController@flatSponsorCreate') -> name('flats.sponsor.create');
     Route::get('/flats/sponsor', function() {

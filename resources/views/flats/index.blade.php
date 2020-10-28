@@ -36,8 +36,9 @@
               </div>
               <div class="index-button">
                   <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary"> Visualizza</a>
-                  <a href="{{ route('flats.edit', $flat -> id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                  <a href="{{ route('flats.edit', $flat -> id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                   <a href="{{ route('flats.stats', $flat -> id) }}" class="btn btn-primary"><i class="fas fa-chart-line"></i></a>
+                  <a href="{{ route('flats.messages', $flat -> id) }}" class="btn btn-primary"><i class="far fa-envelope"></i></a>
                   <a href="{{ route('flats.sponsor.create') }}" class="btn btn-primary">Sponsorizza</a>
                   <a href="{{ route('flats.deactivate', $flat -> id) }}" class="btn btn-danger float-right">Disattiva</a>
                 </div>
