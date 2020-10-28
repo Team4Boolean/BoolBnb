@@ -39,16 +39,19 @@ class ApiController extends Controller
       if (isset($data['services'])) {
         $services = $data['services'];
       } else {
-        $services = null;
+        for ($i=1; $i < 7; $i++) {
+          $services[] = $i;
+        }
       }
       // dd($services);
 
       // prendo gli appartamenti in base ai filtri impostati
       $distance = '( 6367 * acos( cos( radians('.$lat.') ) * cos( radians( lat ) ) * cos( radians( lon ) - radians('.$lon.') ) + sin( radians('.$lat.') ) * sin( radians( lat ) ) ) )  AS distance';
 
-      $flats = Flat::select(DB::raw('flats.*,'.$distance.''))
+      $flats = Flat::select(DB::raw('flats.*,'.$distance.',photos.url'))
         -> join('flat_service', 'flat_service.flat_id', '=', 'flats.id')
         -> join('services', 'services.id', '=', 'flat_service.service_id')
+        -> join('photos', 'photos.flat_id', '=', 'flats.id')
         -> where([
             ['flats.rooms','>=',$rooms],
             ['flats.beds', '>=', $beds]
@@ -56,7 +59,7 @@ class ApiController extends Controller
         -> whereIn('flat_service.service_id',$services)
         -> having('distance', '<', $dist)
         -> orderBy('distance')
-        -> groupBy('flats.id')
+        -> groupBy(['flats.id','photos.url'])
         -> get();
 
       // dd($flats);
