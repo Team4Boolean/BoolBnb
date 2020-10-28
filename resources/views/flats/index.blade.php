@@ -66,11 +66,11 @@
                 </div>
 
                 <div class="col-xs-12 col-md-9 col-xl-8 d-flex flex-column justify-content-center">
-                  <div class="opacity">
+                  <div class="title-text opacity">
                     <h3 class="mt-0 mb-1">{{ $flat -> title }}</h3>
                     <p>{{ $flat -> desc }}</p>
                   </div>
-                  <div class="d-flex align-items-center justify-content-between">
+                  <div class="index-button d-flex align-items-center justify-content-between">
                     <a href="{{ route('flats.activate', $flat -> id) }}" class="btn btn-primary">Attiva</a>
                     <span class="text-danger"><strong>Questo appartamento è disattivato</strong></span>
                     </div>
