@@ -53,17 +53,11 @@ class ApiController extends Controller
             ['flats.rooms','>=',$rooms],
             ['flats.beds', '>=', $beds]
           ])
-        -> where(function($query) use($services) {
-          if ($services) {
-            foreach ($services as $service) {
-              $query -> orWhere('flat_service.service_id', '=', $service);
-            }
-          }
-          })
+        -> whereIn('flat_service.service_id',$services)
         -> having('distance', '<', $dist)
         -> orderBy('distance')
+        -> groupBy('flats.id')
         -> get();
-        // -> toSql();
 
       // dd($flats);
 
