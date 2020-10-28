@@ -151,7 +151,7 @@ function searchFlat() {
   var beds = $('select[name ="beds"]').val();
   var services = [];
 
-  $('input[name ="services"]').each(function() {
+  $('input[name ="services[]"]').each(function() {
     var me = $(this);
     var isChecked = me.is(':checked');
     var val = $(this).val();
