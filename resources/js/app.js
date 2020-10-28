@@ -171,44 +171,40 @@ function searchFlat() {
 
 
 
-  // $.ajax ({
-  //  url : '/api/flats/search',
-  //  method : 'GET',
-  //  data : {
-  //  'loc': loc,
-  //  'lon': lon,
-  //  'lat': lat,
-  //  'distance': distance,
-  //  'rooms': rooms,
-  //  'beds': beds,
-  //  'services':services
-  // },
-  //  success : function(flats) {
-  //    console.log(flats);
-  //    var target = $('#results');
-  //    target.html('');
-  //
-  //     for (var i = 0; i < flats.length; i++) {
-  //
-  //         var flat = flats[i];
-  //         console.log(flat);
-  //         var component = '<flatcomponent'
-  //                         +':title = "' + flat.title + '"'
-  //                         +':desc = "' + flat.desc + '"'
-  //                         +':img = "' +  + '"'
-  //                         +':id = "' + flat.id + '"'
-  //                         +'></flatcomponent>';
-  //         target.append(component);
-  //
-  //       }
-  //  },
-  //  error: function(request, state, error) {
-  //    console.log('request' , request);
-  //    console.log('state' , state);
-  //    console.log('error' , error);
-  //  }
-  //
-  // });
+  $.ajax ({
+   url : '/api/flats/search',
+   method : 'GET',
+   data : {
+   'loc': loc,
+   'lon': lon,
+   'lat': lat,
+   'distance': distance,
+   'rooms': rooms,
+   'beds': beds,
+   'services':services
+  },
+   success : function(flats) {
+     console.log(flats);
+     var target = $('#results');
+     target.html('');
+
+      for (var i = 0; i < flats.length; i++) {
+
+          var flat = flats[i];
+          console.log(flat);
+          var component = '<div class=" col-md-6 col-lg-12 offset-xl-1 col-xl-5 mb-3 "><div style=" height: 400px" class="card shadow"><img style=" height: 140px" src="img" class="card-img-top" alt="flat-img"><div class="card-body" ><h5 class="card-title">' + flat['title'] + '</h5><p class="card-text text-muted">'+ flat['desc'] +'</p><a href="/flats/'+ flat['id']+'/show" class="btn " style=" position: absolute; bottom: 10px; left: 10px;">Visualizza</a></div></div></div>';
+
+          target.append(component);
+
+        }
+   },
+   error: function(request, state, error) {
+     console.log('request' , request);
+     console.log('state' , state);
+     console.log('error' , error);
+   }
+
+  });
 
 
 }
@@ -259,7 +255,7 @@ function init(){
   uploadImg();
   autocompleteAddress();
   serviceInfo();
-  searchFlat();
+
   addCheckboxChangeListener();
   addSelectChangeListener();
 }
