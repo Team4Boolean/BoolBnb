@@ -15,7 +15,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-sm-12 d-flex justify-content-start">
-                    <a id="back-btn" class="my-4 btn " href="{{ url()->previous() }}"> <i class="fas fa-arrow-circle-left"></i> </a>
+                    <a id="back-btn" class="my-4" href="{{ url()->previous() }}"> <i class="fas fa-arrow-circle-left"></i> </a>
                     <h1>{{ $flat -> title }}</h1>
                   </div>
                 </div>
@@ -92,7 +92,7 @@
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         <span class="span-serv">Size</span>
-                        <h4><span class="badge badge-success">{{$flat -> sqm}}</span></h4>
+                        <h4><span class="badge badge-success">{{$flat -> sqm}} m²</span></h4>
                       </li>
                     </ul>
 
@@ -228,7 +228,7 @@
           </div>
       </div>
   </div>
-  
+
   {{-- SCRIPT API MAPPA --}}
   <script type="text/javascript">
     var lat = $('#lat').val();
