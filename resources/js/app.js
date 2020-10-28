@@ -5,6 +5,7 @@ window.Vue = require('vue');
 
 window.$ = require('jquery');
 
+
 $.fn.extend({
  trackChanges: function() {
    $(":input",this).change(function() {

@@ -15,17 +15,57 @@ Route::get('/flats/search/filters', 'UiController@flatSearchFilters') -> name('f
 // API flats -> search
 Route::get('/api/flats/search', 'ApiController@flatSearch') -> name('api.flats.search');
 
-// Flats
-// Route::group([
-//   'middleware' => 'auth',
-//   'prefix' => 'dashboard'
-//   ],
-//   function () {
-//     Route::resource('flats', 'FlatController');
-//   });
-
 // test
-Route::get('/test', 'UiController@requestStore') -> name('adv.test');
+// Route::get('/test', function() {
+//
+//   $gateway = new Braintree\Gateway([
+//     'environment' => config('services.braintree.environment'),
+//     'merchantId' => config('services.braintree.merchantId'),
+//     'publicKey' => config('services.braintree.publicKey'),
+//     'privateKey' => config('services.braintree.privateKey')
+//   ]);
+//
+//   $token = $gateway->ClientToken()->generate();
+//
+//   return view('test', compact('token'));
+// });
+//
+// Route::post('/checkout', function (Request $request) {
+//
+//   $gateway = new Braintree\Gateway([
+//     'environment' => config('services.braintree.environment'),
+//     'merchantId' => config('services.braintree.merchantId'),
+//     'publicKey' => config('services.braintree.publicKey'),
+//     'privateKey' => config('services.braintree.privateKey')
+//   ]);
+//
+//   $amount = $request->amount;
+//   $nonce = $request->payment_method_nonce;
+//
+//   $result = $gateway->transaction()->sale([
+//     'amount' => $amount,
+//     'paymentMethodNonce' => $nonce,
+//     'options' => [
+//         'submitForSettlement' => true
+//     ]
+//   ]);
+//
+//   if ($result->success) {
+//     $transaction = $result->transaction;
+//     // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
+//     return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->$id);
+//   } else {
+//     $errorString = "";
+//
+//     foreach ($result->errors->deepAll() as $error) {
+//         $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+//     }
+//     return back()->withErrors('An error occurred with the message:' . $result->message);
+//   }
+//
+//   return view('test', compact('data'));
+//
+// }) -> name ('sponsor.checkout');
 
 // Flats
 // Flats Ui -> show
@@ -52,10 +92,59 @@ Route::group([
     Route::get('/flats/{id}/activate', 'UpraController@flatActivate') -> name('flats.activate');
     // Flats Upra -> statistics
     Route::get('/flats/{id}/stats', 'UpraController@flatStats') -> name('flats.stats');
-    // Flats Upra -> sponsors -> create
-    Route::get('/flats/{id}/sponsor', 'UpraController@flatSponsorCreate') -> name('flats.sponsor.create');
-  });
+    // Flats Upra -> sponsors -> create MOMENTANEO
+    // Route::get('/flats/{id}/sponsor', 'UpraController@flatSponsorCreate') -> name('flats.sponsor.create');
+    Route::get('/flats/sponsor', function() {
 
+      $gateway = new Braintree\Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey')
+      ]);
+
+      $token = $gateway->ClientToken()->generate();
+
+      return view('sponsors.create', compact('token'));
+    }) -> name('flats.sponsor.create');
+    // Flats Upra -> sponsors -> store MOMENTANEO
+    Route::post('/flats/sponsor/checkout', function (Request $request) {
+
+      $gateway = new Braintree\Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey')
+      ]);
+
+      $amount = $request->amount;
+      $nonce = $request->payment_method_nonce;
+
+      $result = $gateway->transaction()->sale([
+        'amount' => $amount,
+        'paymentMethodNonce' => $nonce,
+        'options' => [
+            'submitForSettlement' => true
+        ]
+      ]);
+
+      if ($result->success) {
+        $transaction = $result->transaction;
+        // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
+        return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->$id);
+      } else {
+        $errorString = "";
+
+        foreach ($result->errors->deepAll() as $error) {
+            $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+        }
+        return back()->withErrors('An error occurred with the message:' . $result->message);
+      }
+
+      return view('sponsors.create', compact('data'));
+
+    }) -> name ('sponsor.checkout');
+  });
 // Messages
 // Messages Ui -> create
 Route::post('/flats/{id}/messages/store', 'UiController@messageStore') -> name('messages.store');

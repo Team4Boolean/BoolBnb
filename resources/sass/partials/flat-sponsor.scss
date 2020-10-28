@@ -1,0 +1,20 @@
+
+#sponsorSection{
+
+  .col-md-6{
+    text-align: center;
+
+    #amount{
+      margin-top: 40px;
+    }
+
+    [data-braintree-id="choose-a-way-to-pay"] {
+      display: none;
+    }
+  }
+
+  #checkout-send{
+    text-align: center;
+  }
+
+}

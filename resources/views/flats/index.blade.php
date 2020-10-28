@@ -19,7 +19,7 @@
         @foreach ($flats as $flat)
 
           @if ($loop -> first)
-              <h2>APPARTAMENTI IN AFFITTO</h2>
+            <h2>APPARTAMENTI IN AFFITTO</h2>
           @endif
 
         <li class="list-index media mb-5 ">
@@ -38,7 +38,7 @@
                   <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary"> Visualizza</a>
                   <a href="{{ route('flats.edit', $flat -> id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                   <a href="{{ route('flats.stats', $flat -> id) }}" class="btn btn-primary"><i class="fas fa-chart-line"></i></a>
-                  <a href="{{ route('flats.sponsor.create', $flat -> id) }}" class="btn btn-primary">Sponsorizza</a>
+                  <a href="{{ route('flats.sponsor.create') }}" class="btn btn-primary">Sponsorizza</a>
                   <a href="{{ route('flats.deactivate', $flat -> id) }}" class="btn btn-danger float-right">Disattiva</a>
                 </div>
               </div>

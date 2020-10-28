@@ -27,6 +27,7 @@
 
     // prendiamo le views sotto forma di raw data tramite inviato dal controller
     var views = "{{$views}}";
+
     // ricaviamo la sezione della stringa interessata
     var array = views.split(",");
     var currentDate = new Date();
@@ -50,6 +51,7 @@
 
     // formiamo un array dei giorni
     var arrayX = Object.keys(count);
+
     // e un array delle visualizzazioni
     var arrayY = Object.values(count);
 
@@ -70,6 +72,7 @@
       viewsData.push(object);
     }
 
+
     var ctx = $("#viewsChart");
 
     var viewsChart = new Chart(ctx, {
@@ -87,7 +90,7 @@
           borderColor: [
             'rgba(255, 99, 132, 1)',
           ],
-          borderWidth: 1
+          borderWidth: 3
         }],
       },
 
