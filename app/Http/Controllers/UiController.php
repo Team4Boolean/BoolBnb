@@ -43,9 +43,6 @@ class UiController extends Controller
     $dist = 20;
     $rooms = 0;
     $beds = 0;
-    for ($i=1; $i < 7; $i++) {
-      $services[] = $i;
-    }
 
     if ($lat !== null && $lon !== null) {
 
@@ -55,7 +52,7 @@ class UiController extends Controller
         ->orderBy('distance')
         ->get();
 
-      return view('flats.search', compact('flats','loc','lat','lon','dist','rooms','beds','services'));
+      return view('flats.search', compact('flats','loc','lat','lon','dist','rooms','beds'));
       } else {
         return back() -> with("error", "Inserisci la località.");
       }
@@ -89,7 +86,8 @@ class UiController extends Controller
 
     if (isset($data['services'])) {
       $services = $data['services'];
-    } else {
+    }
+    else {
       for ($i=1; $i < 7; $i++) {
         $services[] = $i;
       }

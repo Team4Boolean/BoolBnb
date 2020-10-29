@@ -38,7 +38,8 @@ class ApiController extends Controller
 
       if (isset($data['services'])) {
         $services = $data['services'];
-      } else {
+      }
+      else {
         for ($i=1; $i < 7; $i++) {
           $services[] = $i;
         }

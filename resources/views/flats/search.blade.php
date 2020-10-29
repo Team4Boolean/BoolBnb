@@ -214,7 +214,7 @@
               </ul>
             </div>
           </section>
-          <button type="submit" class="btn">Cerca</button>
+          {{-- <button type="submit" class="btn">Cerca</button> --}}
         </form>
       </div>
       {{-- RIGHT SIDE --}}

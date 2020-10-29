@@ -184,28 +184,35 @@ function searchFlat() {
    'beds': beds,
    'services':services
   },
-   success : function(flats) {
-     console.log(flats);
-     var target = $('#results');
-     target.html('');
+    success : function(flats) {
 
-      for (var i = 0; i < flats.length; i++) {
+    console.log('appartamenti',flats);
+    var target = $('#results');
+    target.html('');
 
-          var flat = flats[i];
-          var desc = flat['desc'];
-          var url = flat['url'];
-          if (url.substr(0,4) == 'http') {
-            var src = url;
-          } else {
-            var src = 'http://localhost:8000/storage/' + url;
+      if (flats.length > 0) {
+
+        for (var i = 0; i < flats.length; i++) {
+
+            var flat = flats[i];
+            var desc = flat['desc'];
+            var url = flat['url'];
+            if (url.substr(0,4) == 'http') {
+              var src = url;
+            } else {
+              var src = 'http://localhost:8000/storage/' + url;
+            }
+            var descShort = desc.substr(0, 80);
+            console.log(flat);
+            var component = '<div class=" col-md-6 col-lg-12 offset-xl-1 col-xl-5 mb-3 "><div style=" height: 400px" class="card shadow"><img style=" height: 140px" src="' + src + '" class="card-img-top" alt="flat-img"><div class="card-body" ><h5 class="card-title">' + flat['title'] + '</h5><p class="card-text text-muted">'+ descShort +'</p><a href="/flats/'+ flat['id']+'/show" class="btn " style=" position: absolute; bottom: 10px; left: 10px;">Visualizza</a></div></div></div>';
+
+            target.append(component);
           }
-          var descShort = desc.substr(0, 80);
-          console.log(flat);
-          var component = '<div class=" col-md-6 col-lg-12 offset-xl-1 col-xl-5 mb-3 "><div style=" height: 400px" class="card shadow"><img style=" height: 140px" src="' + src + '" class="card-img-top" alt="flat-img"><div class="card-body" ><h5 class="card-title">' + flat['title'] + '</h5><p class="card-text text-muted">'+ descShort +'</p><a href="/flats/'+ flat['id']+'/show" class="btn " style=" position: absolute; bottom: 10px; left: 10px;">Visualizza</a></div></div></div>';
+      } else {
+        var warning = "<h3>Nessun appartamento trovato</h3>";
+        target.append(warning);
+      }
 
-          target.append(component);
-
-        }
    },
    error: function(request, state, error) {
      console.log('request' , request);
