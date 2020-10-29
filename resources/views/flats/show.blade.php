@@ -185,7 +185,7 @@
                                         {{ old('email', $flat -> user -> email) }}
                                       @endauth
                               "
-                              required>
+                              required minlength="5" maxlength="100">
                               @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -196,7 +196,7 @@
                           <div class="form-group row">
                             <label for="inputTextarea" class="col col-form-label">Messaggio</label>
                             <div class="col-sm-12">
-                              <textarea class="form-control @error('message') is-invalid @enderror" id="inputTextarea" name="message" rows="8" cols="80" placeholder="Inserisci il testo" required>{{ old('message') }}</textarea>
+                              <textarea class="form-control @error('message') is-invalid @enderror" id="inputTextarea" name="message" rows="8" cols="80" minlength="5" maxlength="10000" placeholder="Inserisci il testo" required>{{ old('message') }}</textarea>
                               @error('message')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
