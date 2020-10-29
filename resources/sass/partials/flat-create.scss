@@ -1,5 +1,10 @@
+
 form.flat-create, form.flat-search {
 
+  .form-control:focus:invalid {
+    border-color: $danger;
+    box-shadow: 0 0 3px  $danger;
+  }
   .input-group-prepend{
     label{
       color: $greenbnb;
@@ -72,6 +77,7 @@ form.flat-create, form.flat-search {
         text-align: center;
 
       }
+
       .radius{
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;

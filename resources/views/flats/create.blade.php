@@ -33,7 +33,7 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="title"><h6>Titolo</h6></label>
                             </div>
-                            <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}">
+                            <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}" required minlength="5" maxlength="64">
                             @error('title')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -45,7 +45,7 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="desc"><h6>Descrizione</h6></label>
                             </div>
-                            <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" rows="8" cols="80">{{ old('desc') }}</textarea>
+                            <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" rows="8" cols="80" required minlength="5" maxlength="1000">{{ old('desc') }} </textarea>
                             @error('desc')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -61,7 +61,7 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="rooms">Stanze</label>
                             </div>
-                            <select class="custom-select @error('rooms') is-invalid @enderror" name="rooms">
+                            <select class="custom-select @error('rooms') is-invalid @enderror" name="rooms" required>
                               <option selected>Scegli...</option>
                               <option @if (old('rooms')==1) selected @endif value="1">1</option>
                               <option @if (old('rooms')==2) selected @endif value="2">2</option>
@@ -80,7 +80,7 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="beds">Letti</label>
                             </div>
-                            <select class="custom-select @error('beds') is-invalid @enderror" name="beds">
+                            <select class="custom-select @error('beds') is-invalid @enderror" name="beds" >
                               <option selected>Scegli...</option>
                               <option @if (old('beds')==1) selected @endif value="1">1</option>
                               <option @if (old('beds')==2) selected @endif value="2">2</option>
@@ -116,7 +116,7 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="sqm">Size</label>
                             </div>
-                            <input class="form-control @error('sqm') is-invalid @enderror" type="number" name="sqm" value="{{ old('sqm') }}">
+                            <input class="form-control @error('sqm') is-invalid @enderror" type="number" name="sqm" value="{{ old('sqm') }}" min="10" max="10000">
                             <div class="input-group-prepend">
                               <label class="input-group-text radius" for="sqm">m²</label>
                             </div>
@@ -140,7 +140,7 @@
                           <div class="form-row mb-4">
                             {{-- street name --}}
                             <div class="input-group input-group-md col-md-8">
-                              <input type="text" id="street_name" class="form-control get-coord @error('street_name') is-invalid @enderror" name="street_name" value="{{old('street_name')}}" placeholder="Via ...">
+                              <input type="text" id="street_name" class="form-control get-coord @error('street_name') is-invalid @enderror" name="street_name" value="{{old('street_name')}}" placeholder="Via ..." required minlength="5" maxlength="200">
                                 @error('street_name')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -150,7 +150,7 @@
 
                             {{-- street number --}}
                             <div class="input-group input-group-md col-md-4">
-                              <input type="text" id="street_number" class="form-control get-coord @error('street_number') is-invalid @enderror" name="street_number" value="{{old('street_number')}}" placeholder="n°">
+                              <input type="text" id="street_number" class="form-control get-coord @error('street_number') is-invalid @enderror" name="street_number" value="{{old('street_number')}}" placeholder="n°" required minlength="1" maxlength="5">
                                 @error('street_number')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -162,8 +162,8 @@
                           <div class="form-row  mb-4">
                             {{-- province --}}
                             <div class="input-group input-group-md col-md-5">
-                              <input type="text" id="subdivision" class="form-control get-coord @error('subdivision') is-invalid @enderror" name="subdivision" value="{{old('subdivision')}}" placeholder="Provincia">
-                                @error('subdivision')
+                              <input type="text" id="municipality" class="form-control get-coord @error('municipality') is-invalid @enderror" name="municipality" value="{{old('municipality')}}" placeholder="Città" required minlength="2" maxlength="64">
+                                @error('municipality')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
@@ -172,8 +172,8 @@
 
                             {{-- municipality --}}
                             <div class="input-group input-group-md col-md-5 mb-3">
-                              <input type="text" id="municipality" class="form-control get-coord @error('municipality') is-invalid @enderror" name="municipality" value="{{old('municipality')}}" placeholder="Città">
-                                @error('municipality')
+                              <input type="text" id="subdivision" class="form-control get-coord @error('subdivision') is-invalid @enderror" name="subdivision" value="{{old('subdivision')}}" placeholder="Provincia" required minlength="2" maxlength="64">
+                                @error('subdivision')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
@@ -182,7 +182,7 @@
 
                             {{-- cap --}}
                             <div class="input-group input-group-md col-md-2">
-                              <input type="text" id="postal_code" class="form-control get-coord @error('postal_code') is-invalid @enderror" name="postal_code" value="{{old('postal_code')}}" placeholder="cap">
+                              <input type="number" id="postal_code" class="form-control get-coord @error('postal_code') is-invalid @enderror" name="postal_code" value="" placeholder="cap" required max="100000" min="0">
                                 @error('postal_code')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -256,7 +256,7 @@
                           </div>
 
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input @error('img') is-invalid @enderror" name="img" id="imgInp" aria-describedby="inputGroupFileAddon01" multiple>
+                            <input type="file" class="custom-file-input @error('img') is-invalid @enderror" name="img" id="imgInp" aria-describedby="inputGroupFileAddon01" multiple required >
                             <label class="custom-file-label" for="img" >Scegli la foto da caricare</label>
                           </div>
 
