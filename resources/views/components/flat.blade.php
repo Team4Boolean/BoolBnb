@@ -6,6 +6,7 @@
       <div class="card-body" style=" position: reltive;">
         <h5 class="card-title">@{{ title }}</h5>
         <p class="card-text text-muted">@{{ shortDesc }}</p>
+        <p class="text-danger">@{{ printSponsored(sponsored) }}</p>
         <a :href="show" class="btn " style=" position: absolute; bottom: 10px; left: 10px;">Visualizza</a>
       </div>
     </div>
@@ -30,12 +31,21 @@
       title: String,
       desc: String,
       img: String,
+      sponsored: String,
       id: String
     },
 
     methods: {
       setMouseIn: function(mouseIn) {
         this.mouseIn = mouseIn;
+      },
+      printSponsored: function(sponsored) {
+        if (sponsored != "") {
+          console.log(sponsored);
+          return message = "Sponsorizzato";
+        } else {
+          return message = "";
+        }
       }
     },
 

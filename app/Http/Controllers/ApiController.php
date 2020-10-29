@@ -51,18 +51,21 @@ class ApiController extends Controller
 
       $flats = Flat::select("flats.*",
                         DB::raw($distance),
-                        DB::raw("(select photos.url from photos where photos.flat_id=flats.id LIMIT 1) AS url")
+                        DB::raw("(select photos.url from photos where photos.flat_id=flats.id LIMIT 1) AS url"),
+                        DB::raw("(select flat_sponsor.sponsor_id from flat_sponsor where flat_sponsor.flat_id=flats.id LIMIT 1) AS sponsored")
                         )
         -> join('flat_service', 'flat_service.flat_id', '=', 'flats.id')
         -> join('services', 'services.id', '=', 'flat_service.service_id')
         -> join('photos', 'photos.flat_id', '=', 'flats.id')
+        -> leftJoin('flat_sponsor', 'flat_sponsor.flat_id', '=', 'flats.id')
         -> where([
             ['flats.rooms','>=',$rooms],
             ['flats.beds', '>=', $beds]
           ])
         -> whereIn('flat_service.service_id',$services)
         -> having('distance', '<', $dist)
-        -> orderBy('distance')
+        -> orderBy('sponsored','DESC')
+        -> orderBy('distance','ASC')
         -> groupBy('flats.id')
         -> get();
 

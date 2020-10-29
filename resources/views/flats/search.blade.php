@@ -244,6 +244,19 @@
             <hr>
             <div class="row" id="results">
 
+              {{-- <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Foto</th>
+                      <th scope="col">Titolo</th>
+                      <th scope="col">Descrizione</th>
+                      <th scope="col">Distanza</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div> --}}
+
               @if($flats && count($flats)!=0)
                 @foreach ($flats as $flat)
 
@@ -251,6 +264,7 @@
                 :title = "'{{ $flat -> title }}'"
                 :desc = "'{{ $flat -> desc }}'"
                 :img = "'{{ asset($flat -> photos() -> first() -> path) }}'"
+                :sponsored = "'{{ $flat -> sponsored }}'"
                 :id = "'{{ $flat -> id }}'"
                 ></flatcomponent>
 
