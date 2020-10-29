@@ -15,7 +15,7 @@
         @csrf
         @method('GET')
 
-        <input id="search-bar" class="" type="search" name="" value="" placeholder="Inizia la ricerca...">
+        <input id="search-bar" class="" type="search" name="loc" value="" placeholder="Inizia la ricerca...">
 
         <div class="form-group" style="display:none">
             <label for="lon">LONGITUDINE</label>

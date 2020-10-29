@@ -7,10 +7,18 @@
          <h3>Mail degli utenti</h3>
        </div>
        <div class="row contacts border">
-         <div class="user">
-           <span>Nome</span> <br>
-           <span>Cognome</span>
-         </div>
+         <ul>
+            @foreach ($messages as $message)
+              <li>
+                <div class="user" id="{{$message -> id}}" >
+                  <h6><strong>From: </strong> {{$message -> email}}</h5>
+                  <p><strong>Testo messaggio: </strong>{{$message -> message}}</p>
+                </div>
+              </li>
+
+            @endforeach
+
+         </ul>
        </div>
      </div>
      <div class="mail-col col-md-8 col-lg-9">
