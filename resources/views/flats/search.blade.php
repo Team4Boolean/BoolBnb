@@ -69,7 +69,7 @@
       <div class="col-lg-6 col-xl-4 left-side mb-3">
       <h1>Filtri:</h1>
 
-      <form action="{{ route('flats.search.filters') }}" method="get">
+      <form action="{{ route('flats.search') }}" method="get">
         @csrf
         @method('GET')
 
@@ -84,6 +84,7 @@
               <br>
               <input id="jumbo-search-lat" type="text" name="lat" value="{{old('lat', $lat)}}">
           </div>
+          <button type="submit" class="btn">Cambia destinazione</button>
         <hr>
 
           <section class="numInput ">
@@ -214,7 +215,7 @@
               </ul>
             </div>
           </section>
-          {{-- <button type="submit" class="btn">Cerca</button> --}}
+
         </form>
       </div>
       {{-- RIGHT SIDE --}}
