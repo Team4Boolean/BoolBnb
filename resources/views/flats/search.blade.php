@@ -243,7 +243,7 @@
             <hr>
             <div class="row" id="results">
 
-              @isset($flats)
+              @if($flats && count($flats)!=0)
                 @foreach ($flats as $flat)
 
                 <flatcomponent
@@ -255,8 +255,8 @@
 
                 @endforeach
               @else
-                <h3 class="text-danger">Non sono presenti risultati.</h3>
-              @endisset
+                <h3>Nessun appartamento trovato</h3>
+              @endif
 
             </div>
 
