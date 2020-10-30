@@ -39,12 +39,17 @@ div.jumbotron, div.flatsearch {
 
   .jumbo-navbar {
     width: 100%;
+    height: 71px;
     display: flex;
     justify-content: space-between;
-    position: absolute;
-    top: 10px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     padding: 0 6% 0 8%;
-    color: #fff !important;
+    color: #fff;
+    transition: all .8s;
 
     a {
       color: $coral;
@@ -56,12 +61,22 @@ div.jumbotron, div.flatsearch {
       margin-left: 10px;
     }
 
+    div.search-bar {
+      display: none;
+      // transition: all 8.5s;
+
+      &.scrolled2 {
+        display: flex;
+      }
+    }
+
     ul {
       height: 100%;
       display: flex;
       justify-content: flex-end;
       align-items: center;
       white-space: nowrap;
+      margin-bottom: 0;
 
       li {
         display: inline-block;
@@ -116,6 +131,29 @@ div.jumbotron, div.flatsearch {
           a {
             color: $maincolor;
           }
+        }
+      }
+    }
+
+    &.scrolled {
+      background-color: #fefefe;
+      box-shadow: 2px 2px 5px #888;
+      color: $maincolor;
+
+      a {
+        color: $maincolor !important;
+      }
+
+      li {
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: #ccc;
+        }
+
+        .fa-bars:before, .fa-user:before {
+          color: $maincolor;
+          font-size: 14px;
         }
       }
     }
@@ -210,10 +248,25 @@ div.flatsearch .wrapper {
 }
 
 // MEDIA QUERY
-@media (max-width: $md){
+
+@media (max-width: $lg) {
+
+  .jumbo-navbar {
+
+    #jumbo-link-logo {
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $md) {
+
   .jumbo-navbar {
     justify-content: center !important;
 
+    #jumbo-link-logo,
     .jumbo-navlist {
       display: none;
     }
@@ -229,7 +282,7 @@ div.flatsearch .wrapper {
     transform: translate(0 , 0);
     overflow-y: auto;
     margin-top: 70px;
-    
+
     .left-side {
       border-right: none;
     }

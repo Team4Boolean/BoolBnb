@@ -34,10 +34,37 @@
     </div>
 
     <div class="jumbo-navbar">
-      <div id="jumbo-link-logo" class="navbar-brand">
+      {{-- Logo --}}
+      <div id="jumbo-link-logo" class="navbar-brand col-md-1 col-lg-3">
         <img id="jumbo-img-logo" src="{{asset('imgs/airbnb.svg')}}" width="40px" height="auto" alt="logo">
         <span class="jumbo-span-logo">boolbnb</span>
       </div>
+
+      {{-- Search bar --}}
+      <div class="search-bar col-xs-12 col-md-5 col-lg-4">
+        <form action="{{ route('flats.search') }}" method="get">
+          @csrf
+          @method('GET')
+
+          <input id="search-bar" class="" type="search" name="loc" value="" placeholder="Inizia la ricerca...">
+
+          <div class="form-group" style="display:none">
+              <label for="lon">LONGITUDINE</label>
+              <br>
+              <input id="search-lon" type="text" name="lon" value="">
+          </div>
+          <div class="form-group" style="display:none">
+              <label for="lat">LATITUDINE</label>
+              <br>
+              <input id="search-lat" type="text" name="lat" value="">
+          </div>
+          <button id="search-button" class="rounded-circle" type="submit" name="button" title="Search">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+
+      {{-- Navbar list --}}
       <div class="jumbo-navlist col-xs-12 col-md-6 col-lg-4 ">
         <ul>
           @guest

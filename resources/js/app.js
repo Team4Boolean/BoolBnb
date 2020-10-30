@@ -279,6 +279,19 @@ function autocompleteAddress() {
       }
     }
 
+
+  function navbarScroll() {
+    $(window).scroll(function(){
+      $('.jumbo-navbar').toggleClass('scrolled', $(this).scrollTop() > 80);
+    });
+  }
+
+  function navbarScroll2() {
+    $(window).scroll(function(){
+      $('.search-bar').toggleClass('scrolled2', $(this).scrollTop() > 210);
+    });
+  }
+
 function init(){
 
   // initVue();
@@ -286,6 +299,10 @@ function init(){
   uploadImg();
   autocompleteAddress();
   serviceInfo();
+
+  // navbar scroll
+  navbarScroll();
+  navbarScroll2();
 
   addCheckboxChangeListener();
   addSelectChangeListener();
