@@ -1,0 +1,34 @@
+.container.login {
+  padding-top: 80px;
+
+  .row {
+
+    .card {
+
+      .card-header {
+        padding-top: 25px;
+        background-color: #fff;
+        border-bottom: 0;
+      }
+
+      .divider {
+        width: 85%;
+        height: 1px;
+        background-color: #ededed;
+        margin: 0 auto;
+      }
+
+      .card-body {
+
+        button.btn-primary {
+          background-color: $coral;
+          border-color: $coral;
+        }
+
+        a.btn.btn-link {
+          color: $maincolor;
+        }
+      }
+    }
+  }
+}

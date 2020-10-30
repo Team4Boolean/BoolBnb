@@ -89,16 +89,41 @@
 
 {{-- Navbar bottom page --}}
 <div id="bottom-nav" class="navbar navbar-white bg-white">
-  <div class="login">
-    <a href="{{ route('login') }}">
-      <i class="fas fa-sign-in-alt"></i>
-      Login
-    </a>
-  </div>
-  <div class="register">
-    <a href="{{ route('register') }}">
-      <i class="fas fa-plus"></i>
-      Register
-    </a>
-  </div>
+  @guest
+    <div class="bottom-item">
+      <a href="{{ route('login') }}">
+        <i class="fas fa-sign-in-alt"></i>
+        Login
+      </a>
+    </div>
+    <div class="bottom-item">
+      <a href="{{ route('login') }}">
+        <i class="fas fa-building"></i>
+        Affitta
+      </a>
+    </div>
+    <div class="bottom-item">
+      <a href="{{ route('register') }}">
+        <i class="fas fa-plus"></i>
+        Register
+      </a>
+    </div>
+  @else
+    <div class="bottom-item">
+      <a class="dropdown-item" href="{{ route('logout') }}"
+         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+          <i class="fas fa-sign-out-alt"></i>
+          {{ __('Logout') }}
+      </a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+          @csrf
+      </form>
+    </div>
+    <div class="bottom-item">
+      <a href="{{ route('flats.index') }}">
+        <i class="fas fa-user"></i>
+        Area Personale
+      </a>
+    </div>
+  @endguest
 </div>

@@ -1,51 +1,27 @@
-
-
 .btn {
   margin-top: 1rem;
-  box-shadow: 1px 1px 3px $coralt;
+  border: 0;
   border-radius: 7px;
-  font-size: 16px;
-  transition: all 0.3s;
-  border-color: $coralt;
+  font-size: 15px;
   background-color: $coral;
   color: #fff;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  transition: all 0.5s;
 
-
-  &:hover {
-    background-color: $coraltt !important;
-    color: $coral;
-    box-shadow: 2px 2px 2px $coral;
-    border-color: $coral;
-  }
-   &:focus {
-    background-color: $coralt;
-    color: #fff;
+  &:hover,
+  &:focus {
+    box-shadow: 2px 2px 5px #aaa;
   }
 }
 
 .btn-primary {
-  margin-top: 1rem;
-  box-shadow: 1px 1px 3px $primaryt;
-  border-radius: 7px;
-  font-size: 16px;
-  transition: all 0.3s;
-  border-color: $primaryt;
   background-color: $primary;
-  color: #fff;
-  font-weight: bold;
-  letter-spacing: 2px;
+}
 
-
+.btn-light {
   &:hover {
-    background-color: #fff !important;
-    color: $primary;
-    box-shadow: 2px 2px 2px $primary;
-    border-color: $primary;
-  }
-   &:focus {
-    background-color: $primaryt;
+    background-color: #ed3256;
     color: #fff;
   }
 }
@@ -62,13 +38,12 @@ div.jumbotron, div.flatsearch {
   color: $primary;
 
   .jumbo-navbar {
-
     width: 100%;
     display: flex;
     justify-content: space-between;
     position: absolute;
     top: 10px;
-    padding-left: 10%;
+    padding: 0 6% 0 8%;
     color: #fff !important;
 
     a {
@@ -90,20 +65,21 @@ div.jumbotron, div.flatsearch {
 
       li {
         display: inline-block;
-        font-size: 16px;
-        letter-spacing: 2px;
+        font-size: 14px;
+        letter-spacing: 1px;
         border-radius: 20px;
-        margin-left: 5px;
-
-        transition: all 0.2s;
+        transition: all 0.3s;
 
         &:hover {
-          transform: scale(1.05);
+          background-color: rgba(255, 255, 255, 0.3);
+          color: $maincolor !important;
         }
+
         .fa-bars:before, .fa-user:before {
-          color: $coral;
-          font-size: 16px;
+          color: white;
+          font-size: 14px;
         }
+
         a {
           color: #fff;
           font-weight: bold;
@@ -116,13 +92,13 @@ div.jumbotron, div.flatsearch {
 
       // Dropdown-item
       li.nav-item.dropdown {
-        // border: 1px solid #ddd;
+        border: 1px solid #ddd;
         // transition: all 0.3s;
         // position: relative;
 
-        &:hover {
-          transform: scale(1.05);
-        }
+        // &:hover {
+        //   transform: scale(1.05);
+        // }
 
         i {
           font-size: 10px;
@@ -153,28 +129,21 @@ div.jumbotron, div.flatsearch {
     padding: 0 15px;
     font-size: 14px;
     color: #777;
-
-
-
-
-
-
     transition: all 0.3s;
 
     &:hover {
-      // transform: scale(1.01);
       box-shadow: 2px 2px 5px #ddd;
     }
 
     &:focus {
       outline:none;
     }
-
   }
 
   div.container {
     height: 100%;
   }
+
   div.row {
     height: 100%;
 
@@ -186,24 +155,22 @@ div.jumbotron, div.flatsearch {
 
     }
   }
-  div.text {
 
+  div.text {
     background-color: #fff;
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 1px 1px 7px #111;
 
-
     h1 {
 
       font-weight: bold;
     }
+
     p {
       font-size: 16px;
 
     }
-
-
   }
 }
 
@@ -239,12 +206,19 @@ div.flatsearch .wrapper {
       height: calc(100% - 140px);
       overflow-y: auto;
     }
-
   }
-
 }
 
+// MEDIA QUERY
+@media (max-width: $md){
+  .jumbo-navbar {
+    justify-content: center !important;
 
+    .jumbo-navlist {
+      display: none;
+    }
+  }
+}
 
 @media (max-width: $lg) {
 
@@ -277,13 +251,4 @@ div.flatsearch .wrapper {
 
 
   }
-
-  @media (max-width: $sm) {
-
-  }
-
-
-
-
-
-  }
+}

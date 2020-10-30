@@ -4,10 +4,10 @@
   <div class="jumbotron jumbotron-fluid" style="background-image: url('https://a0.muscache.com/pictures/18084f37-67e0-400f-bfd8-55eea0e89508.jpg')">
     <div class="container">
       <div class="row">
-        <div class="jumbo-left-side col-xs-12 col-md-6">
+        <div class="jumbo-left-side col-xs-12 col-md-8 col-lg-6">
           <div class="text">
             <h1>Riscopri l'Italia</h1>
-            <p>Scopri alloggi nelle vicinanze tutti da vivere, per lavoro o svago.</p>
+            <p class="text-muted">Scopri alloggi nelle vicinanze tutti da vivere, per lavoro o svago.</p>
 
             <form action="{{ route('flats.search') }}" method="get">
               @csrf
@@ -36,9 +36,9 @@
     <div class="jumbo-navbar">
       <div id="jumbo-link-logo" class="navbar-brand">
         <img id="jumbo-img-logo" src="{{asset('imgs/airbnb.svg')}}" width="40px" height="auto" alt="logo">
-        <span class="jumbo-span-logo">Boolbnb</span>
+        <span class="jumbo-span-logo">boolbnb</span>
       </div>
-      <div class="col-xs-12 col-md-6 col-lg-4 ">
+      <div class="jumbo-navlist col-xs-12 col-md-6 col-lg-4 ">
         <ul>
           @guest
             <li class="nav-item">
@@ -90,6 +90,46 @@
       </div>
     </div>
 
+    {{-- Navbar bottom page --}}
+    <div id="bottom-nav" class="navbar navbar-white bg-white">
+      @guest
+        <div class="bottom-item">
+          <a href="{{ route('login') }}">
+            <i class="fas fa-sign-in-alt"></i>
+            Login
+          </a>
+        </div>
+        <div class="bottom-item">
+          <a href="{{ route('login') }}">
+            <i class="fas fa-building"></i>
+            Affitta
+          </a>
+        </div>
+        <div class="bottom-item">
+          <a href="{{ route('register') }}">
+            <i class="fas fa-plus"></i>
+            Register
+          </a>
+        </div>
+      @else
+        <div class="bottom-item">
+          <a class="dropdown-item" href="{{ route('logout') }}"
+             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              <i class="fas fa-sign-out-alt"></i>
+              {{ __('Logout') }}
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+          </form>
+        </div>
+        <div class="bottom-item">
+          <a href="{{ route('flats.index') }}">
+            <i class="fas fa-user"></i>
+            Area Personale
+          </a>
+        </div>
+      @endguest
+    </div>
   </div>
 @endsection
 
