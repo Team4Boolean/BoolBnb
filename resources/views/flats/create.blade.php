@@ -80,7 +80,7 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="beds">Letti</label>
                             </div>
-                            <select class="custom-select @error('beds') is-invalid @enderror" name="beds" >
+                            <select class="custom-select @error('beds') is-invalid @enderror" name="beds" required>
                               <option selected>Scegli...</option>
                               <option @if (old('beds')==1) selected @endif value="1">1</option>
                               <option @if (old('beds')==2) selected @endif value="2">2</option>
@@ -99,7 +99,7 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="baths">Bagni</label>
                             </div>
-                            <select class="custom-select @error('baths') is-invalid @enderror" name="baths">
+                            <select class="custom-select @error('baths') is-invalid @enderror" name="baths" required>
                               <option selected>Scegli...</option>
                               <option @if (old('baths')==1) selected @endif value="1">1</option>
                               <option @if (old('baths')==2) selected @endif value="2">2</option>
@@ -116,7 +116,7 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="sqm">Size</label>
                             </div>
-                            <input class="form-control @error('sqm') is-invalid @enderror" type="number" name="sqm" value="{{ old('sqm') }}" min="10" max="10000">
+                            <input class="form-control @error('sqm') is-invalid @enderror" type="number" name="sqm" value="{{ old('sqm') }}" min="5" max="10000">
                             <div class="input-group-prepend">
                               <label class="input-group-text radius" for="sqm">m²</label>
                             </div>

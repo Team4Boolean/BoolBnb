@@ -55,7 +55,8 @@ class UiController extends Controller
                         )
         -> leftJoin('flat_sponsor', 'flat_sponsor.flat_id', '=', 'flats.id')
         -> having('distance', '<', $dist)
-        -> orderBy('distance')
+        -> orderBy('sponsored','DESC')
+        -> orderBy('distance','ASC')
         -> get();
 
       return view('flats.search', compact('flats','loc','lat','lon','dist','rooms','beds'));

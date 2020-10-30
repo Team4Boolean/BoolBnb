@@ -175,7 +175,7 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="sqm">Size</label>
                             </div>
-                            <input class="form-control @error('sqm') is-invalid @enderror" type="number" name="sqm" value="{{ old('sqm', $flat -> sqm) }}" min="10" max="10000">
+                            <input class="form-control @error('sqm') is-invalid @enderror" type="number" name="sqm" value="{{ old('sqm', $flat -> sqm) }}" min="5" max="10000">
                             <div class="input-group-prepend">
                               <label class="input-group-text radius" for="sqm">m²</label>
                             </div>
@@ -209,7 +209,7 @@
 
                             {{-- street number --}}
                             <div class="input-group input-group-md col-md-4">
-                              <input type="text" id="street_number" class="form-control get-coord @error('street_number') is-invalid @enderror" name="street_number" value="{{old('street_number', $flat-> street_number)}}" placeholder="n°" required minlength="5" maxlength="200">
+                              <input type="text" id="street_number" class="form-control get-coord @error('street_number') is-invalid @enderror" name="street_number" value="{{old('street_number', $flat-> street_number)}}" placeholder="n°" required minlength="1" maxlength="5">
                                 @error('street_number')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -217,7 +217,6 @@
                                 @enderror
                             </div>
                           </div>
-
                           <div class="form-row  mb-4">
                             {{-- municipality --}}
                             <div class="input-group input-group-md col-md-5 mb-3">
@@ -237,8 +236,6 @@
                                   </span>
                                 @enderror
                             </div>
-
-
                             {{-- cap --}}
                             <div class="input-group input-group-md col-md-2">
                               <input type="number" id="postal_code" class="form-control get-coord @error('postal_code') is-invalid @enderror" name="postal_code" value="{{old('postal_code', $flat -> postal_code)}}" placeholder="cap" required max="100000" min="0">
