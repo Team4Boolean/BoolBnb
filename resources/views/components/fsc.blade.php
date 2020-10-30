@@ -1,12 +1,12 @@
 <script id="fsc-component" type="text/x-template">
 
-  <div class="mb-3 col-12" v-on:mouseover="setMouseIn(true)" v-on:mouseout="setMouseIn(false)" v-bind:class="{ 'table-warning': isSponsored }">
+  <div class="mb-3 col-12" v-on:mouseover="setMouseIn(true)" v-on:mouseout="setMouseIn(false)" >
 
       <div class="row card-row" >
         <div class=" col-md-6 col-lg-12 col-xl-5 card-left" >
           <img height="200px" width="100%" :src="img" alt="Immagine prova">
         </div>
-        <div class="col-md-6 col-lg-12 col-xl-7 p-3 d-flex flex-column justify-content-between card-right" >
+        <div class="col-md-6 col-lg-12 col-xl-7 p-3 d-flex flex-column justify-content-between card-right" v-bind:class="{ 'table-warning': isSponsored }">
           <div class="d-flex justify-content-between">
             <h5 class="mt-0">@{{ title }}</h5>
             <div class="text-danger">
