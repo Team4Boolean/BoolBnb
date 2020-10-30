@@ -26,13 +26,13 @@
          <h3>Testo della Mail</h3>
        </div>
        <div class="row row-text border" id="mail-body">
-         <div class="">
-           <h3>Messaggio da: </h3>
+         <div class="messages-received">
+           <h6>Messaggio da: </h6>
            <span id="show-sender"></span>
          </div>
          <br>
-         <div class="">
-           <h4>Inviato alle: </h4>
+         <div class="messages-date">
+           <h6>Inviato alle: </h6>
            <span id="show-date"></span>
          </div>
          <p id="show-message"></p>
