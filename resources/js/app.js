@@ -187,10 +187,14 @@ function searchFlat() {
     success : function(flats) {
 
     console.log('appartamenti',flats);
+
     var target = $('#results');
     target.html('');
+    $('#search-result').text('');
 
       if (flats.length > 0) {
+
+        $('#search-result').text(flats.length + ' risultati');
 
         for (var i = 0; i < flats.length; i++) {
 
@@ -206,12 +210,16 @@ function searchFlat() {
             }
 
             if (flat['sponsored'] != null) {
-              var sponsored = "Sponsorizzato";
+              $('.media').toggleClass('table-warning');
+              var sponsored = "In evidenza";
             } else {
+              $('.media').toggleClass('table-warning');
               var sponsored = "";
             }
             console.log(flat);
-            var component = '<div class=" col-md-6 col-lg-12 offset-xl-1 col-xl-5 mb-3 "><div style=" height: 400px" class="card shadow"><img style=" height: 140px" src="' + src + '" class="card-img-top" alt="flat-img"><div class="card-body" ><h5 class="card-title">' + flat['title'] + '</h5><p class="card-text text-muted">'+ descShort +'</p><p class="text-danger">' + sponsored + '</p><a href="/flats/'+ flat['id']+'/show" class="btn " style=" position: absolute; bottom: 10px; left: 10px;">Visualizza</a></div></div></div>';
+            // var component = '<div class=" col-md-6 col-lg-12 offset-xl-1 col-xl-5 mb-3 "><div style=" height: 400px" class="card shadow"><img style=" height: 140px" src="' + src + '" class="card-img-top" alt="flat-img"><div class="card-body" ><h5 class="card-title">' + flat['title'] + '</h5><p class="card-text text-muted">'+ descShort +'</p><p class="text-danger">' + sponsored + '</p><a href="/flats/'+ flat['id']+'/show" class="btn " style=" position: absolute; bottom: 10px; left: 10px;">Visualizza</a></div></div></div>';
+
+            var component = '<div class="media mb-3 col-12"><img height="150px" width="auto" src="' + src + '" class="m-3" alt="' + flat['url'] + '"><div class="media-body m-3 d-flex flex-column justify-content-between"><div class="d-flex justify-content-between"><h5 class="mt-0">' + flat['title'] + '</h5><div class="text-danger">' + sponsored + '</div></div><div class="text-muted">'+ descShort +'</div><div class="align-self-end"><a href="/flats/'+ flat['id']+'/show" class="btn">Visualizza</a></div></div></div>'
 
             target.append(component);
           }

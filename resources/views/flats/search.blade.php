@@ -1,6 +1,7 @@
 @extends('layouts.search-app')
 @section('jumbo')
 
+  @include('components.fsc')
 
 <div class="flatsearch" style="background-image: url('https://a0.muscache.com/pictures/18084f37-67e0-400f-bfd8-55eea0e89508.jpg')">
   <div class="jumbo-navbar">
@@ -237,36 +238,37 @@
 
           </script>
 
-          <div id="search" class="container" >
-            <div class="right-side-title">
-              <h2>{{ old('loc', $loc) }}:</h2>
-            </div>
-            <hr>
-            <div class="row" id="results">
+          <div id="search" class="container">
 
-              {{-- <div class="table-responsive">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">Foto</th>
-                      <th scope="col">Titolo</th>
-                      <th scope="col">Descrizione</th>
-                      <th scope="col">Distanza</th>
-                    </tr>
-                  </thead>
-                </table>
-              </div> --}}
+            <div class="d-flex flex-column align-items-start">
+              <h2>{{ old('loc', $loc) }}:</h2>
+              <div id="search-result">
+                {{ count($flats) }} risultati
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row" id="results">
 
               @if($flats && count($flats)!=0)
                 @foreach ($flats as $flat)
 
-                <flatcomponent
+                {{-- <flatcomponent
                 :title = "'{{ $flat -> title }}'"
                 :desc = "'{{ $flat -> desc }}'"
                 :img = "'{{ asset($flat -> photos() -> first() -> path) }}'"
                 :sponsored = "'{{ $flat -> sponsored }}'"
                 :id = "'{{ $flat -> id }}'"
-                ></flatcomponent>
+                ></flatcomponent> --}}
+
+                <fsc
+                :title = "'{{ $flat -> title }}'"
+                :desc = "'{{ $flat -> desc }}'"
+                :img = "'{{ asset($flat -> photos() -> first() -> path) }}'"
+                :sponsored = "'{{ $flat -> sponsored }}'"
+                :id = "'{{ $flat -> id }}'"
+                ></fsc>
 
                 @endforeach
               @else

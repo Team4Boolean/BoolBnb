@@ -42,7 +42,7 @@
       printSponsored: function(sponsored) {
         if (sponsored != "") {
           console.log(sponsored);
-          return message = "Sponsorizzato";
+          return message = "In evidenza";
         } else {
           return message = "";
         }
