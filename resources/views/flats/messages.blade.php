@@ -76,10 +76,10 @@
 
     function init(){
 
-      var hasChild = $('#mail.list').children().length > 0
+      var hasChild = $('#mail-list').children().length > 0
       if ( !hasChild) {
           $('#mail-body').html(" ");
-          $('#mail-body').append("<h2>Non hai ancora ricevuto nessun nuovo messaggio</h1> ");
+          $('#mail-body').append("<h2>Non hai ancora ricevuto nessun messaggio</h1> ");
       }
 
       var target = $('.mail').first();
