@@ -7,7 +7,7 @@
          <h3>Mail degli utenti</h3>
        </div>
        <div class="row contacts border">
-         <ul>
+         <ul id="mail-list">
             @foreach ($messages as $message)
               <li>
                 <div class="mail" created="{{$message -> created_at}}" >
@@ -25,7 +25,7 @@
        <div class="row row-messages border">
          <h3>Testo della Mail</h3>
        </div>
-       <div class="row row-text border">
+       <div class="row row-text border" id="mail-body">
          <div class="">
            <h3>Messaggio da: </h3>
            <span id="show-sender"></span>
@@ -76,10 +76,15 @@
 
     function init(){
 
+      var hasChild = $('#mail.list').children().length > 0
+      if ( !hasChild) {
+          $('#mail-body').html(" ");
+          $('#mail-body').append("<h2>Non hai ancora ricevuto nessun nuovo messaggio</h1> ");
+      }
+
       var target = $('.mail').first();
       target.addClass('active');
       showMailData();
-
       clickMail();
     }
 
