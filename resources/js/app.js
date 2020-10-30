@@ -210,19 +210,26 @@ function searchFlat() {
             }
 
             if (flat['sponsored'] != null) {
-              $('.media').toggleClass('table-warning');
               var sponsored = "In evidenza";
             } else {
-              $('.media').toggleClass('table-warning');
               var sponsored = "";
             }
             console.log(flat);
             // var component = '<div class=" col-md-6 col-lg-12 offset-xl-1 col-xl-5 mb-3 "><div style=" height: 400px" class="card shadow"><img style=" height: 140px" src="' + src + '" class="card-img-top" alt="flat-img"><div class="card-body" ><h5 class="card-title">' + flat['title'] + '</h5><p class="card-text text-muted">'+ descShort +'</p><p class="text-danger">' + sponsored + '</p><a href="/flats/'+ flat['id']+'/show" class="btn " style=" position: absolute; bottom: 10px; left: 10px;">Visualizza</a></div></div></div>';
 
-            var component = '<div class="media mb-3 col-12"><img height="150px" width="auto" src="' + src + '" class="m-3" alt="' + flat['url'] + '"><div class="media-body m-3 d-flex flex-column justify-content-between"><div class="d-flex justify-content-between"><h5 class="mt-0">' + flat['title'] + '</h5><div class="text-danger">' + sponsored + '</div></div><div class="text-muted">'+ descShort +'</div><div class="align-self-end"><a href="/flats/'+ flat['id']+'/show" class="btn">Visualizza</a></div></div></div>'
+            var component = '<div sponsored="'+ flat['sponsored'] +'" class="media mb-3 col-12"><img height="250px" width="50%" src="' + src + '" class="m-3" alt="' + flat['url'] + '"><div class="media-body m-3 d-flex flex-column justify-content-between"><div class="d-flex justify-content-between"><h5 class="mt-0">' + flat['title'] + '</h5><div class="text-danger">' + sponsored + '</div></div><div class="text-muted">'+ descShort +'</div><div class="align-self-end"><a href="/flats/'+ flat['id']+'/show" class="btn">Visualizza</a></div></div></div>'
 
             target.append(component);
           }
+
+          $( "div.media" ).each(function() {
+            var target = $(this);
+            var isSpons = target.attr('sponsored');
+
+            if (isSpons == 1) {
+              target.addClass('table-warning');
+            }
+          });
       } else {
         var warning = "<h3>Nessun appartamento trovato</h3>";
         target.append(warning);

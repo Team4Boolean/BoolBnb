@@ -240,10 +240,27 @@ div.flatsearch .wrapper {
     .right-side-title {
       height: 60px;
     }
-    .row {
+    #results {
       height: calc(100% - 140px);
       overflow-y: auto;
+      .card-row {
+        box-shadow: 1px 1px 3px #aaa;
+        border: 1px solid #ccc;
+
+      }
+      .card-left{
+        padding-right: 0;
+        padding-left: 0;
+
+      }
+
+      // .card-right {
+      //   border-right: 1px solid #ccc;
+      //   border-top: 1px solid #ccc;
+      //   border-bottom: 1px solid #ccc;
+      // }
     }
+
   }
 }
 
@@ -290,8 +307,9 @@ div.flatsearch .wrapper {
     .right-side {
       overflow: inherit;
 
-    .row {
+    #results {
       overflow: inherit;
+
       }
     }
   }
