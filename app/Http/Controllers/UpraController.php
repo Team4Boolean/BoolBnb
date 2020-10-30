@@ -27,15 +27,24 @@ class UpraController extends Controller {
     $id = Auth::user() -> id;
     $firstname = Auth::user() -> firstname;
 
+    // appartamenti in affitto non sponsorizzati
     $flats = Flat::where('user_id', $id)
+            -> doesntHave('sponsors')
             -> orderBy('created_at','desc')
             -> get();
+    // appartamenti in affitto disattivati
     $flatsTrashed = Flat::where('user_id', $id)
                   -> onlyTrashed()
                   -> orderBy('deleted_at','desc')
                   -> get();
+    // appartamenti in affitto sponsorizzati
+    $flatsSponsored = Flat::where('user_id', $id)
+                    -> has('sponsors')
+                    -> orderBy('created_at','desc')
+                    -> get();
+    // dd($flatsSponsored);
     // dd($flats);
-    return view('flats.index', compact('firstname','flats', 'flatsTrashed'));
+    return view('flats.index', compact('firstname','flats', 'flatsTrashed','flatsSponsored'));
 
     // if (Gate::denies('upra-manage-flats')) {
     //   abort(401, 'Unathorized');
