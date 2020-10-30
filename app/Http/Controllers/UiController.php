@@ -47,10 +47,16 @@ class UiController extends Controller
     if ($lat !== null && $lon !== null) {
 
       // prendo gli appartamenti a meno di 20KM di distanza dalla località cercata
-      $flats = Flat::select(DB::raw('*, ( 6367 * acos( cos( radians('.$lat.') ) * cos( radians( lat ) ) * cos( radians( lon ) - radians('.$lon.') ) + sin( radians('.$lat.') ) * sin( radians( lat ) ) ) ) AS distance'))
-        ->having('distance', '<', $dist)
-        ->orderBy('distance')
-        ->get();
+      $distance = "( 6367 * acos( cos( radians(".$lat.") ) * cos( radians( lat ) ) * cos( radians( lon ) - radians(".$lon.") ) + sin( radians(".$lat.") ) * sin( radians( lat ) ) ) )  AS distance";
+
+      $flats = Flat::select("flats.*",
+                        DB::raw($distance),
+                        DB::raw("(select flat_sponsor.sponsor_id from flat_sponsor where flat_sponsor.flat_id=flats.id LIMIT 1) AS sponsored")
+                        )
+        -> leftJoin('flat_sponsor', 'flat_sponsor.flat_id', '=', 'flats.id')
+        -> having('distance', '<', $dist)
+        -> orderBy('distance')
+        -> get();
 
       return view('flats.search', compact('flats','loc','lat','lon','dist','rooms','beds'));
       } else {
