@@ -5,7 +5,7 @@ window.Vue = require('vue');
 
 window.$ = require('jquery');
 
-
+// estensione jQuery per controllo modifica form
 $.fn.extend({
  trackChanges: function() {
    $(":input",this).change(function() {
@@ -16,6 +16,13 @@ $.fn.extend({
  isChanged: function() {
    return this.data("changed");
  }
+});
+
+// protezione CSRF a tutte le chiamate Ajax
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
 });
 
 // window.Dropzone = require('dropzone');

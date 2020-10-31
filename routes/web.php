@@ -14,6 +14,8 @@ Route::get('/flats/search', 'UiController@flatSearch') -> name('flats.search');
 Route::get('/flats/search/filters', 'UiController@flatSearchFilters') -> name('flats.search.filters');
 // API flats -> search
 Route::get('/api/flats/search', 'ApiController@flatSearch') -> name('api.flats.search');
+// API flats -> messages
+Route::post('/api/flats/messages/store', 'ApiController@messageStore') -> name('api.messages.store');
 
 // test
 // Route::get('/test', function() {

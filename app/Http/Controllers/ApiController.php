@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// richiama Ui Message Request
+use App\Http\Requests\UiMessageRequest;
+
 use App\Flat;
+use App\Message;
 use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
@@ -70,6 +74,22 @@ class ApiController extends Controller
         -> get();
 
       return response() -> json($flats);
+    }
+
+    public function messageStore(UiMessageRequest $request) {
+
+      // valido i dati attraberso l'UiMessageRequest e salvo i messaggi nel DB
+      $validatedData = $request -> all();
+      $mex = Message::create($validatedData);
+
+      if ($mex) {
+        response()->json(['success'=>"Il suo messaggio è stato ricevuto, la contatteremo a breve."]);
+        // return back() -> with("status", "Il suo messaggio è stato ricevuto, la contatteremo a breve.");
+        // return view('flats.show', compact('flat'));
+      } else {
+        response()->json(['error'=>"Errore, controlla di aver inserito correttamente i dati."]);
+      }
+
     }
 
 }

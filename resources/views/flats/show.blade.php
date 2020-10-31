@@ -3,8 +3,6 @@
 
 {{-- SHOW APPARTAMENTO --}}
 
-
-
   <div id="flatShow" class="container">
       <div class="row justify-content-center">
 
@@ -12,7 +10,7 @@
 
             <div id="main-card" class="card">
 
-              <div class="card-header">
+              <div class="card-header" data-flatId="{{ $flat -> id }}">
                 <div class="row">
                   <div class="col-sm-12 d-flex justify-content-start">
                     <a id="back-btn" class="my-4" href="{{ url()->previous() }}"> <i class="fas fa-arrow-circle-left"></i> </a>
@@ -155,9 +153,9 @@
                   {{-- MESSAGGI --}}
                   <div class="col-xs-12 col-md-12 col-lg-6">
 
-                    <form id="messageBox" action="{{ route('messages.store', $flat -> id) }}" method="post">
+                    {{-- <form id="messageBox" action="{{ route('messages.store', $flat -> id) }}" method="post">
                       @csrf
-                      @method('POST')
+                      @method('POST') --}}
 
                       <div class="card">
                         <div class="card-header">
@@ -171,6 +169,9 @@
                                 {{ session('status') }}
                             </div>
                           @endif
+
+                          <div class="alert" hidden>
+                          </div>
 
                           <div class="form-group row">
                             <label for="inputEmail3" class="col col-form-label">La tua email</label>
@@ -196,7 +197,7 @@
                           <div class="form-group row">
                             <label for="inputTextarea" class="col col-form-label">Messaggio</label>
                             <div class="col-sm-12">
-                              <textarea class="form-control @error('message') is-invalid @enderror" id="inputTextarea" name="message" rows="8" cols="80" minlength="5" maxlength="10000" placeholder="Inserisci il testo" required>{{ old('message') }}</textarea>
+                              <textarea class="form-control @error('message') is-invalid @enderror" id="inputTextarea" name="message" rows="8" cols="80" minlength="5" maxlength="10000" required placeholder="Inserisci il testo" >{{ old('message') }}</textarea>
                               @error('message')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -206,13 +207,14 @@
                           </div>
                           <div class="form-group row">
                             <div class="col-sm-12">
-                              <button type="submit" class="btn btn-primary">Invia</button>
+                              <a id="message-store" class="btn btn-primary" href="#">Invia</a>
+                              {{-- <button type="submit" class="btn btn-primary">Invia</button> --}}
                             </div>
                           </div>
 
                         </div>
                       </div>
-                    </form>
+                    {{-- </form> --}}
 
                   </div>
                   {{-- /MESSAGGI --}}
@@ -244,6 +246,67 @@
     });
 
     var marker = new tt.Marker().setLngLat(coord).addTo(map);
+  </script>
+
+  {{-- script chimata ajax a store messaggio --}}
+  <script type="text/javascript">
+
+    function addMessageStoreListener()  {
+
+      var target = $('#message-store');
+
+      target.on("click", function( e ) {
+
+        messageStore();
+
+        e.preventDefault();
+        $("body, html").animate({
+          scrollTop: $( $(this).attr('href') ).offset().top
+        }, 600);
+
+      });
+
+    }
+
+    function messageStore() {
+
+      var flatId = $('.card-header').attr("data-flatId");
+      var email = $('#inputEmail3').val();
+      var message = $('textarea#inputTextarea').val();
+
+      $.ajax ({
+        url: '/api/flats/messages/store',
+        method: 'POST',
+        data: {
+         'flat_id': flatId,
+         'email': email,
+         'message': message
+        },
+        success: function(success) {
+          var target = $('.alert');
+          $('textarea#inputTextarea').val('');
+          target.removeAttr('hidden');
+          target.removeClass('alert-danger');
+          target.addClass('alert-success');
+          target.text("Il suo messaggio è stato ricevuto, la contatteremo a breve.");
+        },
+        error: function(request, state, error) {
+          var target = $('.alert');
+          target.removeAttr('hidden');
+          target.removeClass('alert-success');
+          target.addClass('alert-danger');
+          target.text('Errore, controlla di aver inserito correttamente i dati.');
+        }
+
+      });
+    }
+
+    function init() {
+      addMessageStoreListener();
+    }
+
+    $(document).ready(init);
+
   </script>
 
 @endsection
