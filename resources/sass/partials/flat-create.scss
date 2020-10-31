@@ -139,23 +139,26 @@ form.flat-create, form.flat-search {
 
   .btnInput{
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     a:hover {
       transform: scale(1.05);
       transition: 0.03s;
     }
-    display: flex;
-    justify-content: space-between;
 
-    button{
+    button {
       background-color:  $greenbnb;
-            border-color: $greenbnb;
+      border-color: $greenbnb;
     }
+
     button:hover {
       background: #005f63;
       transition: 0.03s;
     }
 
-    i{
+    i {
       font-size: 35px;
       color: teal;
 

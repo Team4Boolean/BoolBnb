@@ -18,13 +18,6 @@ $.fn.extend({
  }
 });
 
-// protezione CSRF a tutte le chiamate Ajax
-$.ajaxSetup({
-  headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  }
-});
-
 // window.Dropzone = require('dropzone');
 
 //da qua parte chart.js
@@ -42,8 +35,80 @@ function serviceInfo(){
   });
 }
 
+// AUTOCOMPLETAMENTO DELL'INDIRIZZO tramite libreira places.js
 
-// FLAT-CREATE
+function autocompleteAddress() {
+
+  // autocompletamento località su jumbotron homepage e pagina di ricerca
+  if ($('div').is('.jumbotron') || $('div').is('.flatsearch')) {
+
+    var places = require('places.js');
+    var placesAutocomplete = places({
+      appId: 'plXJIJDQMD75',
+      apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
+      container: document.querySelector('#jumbo-search-bar'),
+      templates: {
+          value: function(suggestion) {
+            return suggestion.name;
+          }
+        }
+      }).configure({
+        type: 'city'
+      });
+    placesAutocomplete.on('change', function resultSelected(e) {
+      document.querySelector('#jumbo-search-lat').value = e.suggestion.latlng['lat']  || '';
+      document.querySelector('#jumbo-search-lon').value = e.suggestion.latlng['lng']  || '';
+    });
+  }
+  // autocompletamento località sulla Create ed Edit di Flats
+  else if ($('form').is('.flat-create')) {
+
+    var places = require('places.js');
+    var placesAutocomplete = places({
+      appId: 'plXJIJDQMD75',
+      apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
+      container: document.querySelector('#street_name'),
+      templates: {
+          value: function(suggestion) {
+            return suggestion.name;
+          }
+        }
+      }).configure({
+        type: 'address'
+      });
+    placesAutocomplete.on('change', function resultSelected(e) {
+      document.querySelector('#subdivision').value = e.suggestion.county || '';
+      document.querySelector('#municipality').value = e.suggestion.city || '';
+      document.querySelector('#postal_code').value = e.suggestion.postcode || '';
+      document.querySelector('#lat').value = e.suggestion.latlng['lat']  || '';
+      document.querySelector('#lon').value = e.suggestion.latlng['lng']  || '';
+    });
+  }
+  // autocompletamento località sulla searchbar
+  else {
+
+    var places = require('places.js');
+    var placesAutocomplete = places({
+      appId: 'plXJIJDQMD75',
+      apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
+      container: document.querySelector('#search-bar'),
+      templates: {
+          value: function(suggestion) {
+            return suggestion.name;
+          }
+        }
+      }).configure({
+        type: 'city'
+      });
+    placesAutocomplete.on('change', function resultSelected(e) {
+      document.querySelector('#search-lat').value = e.suggestion.latlng['lat']  || '';
+      document.querySelector('#search-lon').value = e.suggestion.latlng['lng']  || '';
+    });
+  }
+
+}
+
+// FLAT-CREATE-UPDATE autocompletamento tramite API TomTom
 
 function addKeyUpListener()  {
 
@@ -253,46 +318,6 @@ function searchFlat() {
 
 
 }
-
-// AUTOCOMPLETAMENTO DELL'INDIRIZZO
-
-function autocompleteAddress() {
-
-  if ($('div').is('.jumbotron') || $('div').is('.flatsearch')) {
-    var places = require('places.js');
-    var placesAutocomplete = places({
-      appId: 'plXJIJDQMD75',
-      apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
-      container: document.querySelector('#jumbo-search-bar')
-
-    });
-
-    placesAutocomplete.on('change', function resultSelected(e) {
-    //   document.querySelector('#subdivision').value = e.suggestion.county || '';
-    //   document.querySelector('#municipality').value = e.suggestion.city || '';
-    //   document.querySelector('#postal_code').value = e.suggestion.postcode || '';
-      document.querySelector('#jumbo-search-lat').value = e.suggestion.latlng['lat']  || '';
-      document.querySelector('#jumbo-search-lon').value = e.suggestion.latlng['lng']  || '';
-    });
-    } else {
-        var places = require('places.js');
-        var placesAutocomplete = places({
-          appId: 'plXJIJDQMD75',
-          apiKey: '55b0a2a2464a36ae6c8b7c5436ea0ec8',
-          container: document.querySelector('#search-bar')
-
-        });
-
-        placesAutocomplete.on('change', function resultSelected(e) {
-        //   document.querySelector('#subdivision').value = e.suggestion.county || '';
-        //   document.querySelector('#municipality').value = e.suggestion.city || '';
-        //   document.querySelector('#postal_code').value = e.suggestion.postcode || '';
-          document.querySelector('#search-lat').value = e.suggestion.latlng['lat']  || '';
-          document.querySelector('#search-lon').value = e.suggestion.latlng['lng']  || '';
-        });
-      }
-    }
-
 
   function navbarScroll() {
     $(window).scroll(function(){

@@ -254,7 +254,6 @@
     function addMessageStoreListener()  {
 
       var target = $('#message-store');
-
       target.on("click", function( e ) {
 
         messageStore();
@@ -263,7 +262,6 @@
         $("body, html").animate({
           scrollTop: $( $(this).attr('href') ).offset().top
         }, 600);
-
       });
 
     }
@@ -302,6 +300,12 @@
     }
 
     function init() {
+      // protezione CSRF per la chiamata Ajax allo store del messaggio
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
       addMessageStoreListener();
     }
 
