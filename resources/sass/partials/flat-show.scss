@@ -16,7 +16,7 @@
   transition: 0.1s;
 }
 
-#flatShow{
+#flatShow {
   margin-top: 29px;
 
   #map {
@@ -26,7 +26,7 @@
     border-radius: 5px;
     margin-top: 10px;
   }
-  #main-card>.card-header{
+  #main-card > .card-header{
     padding: 0;
 
     .justify-content-start {
@@ -44,7 +44,7 @@
         border-radius: unset;
         padding: 0;
 
-        i{
+        i {
           font-size: 40px;
           position: relative;
           right: 0;
@@ -101,7 +101,7 @@
           padding: 5px;
           border-radius: 6px;
         }
-        i{
+        i {
           font-size: 35px;
           color: $greenbnb;
           margin: 20px 5px 0 10px;

@@ -145,21 +145,25 @@ class UpraController extends Controller {
 
   public function flatStats($id){
 
-    // $query = DB::table('visits')
-    //         -> select(DB::raw('count(flat_id) as visits, DATE(created_at) AS day'))
-    //         -> where('flat_id', '=', $id)
-    //         -> groupBy('day')
-    //         -> get();
+    $flat = Flat::findOrFail($id);
+    $visits = DB::table('visits')
+              -> select(DB::raw('DATE(created_at) AS x, count(flat_id) as y'))
+              -> where('flat_id', '=', $id)
+              -> groupBy('x')
+              -> get();
+    $messages = DB::table('messages')
+              -> select(DB::raw('DATE(created_at) AS x, count(flat_id) as y'))
+              -> where('flat_id', '=', $id)
+              -> groupBy('x')
+              -> get();
 
-    // $visits = json_encode($query);
-    // dd($query);
-
-    $views = DB::table('Visits')
-    ->select('created_at')
-    ->where('flat_id', $id)->get();
+    // $views = DB::table('Visits')
+    // ->select('created_at')
+    // ->where('flat_id', $id)->get();
     // dd($views);
 
-    return view('flats.chart', compact('views'));
+    // return view('flats.chart', compact('views'));
+    return view('flats.statistics', compact('visits','messages','flat'));
   }
 
   public function flatMessages($id){

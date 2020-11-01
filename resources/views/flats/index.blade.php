@@ -26,13 +26,13 @@
 
           <div class="row m-3 table-warning">
 
-            <div class="index-img col-xs-12 col-md-12 col-lg-5 col-xl-4">
+            <div class="index-img col-xs-12 col-md-12 col-lg-5 col-xl-4 p-2">
               <img src="{{ asset($flat -> photos() -> first() -> path) }}" class="rounded img-fluid" alt="Flat Image">
             </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-8">
+            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-8 p-2">
               <div class="title-text">
-                <h3 class="mt-0 mb-1">{{ $flat -> title }}</h3>
+                <h3>{{ $flat -> title }}</h3>
                 <p>{{ $flat -> desc }}</p>
               </div>
               <div class="index-button">
@@ -61,13 +61,13 @@
 
           <div class="row m-3">
 
-            <div class="index-img col-xs-12 col-md-12 col-lg-5 col-xl-4">
+            <div class="index-img col-xs-12 col-md-12 col-lg-5 col-xl-4 p-2">
               <img src="{{ asset($flat -> photos() -> first() -> path) }}" class="rounded img-fluid" alt="Flat Image">
             </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-8">
+            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-8 p-2">
               <div class="title-text">
-                <h3 class="mt-0 mb-1">{{ $flat -> title }}</h3>
+                <h3>{{ $flat -> title }}</h3>
                 <p>{{ $flat -> desc }}</p>
               </div>
               <div class="index-button">
@@ -95,25 +95,24 @@
                 <h2>APPARTAMENTI DISATTIVATI</h2>
             @endif
 
-            <li class="list-index media mb-5 ">
               <div class="row m-3">
 
-                <div class="index-img col-xs-12 col-md-3 col-xl-4 opacity">
+                <div class="index-img col-xs-12 col-md-3 col-xl-4 p-2 opacity">
                   <img src="{{ asset($flat -> photos() -> first() -> path) }}" class="rounded img-fluid" alt="Flat Image">
                 </div>
 
-                <div class="col-xs-12 col-md-9 col-xl-8 d-flex flex-column justify-content-center">
+                <div class="col-xs-12 col-md-12 col-lg-7 col-xl-8 p-2">
                   <div class="title-text opacity">
-                    <h3 class="mt-0 mb-1">{{ $flat -> title }}</h3>
+                    <h3>{{ $flat -> title }}</h3>
                     <p>{{ $flat -> desc }}</p>
                   </div>
-                  <div class="index-button d-flex align-items-center justify-content-between">
+                  <div class="index-button">
                     <a href="{{ route('flats.activate', $flat -> id) }}" class="btn btn-primary">Attiva</a>
-                    <span class="text-danger"><strong>Questo appartamento è disattivato</strong></span>
-                    </div>
+                    <span class="text-danger float-right"><strong>Questo appartamento è disattivato</strong></span>
                   </div>
-
                 </div>
+
+              </div>
 
             @endforeach
 
