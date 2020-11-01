@@ -1,30 +1,29 @@
 <script id="fsc-component" type="text/x-template">
 
-  <div class="mb-3 col-12" v-on:mouseover="setMouseIn(true)" v-on:mouseout="setMouseIn(false)" >
+  <div class="col-12 mb-2 p-0" v-on:mouseover="setMouseIn(true)" v-on:mouseout="setMouseIn(false)" v-bind:class="{ 'table-warning': isSponsored }">
 
-      <div class="row card-row" >
-        <div class=" col-md-6 col-lg-12 col-xl-5 card-left" >
-          <img height="200px" width="100%" :src="img" alt="Immagine prova">
-        </div>
-        <div class="col-md-6 col-lg-12 col-xl-7 p-3 d-flex flex-column justify-content-between card-right" v-bind:class="{ 'table-warning': isSponsored }">
-          <div class="d-flex justify-content-between">
-            <h5 class="mt-0">@{{ title }}</h5>
-            <div class="text-danger">
-              @{{ printSponsored(sponsored) }}
-            </div>
-          </div>
-          <div class="text-muted">
-            @{{ shortDesc}}
-          </div>
-          <div class="align-self-end">
-            <a :href="show" class="btn">Visualizza</a>
+    <div class="row">
+      <div class="col-md-6 col-lg-12 col-xl-4 p-0">
+        <img height="150px" width="100%" :src="img" :alt="title">
+      </div>
+      <div class="col-md-6 col-lg-12 col-xl-8 p-2" >
+        <div class="d-flex justify-content-between">
+          <h5 class="mt-0">@{{ title }}</h5>
+          <div class="text-danger">
+            @{{ printSponsored(sponsored) }}
           </div>
         </div>
+        <div class="text-muted">
+          @{{ shortDesc}}
+        </div>
+        <a :href="show" class="btn">Visualizza</a>
       </div>
     </div>
 
+  </div>
 
 </script>
+
 <script type="text/javascript">
 
   Vue.component('fsc', {

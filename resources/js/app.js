@@ -284,19 +284,18 @@ function searchFlat() {
             } else {
               var sponsored = "";
             }
-            console.log(flat);
+            // console.log('flat sponsored',flat['sponsored']);
             // var component = '<div class=" col-md-6 col-lg-12 offset-xl-1 col-xl-5 mb-3 "><div style=" height: 400px" class="card shadow"><img style=" height: 140px" src="' + src + '" class="card-img-top" alt="flat-img"><div class="card-body" ><h5 class="card-title">' + flat['title'] + '</h5><p class="card-text text-muted">'+ descShort +'</p><p class="text-danger">' + sponsored + '</p><a href="/flats/'+ flat['id']+'/show" class="btn " style=" position: absolute; bottom: 10px; left: 10px;">Visualizza</a></div></div></div>';
 
-            var component = '<div sponsored="'+ flat['sponsored'] +'" class="media mb-3 col-12"><img height="250px" width="50%" src="' + src + '" class="m-3" alt="' + flat['url'] + '"><div class="media-body m-3 d-flex flex-column justify-content-between"><div class="d-flex justify-content-between"><h5 class="mt-0">' + flat['title'] + '</h5><div class="text-danger">' + sponsored + '</div></div><div class="text-muted">'+ descShort +'</div><div class="align-self-end"><a href="/flats/'+ flat['id']+'/show" class="btn">Visualizza</a></div></div></div>'
+            var component = '<div class="col-12 mb-2 p-0" sponsored="'+ flat['sponsored'] +'"><div class="row"><div class="col-md-6 col-lg-12 col-xl-4 p-0"><img height="150px" width="100%" src="' + src + '" alt="' + flat['title'] + '"></div><div class="col-md-6 col-lg-12 col-xl-8 p-2"><div class="d-flex justify-content-between"><h5 class="mt-0">' + flat['title'] + '</h5><div class="text-danger">' + sponsored + '</div></div><div class="text-muted">'+ descShort +'</div><a href="/flats/'+ flat['id']+'/show" class="btn">Visualizza</a></div></div></div>';
 
             target.append(component);
           }
 
-          $( "div.media" ).each(function() {
+          $( "div.col-12" ).each(function() {
             var target = $(this);
             var isSpons = target.attr('sponsored');
-
-            if (isSpons == 1) {
+            if (isSpons != 'null') {
               target.addClass('table-warning');
             }
           });

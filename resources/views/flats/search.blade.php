@@ -249,7 +249,7 @@
 
             <hr>
 
-            <div class="row" id="results">
+            <div class="container" id="results">
 
               @if($flats && count($flats)!=0)
                 @foreach ($flats as $flat)

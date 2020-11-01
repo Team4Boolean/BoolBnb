@@ -280,20 +280,24 @@
          'email': email,
          'message': message
         },
-        success: function(success) {
+        success: function(res) {
           var target = $('.alert');
           $('textarea#inputTextarea').val('');
-          target.removeAttr('hidden');
-          target.removeClass('alert-danger');
-          target.addClass('alert-success');
-          target.text("Il suo messaggio è stato ricevuto, la contatteremo a breve.");
+          if (res == 200) {
+            target.removeAttr('hidden');
+            target.removeClass('alert-danger');
+            target.addClass('alert-success');
+            target.text("Il suo messaggio è stato ricevuto, la contatteremo a breve.");
+          }
         },
-        error: function(request, state, error) {
-          var target = $('.alert');
-          target.removeAttr('hidden');
-          target.removeClass('alert-success');
-          target.addClass('alert-danger');
-          target.text('Errore, controlla di aver inserito correttamente i dati.');
+        error: function(error) {
+          if (error['status'] == 422) {
+            var target = $('.alert');
+            target.removeAttr('hidden');
+            target.removeClass('alert-success');
+            target.addClass('alert-danger');
+            target.text('Errore, controlla di aver inserito correttamente i dati.');
+          }
         }
 
       });

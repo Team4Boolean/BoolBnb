@@ -83,13 +83,11 @@ class ApiController extends Controller
       $mex = Message::create($validatedData);
 
       if ($mex) {
-        response()->json(['success'=>"Il suo messaggio è stato ricevuto, la contatteremo a breve."]);
+        // ritorno messaggio tutto ok da server
+        return response() -> json(200);
+        // response()->json(['success'=>"Il suo messaggio è stato ricevuto, la contatteremo a breve."]);
         // return back() -> with("status", "Il suo messaggio è stato ricevuto, la contatteremo a breve.");
-        // return view('flats.show', compact('flat'));
-      } else {
-        response()->json(['error'=>"Errore, controlla di aver inserito correttamente i dati."]);
       }
-
     }
 
 }
