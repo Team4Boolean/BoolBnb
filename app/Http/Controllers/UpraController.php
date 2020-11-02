@@ -173,4 +173,14 @@ class UpraController extends Controller {
     return view('flats.messages', compact('messages'));
   }
 
+  public function flatSponsorCreate($id) {
+
+    $flat = Flat::findOrFail($id);
+    return view('flats/sponsor', compact('flat'));
+  }
+
+  public function flatSponsorStore($id) {
+
+  }
+
 }
