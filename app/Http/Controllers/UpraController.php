@@ -171,7 +171,9 @@ class UpraController extends Controller {
 
   public function flatMessages($id){
 
-    $messages = Message::where('flat_id','=',$id) -> get();
+    $messages = Message::where('flat_id','=',$id)
+                -> orderBy('created_at','DESC')
+                -> get();
     // dd($messages);
     return view('flats.messages', compact('messages'));
   }
