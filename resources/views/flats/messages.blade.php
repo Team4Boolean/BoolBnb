@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-  <div class="container-mail">
+  <div class="container-mail container">
     <div class="row row-mail">
       <div class="mail-col col-xs-12 col-md-4 col-xl-3">
        <div class="row title-mail border">

@@ -6,14 +6,10 @@
           <div class="col-md-12">
               <div class="card">
 
-                <div class="card-header">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <a class="float-left" href="{{ url()->previous() }}"> <i class="fas fa-arrow-circle-left" style="font-size:40px"></i> </a>
-                      {{-- Titolo pagina cardheader --}}
-                      <h1>Statistiche "{{ $flat -> title }}"</h1>
-                    </div>
-                  </div>
+                <div class="card-header">                
+                  <a class="float-left" href="{{ url()->previous() }}"> <i class="fas fa-arrow-circle-left" style="font-size:40px"></i> </a>
+                  {{-- Titolo pagina cardheader --}}
+                  <h1>Statistiche "{{ $flat -> title }}"</h1>
                 </div>
 
                 <div class="card-body">
