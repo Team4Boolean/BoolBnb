@@ -39,7 +39,7 @@
                           {{-- Titolo --}}
                           <div id="input-title" class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <label class="input-group-text" for="title"><h6>Titolo</h6></label>
+                              <label class="input-group-text" for="title"><h6 style="font-weight: 600">Titolo</h6></label>
                             </div>
                             <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" value="{{old('title', $flat-> title)}}" required minlength="5" maxlength="64" >
                             @error('title')
@@ -51,7 +51,7 @@
                           {{-- Descrizione --}}
                           <div id="input-desc" class="form-group">
                             <div class="input-group-prepend">
-                              <label class="input-group-text" for="desc"><h6>Descrizione</h6></label>
+                              <label class="input-group-text" for="desc"><h6 style="font-weight: 600">Descrizione</h6></label>
                             </div>
                             <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" rows="8" cols="80" required minlength="5" maxlength="1000">{{old('desc', $flat-> desc)}}</textarea>
                             @error('desc')

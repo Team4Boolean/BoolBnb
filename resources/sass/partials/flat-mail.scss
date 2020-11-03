@@ -81,7 +81,7 @@
      padding: 10px;
 
      .messages-received {
-       
+
        margin-bottom: 10px;
        span {
          font-size: 20px;
@@ -112,7 +112,7 @@
   text-overflow: ellipsis;
 }
 
-@media (max-width: $lg) {
+@media (max-width: $md) {
 
   .mail-right-side {
     display: none !important;
