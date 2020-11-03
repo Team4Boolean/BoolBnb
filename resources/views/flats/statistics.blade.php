@@ -11,7 +11,7 @@
                     <div class="col-sm-12">
                       <a class="float-left" href="{{ url()->previous() }}"> <i class="fas fa-arrow-circle-left" style="font-size:40px"></i> </a>
                       {{-- Titolo pagina cardheader --}}
-                      <h1>Statistiche {{ $flat -> title }}</h1>
+                      <h1>Statistiche "{{ $flat -> title }}"</h1>
                     </div>
                   </div>
                 </div>
