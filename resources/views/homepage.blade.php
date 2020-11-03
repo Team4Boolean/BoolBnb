@@ -192,7 +192,7 @@
           <flatcomponent
             :title = "'{{ $flat -> title }}'"
             :desc = "'{{ $flat -> desc }}'"
-            :img = "'{{ $flat -> photos -> first() -> url }}'"
+            :img = "'{{ $flat -> photos -> first() -> path }}'"
             :id = "'{{ $flat -> id }}'"
           ></flatcomponent>
 

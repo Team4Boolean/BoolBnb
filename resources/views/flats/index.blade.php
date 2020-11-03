@@ -26,15 +26,17 @@
 
           <div class="row m-3 table-warning">
 
-            <div class="index-img col-xs-12 col-md-12 col-lg-5 col-xl-4 p-2">
-              <img src="{{ asset($flat -> photos() -> first() -> path) }}" class="rounded img-fluid" alt="Flat Image">
+            <div class="index-img col-xs-12 col-md-12 col-lg-5 col-xl-3 p-2">
+              <img height="150px" src="{{ asset($flat -> photos() -> first() -> path) }}" class="rounded img-fluid" alt="Flat Image">
             </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-8 p-2">
+            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-9 p-2">
               <div class="title-text">
-                <h3>{{ $flat -> title }}</h3>
-                <p>{{ $flat -> desc }}</p>
+                <h3 class="mb-0">{{ $flat -> title }}</h3>
+                <div class="small">creato il: {{ $flat -> created_at }}</div>
+                <div class="small">sponsorizzato il: {{ $flat -> sponsors() -> first() -> pivot -> created_at }}</div>
               </div>
+              <p class="text-muted mt-2">{{ $flat -> desc }}</p>
               <div class="index-button">
                   <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary"> Visualizza</a>
                   <a href="{{ route('flats.edit', $flat -> id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
@@ -61,15 +63,16 @@
 
           <div class="row m-3">
 
-            <div class="index-img col-xs-12 col-md-12 col-lg-5 col-xl-4 p-2">
+            <div class="index-img col-xs-12 col-md-12 col-lg-5 col-xl-3 p-2">
               <img src="{{ asset($flat -> photos() -> first() -> path) }}" class="rounded img-fluid" alt="Flat Image">
             </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-8 p-2">
+            <div class="col-xs-12 col-md-12 col-lg-7 col-xl-9 p-2">
               <div class="title-text">
-                <h3>{{ $flat -> title }}</h3>
-                <p>{{ $flat -> desc }}</p>
+                <h3 class="mb-0">{{ $flat -> title }}</h3>
+                <div class="small">creato il: {{ $flat -> created_at }}</div>
               </div>
+              <p class="text-muted mt-2">{{ $flat -> desc }}</p>
               <div class="index-button">
                   <a href="{{ route('flats.show', $flat -> id) }}" class="btn btn-primary"> Visualizza</a>
                   <a href="{{ route('flats.edit', $flat -> id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
@@ -97,15 +100,16 @@
 
               <div class="row m-3">
 
-                <div class="index-img col-xs-12 col-md-3 col-xl-4 p-2 opacity">
+                <div class="index-img col-xs-12 col-md-3 p-2 opacity">
                   <img src="{{ asset($flat -> photos() -> first() -> path) }}" class="rounded img-fluid" alt="Flat Image">
                 </div>
 
-                <div class="col-xs-12 col-md-12 col-lg-7 col-xl-8 p-2">
+                <div class="col-xs-12 col-md-9 p-2">
                   <div class="title-text opacity">
-                    <h3>{{ $flat -> title }}</h3>
-                    <p>{{ $flat -> desc }}</p>
+                    <h3 class="mb-0">{{ $flat -> title }}</h3>
+                    <div class="small">creato il: {{ $flat -> created_at }}</div>
                   </div>
+                  <p class="text-muted opacity mt-2">{{ $flat -> desc }}</p>
                   <div class="index-button">
                     <a href="{{ route('flats.activate', $flat -> id) }}" class="btn btn-primary">Attiva</a>
                     <span class="text-danger float-right"><strong>Questo appartamento è disattivato</strong></span>

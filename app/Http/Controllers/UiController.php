@@ -21,7 +21,7 @@ class UiController extends Controller
 
       $sponsored = Flat::has('sponsors')
                   -> inRandomOrder()
-                  -> take(8)
+                  -> take(9)
                   -> get();
                 // -> paginate(6);
 
