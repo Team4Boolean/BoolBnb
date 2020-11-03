@@ -1,6 +1,6 @@
 .container-mail {
     margin: 30px auto;
-    width: 80%;
+    width: 100%;
 
     .row-mail {
    .mail-col {
@@ -113,7 +113,7 @@
   text-overflow: ellipsis;
 }
 
-@media (max-width: $md) {
+@media (max-width: $lg) {
 
   .mail-right-side {
     display: none !important;
