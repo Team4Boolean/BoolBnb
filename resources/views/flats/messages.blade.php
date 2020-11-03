@@ -4,15 +4,15 @@
     <div class="row row-mail">
       <div class="mail-col col-xs-12 col-lg-4">
        <div class="row title-mail border">
-         <a id="back-btn" class="my-4" href="{{ url()->previous() }}"> <i class="fas fa-arrow-circle-left"></i> </a>
-         <h3>Mail degli utenti</h3>
+         <a id="back-btn" href="{{ url()->previous() }}"> <i class="fas fa-arrow-circle-left"></i> </a>
+         <h3>MAIL RICEVUTE</h3>
        </div>
-       <div class="row contacts border">
+       <div class="row contacts ">
          <ul id="mail-list">
             @foreach ($messages as $message)
               <li>
                 <div class="mail" created="{{$message -> created_at}}" >
-                  <h6><strong>From: </strong> <span class="sender">{{$message -> email}}</span></h6>
+                  <h6><strong>Inviato da: </strong> <span class="sender">{{$message -> email}}</span></h6>
                   <p><strong>Testo messaggio: </strong><span id="message">{{$message -> message}}</span></p>
                 </div>
               </li>
@@ -24,18 +24,16 @@
      </div>
      <div class="mail-col col-xs-12 col-lg-8">
        <div class="row row-messages border">
-         <h3>Testo della Mail</h3>
+         <h3><T>TESTO DELLA MAIL</T></h3>
        </div>
        <div class="row row-text border" id="mail-body">
-         <div class="messages-received">
+         <div class="messages-received ">
            <h6>Messaggio da: </h6>
            <span id="show-sender"></span>
-         </div>
-         <br>
-         <div class="messages-date">
-           <h6>Inviato alle: </h6>
+           <h6>Inviato alle:</h6>
            <span id="show-date"></span>
          </div>
+         <br>
          <p id="show-message"></p>
        </div>
      </div>
