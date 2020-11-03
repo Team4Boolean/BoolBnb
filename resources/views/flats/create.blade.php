@@ -11,6 +11,7 @@
               <div class="card">
                 {{-- Titolo pagina cardheader --}}
                   <div class="card-header">
+                    <a class="float-left" style="font-size: 40px" href="{{ url()->previous() }}"><i class="fas fa-arrow-circle-left"></i></a>
                     <h1>Pubblica il tuo appartamento:</h1>
                   </div>
 
@@ -279,7 +280,6 @@
                       {{-- btn group --}}
 
                       <section class="btnInput">
-                        <a href="{{ url()->previous() }}"><i class="fas fa-arrow-circle-left"></i></a>
                         <button class=" btn-primary" type="submit">Conferma</button>
                       </section>
 

@@ -20,6 +20,9 @@ use App\Http\Requests\UpraFlatRequest;
 
 use Illuminate\Support\Facades\DB;
 
+// Sistema di pagamento Braintree
+use Braintree_Transaction;
+
 class UpraController extends Controller {
 
   public function flatIndex() {
@@ -176,11 +179,73 @@ class UpraController extends Controller {
   public function flatSponsorCreate($id) {
 
     $flat = Flat::findOrFail($id);
-    return view('flats/sponsor', compact('flat'));
+
+    $gateway = new \Braintree\Gateway([
+        'environment' => 'sandbox',
+        'merchantId' => 'tqtvnht52c22qqjf',
+        'publicKey' => 'tgw2vnr99gxmm8vr',
+        'privateKey' => '0808e666e1c59548c52c5fd6ff73e8d4'
+      ]);
+    $token = $gateway -> clientToken() -> generate();
+
+    return view('flats/sponsor', compact('flat', 'token'));
   }
 
-  public function flatSponsorStore($id) {
+  public function flatSponsorMake(Request $request, $id) {
 
+    $data = $request -> all();
+    dd($data);
+    $flat = Flat::findOrFail($id);
+
+    $sponsor = $data['sponsor'];
+    switch ($sponsor) {
+    case 1:
+        $amount = 2.99;
+        break;
+    case 2:
+        $amount = 5.99;
+        break;
+    case 3:
+        $amount = 9.99;
+        break;
+      }
+
+    if($request -> input('nonce') != null){
+
+      $nonceFromTheClient = $request -> input('nonce');
+
+      $gateway -> transaction() ->sale([
+          'amount' => '10',
+          'paymentMethodNonce' => $nonceFromTheClient,
+          'options' => [
+          'submitForSettlement' => True
+          ]
+      ]);
+      return view('flats/index');
+      // return response() -> json($status);
+    } else {
+
+      $gateway = new \Braintree\Gateway([
+        'environment' => 'sandbox',
+        'merchantId' => 'tqtvnht52c22qqjf',
+        'publicKey' => 'tgw2vnr99gxmm8vr',
+        'privateKey' => '0808e666e1c59548c52c5fd6ff73e8d4'
+      ]);
+
+      $token = $gateway -> clientToken() -> generate();
+      return view('flats/sponsor', compact('flat', 'token'));
+    }
+
+    // $payload = $request -> input('payload', false);
+    // $nonce = $payload['nonce'];
+    // $status = Braintree_Transaction::sale([
+    //             'amount' => $amount,
+    //             'paymentMethodNonce' => $nonce,
+    //             'options' => [
+    //             'submitForSettlement' => True
+    //                           ]
+    //           ]);
+    // return response()->json($status);
   }
 
 }
