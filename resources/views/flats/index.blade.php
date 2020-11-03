@@ -33,8 +33,9 @@
             <div class="col-xs-12 col-md-12 col-lg-7 col-xl-9 p-2">
               <div class="title-text">
                 <h3 class="mb-0">{{ $flat -> title }}</h3>
-                <div class="small">creato il: {{ $flat -> created_at }}</div>
-                <div class="small">sponsorizzato il: {{ $flat -> sponsors() -> first() -> pivot -> created_at }}</div>
+                <div class="small">Creato il: {{ $flat -> created_at }}</div>
+                <div class="small">Sponsorizzato il: {{ $flat -> sponsors() -> first() -> pivot -> created_at }}</div>
+                <div class="small">Fine sponsorizzazione: {{ $flat -> sponsors() -> first() -> pivot -> expires_at }}</div>
               </div>
               <p class="text-muted mt-2">{{ $flat -> desc }}</p>
               <div class="index-button">
@@ -56,7 +57,7 @@
     @isset($flats)
 
         @foreach ($flats as $flat)
-
+          {{-- {{ dd($flat)}} --}}
           @if ($loop -> first)
             <h2>APPARTAMENTI IN AFFITTO</h2>
           @endif
@@ -70,7 +71,7 @@
             <div class="col-xs-12 col-md-12 col-lg-7 col-xl-9 p-2">
               <div class="title-text">
                 <h3 class="mb-0">{{ $flat -> title }}</h3>
-                <div class="small">creato il: {{ $flat -> created_at }}</div>
+                <div class="small">Creato il: {{ $flat -> created_at }}</div>
               </div>
               <p class="text-muted mt-2">{{ $flat -> desc }}</p>
               <div class="index-button">
@@ -107,7 +108,7 @@
                 <div class="col-xs-12 col-md-9 p-2">
                   <div class="title-text opacity">
                     <h3 class="mb-0">{{ $flat -> title }}</h3>
-                    <div class="small">creato il: {{ $flat -> created_at }}</div>
+                    <div class="small">Creato il: {{ $flat -> created_at }}</div>
                   </div>
                   <p class="text-muted opacity mt-2">{{ $flat -> desc }}</p>
                   <div class="index-button">

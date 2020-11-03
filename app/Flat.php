@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Mvdnbrk\EloquentExpirable\Expirable;
 
 class Flat extends Model
 {
     use SoftDeletes;
+    use Expirable;
 
     protected $fillable = [
       'user_id',
@@ -48,7 +50,15 @@ class Flat extends Model
     }
     // relazione Many To Many flats <-> sponsors
     public function sponsors() {
-      return $this -> belongsToMany(Sponsor::class) -> withTimestamps();
+      return $this -> belongsToMany(Sponsor::class) -> withTimestamps() -> withPivot('expires_at');
+    }
+    // metodo per prendere gli appartamenti con ancora sponsor attivo
+    public function active_sponsor() {
+      return $this -> belongsToMany(Sponsor::class) -> where('expires_at', '>=', NOW()) -> orderBy('expires_at','DESC');
+    }
+    // metodo per prendere gli appartamenti con sponsors inattivi
+    public function inactive_sponsor() {
+      return $this -> belongsToMany(Sponsor::class) -> where('expires_at', '<', NOW()) -> orderBy('expires_at','DESC');
     }
 
 }

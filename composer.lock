@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1c0be5e5e405bce8b021dc7909281cf",
+    "content-hash": "da54922db1f27d0cf0bff42a88f44220",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -790,16 +790,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v7.29.2",
+            "version": "v7.29.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "0fb15ae253c3a043f2c5cbf9641427a7646ea77a"
+                "reference": "93f6d565a07045baa0e4b941ae1f733cd5984d65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/0fb15ae253c3a043f2c5cbf9641427a7646ea77a",
-                "reference": "0fb15ae253c3a043f2c5cbf9641427a7646ea77a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/93f6d565a07045baa0e4b941ae1f733cd5984d65",
+                "reference": "93f6d565a07045baa0e4b941ae1f733cd5984d65",
                 "shasum": ""
             },
             "require": {
@@ -944,7 +944,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-10-29T18:57:35+00:00"
+            "time": "2020-11-03T14:12:58+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1392,6 +1392,73 @@
                 }
             ],
             "time": "2020-07-23T08:41:23+00:00"
+        },
+        {
+            "name": "mvdnbrk/laravel-model-expires",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mvdnbrk/laravel-model-expires.git",
+                "reference": "19f3dc56e4a079abf1c2d7f1831d5e593d2e3da6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mvdnbrk/laravel-model-expires/zipball/19f3dc56e4a079abf1c2d7f1831d5e593d2e3da6",
+                "reference": "19f3dc56e4a079abf1c2d7f1831d5e593d2e3da6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^5.5 || ^6.0 || ^7.0 || ^8.0",
+                "illuminate/support": "^5.5 || ^6.0 || ^7.0 || ^8.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^2.5",
+                "orchestra/testbench": "^3.5 || ^4.4 || ^5.0 || ^6.0",
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mvdnbrk\\EloquentExpirable\\ExpirableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mvdnbrk\\EloquentExpirable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark van den Broek",
+                    "email": "mvdnbrk@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A package to assign expiration dates to Eloquent models",
+            "homepage": "https://github.com/mvdnbrk/laravel-model-expires",
+            "keywords": [
+                "Expires",
+                "eloquent",
+                "expirable",
+                "expiration",
+                "expire",
+                "laravel",
+                "model"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/mvdnbrk",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-09-18T12:12:39+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -5652,6 +5719,7 @@
                 "faker",
                 "fixtures"
             ],
+            "abandoned": true,
             "time": "2019-12-12T13:22:17+00:00"
         },
         {

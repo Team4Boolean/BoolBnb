@@ -19,7 +19,7 @@ class UiController extends Controller
 
   public function home() {
 
-      $sponsored = Flat::has('sponsors')
+      $sponsored = Flat::whereHas('active_sponsor')
                   -> inRandomOrder()
                   -> take(9)
                   -> get();
@@ -51,7 +51,7 @@ class UiController extends Controller
 
       $flats = Flat::select("flats.*",
                         DB::raw($distance),
-                        DB::raw("(select flat_sponsor.sponsor_id from flat_sponsor where flat_sponsor.flat_id=flats.id LIMIT 1) AS sponsored")
+                        DB::raw("(select flat_sponsor.sponsor_id from flat_sponsor where (flat_sponsor.flat_id=flats.id AND flat_sponsor.expires_at >= NOW()) LIMIT 1) AS sponsored")
                         )
         -> leftJoin('flat_sponsor', 'flat_sponsor.flat_id', '=', 'flats.id')
         -> having('distance', '<', $dist)
@@ -107,7 +107,7 @@ class UiController extends Controller
     $flats = Flat::select("flats.*",
                       DB::raw($distance),
                       DB::raw("(select photos.url from photos where photos.flat_id=flats.id LIMIT 1) AS url"),
-                      DB::raw("(select flat_sponsor.sponsor_id from flat_sponsor where flat_sponsor.flat_id=flats.id LIMIT 1) AS sponsored")
+                      DB::raw("(select flat_sponsor.sponsor_id from flat_sponsor where (flat_sponsor.flat_id=flats.id AND flat_sponsor.expires_at >= NOW()) LIMIT 1) AS sponsored")
                       )
       -> join('flat_service', 'flat_service.flat_id', '=', 'flats.id')
       -> join('services', 'services.id', '=', 'flat_service.service_id')
@@ -150,56 +150,6 @@ class UiController extends Controller
     $flat = Flat::findOrFail($id);
     // return view('flats.show', compact('flat'));
     return back() -> with("status", "Il suo messaggio è stato ricevuto, la contattremo a breve.");
-  }
-
-  public function requestView() {
-
-      $gateway = new Braintree\Gateway([
-        'environment' => config('services.braintree.environment'),
-        'merchantId' => config('services.braintree.merchantId'),
-        'publicKey' => config('services.braintree.publicKey'),
-        'privateKey' => config('services.braintree.privateKey')
-      ]);
-
-      $token = $gateway->ClientToken()->generate();
-
-      return view('test', compact('token'));
-  }
-
-  public function requestStore (Request $request) {
-
-    $gateway = new Braintree\Gateway([
-      'environment' => config('services.braintree.environment'),
-      'merchantId' => config('services.braintree.merchantId'),
-      'publicKey' => config('services.braintree.publicKey'),
-      'privateKey' => config('services.braintree.privateKey')
-    ]);
-
-    $amount = $request->amount;
-    $nonce = $request->payment_method_nonce;
-
-    $result = $gateway->transaction()->sale([
-      'amount' => $amount,
-      'paymentMethodNonce' => $nonce,
-      'options' => [
-          'submitForSettlement' => true
-      ]
-    ]);
-
-    if ($result->success) {
-      $transaction = $result->transaction;
-      // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
-      $data = back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->$id);
-    } else {
-      $errorString = "";
-
-      foreach ($result->errors->deepAll() as $error) {
-          $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
-      }
-      $data = back()->withErrors('An error occurred with the message:' . $result->message);
-    }
-
-    return view('test', compact('data'));
   }
 
 }

@@ -33,6 +33,7 @@ class UpraController extends Controller {
     // appartamenti in affitto non sponsorizzati
     $flats = Flat::where('user_id', $id)
             -> doesntHave('sponsors')
+            -> orWhereHas('inactive_sponsor')
             -> orderBy('created_at','desc')
             -> get();
     // appartamenti in affitto disattivati
@@ -42,7 +43,7 @@ class UpraController extends Controller {
                   -> get();
     // appartamenti in affitto sponsorizzati
     $flatsSponsored = Flat::where('user_id', $id)
-                    -> has('sponsors')
+                    -> whereHas('active_sponsor')
                     -> orderBy('created_at','desc')
                     -> get();
     // dd($flatsSponsored);
@@ -171,11 +172,12 @@ class UpraController extends Controller {
 
   public function flatMessages($id){
 
+    $flat = Flat::findOrFail($id);
     $messages = Message::where('flat_id','=',$id)
                 -> orderBy('created_at','DESC')
                 -> get();
     // dd($messages);
-    return view('flats.messages', compact('messages'));
+    return view('flats.messages', compact('messages','flat'));
   }
 
   public function flatSponsorCreate($id) {

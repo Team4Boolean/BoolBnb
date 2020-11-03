@@ -4,7 +4,7 @@
   <div class="container">
 
     <div class="row justify-content-center">
-      <div class="col-xs-12 col-md-8">
+      <div class="col-xs-12 col-md-10">
 
         <div class="card">
 
@@ -21,7 +21,7 @@
 
               <div class="form-row">
 
-                <section id="sponsor" class="form-group col-12">
+                <section id="sponsor" class="form-group col-6">
                   <label for="input-label amount"><h4>Scegli la modalità di sponsorizzazione</h4></label>
                   <select class="form-control" id="sponsor" name="sponsor">
                     <option>Scegli...</option>

@@ -10,6 +10,7 @@ use App\Http\Requests\UiMessageRequest;
 use App\Flat;
 use App\Message;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ApiController extends Controller
 {
@@ -56,7 +57,7 @@ class ApiController extends Controller
       $flats = Flat::select("flats.*",
                         DB::raw($distance),
                         DB::raw("(select photos.url from photos where photos.flat_id=flats.id LIMIT 1) AS url"),
-                        DB::raw("(select flat_sponsor.sponsor_id from flat_sponsor where flat_sponsor.flat_id=flats.id LIMIT 1) AS sponsored")
+                        DB::raw("(select flat_sponsor.sponsor_id from flat_sponsor where (flat_sponsor.flat_id=flats.id AND flat_sponsor.expires_at >= NOW()) LIMIT 1) AS sponsored")
                         )
         -> join('flat_service', 'flat_service.flat_id', '=', 'flats.id')
         -> join('services', 'services.id', '=', 'flat_service.service_id')
@@ -100,12 +101,15 @@ class ApiController extends Controller
       switch ($sponsor) {
       case 1:
           $amount = 2.99;
+          $expires = Carbon::now() -> addHours(24);
           break;
       case 2:
           $amount = 5.99;
+          $expires = Carbon::now() -> addHours(72);
           break;
       case 3:
           $amount = 9.99;
+          $expires = Carbon::now() -> addHours(144);
           break;
         }
 
@@ -127,7 +131,7 @@ class ApiController extends Controller
             ]
         ]);
 
-        $flat -> sponsors() -> attach($sponsor);
+        $flat -> sponsors() -> attach($sponsor, ['expires_at' => $expires]);
 
         return response() -> json(200);
       }
