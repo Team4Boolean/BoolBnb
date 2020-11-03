@@ -13,7 +13,8 @@
               <li>
                 <div class="mail" created="{{$message -> created_at}}" >
                   <h6><strong>Inviato da: </strong> <span class="sender">{{$message -> email}}</span></h6>
-                  <p><strong>Testo messaggio: </strong><span id="message">{{$message -> message}}</span></p>
+
+                  <p class="clamp-line"><strong>Testo messaggio: </strong><span class="message">{{$message -> message}}</span></p>
                 </div>
               </li>
 
@@ -22,7 +23,7 @@
          </ul>
        </div>
      </div>
-     <div class="mail-col col-xs-12 col-lg-8">
+     <div class="mail-right-side mail-col col-xs-12 col-lg-8">
        <div class="row row-messages border">
          <h3><T>TESTO DELLA MAIL</T></h3>
        </div>
@@ -65,7 +66,7 @@
       target.html('');
       target.append(date);
 
-      var message = $('.active').find('#message');
+      var message = $('.active').find('.message');
       var messageText = message.html();
       var target =  $('#show-message');
       target.html('');

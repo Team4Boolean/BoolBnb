@@ -38,13 +38,15 @@
           margin:0;
         }
        .mail {
-         display: flex;
-         flex-direction: column;
+
          width: 100%;
          height: 120px;
          padding: 15px;
          border-bottom: 1px solid #dee2e6;
          overflow:hidden;
+         text-overflow: ellipsis;
+
+
        }
        .mail.active {
          height: 120px;
@@ -99,4 +101,45 @@
      }
    }
   }
+}
+
+.clamp-line {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: $lg) {
+
+  .mail-right-side {
+    display: none !important;
+  }
+
+  .mail-col {
+
+          .mail {
+        width: 100%;
+        height: 120px;
+        padding: 15px;
+        border-bottom: 1px solid #dee2e6;
+        overflow:hidden;
+        text-overflow: ellipsis;
+
+      }
+      .mail.active {
+        height: 50vh !important;
+        background-color: #eef1f1;
+        border: 1px inset #aaa;
+
+        .clamp-line {
+          display: -webkit-box;
+          -webkit-line-clamp: 100 ;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
 }
