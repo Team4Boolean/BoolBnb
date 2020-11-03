@@ -90,4 +90,52 @@ class ApiController extends Controller
       }
     }
 
+    public function flatSponsorMake(Request $request, $id) {
+
+      $data = $request -> all();
+      // dd($data);
+      $flat = Flat::findOrFail($id);
+
+      $sponsor = $data['sponsor'];
+      switch ($sponsor) {
+      case 1:
+          $amount = 2.99;
+          break;
+      case 2:
+          $amount = 5.99;
+          break;
+      case 3:
+          $amount = 9.99;
+          break;
+        }
+
+      $gateway = new \Braintree\Gateway([
+        'environment' => env('BRAINTREE_ENVIRONMENT'),
+        'merchantId' => env("BRAINTREE_MERCHANT_ID"),
+        'publicKey' => env("BRAINTREE_PUBLIC_KEY"),
+        'privateKey' => env("BRAINTREE_PRIVATE_KEY")
+      ]);
+
+      if($data['nonce'] !== null){
+
+        $nonceFromTheClient = $data['nonce'];
+        $gateway -> transaction() ->sale([
+            'amount' => $amount,
+            'paymentMethodNonce' => $nonceFromTheClient,
+            'options' => [
+            'submitForSettlement' => True
+            ]
+        ]);
+
+        $flat -> sponsors() -> attach($sponsor);
+
+        return response() -> json(200);
+      }
+      else {
+
+        $token = $gateway -> clientToken() -> generate();
+        return response() -> json(400);
+      }
+    }
+
 }
