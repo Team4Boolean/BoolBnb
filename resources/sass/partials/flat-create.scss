@@ -1,4 +1,43 @@
 
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    font-weight: 600 !important;
+    line-height: 1.6;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;
+    background-color: $primarytt;
+    border: 1px solid $greenbnb;
+    border-radius: 0.25rem ;
+}
+
+.input-group-prepend {
+
+  margin-right: 0;
+}
+
+.card-header
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+
+  a {
+    font-size: 35px;
+    color: $coral;
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+  }
+}
+
 form.flat-create, form.flat-search {
 
   .form-control:focus:invalid {
@@ -14,6 +53,7 @@ form.flat-create, form.flat-search {
   .textInput{
     .input-group-prepend{
       width: 100%;
+      margin-right: 0;
 
       label{
         display: block;
@@ -140,29 +180,9 @@ form.flat-create, form.flat-search {
   .btnInput{
 
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 
-    a:hover {
-      transform: scale(1.05);
-      transition: 0.03s;
-    }
-
-    button {
-      background-color:  $greenbnb;
-      border-color: $greenbnb;
-    }
-
-    button:hover {
-      background: #005f63;
-      transition: 0.03s;
-    }
-
-    i {
-      font-size: 35px;
-      color: teal;
-
-    }
   }
 
   @media (max-width: $sm) {

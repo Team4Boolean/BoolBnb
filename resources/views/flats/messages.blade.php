@@ -2,9 +2,9 @@
 @section('content')
   <div class="container-mail">
     <div class="row row-mail">
-      <div class="mail-col col-xs-12 col-lg-4">
+      <div class="mail-col col-xs-12 col-lg-4 col-xl-3">
        <div class="row title-mail border">
-         <a id="back-btn" href="{{ url()->previous() }}"> <i class="fas fa-arrow-circle-left"></i> </a>
+         <a  href="{{ url()->previous() }}"> <i class="fas fa-arrow-circle-left"></i> </a>
          <h3>MAIL RICEVUTE</h3>
        </div>
        <div class="row contacts ">
@@ -23,7 +23,7 @@
          </ul>
        </div>
      </div>
-     <div class="mail-right-side mail-col col-xs-12 col-lg-8">
+     <div class="mail-right-side mail-col col-xs-12 col-lg-8 col-xl-9">
        <div class="row row-messages border">
          <h3><T>TESTO DELLA MAIL</T></h3>
        </div>

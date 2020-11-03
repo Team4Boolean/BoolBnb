@@ -17,9 +17,9 @@
 
               <div class="card">
                 {{-- Titolo pagina cardheader --}}
-                  <div class="card-header">
-                    <a class="float-left" style="font-size: 40px" href="{{ route('flats.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
-                    <h1>Modifica il tuo appartamento:</h1>
+                  <div class="card-header ">
+                    <a style="font-size: 40px" href="{{ route('flats.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
+                    <h1>Modifica il tuo appartamento</h1>
                   </div>
 
                   {{-- card body --}}
@@ -379,7 +379,7 @@
                       {{-- btn group --}}
 
                       <section class="btnInput">
-                        <button class="btn btn-primary" type="submit">Conferma</button>
+                        <button class="btn" type="submit">Conferma</button>
                       </section>
 
                     </form>
