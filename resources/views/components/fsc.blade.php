@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="text-muted">
-          @{{ shortDesc}}
+          @{{ shortDesc }}
         </div>
         <a :href="show" class="btn">Visualizza</a>
       </div>
@@ -43,7 +43,7 @@
       desc: String,
       img: String,
       sponsored: String,
-      id: String
+      id: [String, Number]
     },
 
     methods: {
@@ -65,7 +65,6 @@
         get: function() {
 
           // if (this.mouseIn) return this.desc;
-
           var res = this.desc.substring(0, 80).trim();
           return res + (this.desc.length > 80 ? '...' : '');
         }

@@ -264,7 +264,7 @@
 
                 <fsc
                 :title = "'{{ $flat -> title }}'"
-                :desc = "'{{ $flat -> desc }}'"
+                :desc = "'{{ trim(preg_replace('/\s\s+/', ' ', $flat -> desc)) }}'"
                 :img = "'{{ asset($flat -> photos() -> first() -> path) }}'"
                 :sponsored = "'{{ $flat -> sponsored }}'"
                 :id = "'{{ $flat -> id }}'"

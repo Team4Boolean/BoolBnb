@@ -191,7 +191,7 @@
 
           <flatcomponent
             :title = "'{{ $flat -> title }}'"
-            :desc = "'{{ $flat -> desc }}'"
+            :desc = "'{{ trim(preg_replace('/\s\s+/', ' ', $flat -> desc)) }}'"
             :img = "'{{ $flat -> photos -> first() -> path }}'"
             :id = "'{{ $flat -> id }}'"
           ></flatcomponent>
