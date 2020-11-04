@@ -6,6 +6,7 @@ use App\Flat;
 use App\User;
 use App\Service;
 use App\Sponsor;
+use Carbon\Carbon;
 
 class FlatSeeder extends Seeder
 {
@@ -30,8 +31,16 @@ class FlatSeeder extends Seeder
         $sponsor = Sponsor::inRandomOrder()
             -> take(rand(0, 1))
             -> get();
+
+        $expire1 = Carbon::now() -> addHours(24);
+        $expire2 = Carbon::now() -> addHours(72);
+        $expire3 = Carbon::now() -> addHours(144);
+        $expires = [$expire1, $expire2, $expire3];
+        $key = array_rand($expires);
+
         $flat -> sponsors()
-              -> attach($sponsor);
+              -> attach($sponsor, ['expires_at' => $expires[$key]]);
+
       });
 
     }

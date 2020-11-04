@@ -54,11 +54,11 @@ class Flat extends Model
     }
     // metodo per prendere gli appartamenti con ancora sponsor attivo
     public function active_sponsor() {
-      return $this -> belongsToMany(Sponsor::class) -> where('expires_at', '>=', NOW()) -> orderBy('expires_at','DESC');
+      return $this -> belongsToMany(Sponsor::class) -> withTimestamps() -> withPivot('expires_at') -> where('expires_at', '>=', NOW()) -> orderBy('expires_at','DESC');
     }
     // metodo per prendere gli appartamenti con sponsors inattivi
     public function inactive_sponsor() {
-      return $this -> belongsToMany(Sponsor::class) -> where('expires_at', '<', NOW()) -> orderBy('expires_at','DESC');
+      return $this -> belongsToMany(Sponsor::class) -> withTimestamps() -> withPivot('expires_at') -> where('expires_at', '<', NOW()) -> orderBy('expires_at','DESC');
     }
 
 }

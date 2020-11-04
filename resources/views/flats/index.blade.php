@@ -34,8 +34,8 @@
               <div class="title-text">
                 <h3 class="mb-0">{{ $flat -> title }}</h3>
                 <div class="small">Creato il: {{ $flat -> created_at }}</div>
-                <div class="small">Sponsorizzato il: {{ $flat -> sponsors() -> first() -> pivot -> created_at }}</div>
-                <div class="small">Fine sponsorizzazione: {{ $flat -> sponsors() -> first() -> pivot -> expires_at }}</div>
+                <div class="small">Sponsorizzato il: {{ $flat -> active_sponsor() -> first() -> pivot -> created_at }}</div>
+                <div class="small">Fine sponsorizzazione: {{ $flat -> active_sponsor() -> first() -> pivot -> expires_at }}</div>
               </div>
               <p class="text-muted mt-2">{{ $flat -> desc }}</p>
               <div class="index-button">

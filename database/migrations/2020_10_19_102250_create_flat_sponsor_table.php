@@ -24,6 +24,8 @@ class CreateFlatSponsorTable extends Migration
 
           $table -> timestamps();
 
+          $table -> expires();
+
         });
     }
 
