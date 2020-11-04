@@ -210,6 +210,14 @@ function addSelectChangeListener()  {
   target.change(function(){
     searchFlat();
   });
+
+  $('#rangeDistance').change(function(){
+    var distance = $('#rangeDistance').val();
+    $('.distance').text('');
+    $('.distance').append(distance);
+    searchFlat();
+  });
+  
 }
 
 function searchFlat() {
@@ -217,7 +225,8 @@ function searchFlat() {
   var lat = $('input[name ="lat"]').val();
   var lon = $('input[name ="lon"]').val();
   var loc = $('input[name ="loc"]').val();
-  var distance = $('select[name ="distance"]').val();
+  // var distance = $('select[name ="distance"]').val();
+  var distance = $('#rangeDistance').val();
   var rooms = $('select[name ="rooms"]').val();
   var beds = $('select[name ="beds"]').val();
   var services = [];

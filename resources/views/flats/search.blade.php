@@ -91,16 +91,23 @@
           <section class="numInput ">
             <div class="input-group mb-3">
               <div class="input-group-prepend ">
-                <label for="selectDistance" class="input-group-text ">Scegli la distanza</label>
+                <label for="rangeDistance" class="input-group-text ">Scegli la istanza</label>
               </div>
-              <select class="selectDistance custom-select" name="distance">
+              <div class="slidecontainer mt-2">
+                <input type="range" min="1" max="100" value=@if ($dist==20) "20" @endif class="slider" id="rangeDistance">
+                <div>
+                  <span class="distance">@if ($dist==20) 20 @endif </span> KM
+                </div>
+              </div>
+
+              {{-- <select class="selectDistance custom-select" name="distance">
                 <option @if ($dist==0) selected @endif>Scegli...</option>
                 <option value="5" @if ($dist==5) selected @endif>Entro 5 Km</option>
                 <option value="10" @if ($dist==10) selected @endif>Entro 10 Km</option>
                 <option value="20" @if ($dist==20) selected @endif>Entro 20 Km</option>
                 <option value="50" @if ($dist==50) selected @endif>Entro 50 Km</option>
                 <option value="100" @if ($dist==100) selected @endif>Entro 100 Km</option>
-              </select>
+              </select> --}}
             </div>
             <div class="d-flex justify-content-between mb-3 flex-wrap">
               <div class="input-group col-6">
