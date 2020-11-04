@@ -53,7 +53,7 @@
       shortDesc: {
         get: function() {
 
-          if (this.mouseIn) return this.desc;
+          // if (this.mouseIn) return this.desc;
 
           var res = this.desc.substring(0, 80).trim();
           return res + (this.desc.length > 80 ? '...' : '');

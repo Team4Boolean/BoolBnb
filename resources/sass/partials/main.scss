@@ -12,17 +12,17 @@
   background-color: $coral;
   color: #fff;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 
 
   &:hover {
-    background-color: $coraltt !important;
-    color: $coral;
-    box-shadow: 2px 2px 2px $coral;
+    background-color: #ed3256;
+    color: #fff;
+    box-shadow: 2px 2px 5px #aaa;
     border-color: $coral;
   }
    &:focus {
-    background-color: $coralt;
+    background-color: #ed3256;
     color: #fff;
   }
 }
@@ -37,17 +37,18 @@
   background-color: $primary;
   color: #fff;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+
 
 
   &:hover {
-    background-color: $primarytt !important;
-    color: $primary;
-    box-shadow: 2px 2px 2px $primary;
+    background-color: #006e72 !important;
+    color: #fff;
+    box-shadow: 2px 2px 5px #aaa;
     border-color: $primary;
   }
    &:focus {
-    background-color: $primaryt;
+    background-color: #006e72;
     color: #fff;
   }
 }
