@@ -181,7 +181,7 @@
   <div class="container">
 
     <div class="text">
-      <h3>Appartamenti in evidenza</h3>
+      <h2 class="mb-5">Appartamenti in evidenza</h2>
     </div>
 
     <div id="home">
