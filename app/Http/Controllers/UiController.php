@@ -53,11 +53,17 @@ class UiController extends Controller
                         DB::raw($distance),
                         DB::raw("(select flat_sponsor.sponsor_id from flat_sponsor where (flat_sponsor.flat_id=flats.id AND flat_sponsor.expires_at >= NOW()) LIMIT 1) AS sponsored")
                         )
+        -> join('flat_service', 'flat_service.flat_id', '=', 'flats.id')
+        -> join('services', 'services.id', '=', 'flat_service.service_id')
+        -> join('photos', 'photos.flat_id', '=', 'flats.id')
         -> leftJoin('flat_sponsor', 'flat_sponsor.flat_id', '=', 'flats.id')
         -> having('distance', '<', $dist)
         -> orderBy('sponsored','DESC')
         -> orderBy('distance','ASC')
+        -> groupBy('flats.id')
         -> get();
+
+        // dd($flats);
 
       return view('flats.search', compact('flats','loc','lat','lon','dist','rooms','beds'));
       } else {
@@ -73,7 +79,7 @@ class UiController extends Controller
     $lat = $data['lat'];
     $lon = $data['lon'];
 
-    if (is_numeric($data['distance'])) {
+    if (isset($data['distance']) && is_numeric($data['distance'])) {
       $dist = $data['distance'];
     } else {
       $dist = 20;

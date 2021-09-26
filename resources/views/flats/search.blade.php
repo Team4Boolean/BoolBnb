@@ -94,9 +94,9 @@
                 <label for="rangeDistance" class="input-group-text ">Scegli la istanza</label>
               </div>
               <div class="slidecontainer mt-2">
-                <input type="range" min="1" max="100" value=@if ($dist==20) "20" @endif class="slider" id="rangeDistance">
+                <input type="range" name="distance" min="1" max="100" value=@if ($dist==20) "20" @else "{{old('distance', $dist)}}" @endif class="slider" id="rangeDistance">
                 <div>
-                  <span class="distance">@if ($dist==20) 20 @endif </span> KM
+                  <span class="distance">@if ($dist==20) 20 @else {{old('distance', $dist)}} @endif </span> KM
                 </div>
               </div>
 
@@ -145,7 +145,7 @@
                 <div class="row ">
                   <li class="col-6">
                     <label><input type="checkbox" name="services[]" value="1"
-                      {{ (is_array(old('services')) and in_array(1, old('services'))) ? ' checked' : '' }}
+                      {{ (is_array(old('services')) and in_array(1, old('services'))) ? 'checked' : '' }}
                       @isset($services)
                         @foreach ($services as $service)
                           @if ($service == 1)
@@ -157,7 +157,7 @@
                   </li>
                   <li class="col-6 ">
                     <label><input type="checkbox" name="services[]" value="2"
-                      {{ (is_array(old('services')) and in_array(2, old('services'))) ? ' checked' : '' }}
+                      {{ (is_array(old('services')) and in_array(2, old('services'))) ? 'checked' : '' }}
                       @isset($services)
                         @foreach ($services as $service)
                           @if ($service == 2)
@@ -171,7 +171,7 @@
                 <div class="row ">
                   <li class="col-6">
                     <label><input type="checkbox" name="services[]" value="3"
-                      {{ (is_array(old('services')) and in_array(3, old('services'))) ? ' checked' : '' }}
+                      {{ (is_array(old('services')) and in_array(3, old('services'))) ? 'checked' : '' }}
                       @isset($services)
                         @foreach ($services as $service)
                           @if ($service == 3)
@@ -183,7 +183,7 @@
                   </li>
                   <li class="col-6 " >
                     <label><input type="checkbox" name="services[]" value="4"
-                      {{ (is_array(old('services')) and in_array(4, old('services'))) ? ' checked' : '' }}
+                      {{ (is_array(old('services')) and in_array(4, old('services'))) ? 'checked' : '' }}
                       @isset($services)
                         @foreach ($services as $service)
                           @if ($service == 4)
@@ -197,7 +197,7 @@
                 <div class="row ">
                   <li class="col-6">
                     <label><input type="checkbox" name="services[]" value="5"
-                      {{ (is_array(old('services')) and in_array(5, old('services'))) ? ' checked' : '' }}
+                      {{ (is_array(old('services')) and in_array(5, old('services'))) ? 'checked' : '' }}
                       @isset($services)
                         @foreach ($services as $service)
                           @if ($service == 5)
@@ -209,7 +209,7 @@
                   </li>
                     <li class="col-6">
                       <label><input type="checkbox" name="services[]" value="6"
-                        {{ (is_array(old('services')) and in_array(6, old('services'))) ? ' checked' : '' }}
+                        {{ (is_array(old('services')) and in_array(6, old('services'))) ? 'checked' : '' }}
                         @isset($services)
                           @foreach ($services as $service)
                             @if ($service == 6)
